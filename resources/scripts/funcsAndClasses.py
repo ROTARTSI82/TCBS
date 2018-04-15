@@ -20,6 +20,8 @@ SEE README.md FOR MORE DETAILS
 import traceback
 
 if False:
+    import pygame
+    from pygame.locals import *
     # Ignore this code. It makes PyCharm happy
     # Since I call this script via execfile, PyCharm thinks
     # all the variables are undefined and gives me endless warnings :(

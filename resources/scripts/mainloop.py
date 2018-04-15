@@ -137,7 +137,7 @@ while running:
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
                 updaterects()
-            if event.type == pygame.MOUSEMOTION:
+            if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
     if state == "sndbx-battle":
         if len(sndbxRUnits) == 0 and len(sndbxBUnits) == 0:
