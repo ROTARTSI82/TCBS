@@ -1,0 +1,19 @@
+{
+  "BACK": "BALI",
+  "Waiting for players...": "Nunggu pemain ...",
+  "HELP": "BANTUAN",
+  "JOIN": "GANUNG",
+  "CREATE": "NGGAWE",
+  "START": "MIWITI",
+  "New Update Detected!": "Nganyari Anyar Dideteksi!",
+  "Bad Version Detected!": "Versi Ala Dideteksi!",
+  "Enter the Host and Port": "Ketik Host lan Port",
+  "host:port": "host:port",
+  "Opponent Disconnected": "Lawan Dicopot",
+  "Game already full": "Game wis lengkap",
+  "Server Disconnected": "Server Dicenthang",
+  "[Errno 61] Connection refused": "[Errno 61] Sambungan ditolak",
+  "[Errno 13] Permission denied": "[Errno 13] Ijin ditolak",
+  "[Errno 48] Address already in use": "[Errno 48] Alamat wis dienggo",
+  "Text Copied to Clipboard": "Teks disalin menyang Clipboard"
+}

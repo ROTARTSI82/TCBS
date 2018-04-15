@@ -1,0 +1,21 @@
+{
+  "BACK": "COSTAS",
+  "MULTIPLAYER": "MULTIPLAYER",
+  "SANDBOX": "CAIXA DE AREIA",
+  "Waiting for players...": "Esperando por jogadores...",
+  "HELP": "SOCORRO",
+  "JOIN": "JUNTE-SE",
+  "CREATE": "CRIO",
+  "START": "COMEÇAR",
+  "New Update Detected!": "Nova atualização detectada!",
+  "Bad Version Detected!": "Versão ruim detectada!",
+  "Enter the Host and Port": "Digite o host e a porta",
+  "host:port": "host:porta",
+  "Opponent Disconnected": "Oponente Desconectado",
+  "Game already full": "Jogo já cheio",
+  "Server Disconnected": "Servidor desconectado",
+  "[Errno 61] Connection refused": "[Errno 61] Ligação recusada",
+  "[Errno 13] Permission denied": "[Errno 13] Permissão negada",
+  "[Errno 48] Address already in use": "[Errno 48] Endereço já em uso",
+  "Text Copied to Clipboard": "Texto copiado para a área de transferência"
+}

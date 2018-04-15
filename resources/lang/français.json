@@ -1,0 +1,21 @@
+{
+  "BACK": "ARRIÈRE",
+  "MULTIPLAYER": "MULTIJOUEUR",
+  "SANDBOX": "BAC À SABLE",
+  "Waiting for players...": "En attente de joueurs...",
+  "HELP": "AIDEZ-MOI",
+  "JOIN": "JOINDRE",
+  "CREATE": "CRÉER",
+  "START": "DÉBUT",
+  "New Update Detected!": "Nouvelle mise à jour détectée!",
+  "Bad Version Detected!": "Mauvaise version détectée!",
+  "Enter the Host and Port": "Entrez l'hôte et le port",
+  "host:port": "port:hôte",
+  "Opponent Disconnected": "Opposant déconnecté",
+  "Game already full": "Jeu déjà plein",
+  "Server Disconnected": "Serveur déconnecté",
+  "[Errno 61] Connection refused": "[Errno 61] Connexion rejetée",
+  "[Errno 13] Permission denied": "[Errno 13] Permission refusée",
+  "[Errno 48] Address already in use": "[Errno 48] Adresse déjà utilisée",
+  "Text Copied to Clipboard": "Texte copié dans le presse-papier"
+}

@@ -1,0 +1,21 @@
+{
+  "BACK": "TRỞ LẠI",
+  "MULTIPLAYER": "nhiều người chơi",
+  "SANDBOX": "hộp cát",
+  "Waiting for players...": "Đang đợi người chơi ...",
+  "HELP": "CỨU GIÚP",
+  "JOIN": "THAM GIA",
+  "CREATE": "TẠO NÊN",
+  "START": "CKHỞI ĐẦU",
+  "New Update Detected!": "Cập nhật mới được phát hiện!",
+  "Bad Version Detected!": "Phát hiện phiên bản xấu!",
+  "Enter the Host and Port": "Nhập Host và Port",
+  "host:port": "tổ:cổng",
+  "Opponent Disconnected": "Phản đối đã bị ngắt kết nối",
+  "Game already full": "Trò chơi đã đầy",
+  "Server Disconnected": "Máy chủ Ngắt kết nối",
+  "[Errno 61] Connection refused": "[Errno 61] Kết nối bị từ chối",
+  "[Errno 13] Permission denied": "[Errno 13] Quyền bị từ chối",
+  "[Errno 48] Address already in use": "[Errno 48] Địa chỉ đã được sử dụng",
+  "Text Copied to Clipboard": "Đã sao chép văn bản vào Clipboard"
+}

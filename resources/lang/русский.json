@@ -1,0 +1,21 @@
+{
+  "BACK": "НАЗАД",
+  "MULTIPLAYER": "Мультиплеер",
+  "SANDBOX": "песочница",
+  "Waiting for players...": "ожидая игроков...",
+  "HELP": "ПОМОГИТЕ",
+  "JOIN": "ПРИСОЕДИНИТЬСЯ",
+  "CREATE": "СОЗДАЙТЕ",
+  "START": "НАЧАЛО",
+  "New Update Detected!": "Новое обновление обнаружено!",
+  "Bad Version Detected!": "Обнаружена плохая версия!",
+  "Enter the Host and Port": "Введите хост и порт",
+  "host:port": "хост:порт",
+  "Opponent Disconnected": "Противник отключен",
+  "Game already full": "Игра уже полна",
+  "Server Disconnected": "Сервер отключен",
+  "[Errno 61] Connection refused": "[Errno 61] В соединении отказано",
+  "[Errno 13] Permission denied": "[Errno 13] Доступ запрещен",
+  "[Errno 48] Address already in use": "[Errno 48] Адрес уже используется",
+  "Text Copied to Clipboard": "Текст, скопированный в буфер обмена"
+}

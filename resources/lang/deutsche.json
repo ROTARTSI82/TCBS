@@ -1,0 +1,21 @@
+{
+  "BACK": "ZURÜCK",
+  "MULTIPLAYER": "MEHRSPIELERMODUS",
+  "SANDBOX": "SANDKASTEN",
+  "Waiting for players...": "Warten auf Spieler...",
+  "HELP": "HILFE",
+  "JOIN": "BEITRETEN",
+  "CREATE": "ERSTELLEN",
+  "START": "ANFANG",
+  "New Update Detected!": "Neues Update erkannt!",
+  "Bad Version Detected!": "Schlechte Version erkannt!",
+  "Enter the Host and Port": "Geben Sie den Host und den Port ein",
+  "host:port": "host:anschluss",
+  "Opponent Disconnected": "Gegner ist getrennt",
+  "Game already full": "Das Spiel ist bereits voll",
+  "Server Disconnected": "Server ist getrennt",
+  "[Errno 61] Connection refused": "[Errno 61] Verbindung abgelehnt",
+  "[Errno 13] Permission denied": "[Errno 13]  Erlaubnis verweigert",
+  "[Errno 48] Address already in use": "[Errno 48] Adresse ist bereits vergeben",
+  "Text Copied to Clipboard": "Text in Zwischenablage kopiert"
+}

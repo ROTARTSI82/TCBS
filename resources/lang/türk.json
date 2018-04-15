@@ -1,0 +1,21 @@
+{
+  "BACK": "GERİ",
+  "MULTIPLAYER": "ÇOK OYUNCULU",
+  "SANDBOX": "KUM HAVUZU",
+  "Waiting for players...": "Oyuncular bekleniyor...",
+  "HELP": "YARDIM ET",
+  "JOIN": "KATILMAK",
+  "CREATE": "YARATMAK",
+  "START": "BAŞLA",
+  "New Update Detected!": "Yeni Güncelleme Algılandı!",
+  "Bad Version Detected!": "Kötü Sürüm Algılandı!",
+  "Enter the Host and Port": "Ana Bilgisayarı ve Bağlantı Noktasını Girin",
+  "host:port": "ana bilgisayar bağlantı noktası",
+  "Opponent Disconnected": "Rakip Bağlantısı Kesildi",
+  "Game already full": "Oyun zaten dolu",
+  "Server Disconnected": "Sunucu Bağlantısı Kesildi",
+  "[Errno 61] Connection refused": "[Errno 61] Bağlantı reddedildi",
+  "[Errno 13] Permission denied": "[Errno 13] İzin reddedildi",
+  "[Errno 48] Address already in use": "[Errno 48] adres çoktan kullanımda",
+  "Text Copied to Clipboard": "Panoya Kopyalanan Metin"
+}
