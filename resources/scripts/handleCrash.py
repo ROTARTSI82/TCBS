@@ -12,10 +12,10 @@ Totally Customizable Battle Simulator is a multiplayer
 strategy videogame. You can design and program your 
 own soldiers and make them fight against your
 friend's soldiers. It is inspired by Totally Accurate
-Battle Simulator by Landfall and requires Pygame 1.9 and
+Battle Simulator by Landfall and uses Pygame 1.9 and
 Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 
-SEE README.txt FOR MORE DETAILS
+SEE README.md FOR MORE DETAILS
 """
 import traceback
 import datetime

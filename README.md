@@ -10,19 +10,14 @@ version of Python or Pygame will likely result in
 an Exception or game-breaking bugs.
 
 HOW TO USE:
-    1. Install Python 2.7 at www.python.org
-    2. Install Pygame 1.9 at www.pygame.org
-        -OR run one of the commands:
-            "pip install pygame"
-            "pip install upgrade pygame"
-    2. Run __main__.py
-    3. Enjoy!
+    1. Run TCBS/__main__.py using TCBS/venv/bin/python
+    2. Enjoy!
 
 Totally Customizable Battle Simulator is a multiplayer 
 strategy videogame. You can design and program your 
 own soldiers and make them fight against your
 friend's soldiers. It is inspired by Totally Accurate
-Battle Simulator by Landfall and requires Pygame 1.9 and
+Battle Simulator by Landfall and uses Pygame 1.9 and
 Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 
 I attempted to make this app compatible with Python 3, but
