@@ -1,8 +1,7 @@
 # -*- coding: UTF-8 -*-
 
-# A very crudely coded AI for testing purposes
-# Code is messy, but it works :)
-
+# A very messy, but it works (Duh)
+# For testing purposes. Will be removed in the future
 
 import pygame
 import random

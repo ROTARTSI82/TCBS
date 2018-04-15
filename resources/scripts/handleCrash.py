@@ -4,7 +4,7 @@
 """
 (.../TCBS/resources/scripts/handleCrash.py)
 ------------------------------------------------------------------------
-TOTALLY CUSTOMIZABLE BATTLE SIMULATOR i21.18.03.31
+TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
 ------------------------------------------------------------------------
 By Grant Yang
 
