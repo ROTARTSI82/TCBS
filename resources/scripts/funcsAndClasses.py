@@ -230,7 +230,8 @@ class TxtOrBt(pygame.sprite.Sprite):
         except IndexError:
             self.isButton = False
         try:
-            self.display[0] = langDict[self.display[0]]
+            if obj_id != "ignoreTranslations":
+                self.display[0] = langDict[self.display[0]]
         except KeyError:
             pass
         self.id = obj_id

@@ -175,6 +175,9 @@ while running:
                 running = False
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
+            if event.type == VIDEORESIZE:
+                screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
+                updaterects()
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
@@ -223,7 +226,7 @@ while running:
                         serverStr = serverStr[:-1]
                     except Exception as e:
                         serverStr = ""
-                serverTxt = TxtOrBt([serverStr, False, [0, 0, 0]], [None, 45])
+                serverTxt = TxtOrBt([serverStr, False, [0, 0, 0]], [None, 45], "ignoreTranslations")
                 serverTxt.rect.center = [screen.get_width()/2,
                                          screen.get_height()/2]
             if event.type == KEYUP:
