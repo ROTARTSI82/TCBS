@@ -10,6 +10,7 @@ version of Python or Pygame will likely result in
 an Exception or game-breaking bugs.
 
 HOW TO USE:
+
     1. Run TCBS/__main__.py using TCBS/venv/bin/python
     2. Enjoy!
 
