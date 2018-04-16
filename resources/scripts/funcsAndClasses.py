@@ -97,9 +97,15 @@ def take_screenshot():
 
     :rtype: None
     """
+    global screen
+    filename = str(datetime.datetime.now()) + ".png"
+    log("SCREENSHOT", "Screenshot saved as " + filename)
+    screen.fill([255, 255, 255])
     if not os.path.exists("screenshots"):
         os.mkdir("screenshots")
-    pygame.image.save(screen, "screenshots/" + str(datetime.datetime.now()) + ".png")
+    pygame.image.save(screen, "screenshots/" + filename)
+    pygame.display.flip()
+    pygame.time.wait(1000)
 
 
 def set_music(filename):

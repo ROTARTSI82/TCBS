@@ -22,10 +22,18 @@ class SandboxUnit(pygame.sprite.Sprite):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
         self.team = team
+        self.speed = 1
+        self.target = None
+
+        # Melee attributes
         self.health = 50
         self.meleeDamage = 10
-        self.cooldown = 1
-        self.lastAttack = 0
+        self.meleeCooldown = 1
+        self.lastMeleeAttack = 0
+
+        # Bullet attributes
+        self.lastRangeAttack = 0
+        self.rangeCooldown = 2
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
         self.image = pygame.Surface([25, 25])
@@ -37,7 +45,6 @@ class SandboxUnit(pygame.sprite.Sprite):
         # Set the position to pos
         self.rect = self.image.get_rect()
         self.rect.center = pos
-        self.target = None
 
     def update(self):
         """
@@ -45,13 +52,14 @@ class SandboxUnit(pygame.sprite.Sprite):
 
         :return: None
         """
-        global sndbxRUnits, sndbxBUnits
+        global sndbxRUnits, sndbxBUnits, bullets
 
         # Don't do anything if the battle is over
         if len(sndbxBUnits) == 0 or len(sndbxRUnits) == 0:
             return
 
-        # Check if the target is still alive
+        # Check if the target is still alive,
+        # and set a new target if our old target is dead
         if self.team == "blue":
             if self.target not in sndbxRUnits:
                 self.target = random.choice(sndbxRUnits.sprites())
@@ -62,14 +70,20 @@ class SandboxUnit(pygame.sprite.Sprite):
         # Move towards the target
         listcenter = list(self.rect.center)
         if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= 1
+            listcenter[0] -= self.speed
         if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += 1
+            listcenter[0] += self.speed
         if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= 1
+            listcenter[1] -= self.speed
         if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += 1
+            listcenter[1] += self.speed
         self.rect.center = tuple(listcenter)
+
+        # If self.rangeCooldown seconds have passed since self.lastRangeAttack,
+        # Shoot a SmartBullet
+        if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
+            bullets.add(SmartBullet(self.rect.center, self.team))
+            self.lastRangeAttack = time.time()
 
         # Remove us from sprite group if health reaches 0
         if self.health <= 0:
@@ -81,14 +95,14 @@ class SandboxUnit(pygame.sprite.Sprite):
         Add code to damage your enemy here
 
         :param hitlist: List of enemy soldiers touching your soldier
-        :return:
+        :return: None
         """
-        # If self.cooldown seconds have passed since self.lastAttack,
+        # If self.meleeCooldown seconds have passed since self.lastMeleeAttack,
         # Damage a random enemy on hitlist by self.meleeDamage
         target = random.choice(hitlist)
-        if (time.time() - self.lastAttack) > self.cooldown:
+        if (time.time() - self.lastMeleeAttack) > self.meleeCooldown:
             target.health -= self.meleeDamage
-            self.lastAttack = time.time()
+            self.lastMeleeAttack = time.time()
 
     def on_bullet_hit(self, hitlist):
         """
@@ -97,6 +111,7 @@ class SandboxUnit(pygame.sprite.Sprite):
         :param hitlist: List of bullet sprites touching your soldier
         :return:
         """
+        pass
 
 
 class MultiplayerUnit(pygame.sprite.Sprite):
@@ -106,13 +121,21 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     def __init__(self, pos, team): pass
 
 
-class Bullet(pygame.sprite.Sprite):
+class SmartBullet(pygame.sprite.Sprite):
     """
     NotImplemented
     """
-    def __init__(self, pos):
+    def __init__(self, pos, team):
+        # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
+        self.team = team
+        self.speed = 3
+        self.damage = 20
+        self.target = None
+
+        # Set the image to a yellow sqaure and the posistion to pos
         self.image = pygame.Surface([10, 10])
+        self.image.fill([255, 255, 0])
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
@@ -122,4 +145,48 @@ class Bullet(pygame.sprite.Sprite):
 
         :return: None
         """
-        pass
+        global sndbxRUnits, sndbxBUnits
+
+        # Don't do anything if the battle is over
+        if len(sndbxBUnits) == 0 or len(sndbxRUnits) == 0:
+            return
+
+        # Check if the target is still alive,
+        # and set a new target if our old target is dead
+        if self.team == "blue":
+            if self.target not in sndbxRUnits:
+                self.target = random.choice(sndbxRUnits.sprites())
+        if self.team == "red":
+            if self.target not in sndbxBUnits:
+                self.target = random.choice(sndbxBUnits.sprites())
+
+        # Move towards the target
+        listcenter = list(self.rect.center)
+        if self.rect.center[0] > self.target.rect.center[0]:
+            listcenter[0] -= self.speed
+        if self.rect.center[0] < self.target.rect.center[0]:
+            listcenter[0] += self.speed
+        if self.rect.center[1] > self.target.rect.center[1]:
+            listcenter[1] -= self.speed
+        if self.rect.center[1] < self.target.rect.center[1]:
+            listcenter[1] += self.speed
+        self.rect.center = tuple(listcenter)
+
+    def on_bullet_hit(self, hitlist):
+        """
+        Called when the bullet touches a soldier
+
+        :param hitlist: List of soldiers touching the bullet
+        :return: None
+        """
+        global sndbxRUnits, sndbxBUnits
+        # Damage a random enemy touching the bullet
+        for k in hitlist:
+            if self.team == "red" and k in sndbxBUnits:
+                k.health -= self.damage
+                self.kill()
+                return
+            if self.team == "blue" and k in sndbxRUnits:
+                k.health -= self.damage
+                self.kill()
+                return

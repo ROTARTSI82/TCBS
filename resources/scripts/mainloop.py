@@ -144,15 +144,39 @@ while running:
     if state == "sndbx-battle":
         if len(sndbxRUnits) == 0 and len(sndbxBUnits) == 0:
             log("BATTLEOVER", "Draw!")
+            bullets = pygame.sprite.Group()
+            screen.fill([255, 255, 255])
+            vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect.center)
+            pygame.display.flip()
             state = "sndbx-placeUnits"
+            pygame.time.wait(1000)
         if len(sndbxRUnits) == 0:
             log("BATTLEOVER", "Blue Victory!")
+            bullets = pygame.sprite.Group()
+            screen.fill([255, 255, 255])
+            vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect.center)
+            pygame.display.flip()
             state = "sndbx-placeUnits"
+            pygame.time.wait(1000)
         if len(sndbxBUnits) == 0:
             log("BATTLEOVER", "Red Victory!")
+            bullets = pygame.sprite.Group()
+            screen.fill([255, 255, 255])
+            vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width()/2, screen.get_height()/2]
+            screen.blit(vicMsg.image, vicMsg.rect.center)
+            pygame.display.flip()
             state = "sndbx-placeUnits"
+            pygame.time.wait(1000)
         BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
-        RbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
+        RbulletCol = pygame.sprite.groupcollide(bullets, sndbxRUnits, False, False)
         soldierCol = pygame.sprite.groupcollide(sndbxBUnits, sndbxRUnits, False, False)
         try:
             sndbxRUnits.update()
@@ -163,7 +187,7 @@ while running:
                 for j in BbulletCol[i]:
                     j.on_bullet_hit([i, ])
             for i in RbulletCol.keys():
-                i.onBulletHit(RbulletCol[i])
+                i.on_bullet_hit(RbulletCol[i])
                 for j in RbulletCol[i]:
                     j.on_bullet_hit([i, ])
             for i in soldierCol.keys():
