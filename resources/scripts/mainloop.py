@@ -106,6 +106,7 @@ while running:
                 sndbxCol = pygame.sprite.spritecollide(cursor, sndbxBts, False)
                 if event.button == 1 and not sndbxCol:
                     try:
+                        menuBlip.play()
                         if cursor.rect.center[0] > screen.get_width()/2:
                             sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width()/2:
@@ -115,6 +116,7 @@ while running:
                             log("EXCEPTION", "Cannot create unit instance: "+str(e))
                             alreadyHandled.append(str(e))
                 if event.button == 3 and not sndbxCol:
+                    menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
                     pygame.sprite.spritecollide(cursor, sndbxRUnits, True)
                 if startBt in cbCollide and event.button == 1:
@@ -152,23 +154,34 @@ while running:
         BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
         RbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
         soldierCol = pygame.sprite.groupcollide(sndbxBUnits, sndbxRUnits, False, False)
-        sndbxRUnits.update()
-        sndbxBUnits.update()
-        bullets.update()
-        for i in BbulletCol.keys():
-            i.onBulletHit(BbulletCol[i])
-            for j in BbulletCol[i]:
-                j.onBulletHit([i, ])
-        for i in RbulletCol.keys():
-            i.onBulletHit(RbulletCol[i])
-            for j in RbulletCol[i]:
-                j.onBulletHit([i, ])
-        for i in soldierCol.keys():
-            i.onSoldierHit(soldierCol[i])
-            for j in soldierCol[i]:
-                j.onSoldierHit([i, ])
-        sndbxRUnits.draw(screen)
-        sndbxBUnits.draw(screen)
+        try:
+            sndbxRUnits.update()
+            sndbxBUnits.update()
+            bullets.update()
+            for i in BbulletCol.keys():
+                i.on_bullet_hit(BbulletCol[i])
+                for j in BbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in RbulletCol.keys():
+                i.onBulletHit(RbulletCol[i])
+                for j in RbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in soldierCol.keys():
+                i.on_soldier_hit(soldierCol[i])
+                for j in soldierCol[i]:
+                    j.on_soldier_hit([i, ])
+        except Exception as e:
+            if str(e) not in alreadyHandled:
+                log("EXCEPTION", "Cannot update AI: "+str(e))
+                alreadyHandled.append(str(e))
+        try:
+            bullets.draw(screen)
+            sndbxRUnits.draw(screen)
+            sndbxBUnits.draw(screen)
+        except Exception as e:
+            if str(e) not in alreadyHandled:
+                log("EXCEPTION", "Cannot render units: "+str(e))
+                alreadyHandled.append(str(e))
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == QUIT:
