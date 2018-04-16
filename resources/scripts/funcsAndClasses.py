@@ -17,10 +17,8 @@ Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 
 SEE README.md FOR MORE DETAILS
 """
-import traceback
 
 if False:
-    import pygame
     from pygame.locals import *
     # Ignore this code. It makes PyCharm happy
     # Since I call this script via execfile, PyCharm thinks
@@ -28,8 +26,9 @@ if False:
     from load import *
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.14"
+__version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
+
 
 class DummySound(object):
     """
@@ -87,8 +86,23 @@ def log(ltype, msg):
             if ltype == "EXCEPTION":
                 try:
                     print(traceback.format_exc())
+                    logfile.write(traceback.format_exc())
                 except Exception:
                     pass
+
+
+def updatecost(mode=None):
+    global sndbxRUnits, sndbxBUnits, coinsSpent
+    global redCostTxt, blueCostTxt
+    coinsSpent = [0, 0]
+    if mode == "sndbx-placeUnits":
+        for i in sndbxRUnits:
+            coinsSpent[1] += i.cost
+        for i in sndbxBUnits:
+            coinsSpent[0] += i.cost
+        redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
+        blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
+        updaterects()
 
 
 def take_screenshot():
@@ -166,6 +180,7 @@ def updaterects():
     global coinRegenBt, startBudgetBt, nextBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
+    global redCostTxt, blueCostTxt
     startBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
     mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
     backBt.rect.bottomleft = [5, screen.get_height()-5]
@@ -183,6 +198,8 @@ def updaterects():
     serverTxt.rect.center = [screen.get_width()/2, screen.get_height()/2]
     serverMsg.rect.center = [screen.get_width()/2, screen.get_height()/2-45]
     selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
+    redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 15]
+    blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 15]
 
 
 def updateoptions():

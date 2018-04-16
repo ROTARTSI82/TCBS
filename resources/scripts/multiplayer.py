@@ -27,7 +27,7 @@ if False:
     from funcsAndClasses import *
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.14"
+__version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
 
 class TCBSClient(ConnectionListener):

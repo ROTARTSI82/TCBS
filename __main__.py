@@ -40,7 +40,7 @@ executefile("venv/bin/activate_this.py", dict(__file__=os.getcwd()+"venv/bin/act
 sys.path.append(os.getcwd()+"/venv/lib/python2.7/site-packages")
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.14"
+__version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
 
 # TODO

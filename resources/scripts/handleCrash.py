@@ -17,9 +17,9 @@ Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 
 SEE README.md FOR MORE DETAILS
 """
-import traceback
 import datetime
 import os
+import traceback
 
 if False:
     # Ignore this code. It makes PyCharm happy
@@ -28,7 +28,7 @@ if False:
     from CONFIG import *
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.14"
+__version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
 
 # TODO

@@ -1,6 +1,6 @@
 (.../TCBS/README.txt)
 ------------------------------------------------------------------------
-TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
+TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.15
 ------------------------------------------------------------------------
 By Grant Yang
 

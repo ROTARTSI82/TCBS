@@ -27,7 +27,7 @@ if False:
     from CONFIG import *
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.14"
+__version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
 
 updaterects()
@@ -98,39 +98,48 @@ while running:
         screen.blit(startBt.image, startBt.rect)
         screen.blit(backBt.image, backBt.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
+        screen.blit(redCostTxt.image, redCostTxt.rect)
+        screen.blit(blueCostTxt.image, blueCostTxt.rect)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
-                sndbxCol = pygame.sprite.spritecollide(cursor, sndbxBts, False)
-                if event.button == 1 and not sndbxCol:
+                if startBt in cbCollide and event.button == 1:
+                    state = "sndbx-battle"
+                    log("BATTLE", "Battle started")
+                    continue
+                if backBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    state = "menu"
+                    set_music("resources/sounds/menuMusic.wav")
+                    continue
+                if nextBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(+1)
+                    continue
+                if prevBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                    continue
+
+                if event.button == 1:
                     try:
                         menuBlip.play()
                         if cursor.rect.center[0] > screen.get_width()/2:
                             sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width()/2:
                             sndbxBUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "blue"))
+                        updatecost(mode=state)
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create unit instance: "+str(e))
                             alreadyHandled.append(str(e))
-                if event.button == 3 and not sndbxCol:
+                if event.button == 3:
                     menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
                     pygame.sprite.spritecollide(cursor, sndbxRUnits, True)
-                if startBt in cbCollide and event.button == 1:
-                    state = "sndbx-battle"
-                if backBt in cbCollide and event.button == 1:
-                    menuBlip.play()
-                    state = "menu"
-                    set_music("resources/sounds/menuMusic.wav")
-                if nextBt in cbCollide and event.button == 1:
-                    menuBlip.play()
-                    updateselectedunit(+1)
-                if prevBt in cbCollide and event.button == 1:
-                    menuBlip.play()
-                    updateselectedunit(-1)
+                    updatecost(mode=state)
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
@@ -143,7 +152,7 @@ while running:
                 cursor.rect.center = event.pos
     if state == "sndbx-battle":
         if len(sndbxRUnits) == 0 and len(sndbxBUnits) == 0:
-            log("BATTLEOVER", "Draw!")
+            log("BATTLE", "Draw!")
             bullets = pygame.sprite.Group()
             screen.fill([255, 255, 255])
             vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
@@ -151,10 +160,12 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect.center)
             pygame.display.flip()
+            updatecost(mode="sndbx-placeUnits")
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
+            continue
         if len(sndbxRUnits) == 0:
-            log("BATTLEOVER", "Blue Victory!")
+            log("BATTLE", "Blue Victory!")
             bullets = pygame.sprite.Group()
             screen.fill([255, 255, 255])
             vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
@@ -162,10 +173,11 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect.center)
             pygame.display.flip()
+            updatecost(mode="sndbx-placeUnits")
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
         if len(sndbxBUnits) == 0:
-            log("BATTLEOVER", "Red Victory!")
+            log("BATTLE", "Red Victory!")
             bullets = pygame.sprite.Group()
             screen.fill([255, 255, 255])
             vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
@@ -173,6 +185,7 @@ while running:
             vicMsg.rect.center = [screen.get_width()/2, screen.get_height()/2]
             screen.blit(vicMsg.image, vicMsg.rect.center)
             pygame.display.flip()
+            updatecost(mode="sndbx-placeUnits")
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
         BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
@@ -198,6 +211,11 @@ while running:
             if str(e) not in alreadyHandled:
                 log("EXCEPTION", "Cannot update AI: "+str(e))
                 alreadyHandled.append(str(e))
+        pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
+                         [screen.get_width() / 2, screen.get_height() + 5], 5)
+        screen.blit(nextBt.image, nextBt.rect)
+        screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
         try:
             bullets.draw(screen)
             sndbxRUnits.draw(screen)
@@ -212,6 +230,31 @@ while running:
                 running = False
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
+            if event.type == MOUSEBUTTONDOWN:
+                if nextBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(+1)
+                    continue
+                if prevBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                    continue
+
+                if event.button == 1:
+                    try:
+                        menuBlip.play()
+                        if cursor.rect.center[0] > screen.get_width() / 2:
+                            sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
+                        if cursor.rect.center[0] < screen.get_width() / 2:
+                            sndbxBUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "blue"))
+                    except Exception as e:
+                        if not str(e) in alreadyHandled:
+                            log("EXCEPTION", "Cannot create unit instance: " + str(e))
+                            alreadyHandled.append(str(e))
+                if event.button == 3:
+                    menuBlip.play()
+                    pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
+                    pygame.sprite.spritecollide(cursor, sndbxRUnits, True)
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
                 updaterects()
@@ -219,6 +262,8 @@ while running:
                 if event.key == screenshotKey:
                     take_screenshot()
                 if event.key == endBattleKey:
+                    log("BATTLE", "Battle was ended via endBattleKey")
+                    updatecost(mode="sndbx-placeUnits")
                     state = "sndbx-placeUnits"
     if state == "mult-start":
         screen.blit(backBt.image, backBt.rect)
@@ -417,7 +462,10 @@ pygame.quit()
 try:
     connection.Close()
 except Exception as e:
-    log("EXCEPTION", "Cannot close connection: "+str(e))
+    if len(traceback.format_exc()) < 300:
+        log("EXCEPTION", "Cannot close connection: " + str(e))
+    else:
+        log("LONG EXCEPTION", "Cannot close connection: " + str(e))
 end = datetime.datetime.now()
 log("PERFORMANCE", "FPS: "+str(clock.get_fps()))
 log("STOP", "Stopping...")

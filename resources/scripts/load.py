@@ -18,16 +18,16 @@ Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 SEE README.md FOR MORE DETAILS
 """
 
-import os
-import sys
-import platform
 import datetime
 import json
+import os
+import platform
+import sys
 
 start = datetime.datetime.now()
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.14"
+__version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
 
 # TODO
@@ -183,6 +183,7 @@ log("ENVIRONMENT", "Package: "+str(__package__))
 
 log("UNITS", "Loading units...")
 selectedUnitInt = 0
+coinsSpent = [0, 0]
 try:
     rawList = os.listdir('units')
 except Exception as e:
@@ -254,6 +255,7 @@ wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 5
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
 serverMsg = TxtOrBt(["Enter the Host and Port", False, [0, 0, 0]], [None, 45])
 selectedUnitTxt = TxtOrBt(["", False, [0, 0, 0]], [None, 45])
+redCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
+blueCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
 
-sndbxBts = pygame.sprite.Group(startBt, backBt, selectedUnitTxt, nextBt, prevBt)
 bullets = pygame.sprite.Group()

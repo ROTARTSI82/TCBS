@@ -6,17 +6,18 @@ The code for the AI of your soldier!
 This is an example, so feel free to modify this code!
 """
 
-import pygame
 import random
 import time
-from pygame.locals import *
+
+import pygame
 
 
 class SandboxUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in sandbox mode.
     """
-    name = "exampleUnit - $10"  # What to display at the top when this unit is selected.
+    name = "exampleUnit - $20"  # What to display at the top when this unit is selected.
+    cost = 20  # How many coins your soldier costs to place
 
     def __init__(self, pos, team):
         # Define basic attributes

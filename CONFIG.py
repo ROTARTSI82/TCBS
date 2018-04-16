@@ -19,11 +19,11 @@ SEE README.md FOR MORE DETAILS
 """
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.14"
+__version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
 
 import os
-import pygame
+
 from pygame.locals import *
 
 # Starting Budget in Multiplayer
@@ -42,8 +42,8 @@ keyRR = (650, 100)
 # AND https://www.pygame.org/docs/ref/display.html#pygame.display.list_modes
 screenArgs = ([640, 480], RESIZABLE)
 # A float between 0.0 and 1.0
-musicVol = 0.5  # The volume of the music
-effectsVol = 0.5  # The volume of sound effects
+musicVol = 0.0  # The volume of the music
+effectsVol = 0.0  # The volume of sound effects
 # If __debugMode__ is enabled, TCBS will print logs,
 # show FPS, show cursor-tracking sprite, and not send crash reports
 __debugMode__ = True
