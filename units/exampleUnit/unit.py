@@ -10,6 +10,7 @@ import random
 import time
 
 import pygame
+from pygame.locals import *
 
 
 class SandboxUnit(pygame.sprite.Sprite):
@@ -119,6 +120,8 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
+    name = "exampleUnit - $20"
+
     def __init__(self, pos, team): pass
 
 

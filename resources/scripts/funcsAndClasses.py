@@ -17,6 +17,9 @@ Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 
 SEE README.md FOR MORE DETAILS
 """
+import traceback
+import datetime
+import os
 
 if False:
     from pygame.locals import *
@@ -91,34 +94,22 @@ def log(ltype, msg):
                     pass
 
 
-def updatecost(mode=None):
+def updatecost():
     """
     Update the text sprites
 
-    :type mode: str
     :rtype: None
     """
     global sndbxRUnits, sndbxBUnits, coinsSpent
     global redCostTxt, blueCostTxt, battleStartTime
     coinsSpent = [0, 0]
-    if mode == "sndbx-placeUnits":
-        for i in sndbxRUnits:
-            coinsSpent[1] += i.cost
-        for i in sndbxBUnits:
-            coinsSpent[0] += i.cost
-        redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
-        blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
-        updaterects()
-    if mode == "sndbx-battle":
-        for i in sndbxRUnits:
-            coinsSpent[1] += i.cost
-        for i in sndbxBUnits:
-            coinsSpent[0] += i.cost
-        redCostTxt = TxtOrBt(["Spending Rate: " + str(coinsSpent[1] / (time.time() - battleStartTime)),
-                              False, [0, 0, 0]], [None, 45])
-        blueCostTxt = TxtOrBt(["Spending Rate: " + str(coinsSpent[0] / (time.time() - battleStartTime)),
-                               False, [0, 0, 0]], [None, 45])
-        updaterects()
+    for i in sndbxRUnits:
+        coinsSpent[1] += i.cost
+    for i in sndbxBUnits:
+        coinsSpent[0] += i.cost
+    redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
+    blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
+    updaterects()
 
 
 def take_screenshot():

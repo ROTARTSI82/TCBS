@@ -108,16 +108,17 @@ while running:
                 if clearRedBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     sndbxRUnits = pygame.sprite.Group()
+                    updatecost()
                     continue
                 if clearBlueBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     sndbxBUnits = pygame.sprite.Group()
+                    updatecost()
                     continue
                 if startBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     battleStartTime = time.time()
                     state = "sndbx-battle"
-                    updatecost(mode="sndbx-battle")
                     log("BATTLE", "Battle started")
                     continue
                 if backBt in cbCollide and event.button == 1:
@@ -141,7 +142,7 @@ while running:
                             sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width()/2:
                             sndbxBUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "blue"))
-                        updatecost(mode=state)
+                        updatecost()
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create unit instance: "+str(e))
@@ -150,7 +151,7 @@ while running:
                     menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
                     pygame.sprite.spritecollide(cursor, sndbxRUnits, True)
-                    updatecost(mode=state)
+                    updatecost()
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
@@ -171,7 +172,7 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect.center)
             pygame.display.flip()
-            updatecost(mode="sndbx-placeUnits")
+            updatecost()
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
             continue
@@ -184,7 +185,7 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect.center)
             pygame.display.flip()
-            updatecost(mode="sndbx-placeUnits")
+            updatecost()
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
         if len(sndbxBUnits) == 0:
@@ -196,7 +197,7 @@ while running:
             vicMsg.rect.center = [screen.get_width()/2, screen.get_height()/2]
             screen.blit(vicMsg.image, vicMsg.rect.center)
             pygame.display.flip()
-            updatecost(mode="sndbx-placeUnits")
+            updatecost()
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
         BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
@@ -226,8 +227,6 @@ while running:
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
-        screen.blit(redCostTxt.image, redCostTxt.rect)
-        screen.blit(blueCostTxt.image, blueCostTxt.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
         try:
             bullets.draw(screen)
@@ -243,8 +242,6 @@ while running:
                 running = False
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
-            if event.type == USEREVENT + 1:
-                updatecost(mode=state)
             if event.type == MOUSEBUTTONDOWN:
                 if nextBt in cbCollide and event.button == 1:
                     menuBlip.play()
@@ -262,7 +259,6 @@ while running:
                             sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width() / 2:
                             sndbxBUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "blue"))
-                        updatecost(mode=state)
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create unit instance: " + str(e))
@@ -271,7 +267,6 @@ while running:
                     menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
                     pygame.sprite.spritecollide(cursor, sndbxRUnits, True)
-                    updatecost(mode=state)
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
                 updaterects()
@@ -280,7 +275,7 @@ while running:
                     take_screenshot()
                 if event.key == endBattleKey:
                     log("BATTLE", "Battle was ended via endBattleKey")
-                    updatecost(mode="sndbx-placeUnits")
+                    updatecost()
                     state = "sndbx-placeUnits"
     if state == "mult-start":
         screen.blit(backBt.image, backBt.rect)
@@ -409,7 +404,8 @@ while running:
             serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
             serverMsg.rect.center = [screen.get_width()/2,
                                      screen.get_height()/2-45]
-            
+            c.Send({"action": "leave"})
+            c.loop()
             if selfIsHost:
                 s.shutdown()
             state = "mult-start"
@@ -422,6 +418,8 @@ while running:
                 if backBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     state = "mult-start"
+                    c.Send({"action": "leave"})
+                    c.loop()
                     if selfIsHost:
                         s.shutdown()
                     set_music("resources/sounds/menuMusic.wav")
@@ -429,6 +427,8 @@ while running:
                 if event.key == screenshotKey:
                     take_screenshot()
             if event.type == QUIT:
+                c.Send({"action": "leave"})
+                c.loop()
                 if selfIsHost:
                     s.shutdown()
                 running = False
@@ -447,7 +447,8 @@ while running:
             serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
             serverMsg.rect.center = [screen.get_width()/2,
                                      screen.get_height()/2-45]
-            
+            c.Send({"action": "leave"})
+            c.loop()
             if selfIsHost:
                 s.shutdown()
             state = "mult-start"
@@ -460,6 +461,8 @@ while running:
                 if backBt in cbCollide and event.button:
                     menuBlip.play()
                     state = "mult-start"
+                    c.Send({"action": "leave"})
+                    c.loop()
                     if selfIsHost:
                         s.shutdown()
                     set_music("resources/sounds/menuMusic.wav")
@@ -467,6 +470,8 @@ while running:
                 if event.key == screenshotKey:
                     take_screenshot()
             if event.type == QUIT:
+                c.Send({"action": "leave"})
+                c.loop()
                 if selfIsHost:
                     s.shutdown()
                 running = False

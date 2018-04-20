@@ -17,13 +17,13 @@ Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 
 SEE README.md FOR MORE DETAILS
 """
+from weakref import WeakKeyDictionary
 
 if False:
     # Ignore this code. It makes PyCharm happy
     # Since I call this script via execfile, PyCharm thinks
     # all the variables are undefined and gives me endless warnings :(
     from load import *
-
 __appName__ = "Totally Customizable Battle Simulator"
 __version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
@@ -121,6 +121,7 @@ class TCBSChannel(Channel):
         :rtype: None
         """
         self._server.delplayer(self)
+        self.loop()
 
     def loop(self):
         """
@@ -129,6 +130,15 @@ class TCBSChannel(Channel):
         :rtype: None
         """
         self.Pump()
+
+    def Network_leave(self, data):
+        """
+        Calls self._server.shutdown()
+
+        :param data: {"action": "leave"}
+        :rtype: None
+        """
+        self._server.shutdown()
 
     def Network_kick(self, data):
         """
@@ -230,7 +240,7 @@ class TCBSServer(Server):
         """
         [p.Send(data) for p in self.players]
 
-    def shutdown(self):  # EXPIREMENTAL
+    def shutdown(self):
         """
         Kicks all clients because "Opponent Disconnected"
 
