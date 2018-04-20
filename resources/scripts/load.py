@@ -42,6 +42,7 @@ if False:
     from __main__ import *
     from CONFIG import *
     from funcsAndClasses import *
+    from multiplayer import *
 
 try:
     import pygame
@@ -94,6 +95,7 @@ try:
 except Exception:
     pass
 pygame.key.set_repeat(*keyRR)
+pygame.time.set_timer(USEREVENT + 1, 1000)
 
 clock = pygame.time.Clock()
 buttons = pygame.sprite.Group()
@@ -184,6 +186,7 @@ log("ENVIRONMENT", "Package: "+str(__package__))
 log("UNITS", "Loading units...")
 selectedUnitInt = 0
 coinsSpent = [0, 0]
+battleStartTime = 0
 try:
     rawList = os.listdir('units')
 except Exception as e:
@@ -250,6 +253,8 @@ createBt = TxtOrBt(["CREATE", False, [0, 0, 0], [0, 255, 0]], [None, 40])
 serverHelpBt = TxtOrBt(["HELP", False, [0, 0, 0], [255, 255, 0]], [None, 40])
 nextBt = TxtOrBt([">", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 prevBt = TxtOrBt(["<", False, [0, 0, 0], [127, 127, 127]], [None, 40])
+clearBlueBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
+clearRedBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 
 wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])

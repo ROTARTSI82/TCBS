@@ -92,8 +92,14 @@ def log(ltype, msg):
 
 
 def updatecost(mode=None):
+    """
+    Update the text sprites
+
+    :type mode: str
+    :rtype: None
+    """
     global sndbxRUnits, sndbxBUnits, coinsSpent
-    global redCostTxt, blueCostTxt
+    global redCostTxt, blueCostTxt, battleStartTime
     coinsSpent = [0, 0]
     if mode == "sndbx-placeUnits":
         for i in sndbxRUnits:
@@ -102,6 +108,16 @@ def updatecost(mode=None):
             coinsSpent[0] += i.cost
         redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
         blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
+        updaterects()
+    if mode == "sndbx-battle":
+        for i in sndbxRUnits:
+            coinsSpent[1] += i.cost
+        for i in sndbxBUnits:
+            coinsSpent[0] += i.cost
+        redCostTxt = TxtOrBt(["Spending Rate: " + str(coinsSpent[1] / (time.time() - battleStartTime)),
+                              False, [0, 0, 0]], [None, 45])
+        blueCostTxt = TxtOrBt(["Spending Rate: " + str(coinsSpent[0] / (time.time() - battleStartTime)),
+                               False, [0, 0, 0]], [None, 45])
         updaterects()
 
 
@@ -112,6 +128,7 @@ def take_screenshot():
     :rtype: None
     """
     global screen
+    menuBlip.play()
     filename = str(datetime.datetime.now()) + ".png"
     log("SCREENSHOT", "Screenshot saved as " + filename)
     screen.fill([255, 255, 255])
@@ -177,7 +194,8 @@ def updaterects():
     :rtype: None
     """
     global startBt, mltPlayBt, backBt, joinBt, serverHelpBt
-    global coinRegenBt, startBudgetBt, nextBt
+    global coinRegenBt, startBudgetBt, nextBt, playBt
+    global prevBt, nextBt, createBt, clearBlueBt, clearRedBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
     global redCostTxt, blueCostTxt
@@ -192,14 +210,16 @@ def updaterects():
     startBudgetBt.rect.topleft = [5, 40]
     prevBt.rect.topleft = [10, 10]
     nextBt.rect.topright = [screen.get_width()-10, 10]
+    clearBlueBt.rect.center = [screen.get_width() / 4, 75]
+    clearRedBt.rect.center = [screen.get_width() / 4 * 3, 75]
 
     wait4plyrsTxt.rect.topleft = [screen.get_width()/2-150,
                                   screen.get_height()/2-50]
     serverTxt.rect.center = [screen.get_width()/2, screen.get_height()/2]
     serverMsg.rect.center = [screen.get_width()/2, screen.get_height()/2-45]
     selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
-    redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 15]
-    blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 15]
+    redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 20]
+    blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 20]
 
 
 def updateoptions():
@@ -270,7 +290,7 @@ class TxtOrBt(pygame.sprite.Sprite):
         except Exception as e:
             if not str(e) in alreadyHandled:
                 alreadyHandled.append(str(e))
-                log("EXCEPTION","Cannot load font: "+str(e))
+                log("EXCEPTION", "Cannot load font: " + str(e))
             self.font_args[0] = None
             self.font_args[1] = fontsize
             if "sys" not in self.font_args:

@@ -25,7 +25,7 @@ if False:
     # Ignore this code. It makes PyCharm happy
     # Since I call this script via execfile, PyCharm thinks
     # all the variables are undefined and gives me endless warnings :(
-    from CONFIG import *
+    from load import *
 
 __appName__ = "Totally Customizable Battle Simulator"
 __version__ = "a21.18.04.15"

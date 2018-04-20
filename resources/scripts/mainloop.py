@@ -17,14 +17,12 @@ Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 
 SEE README.md FOR MORE DETAILS
 """
-import webbrowser
 
 if False:
     # Ignore this code. It makes PyCharm happy
     # Since I call this script via execfile, PyCharm thinks
     # all the variables are undefined and gives me endless warnings :(
     from load import *
-    from CONFIG import *
 
 __appName__ = "Totally Customizable Battle Simulator"
 __version__ = "a21.18.04.15"
@@ -102,11 +100,24 @@ while running:
         screen.blit(blueCostTxt.image, blueCostTxt.rect)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(clearBlueBt.image, clearBlueBt.rect)
+        screen.blit(clearRedBt.image, clearRedBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
+                if clearRedBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    sndbxRUnits = pygame.sprite.Group()
+                    continue
+                if clearBlueBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    sndbxBUnits = pygame.sprite.Group()
+                    continue
                 if startBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    battleStartTime = time.time()
                     state = "sndbx-battle"
+                    updatecost(mode="sndbx-battle")
                     log("BATTLE", "Battle started")
                     continue
                 if backBt in cbCollide and event.button == 1:
@@ -215,6 +226,8 @@ while running:
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(redCostTxt.image, redCostTxt.rect)
+        screen.blit(blueCostTxt.image, blueCostTxt.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
         try:
             bullets.draw(screen)
@@ -230,6 +243,8 @@ while running:
                 running = False
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
+            if event.type == USEREVENT + 1:
+                updatecost(mode=state)
             if event.type == MOUSEBUTTONDOWN:
                 if nextBt in cbCollide and event.button == 1:
                     menuBlip.play()
@@ -247,6 +262,7 @@ while running:
                             sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width() / 2:
                             sndbxBUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "blue"))
+                        updatecost(mode=state)
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create unit instance: " + str(e))
@@ -255,6 +271,7 @@ while running:
                     menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
                     pygame.sprite.spritecollide(cursor, sndbxRUnits, True)
+                    updatecost(mode=state)
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
                 updaterects()
