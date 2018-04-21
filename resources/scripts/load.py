@@ -186,7 +186,6 @@ log("ENVIRONMENT", "Package: "+str(__package__))
 log("UNITS", "Loading units...")
 selectedUnitInt = 0
 coinsSpent = [0, 0]
-battleStartTime = 0
 try:
     rawList = os.listdir('units')
 except Exception as e:

@@ -117,7 +117,6 @@ while running:
                     continue
                 if startBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    battleStartTime = time.time()
                     state = "sndbx-battle"
                     log("BATTLE", "Battle started")
                     continue
@@ -274,6 +273,7 @@ while running:
                 if event.key == screenshotKey:
                     take_screenshot()
                 if event.key == endBattleKey:
+                    menuBlip.play()
                     log("BATTLE", "Battle was ended via endBattleKey")
                     updatecost()
                     state = "sndbx-placeUnits"
