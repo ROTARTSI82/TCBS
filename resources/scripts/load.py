@@ -177,7 +177,7 @@ try:
 except Exception as e:
     log("EXCEPTION", "Cannot fetch version data: "+str(e))
 
-log("SYSTEM", "platform.system == "+platform.system())
+log("SYSTEM", "platform.platform == "+platform.platform())
 log("ENVIRONMENT", "File: "+str(__file__))
 log("ENVIRONMENT", "Debug: "+str(__debug__))
 log("ENVIRONMENT", "Name: "+str(__name__))

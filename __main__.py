@@ -44,8 +44,8 @@ __version__ = "a21.18.04.15"
 __author__ = "Grant Yang"
 
 # TODO
-#
-#
+# Add translations for "CLEAR"
+# Chinese translation
 #
 
 try:
