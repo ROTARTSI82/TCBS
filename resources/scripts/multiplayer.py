@@ -43,8 +43,27 @@ class TCBSClient(ConnectionListener):
 
         :rtype: None
         """
-        connection.Pump()
-        self.Pump()
+        global selfIsHost, c, s, state, serverMsg
+        global log, TxtOrBt, set_music
+        global screen, connection
+        try:
+            connection.Pump()
+            self.Pump()
+        except Exception as e:
+            log("EXCEPTION", "Cannot Pump: " + str(e))
+            serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
+            serverMsg.rect.center = [screen.get_width() / 2,
+                                     screen.get_height() / 2 - 45]
+            c.Send({"action": "leave"})
+            try:
+                connection.Pump()
+                self.Pump()
+            except:
+                pass
+            if selfIsHost:
+                s.shutdown()
+            state = "mult-start"
+            set_music("resources/sounds/menuMusic.wav")
 
     def Network_kick(self, data):
         """
@@ -129,7 +148,25 @@ class TCBSChannel(Channel):
 
         :rtype: None
         """
-        self.Pump()
+        global state, c, s, selfIsHost, serverMsg
+        global log, TxtOrBt, set_music
+        global screen
+        try:
+            self.Pump()
+        except Exception as e:
+            log("EXCEPTION", "Cannot Pump: " + str(e))
+            serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
+            serverMsg.rect.center = [screen.get_width() / 2,
+                                     screen.get_height() / 2 - 45]
+            c.Send({"action": "leave"})
+            try:
+                c.loop()
+            except:
+                self._server.shutdown()
+            if selfIsHost:
+                s.shutdown()
+            state = "mult-start"
+            set_music("resources/sounds/menuMusic.wav")
 
     def Network_leave(self, data):
         """
@@ -256,4 +293,22 @@ class TCBSServer(Server):
 
         :rtype: None
         """
-        self.Pump()
+        global selfIsHost, c, s, state, serverMsg
+        global log, TxtOrBt, set_music
+        global screen
+        try:
+            self.Pump()
+        except Exception as e:
+            log("EXCEPTION", "Cannot Pump: " + str(e))
+            serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
+            serverMsg.rect.center = [screen.get_width() / 2,
+                                     screen.get_height() / 2 - 45]
+            c.Send({"action": "leave"})
+            try:
+                self.loop()
+            except:
+                pass
+            if selfIsHost:
+                s.shutdown()
+            state = "mult-start"
+            set_music("resources/sounds/menuMusic.wav")

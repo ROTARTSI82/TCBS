@@ -395,21 +395,9 @@ while running:
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
     if state == "mult-wait4players":
-        try:
-            c.loop()
-            if selfIsHost:
-                s.loop()
-        except Exception as e:
-            log("EXCEPTION", "Cannot Pump: "+str(e))
-            serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
-            serverMsg.rect.center = [screen.get_width()/2,
-                                     screen.get_height()/2-45]
-            c.Send({"action": "leave"})
-            c.loop()
-            if selfIsHost:
-                s.shutdown()
-            state = "mult-start"
-            set_music("resources/sounds/menuMusic.wav")
+        c.loop()
+        if selfIsHost:
+            s.loop()
         screen.blit(backBt.image, backBt.rect)
         screen.blit(wait4plyrsTxt.image, wait4plyrsTxt.rect)
         pygame.display.flip()
@@ -438,21 +426,9 @@ while running:
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
     if state == "mult-placeUnits":
-        try:
-            c.loop()
-            if selfIsHost:
-                s.loop()
-        except Exception as e:
-            log("EXCEPTION", "Cannot Pump: "+str(e))
-            serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
-            serverMsg.rect.center = [screen.get_width()/2,
-                                     screen.get_height()/2-45]
-            c.Send({"action": "leave"})
-            c.loop()
-            if selfIsHost:
-                s.shutdown()
-            state = "mult-start"
-            set_music("resources/sounds/menuMusic.wav")
+        c.loop()
+        if selfIsHost:
+            s.loop()
         screen.blit(backBt.image, backBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
