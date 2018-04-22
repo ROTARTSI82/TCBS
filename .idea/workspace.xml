@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="480">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -29,7 +28,7 @@
       <file leaf-file-name="handleCrash.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/handleCrash.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
+            <state relative-caret-position="840">
               <caret line="56" selection-start-line="56" selection-end-line="56" />
               <folding>
                 <element signature="e#670#685#0" expanded="true" />
@@ -41,7 +40,7 @@
       <file leaf-file-name="CONFIG.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CONFIG.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="486">
               <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
               <folding>
                 <element signature="e#756#765#0" expanded="true" />
@@ -50,19 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="中文.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/lang/中文.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="load.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="252">
               <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="e#662#677#0" expanded="true" />
@@ -83,7 +73,7 @@
       <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
+            <state relative-caret-position="1845">
               <caret line="123" selection-start-line="123" selection-end-line="123" />
               <folding>
                 <element signature="e#143#156#0" expanded="true" />
@@ -95,16 +85,16 @@
       <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
+            <state relative-caret-position="650">
               <caret line="90" selection-start-line="90" selection-end-line="90" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="__main__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="650">
               <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
             </state>
           </provider>
@@ -194,7 +184,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/CODE_OF_CONDUCT.md" />
         <option value="$PROJECT_DIR$/units/exampleUnit/unit.py" />
-        <option value="$PROJECT_DIR$/resources/lang/中文.json" />
         <option value="$PROJECT_DIR$/CONFIG.py" />
         <option value="$PROJECT_DIR$/__main__.py" />
         <option value="$PROJECT_DIR$/resources/scripts/handleCrash.py" />
@@ -203,6 +192,7 @@
         <option value="$PROJECT_DIR$/resources/scripts/multiplayer.py" />
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
+        <option value="$PROJECT_DIR$/resources/lang/中文.json" />
       </list>
     </option>
   </component>
@@ -453,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524425280301</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary=".DS_Store fix">
+      <created>1524425769909</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1524425769909</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -466,27 +463,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="803" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="805" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5024665" side_tool="true" weight="0.27596018" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49753347" weight="0.27596018" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49753347" weight="0.27478755" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32719547" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3257468" />
       <window_info id="Structure" order="1" sideWeight="0.5019305" side_tool="true" weight="0.2508711" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32719547" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32719547" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3985849" />
       <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32859176" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4982382" weight="0.32716927" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32859176" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -511,7 +508,8 @@
     <MESSAGE value="typos" />
     <MESSAGE value="test" />
     <MESSAGE value="refresh" />
-    <option name="LAST_COMMIT_MESSAGE" value="refresh" />
+    <MESSAGE value=".DS_Store fix" />
+    <option name="LAST_COMMIT_MESSAGE" value=".DS_Store fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -723,23 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/中文.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
-          <folding>
-            <element signature="e#143#156#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/PodSixNet/Connection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -754,19 +735,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CONFIG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          <folding>
-            <element signature="e#756#765#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/handleCrash.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
+        <state relative-caret-position="840">
           <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="e#670#685#0" expanded="true" />
@@ -774,9 +745,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
+    <entry file="file://$PROJECT_DIR$/_config.yml" />
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/中文.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CONFIG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          <folding>
+            <element signature="e#756#765#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="e#662#677#0" expanded="true" />
@@ -791,25 +787,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__main__.py">
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+        <state relative-caret-position="1845">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="e#143#156#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
+        <state relative-caret-position="650">
           <caret line="90" selection-start-line="90" selection-end-line="90" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml" />
-    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+    <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="650">
+          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
         </state>
       </provider>
     </entry>
