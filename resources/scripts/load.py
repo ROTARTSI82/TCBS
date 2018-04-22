@@ -43,6 +43,7 @@ if False:
     from CONFIG import *
     from funcsAndClasses import *
     from multiplayer import *
+    from mainloop import *
 
 try:
     import pygame

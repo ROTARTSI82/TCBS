@@ -83,7 +83,7 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "players", "players": len(TCBSServer.players)}
         :rtype: None
         """
-        global state
+        global state, updateselectedunit
         if data["players"] == 2:
             log("CLIENT", "Starting game...")
             state = "mult-placeUnits"

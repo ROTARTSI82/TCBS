@@ -45,7 +45,7 @@ __author__ = "Grant Yang"
 
 # TODO
 # Add translations for "CLEAR"
-# Chinese translation
+#
 #
 
 try:

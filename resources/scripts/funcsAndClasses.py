@@ -18,8 +18,6 @@ Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
 SEE README.md FOR MORE DETAILS
 """
 import traceback
-import datetime
-import os
 
 if False:
     from pygame.locals import *
@@ -78,6 +76,7 @@ def log(ltype, msg):
     :rtype: None
     """
     global __debugMode__
+    global os, datetime, traceback
     if not os.path.exists("logs"):
         os.mkdir("logs")
     now = datetime.datetime.now()
@@ -86,12 +85,13 @@ def log(ltype, msg):
         logfile.write(msg2)
         if __debugMode__:
             print(msg2.strip("\n"))
-            if ltype == "EXCEPTION":
-                try:
+        if ltype == "EXCEPTION":
+            try:
+                if __debugMode__:
                     print(traceback.format_exc())
-                    logfile.write(traceback.format_exc())
-                except Exception:
-                    pass
+                logfile.write(traceback.format_exc())
+            except Exception:
+                pass
 
 
 def updatecost():
@@ -118,6 +118,7 @@ def take_screenshot():
 
     :rtype: None
     """
+    global menuBlip
     global screen
     menuBlip.play()
     filename = str(datetime.datetime.now()) + ".png"
@@ -222,6 +223,7 @@ def updateoptions():
     """
     global buttons
     global coinRegenBt, startBudgetBt
+    global coinRR, startBdgt
     coinRegenBt.kill()
     startBudgetBt.kill()
     del coinRegenBt
@@ -295,21 +297,21 @@ class TxtOrBt(pygame.sprite.Sprite):
         if self.isButton:
             buttons.add(self)
 
-    def updatehover(self, hovering):
+    def update(self, collisions):
         """
         Turns button blue if cursor is hovering over it
         Turns buttons to normal color otherwise
 
-        :type hovering: bool
+        :type collisions: list
         :rtype: None
         """
-        if hovering and self.isButton:
+        if self in collisions and self.isButton:
             oldrectcenter = self.rect.center
             self.display[3] = self.hoverColor
             self.image = self.font.render(*self.display)
             self.rect = self.image.get_rect()
             self.rect.center = oldrectcenter
-        if not hovering and self.isButton:
+        if self not in collisions and self.isButton:
             oldrectcenter = self.rect.center
             self.display[3] = self.noHoverColor
             self.image = self.font.render(*self.display)

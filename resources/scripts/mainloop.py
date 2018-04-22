@@ -32,11 +32,7 @@ updaterects()
 while running:
     clock.tick()
     cbCollide = pygame.sprite.spritecollide(cursor, buttons, False)
-    for button in buttons:
-        if button in cbCollide:
-            button.updatehover(True)
-        else:
-            button.updatehover(False)
+    buttons.update(cbCollide)
     screen.fill([red, green, blue])
     if __debugMode__:
         DebugFPSText = simpleFont.render("FPS: "+str(clock.get_fps()),

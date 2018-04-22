@@ -54,8 +54,7 @@ try:
     pygame.quit()
 except Exception as e:
     pass
-#if not __debugMode__:
-if True:
+if not __debugMode__:
     try:
         print("Trying to mail crash report...")
         import smtplib
