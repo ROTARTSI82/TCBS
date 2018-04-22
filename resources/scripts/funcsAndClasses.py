@@ -9,7 +9,7 @@ TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
 By Grant Yang
 
 Totally Customizable Battle Simulator is a multiplayer
-strategy video game. You can design and program your
+strategy videogame. You can design and program your
 own soldiers and make them fight against your
 friend's soldiers. It is uses by Totally Accurate
 Battle Simulator by Landfall and requires Pygame 1.9 and
