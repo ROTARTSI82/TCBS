@@ -18,5 +18,6 @@
   "[Errno 13] Permission denied": "[Errno 13] 没有权限",
   "[Errno 48] Address already in use": "[Errno 48] 地址已在使用中",
   "Text Copied to Clipboard": "文本复制到剪贴板",
-  "CLEAR": "明确"
+  "CLEAR": "明确",
+  "Coins Spent": "硬币花费了"
 }

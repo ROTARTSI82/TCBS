@@ -41,6 +41,8 @@ keyRR = (650, 100)
 # See https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
 # AND https://www.pygame.org/docs/ref/display.html#pygame.display.list_modes
 screenArgs = ([640, 480], RESIZABLE)
+# Request tick speed at desiredFPS frames per second
+desiredFPS = 60
 # A float between 0.0 and 1.0
 musicVol = 0.1  # The volume of the music
 effectsVol = 0.1  # The volume of sound effects

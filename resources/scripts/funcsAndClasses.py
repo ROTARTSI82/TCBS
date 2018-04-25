@@ -265,11 +265,14 @@ class TxtOrBt(pygame.sprite.Sprite):
             self.noHoverColor = self.display[3]
         except IndexError:
             self.isButton = False
-        try:
-            if obj_id != "ignoreTranslations":
-                self.display[0] = langDict[self.display[0]]
-        except KeyError:
-            pass
+        if obj_id != "ignoreTranslations":
+            translist = self.display[0].split(":")
+            for index, i in enumerate(translist):
+                try:
+                    translist[index] = langDict[i]
+                except KeyError:
+                    pass
+            self.display[0] = u":".join(translist)
         self.id = obj_id
         fontsize = font_args[1]
         self.font_args = list(font_args)

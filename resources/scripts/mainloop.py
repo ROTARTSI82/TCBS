@@ -30,7 +30,7 @@ __author__ = "Grant Yang"
 
 updaterects()
 while running:
-    clock.tick()
+    clock.tick(desiredFPS)
     cbCollide = pygame.sprite.spritecollide(cursor, buttons, False)
     buttons.update(cbCollide)
     screen.fill([red, green, blue])
