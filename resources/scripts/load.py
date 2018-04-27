@@ -50,15 +50,11 @@ try:
     from pygame.locals import *
 except ImportError as e:
     print("pygame not installed. Trying to install and upgrade pygame...")
-    import subprocess
     try:
-        subprocess.call(["pip", "install", "pygame"])
+        import subprocess
+        subprocess.call(["pip", "install", "--upgrade", "pygame"])
     except Exception as e:
-        print("Cannot install pygame: "+str(e))
-    try:
-        subprocess.call(["pip", "install", "upgrade", "pygame"])
-    except Exception as e:
-        print("Cannot upgrade pygame: "+str(e))
+        print("pip failed: "+str(e))
     print("Finished! Please try again.")
     sys.exit(0)
 

@@ -61,6 +61,6 @@ langList = [u"resources/lang/deutsche.json", u"resources/lang/english.json",
             u"resources/lang/javanese.json", u"resources/lang/português.json",
             u"resources/lang/tiếng_việt.json", u"resources/lang/türk.json",
             u"resources/lang/русский.json", u"resources/lang/中文.json"]
-langFile = langList[9]
+langFile = langList[1]
 # Fontsizes are multiplied by GUI Scale in case you want to change the fontsize
 GUIScale = 0.75
