@@ -23,6 +23,7 @@ import json
 import os
 import platform
 import sys
+import subprocess
 
 start = datetime.datetime.now()
 
@@ -51,7 +52,6 @@ try:
 except ImportError as e:
     print("pygame not installed. Trying to install and upgrade pygame...")
     try:
-        import subprocess
         subprocess.call(["pip", "install", "--upgrade", "pygame"])
     except Exception as e:
         print("pip failed: "+str(e))
@@ -72,7 +72,7 @@ if majorPyVer == 2:
         from PodSixNet.Channel import Channel
         from PodSixNet.Connection import connection, ConnectionListener
         psnSuccess = True
-    except Exception as e:
+    except ImportError as e:
         psnSuccess = False
 elif majorPyVer == 3:
     try:
@@ -80,7 +80,7 @@ elif majorPyVer == 3:
         from PodSixNetPython3.Channel import Channel
         from PodSixNetPython3.Connection import connection, ConnectionListener
         psnSuccess = True
-    except Exception as e:
+    except ImportError as e:
         psnSuccess = False
 
 pygame.init()
@@ -223,14 +223,6 @@ elif majorPyVer == 2:
     log("PICKLE", "Using 'cPickle'")
     import cPickle as pickle
 
-coinRegenBt = TxtOrBt(["Coin Regen. Rate: {}".format(coinRR),
-                       False, [0, 0, 0], [255, 255, 0]], [None, 36])
-startBudgetBt = TxtOrBt(["Starting Budget: {}".format(startBdgt),
-                         False, [0, 0, 0], [255, 255, 0]], [None, 36])
-coinRegenBt.rect.topleft = [5, 5]
-startBudgetBt.rect.topleft = [5, 40]
-
-
 log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)
 if psnSuccess:
@@ -251,6 +243,7 @@ nextBt = TxtOrBt([">", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 prevBt = TxtOrBt(["<", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 clearBlueBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 clearRedBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
+profileBt = TxtOrBt(["PROFILE", False, [0, 0, 0], [255, 255, 0]], [None, 45])
 
 wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])

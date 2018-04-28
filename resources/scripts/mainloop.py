@@ -276,10 +276,9 @@ while running:
     if state == "mult-start":
         screen.blit(backBt.image, backBt.rect)
         screen.blit(joinBt.image, joinBt.rect)
+        screen.blit(profileBt.image, profileBt.rect)
         screen.blit(serverMsg.image, serverMsg.rect)
         screen.blit(createBt.image, createBt.rect)
-        screen.blit(coinRegenBt.image, coinRegenBt.rect)
-        screen.blit(startBudgetBt.image, startBudgetBt.rect)
         screen.blit(serverHelpBt.image, serverHelpBt.rect)
         screen.blit(serverTxt.image, serverTxt.rect)
         pygame.display.flip()
@@ -323,24 +322,6 @@ while running:
                 if event.key == K_LSHIFT or event.key == K_RSHIFT:
                     shiftDown = False
             if event.type == MOUSEBUTTONDOWN:
-                if startBudgetBt in cbCollide:
-                    if event.button == 1:
-                        menuBlip.play()
-                        startBdgt += 100
-                        updateoptions()
-                    if event.button == 3:
-                        menuBlip.play()
-                        startBdgt -= 100
-                        updateoptions()
-                if coinRegenBt in cbCollide:
-                    if event.button == 1:
-                        menuBlip.play()
-                        coinRR += 100
-                        updateoptions()
-                    if event.button == 3:
-                        menuBlip.play()
-                        coinRR -= 100
-                        updateoptions()
                 if joinBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     try:

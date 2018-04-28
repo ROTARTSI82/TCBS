@@ -186,8 +186,8 @@ def updaterects():
     :rtype: None
     """
     global startBt, mltPlayBt, backBt, joinBt, serverHelpBt
-    global coinRegenBt, startBudgetBt, nextBt, playBt
-    global prevBt, nextBt, createBt, clearBlueBt, clearRedBt
+    global nextBt, playBt, prevBt, nextBt, createBt, clearBlueBt, clearRedBt
+    global profileBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
     global redCostTxt, blueCostTxt
@@ -198,12 +198,11 @@ def updaterects():
     joinBt.rect.bottomright = [screen.get_width()/2-5, screen.get_height()-5]
     createBt.rect.bottomleft = [screen.get_width()/2+5, screen.get_height()-5]
     serverHelpBt.rect.topright = [screen.get_width()-5, 5]
-    coinRegenBt.rect.topleft = [5, 5]
-    startBudgetBt.rect.topleft = [5, 40]
     prevBt.rect.topleft = [10, 10]
     nextBt.rect.topright = [screen.get_width()-10, 10]
     clearBlueBt.rect.center = [screen.get_width() / 4, 75]
     clearRedBt.rect.center = [screen.get_width() / 4 * 3, 75]
+    profileBt.rect.topleft = [5, 5]
 
     wait4plyrsTxt.rect.topleft = [screen.get_width()/2-150,
                                   screen.get_height()/2-50]
@@ -212,28 +211,6 @@ def updaterects():
     selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
     redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 20]
     blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 20]
-
-
-def updateoptions():
-    """
-    Remove the old sprite from buttons and add
-    the new updated sprite to buttons
-
-    :rtype: None
-    """
-    global buttons
-    global coinRegenBt, startBudgetBt
-    global coinRR, startBdgt
-    coinRegenBt.kill()
-    startBudgetBt.kill()
-    del coinRegenBt
-    del startBudgetBt
-    coinRegenBt = TxtOrBt(["Coin Regen. Rate: {}".format(coinRR),
-                           False, [0, 0, 0], [255, 255, 0]], [None, 36])
-    startBudgetBt = TxtOrBt(["Starting Budget: {}".format(startBdgt),
-                             False, [0, 0, 0], [255, 255, 0]], [None, 36])
-    coinRegenBt.rect.topleft = [5, 5]
-    startBudgetBt.rect.topleft = [5, 40]
 
 
 class Marker(pygame.sprite.Sprite):
