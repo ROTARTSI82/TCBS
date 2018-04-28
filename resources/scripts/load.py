@@ -30,17 +30,8 @@ if False:
     from multiplayer import *
     from mainloop import *
 
-try:
-    import pygame
-    from pygame.locals import *
-except ImportError as e:
-    print("pygame not installed. Trying to install and upgrade pygame...")
-    try:
-        subprocess.call(["pip", "install", "--upgrade", "pygame"])
-    except Exception as e:
-        print("pip failed: "+str(e))
-    print("Finished! Please try again.")
-    sys.exit(0)
+import pygame
+from pygame.locals import *
 
 majorPyVer = sys.version_info.major
 if majorPyVer not in [2, 3]:
@@ -49,23 +40,14 @@ if majorPyVer not in [2, 3]:
     print("Got Python "+str(majorPyVer))
     sys.exit("Bad python version!")
 
-psnSuccess = False
 if majorPyVer == 2:
-    try:
-        from PodSixNet.Server import Server
-        from PodSixNet.Channel import Channel
-        from PodSixNet.Connection import connection, ConnectionListener
-        psnSuccess = True
-    except ImportError as e:
-        psnSuccess = False
+    from PodSixNet.Server import Server
+    from PodSixNet.Channel import Channel
+    from PodSixNet.Connection import connection, ConnectionListener
 elif majorPyVer == 3:
-    try:
-        from PodSixNetPython3.Server import Server
-        from PodSixNetPython3.Channel import Channel
-        from PodSixNetPython3.Connection import connection, ConnectionListener
-        psnSuccess = True
-    except ImportError as e:
-        psnSuccess = False
+    from PodSixNetPython3.Server import Server
+    from PodSixNetPython3.Channel import Channel
+    from PodSixNetPython3.Connection import connection, ConnectionListener
 
 pygame.init()
 screen = pygame.display.set_mode(*screenArgs)
@@ -108,8 +90,7 @@ with open("logs/"+str(now.date())+".log", 'a') as logfile:
         print(msg.strip("\n"))
 
 executefile("resources/scripts/funcsAndClasses.py")
-if psnSuccess:  # EXPIREMENTAL
-    executefile("resources/scripts/multiplayer.py")
+executefile("resources/scripts/multiplayer.py")
 
 try:
     with open(langFile, "r") as fp:
@@ -186,12 +167,6 @@ log("UNITS", "unitList == %s" % str(unitList))
 sndbxRUnits = pygame.sprite.Group()
 sndbxBUnits = pygame.sprite.Group()
 
-if psnSuccess:
-    log("MODULES", "PodSixNet was successfully imported")
-else:
-    log("EXCEPTION", "PodSixNet cannot be imported")
-    log("MULTIPLAYER", "Multiplayer is disabled")
-
 set_music("resources/sounds/menuMusic.wav")
 try:
     menuBlip = pygame.mixer.Sound("resources/sounds/menuBlip.wav")
@@ -219,14 +194,9 @@ except IOError as e:
 
 log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)
-if psnSuccess:
-    mltPlayBt = TxtOrBt(["MULTIPLAYER", False, [0, 0, 0], [255, 0, 255]], [None, 50])
-    mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
-else:
-    mltPlayBt = TxtOrBt(["MULTIPLAYER", False, [255, 0, 0],
-                         [127, 127, 127]], [None, 50])
-    mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
-    buttons.remove(mltPlayBt)
+
+mltPlayBt = TxtOrBt(["MULTIPLAYER", False, [0, 0, 0], [255, 0, 255]], [None, 50])
+mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
 startBt = TxtOrBt(["START", False, [0, 0, 0], [0, 255, 0]], [None, 45])
 backBt = TxtOrBt(["BACK", False, [0, 0, 0], [255, 0, 0]], [None, 40])
 playBt = TxtOrBt(["SANDBOX", False, [0, 0, 0], [0, 255, 0]], [None, 55])

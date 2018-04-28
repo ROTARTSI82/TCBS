@@ -163,6 +163,37 @@ def updateselectedunit(movenum):
     selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
 
 
+def updateprofile():
+    """
+    Update the text sprites in profile
+
+    :rtype: None
+    """
+    global profileHeading, profileWon, myProfile, profileLost
+    global profileMatches, start, pickle, profileTimePlayed
+
+    profileHeading = TxtOrBt([nickname + "'s Profile", False, [0, 0, 0]], [None, 55])
+    profileWon = TxtOrBt(["Matches Won: " + str(myProfile['mult-wins']),
+                          False, [0, 0, 0]], [None, 40])
+    profileLost = TxtOrBt(["Matches Lost: " + str(myProfile['mult-losses']),
+                           False, [0, 0, 0]], [None, 40])
+    profileMatches = TxtOrBt(["Matches Played: " + str(myProfile['mult-matches']),
+                              False, [0, 0, 0]], [None, 40])
+    profileTimePlayed = TxtOrBt(["Time Played: " + str(myProfile['time-played']),
+                                 False, [0, 0, 0]], [None, 40])
+
+    profileHeading.rect.center = [screen.get_width() / 2, 40]
+    profileMatches.rect.center = [screen.get_width() / 2, 70]
+    profileWon.rect.center = [screen.get_width() / 2, 100]
+    profileLost.rect.center = [screen.get_width() / 2, 130]
+    profileTimePlayed.rect.center = [screen.get_width() / 2, 200]
+
+    upend = datetime.datetime.now()
+    myProfile['time-played'] += (upend - start)
+    with open("resources/profile.pkl", "wb") as fp:
+        pickle.dump(myProfile, fp)
+
+
 def updaterects():
     """
     Update the rects of all sprites when screen size is adjusted
@@ -174,7 +205,9 @@ def updaterects():
     global profileBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
-    global redCostTxt, blueCostTxt
+    global redCostTxt, blueCostTxt, profileHeading, profileLost, profileWon
+    global profileMatches
+
     startBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
     mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
     backBt.rect.bottomleft = [5, screen.get_height()-5]
@@ -195,6 +228,11 @@ def updaterects():
     selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
     redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 20]
     blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 20]
+    profileHeading.rect.center = [screen.get_width()/2, 40]
+    profileMatches.rect.center = [screen.get_width()/2, 70]
+    profileWon.rect.center = [screen.get_width()/2, 100]
+    profileLost.rect.center = [screen.get_width()/2, 130]
+    profileTimePlayed.rect.center = [screen.get_width() / 2, 200]
 
 
 class Marker(pygame.sprite.Sprite):
