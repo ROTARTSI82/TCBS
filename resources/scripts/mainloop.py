@@ -12,7 +12,9 @@ if False:
     # all the variables are undefined and gives me endless warnings :(
     from load import *
 
+updateprofile()
 updaterects()
+
 while running:
     clock.tick(desiredFPS)
     cbCollide = pygame.sprite.spritecollide(cursor, buttons, False)
@@ -34,7 +36,7 @@ while running:
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
-                if mltPlayBt in cbCollide and event.button == 1 and psnSuccess:
+                if mltPlayBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     state = "mult-start"
                 if newUpNote in cbCollide and event.button == 1 and newUpDetect:
@@ -308,6 +310,7 @@ while running:
             if event.type == MOUSEBUTTONDOWN:
                 if profileBt in cbCollide and event.button == 1:
                     state = "mult-profile"
+                    updateprofile()
                     menuBlip.play()
                 if joinBt in cbCollide and event.button == 1:
                     menuBlip.play()
@@ -360,6 +363,11 @@ while running:
                 cursor.rect.center = event.pos
     if state == "mult-profile":
         screen.blit(backBt.image, backBt.rect)
+        screen.blit(profileHeading.image, profileHeading.rect)
+        screen.blit(profileMatches.image, profileMatches.rect)
+        screen.blit(profileWon.image, profileWon.rect)
+        screen.blit(profileLost.image, profileLost.rect)
+        screen.blit(profileTimePlayed.image, profileTimePlayed.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -437,11 +445,8 @@ while running:
                 cursor.rect.center = event.pos
 try:
     connection.Close()
-except Exception as e:
-    if len(traceback.format_exc()) < 300:
-        log("EXCEPTION", "Cannot close connection: " + str(e))
-    else:
-        log("LONG EXCEPTION", "Cannot close connection: " + str(e))
+except RuntimeError as e:
+    log("LONG-EXCEPTION", "Cannot close connection: "+str(e))
 
 pygame.quit()
 
@@ -449,7 +454,7 @@ end = datetime.datetime.now()
 myProfile['time-played'] += (end - start)
 with open("resources/profile.pkl", "wb") as fp:
     pickle.dump(myProfile, fp)
-log("PROFILE", "Profile: "+str(myProfile))
+log("PROFILE", "Saved to profile.pkl: "+str(myProfile))
 
 log("PERFORMANCE", "FPS: "+str(clock.get_fps()))
 log("STOP", "Stopping...")
