@@ -43,7 +43,7 @@ try:
     executefile("venv/bin/activate_this.py", dict(__file__=os.getcwd()+"venv/bin/activate_this.py"))
     sys.path.append(os.getcwd()+"/venv/lib/python2.7/site-packages")
 except IOError:
-    sys.path.append(os.getcwd()+"/resources/packages")
+    pass
 
 # TODO
 # Add translations for "CLEAR"
