@@ -20,6 +20,10 @@ SEE README.md FOR MORE DETAILS
 import os
 import sys
 
+__appName__ = "Totally Customizable Battle Simulator"
+__version__ = "a21.18.04.15"
+__author__ = "Grant Yang"
+
 def executefile(filepath, globalsdict=globals(), localsdict=locals()):
     """
     Since Python3 doesn't have execfile, we use this instead
@@ -37,10 +41,6 @@ def executefile(filepath, globalsdict=globals(), localsdict=locals()):
 executefile("CONFIG.py")
 executefile("venv/bin/activate_this.py", dict(__file__=os.getcwd()+"venv/bin/activate_this.py"))
 sys.path.append(os.getcwd()+"/venv/lib/python2.7/site-packages")
-
-__appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.15"
-__author__ = "Grant Yang"
 
 # TODO
 # Add translations for "CLEAR"

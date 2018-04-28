@@ -3,19 +3,7 @@
 
 """
 (.../TCBS/resources/scripts/load.py)
-------------------------------------------------------------------------
-TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
-------------------------------------------------------------------------
-By Grant Yang
 
-Totally Customizable Battle Simulator is a multiplayer
-strategy videogame. You can design and program your
-own soldiers and make them fight against your
-friend's soldiers. It is inspired by Totally Accurate
-Battle Simulator by Landfall and uses Pygame 1.9 and
-Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
-
-SEE README.md FOR MORE DETAILS
 """
 
 import datetime
@@ -23,12 +11,9 @@ import json
 import os
 import platform
 import sys
+import subprocess
 
 start = datetime.datetime.now()
-
-__appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.15"
-__author__ = "Grant Yang"
 
 # TODO
 #
@@ -50,15 +35,10 @@ try:
     from pygame.locals import *
 except ImportError as e:
     print("pygame not installed. Trying to install and upgrade pygame...")
-    import subprocess
     try:
-        subprocess.call(["pip", "install", "pygame"])
+        subprocess.call(["pip", "install", "--upgrade", "pygame"])
     except Exception as e:
-        print("Cannot install pygame: "+str(e))
-    try:
-        subprocess.call(["pip", "install", "upgrade", "pygame"])
-    except Exception as e:
-        print("Cannot upgrade pygame: "+str(e))
+        print("pip failed: "+str(e))
     print("Finished! Please try again.")
     sys.exit(0)
 
@@ -76,7 +56,7 @@ if majorPyVer == 2:
         from PodSixNet.Channel import Channel
         from PodSixNet.Connection import connection, ConnectionListener
         psnSuccess = True
-    except Exception as e:
+    except ImportError as e:
         psnSuccess = False
 elif majorPyVer == 3:
     try:
@@ -84,7 +64,7 @@ elif majorPyVer == 3:
         from PodSixNetPython3.Channel import Channel
         from PodSixNetPython3.Connection import connection, ConnectionListener
         psnSuccess = True
-    except Exception as e:
+    except ImportError as e:
         psnSuccess = False
 
 pygame.init()
@@ -227,13 +207,15 @@ elif majorPyVer == 2:
     log("PICKLE", "Using 'cPickle'")
     import cPickle as pickle
 
-coinRegenBt = TxtOrBt(["Coin Regen. Rate: {}".format(coinRR),
-                       False, [0, 0, 0], [255, 255, 0]], [None, 36])
-startBudgetBt = TxtOrBt(["Starting Budget: {}".format(startBdgt),
-                         False, [0, 0, 0], [255, 255, 0]], [None, 36])
-coinRegenBt.rect.topleft = [5, 5]
-startBudgetBt.rect.topleft = [5, 40]
-
+try:
+    with open("resources/profile.pkl", "rb") as fp:
+        myProfile = pickle.load(fp)
+    log("PROFILE", "Got from profile.pkl: "+str(myProfile))
+except IOError as e:
+    log("EXCEPTION", "Cannot load profile: "+str(e))
+    log("PROFILE", "Loading defaults...")
+    myProfile = {"time-played": datetime.timedelta(), "mult-wins": 0,
+                 "mult-losses": 0, "mult-matches": 0}
 
 log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)
@@ -255,6 +237,7 @@ nextBt = TxtOrBt([">", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 prevBt = TxtOrBt(["<", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 clearBlueBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 clearRedBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
+profileBt = TxtOrBt(["PROFILE", False, [0, 0, 0], [255, 255, 0]], [None, 45])
 
 wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
