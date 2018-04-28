@@ -3,19 +3,7 @@
 
 """
 (.../TCBS/resources/scripts/load.py)
-------------------------------------------------------------------------
-TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
-------------------------------------------------------------------------
-By Grant Yang
 
-Totally Customizable Battle Simulator is a multiplayer
-strategy videogame. You can design and program your
-own soldiers and make them fight against your
-friend's soldiers. It is inspired by Totally Accurate
-Battle Simulator by Landfall and uses Pygame 1.9 and
-Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
-
-SEE README.md FOR MORE DETAILS
 """
 
 import datetime
@@ -26,10 +14,6 @@ import sys
 import subprocess
 
 start = datetime.datetime.now()
-
-__appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.15"
-__author__ = "Grant Yang"
 
 # TODO
 #
@@ -222,6 +206,16 @@ if majorPyVer == 3:
 elif majorPyVer == 2:
     log("PICKLE", "Using 'cPickle'")
     import cPickle as pickle
+
+try:
+    with open("resources/profile.pkl", "rb") as fp:
+        myProfile = pickle.load(fp)
+    log("PROFILE", "Got from profile.pkl: "+str(myProfile))
+except IOError as e:
+    log("EXCEPTION", "Cannot load profile: "+str(e))
+    log("PROFILE", "Loading defaults...")
+    myProfile = {"time-played": datetime.timedelta(), "mult-wins": 0,
+                 "mult-losses": 0, "mult-matches": 0}
 
 log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)

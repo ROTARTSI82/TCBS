@@ -3,19 +3,7 @@
 
 """
 (.../TCBS/resources/scripts/mainloop.py)
-------------------------------------------------------------------------
-TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
-------------------------------------------------------------------------
-By Grant Yang
 
-Totally Customizable Battle Simulator is a multiplayer
-strategy videogame. You can design and program your
-own soldiers and make them fight against your
-friend's soldiers. It is inspired by Totally Accurate
-Battle Simulator by Landfall and uses Pygame 1.9 and
-Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
-
-SEE README.md FOR MORE DETAILS
 """
 
 if False:
@@ -23,10 +11,6 @@ if False:
     # Since I call this script via execfile, PyCharm thinks
     # all the variables are undefined and gives me endless warnings :(
     from load import *
-
-__appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.15"
-__author__ = "Grant Yang"
 
 updaterects()
 while running:
@@ -322,6 +306,9 @@ while running:
                 if event.key == K_LSHIFT or event.key == K_RSHIFT:
                     shiftDown = False
             if event.type == MOUSEBUTTONDOWN:
+                if profileBt in cbCollide and event.button == 1:
+                    state = "mult-profile"
+                    menuBlip.play()
                 if joinBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     try:
@@ -371,6 +358,21 @@ while running:
                 updaterects()
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
+    if state == "mult-profile":
+        screen.blit(backBt.image, backBt.rect)
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                running = False
+            if event.type == VIDEORESIZE:
+                screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
+                updaterects()
+            if event.type == MOUSEMOTION:
+                cursor.rect.center = event.pos
+            if event.type == MOUSEBUTTONDOWN:
+                if backBt in cbCollide:
+                    state = "mult-start"
+                    menuBlip.play()
     if state == "mult-wait4players":
         c.loop()
         if selfIsHost:
@@ -433,7 +435,6 @@ while running:
                 updaterects()
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
-pygame.quit()
 try:
     connection.Close()
 except Exception as e:
@@ -441,7 +442,15 @@ except Exception as e:
         log("EXCEPTION", "Cannot close connection: " + str(e))
     else:
         log("LONG EXCEPTION", "Cannot close connection: " + str(e))
+
+pygame.quit()
+
 end = datetime.datetime.now()
+myProfile['time-played'] += (end - start)
+with open("resources/profile.pkl", "wb") as fp:
+    pickle.dump(myProfile, fp)
+log("PROFILE", "Profile: "+str(myProfile))
+
 log("PERFORMANCE", "FPS: "+str(clock.get_fps()))
 log("STOP", "Stopping...")
 log("RUNTIME", "Session lasted "+str(end-start))

@@ -3,19 +3,7 @@
 
 """
 (.../TCBS/resources/scripts/funcsAndClasses.py)
-------------------------------------------------------------------------
-TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
-------------------------------------------------------------------------
-By Grant Yang
 
-Totally Customizable Battle Simulator is a multiplayer
-strategy videogame. You can design and program your
-own soldiers and make them fight against your
-friend's soldiers. It is uses by Totally Accurate
-Battle Simulator by Landfall and requires Pygame 1.9 and
-Python 2.7. TCBS uses PodSixNet written by chr15m (Chris McCormick).
-
-SEE README.md FOR MORE DETAILS
 """
 import traceback
 
@@ -25,10 +13,6 @@ if False:
     # Since I call this script via execfile, PyCharm thinks
     # all the variables are undefined and gives me endless warnings :(
     from load import *
-
-__appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.15"
-__author__ = "Grant Yang"
 
 
 class DummySound(object):
