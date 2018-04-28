@@ -185,8 +185,16 @@ while running:
         RbulletCol = pygame.sprite.groupcollide(bullets, sndbxRUnits, False, False)
         soldierCol = pygame.sprite.groupcollide(sndbxBUnits, sndbxRUnits, False, False)
         try:
-            sndbxRUnits.update()
-            sndbxBUnits.update()
+            totalBlueHP = 0
+            totalRedHP = 0
+            for i in sndbxBUnits:
+                totalBlueHP += i.health
+                i.update()
+            for i in sndbxRUnits:
+                i.update()
+                totalRedHP += i.health
+            blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
+            redBar.update(totalRedHP, totalBlueHP + totalRedHP)
             bullets.update()
             for i in BbulletCol.keys():
                 i.on_bullet_hit(BbulletCol[i])
@@ -208,6 +216,8 @@ while running:
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(redBar.image, redBar.rect)
+        screen.blit(blueBar.image, blueBar.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
         try:
             bullets.draw(screen)

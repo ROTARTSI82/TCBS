@@ -2,775 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet-0.9.4.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet-0.9.4.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet-0.9.4.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet-0.9.4.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet-0.9.4.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/Channel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/Connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/EndPoint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/Server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/async.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/rencode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNet/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/Channel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/Connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/EndPoint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/Server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/async.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/PodSixNetPython3/rencode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/DESCRIPTION.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph-0.15.dist-info/zip-safe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph/Dot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph/Graph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph/GraphAlgo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph/GraphStat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph/GraphUtil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph/ObjectGraph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/altgraph/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/easy_install.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/DESCRIPTION.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib-1.9.dist-info/zip-safe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/MachO.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/MachOGraph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/MachOStandalone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/SymbolTable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/_cmdline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/dyld.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/dylib.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/framework.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/itergraphreport.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/mach_o.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/macho_dump.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/macho_find.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/macho_standalone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/ptypes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/macholib/util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/DESCRIPTION.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph-0.16.dist-info/zip-safe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph/_compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph/find_modules.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph/modulegraph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph/util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/modulegraph/zipio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip-10.0.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip-10.0.0.dist-info/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip-10.0.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip-10.0.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip-10.0.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip-10.0.0.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip-10.0.0.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/basecommand.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/baseparser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/build_env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/cmdoptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/completion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/configuration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/download.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/freeze.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/hash.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/help.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/install.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/list.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/show.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/uninstall.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/commands/wheel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/configuration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/download.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/index.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/locations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/models/index.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/operations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/operations/check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/operations/freeze.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/operations/prepare.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/pep425tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/req/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/req/req_file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/req/req_install.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/req/req_set.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/req/req_uninstall.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/resolve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/status_codes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/appdirs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/deprecation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/encoding.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/filesystem.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/glibc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/hashes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/logging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/misc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/outdated.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/packaging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/setuptools_build.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/temp_dir.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/typing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/utils/ui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/vcs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/vcs/bazaar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/vcs/git.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/vcs/mercurial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/vcs/subversion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_internal/wheel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/appdirs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/_cmd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/adapter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/caches/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/caches/file_cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/caches/redis_cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/filewrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/heuristics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/serialize.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/cachecontrol/wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/certifi/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/certifi/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/certifi/cacert.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/certifi/core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/big5freq.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/big5prober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/chardistribution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/charsetgroupprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/charsetprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/cli/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/cli/chardetect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/codingstatemachine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/cp949prober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/enums.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/escprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/escsm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/eucjpprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/euckrfreq.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/euckrprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/euctwfreq.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/euctwprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/gb2312freq.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/gb2312prober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/hebrewprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/jisfreq.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/jpcntx.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/langbulgarianmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/langcyrillicmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/langgreekmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/langhebrewmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/langhungarianmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/langthaimodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/langturkishmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/latin1prober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/mbcharsetprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/mbcsgroupprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/mbcssm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/sbcharsetprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/sbcsgroupprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/sjisprober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/universaldetector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/utf8prober.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/chardet/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/colorama/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/colorama/ansi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/colorama/ansitowin32.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/colorama/initialise.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/colorama/win32.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/colorama/winterm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/_backport/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/_backport/misc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/_backport/shutil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/_backport/sysconfig.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/_backport/sysconfig.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/_backport/tarfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/index.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/locators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/manifest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/markers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/metadata.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/resources.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/scripts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/t32.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/t64.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/w32.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/w64.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distlib/wheel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/distro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_ihatexml.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_inputstream.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_tokenizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_trie/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_trie/_base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_trie/datrie.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_trie/py.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/alphabeticalattributes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/inject_meta_charset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/lint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/optionaltags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/sanitizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/filters/whitespace.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/html5parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treeadapters/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treeadapters/genshi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treeadapters/sax.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treebuilders/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treebuilders/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treebuilders/dom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treebuilders/etree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treebuilders/etree_lxml.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treewalkers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treewalkers/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treewalkers/dom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treewalkers/etree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treewalkers/etree_lxml.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/html5lib/treewalkers/genshi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/codec.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/idnadata.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/intranges.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/package_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/uts46data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/ipaddress.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/lockfile/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/lockfile/linklockfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/lockfile/mkdirlockfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/lockfile/pidlockfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/lockfile/sqlitelockfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/lockfile/symlinklockfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/msgpack/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/msgpack/_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/msgpack/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/msgpack/fallback.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/__about__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/_compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/_structures.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/markers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/requirements.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/specifiers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/packaging/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/pkg_resources/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/pkg_resources/py31compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/progress/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/progress/bar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/progress/counter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/progress/helpers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/progress/spinner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/pyparsing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/pytoml/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/pytoml/core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/pytoml/parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/pytoml/writer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/__version__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/_internal_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/adapters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/certs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/cookies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/help.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/hooks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/packages.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/sessions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/status_codes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/structures.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/requests/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/retrying.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/six.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/_collections.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/connectionpool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/_securetransport/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/appengine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/ntlmpool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/pyopenssl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/securetransport.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/contrib/socks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/fields.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/filepost.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/packages/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/packages/backports/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/packages/backports/makefile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/packages/ordered_dict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/packages/six.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/packages/ssl_match_hostname/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/packages/ssl_match_hostname/_implementation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/poolmanager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/retry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/selectors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/ssl_.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/timeout.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/url.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/urllib3/util/wait.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/webencodings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/webencodings/labels.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/webencodings/mklabels.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/webencodings/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pip/_vendor/webencodings/x_user_defined.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/appdirs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/__about__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/_compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/_structures.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/markers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/requirements.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/specifiers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/packaging/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/pyparsing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/_vendor/six.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/extern/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pkg_resources/py31compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame-1.9.3.dist-info/DESCRIPTION.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame-1.9.3.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame-1.9.3.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame-1.9.3.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame-1.9.3.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame-1.9.3.dist-info/metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame-1.9.3.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libFLAC.8.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libSDL-1.2.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libSDL_image-1.2.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libSDL_mixer-1.2.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libSDL_ttf-2.0.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libfluidsynth.1.5.2.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libfreetype.6.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libglib-2.0.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libgthread-2.0.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libintl.8.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libjpeg.8.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/liblzma.5.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libmikmod.3.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libogg.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libpcre.1.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libpng16.16.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libportmidi.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libsmpeg-0.4.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libtiff.5.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libvorbis.0.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libvorbisfile.3.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/.dylibs/libwebp.6.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/LGPL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/_camera_opencv_highgui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/_camera_vidcapture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/_dummybackend.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/_numpysndarray.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/_numpysurfarray.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/camera.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/colordict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/cursors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/logos.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/pygame_logo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/pygame_powered.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/pygame_small.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/pygame_tiny.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/docs/ref/docscomments.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/aacircle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/aliens.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/arraydemo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/blend_fill.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/blit_blends.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/camera.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/chimp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/cursors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/alien1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/alien1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/alien1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/alien2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/alien2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/alien3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/alien3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/arraydemo.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/asprite.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/background.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/blue.mpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/bomb.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/boom.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/brick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/car_door.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/chimp.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/city.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/danger.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/explosion1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/fist.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/house_lo.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/house_lo.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/house_lo.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/liquid.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/midikeys.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/oldplayer.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/player1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/punch.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/sans.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/secosmic_lo.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/shot.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/static.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/whiff.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/data/yuv_1.pgm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/eventlist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/fastevents.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/fonty.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/freetype_misc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/glcube.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/headless_no_windows_needed.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/liquid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/JavaCompiling.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/_MainMenu_EOArchive_English.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/classes.nib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/info.nib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/keyedobjects.nib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/English.lproj/aliens.icns" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/aliens.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/aliens_app_example/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/macosx/macfont.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/mask.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/midi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/moveit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/oldalien.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/overlay.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/pixelarray.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/playmus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/prevent_display_stretching.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/scaletest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/scrap_clipboard.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/scroll.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/sound.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/sound_array_demos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/stars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/testsprite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/examples/vgrade.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/freesansbold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/freetype.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/ftfont.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/gp2x/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/gp2x/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/gp2x/locals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/install.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/locals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/macosx.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/midi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/pkgdata.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/pygame.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/pygame_icon.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/pygame_icon.icns" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/pygame_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/pygame_icon.tiff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/readme.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/sndarray.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/sprite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/surfarray.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/sysfont.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/base_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/blit_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/bufferproxy_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/camera_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/cdrom_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/cdrom_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/color_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/compat_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/cursors_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/display_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/draw_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/event_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fastevent_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/A_PyGameMono-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/PyGameMono-18-100dpi.bdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/PyGameMono-18-75dpi.bdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/PyGameMono-8.bdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/PyGameMono.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/test_fixed.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/test_sans.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/fonts/u13079_PyGameMono-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/xbm_cursors/white_sizing.xbm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/fixtures/xbm_cursors/white_sizing_mask.xbm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/font_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/font_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/freetype_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/freetype_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/ftfont_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/ftfont_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/gfxdraw_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/image__save_gl_surface_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/image_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/image_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/imageext_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/imageext_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/joystick_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/key_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/mask_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/math_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/midi_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/midi_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/mixer_music_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/mixer_music_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/mixer_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/mixer_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/mouse_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/overlay_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/pixelarray_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/pixelcopy_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/rect_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/fake_3_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/fake_4_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/fake_5_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/fake_6_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/no_assertions__ret_code_of_1__test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/all_ok/zero_tests_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/everything/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/everything/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/everything/incomplete_todo_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/everything/magic_tag_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/everything/sleep_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/exclude/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/exclude/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/exclude/invisible_tag_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/exclude/magic_tag_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/failures1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/failures1/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/failures1/fake_3_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/failures1/fake_4_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/incomplete/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/incomplete/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/incomplete/fake_3_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/incomplete_todo/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/incomplete_todo/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/incomplete_todo/fake_3_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/infinite_loop/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/infinite_loop/fake_1_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/infinite_loop/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stderr/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stderr/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stderr/fake_3_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stderr/fake_4_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stdout/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stdout/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stdout/fake_3_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/print_stdout/fake_4_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/run_tests__test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/timeout/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/timeout/fake_2_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/run_tests__tests/timeout/sleep_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/rwobject_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/scrap_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/scrap_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/sndarray_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/sndarray_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/sprite_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/surface_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/surfarray_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/surfarray_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/surflock_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/sysfont_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_test_.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/arrinter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/async_sub.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/buftools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/endian.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/png.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/run_tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/test_machinery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/test_utils/test_runner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/threads_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/time_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/tests/transform_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/threads/Py25Queue.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/threads/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/pygame/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/DESCRIPTION.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/dependency_links.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools-39.0.1.dist-info/zip-safe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/__about__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/_compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/_structures.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/markers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/requirements.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/specifiers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/packaging/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/pyparsing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/_vendor/six.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/archive_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/build_meta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/cli-32.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/cli-64.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/cli.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/alias.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/bdist_egg.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/bdist_rpm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/bdist_wininst.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/build_clib.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/build_ext.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/build_py.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/develop.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/dist_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/easy_install.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/egg_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/install.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/install_egg_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/install_lib.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/install_scripts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/launcher manifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/py36compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/rotate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/saveopts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/sdist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/setopt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/upload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/command/upload_docs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/dep_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/depends.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/dist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/extension.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/extern/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/glibc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/glob.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/gui-32.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/gui-64.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/gui.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/launch.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/lib2to3_ex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/monkey.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/msvc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/namespaces.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/package_index.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/pep425tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/py27compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/py31compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/py33compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/py36compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/sandbox.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/script (dev).tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/script.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/site-patch.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/ssl_support.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/unicode_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/wheel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/setuptools/windows_support.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel-0.31.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel-0.31.0.dist-info/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel-0.31.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel-0.31.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel-0.31.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel-0.31.0.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel-0.31.0.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/archive.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/bdist_wheel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/egg2wheel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/install.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/metadata.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/paths.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/pep425tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/pkginfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/signatures/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/signatures/djbec.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/signatures/ed25519py.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/signatures/keys.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/tool/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/pacakges/wheel/wininst2wheel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/mainloop.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/mainloop.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -784,20 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="234" column="64" selection-start-line="234" selection-start-column="64" selection-end-line="234" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-320">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="323">
+              <caret line="271" column="11" selection-start-line="271" selection-start-column="11" selection-end-line="271" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -823,7 +49,7 @@
       <file leaf-file-name="CONFIG.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CONFIG.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
+            <state relative-caret-position="540">
               <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
             </state>
           </provider>
@@ -832,8 +58,8 @@
       <file leaf-file-name="load.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="216" column="71" selection-start-line="216" selection-start-column="71" selection-end-line="216" selection-end-column="71" />
+            <state relative-caret-position="363">
+              <caret line="219" column="38" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -841,16 +67,16 @@
       <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="312" column="35" selection-start-line="312" selection-start-column="35" selection-end-line="312" selection-end-column="35" />
+            <state relative-caret-position="224">
+              <caret line="219" column="47" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="43">
               <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
@@ -859,19 +85,12 @@
       <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+            <state relative-caret-position="405">
+              <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
               <folding>
                 <element signature="e#653#662#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/core.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-243" />
           </provider>
         </entry>
       </file>
@@ -970,11 +189,11 @@
         <option value="$PROJECT_DIR$/resources/profile.pkl" />
         <option value="$PROJECT_DIR$/cleanup.command" />
         <option value="$PROJECT_DIR$/CONFIG.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/load.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/__main__.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/load.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
       </list>
     </option>
   </component>
@@ -1014,8 +233,7 @@
             <path>
               <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
               <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="pacakges" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1046,13 +264,13 @@
     <property name="vcs.patch.path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/fonts" />
       <recent name="$PROJECT_DIR$/resources/scripts" />
       <recent name="$PROJECT_DIR$/venv/lib/python2.7/site-packages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1314,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524928811905</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="venv optional">
+      <created>1524930342413</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1524930342413</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1327,17 +552,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="800" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50528544" side_tool="true" weight="0.27311522" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.27311522" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4947146" visible="true" weight="0.27311522" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32719547" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3257468" />
       <window_info id="Structure" order="1" sideWeight="0.5019305" side_tool="true" weight="0.2508711" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49964765" visible="true" weight="0.32716927" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985849" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49964765" weight="0.32716927" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39829302" />
       <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1407,7 +633,8 @@
     <MESSAGE value="profile" />
     <MESSAGE value="venv" />
     <MESSAGE value="requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="requirements.txt" />
+    <MESSAGE value="venv optional" />
+    <option name="LAST_COMMIT_MESSAGE" value="venv optional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1459,13 +686,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/chinese.json" />
-    <entry file="file://$PROJECT_DIR$/venv/bin/activate_this.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/activate_this.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/os/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5069" />
@@ -1558,11 +779,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/include/site/python2.7/pygame/_pygame.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1361" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/include/site/python2.7/pygame/_pygame.h" />
     <entry file="file://$PROJECT_DIR$/logs/2018-04-17.log" />
     <entry file="file://$PROJECT_DIR$/logs/2018-04-20.log" />
     <entry file="file://$PROJECT_DIR$/resources/lang/español.json">
@@ -1625,7 +842,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
+        <state relative-caret-position="540">
           <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
         </state>
       </provider>
@@ -1634,27 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="216" column="71" selection-start-line="216" selection-start-column="71" selection-end-line="216" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="312" column="35" selection-start-line="312" selection-start-column="35" selection-end-line="312" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="234" column="64" selection-start-line="234" selection-start-column="64" selection-end-line="234" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -1667,23 +863,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+        <state relative-caret-position="405">
+          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="e#653#662#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-243" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/core.py" />
     <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="43">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="219" column="47" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="219" column="38" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="271" column="11" selection-start-line="271" selection-start-column="11" selection-end-line="271" selection-end-column="11" />
         </state>
       </provider>
     </entry>

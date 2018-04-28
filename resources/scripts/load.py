@@ -216,4 +216,6 @@ selectedUnitTxt = TxtOrBt(["", False, [0, 0, 0]], [None, 45])
 redCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
 blueCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
 
+redBar = BarSprite(1, 2, [255, 0, 0])
+blueBar = BarSprite(1, 2, [0, 0, 255])
 bullets = pygame.sprite.Group()

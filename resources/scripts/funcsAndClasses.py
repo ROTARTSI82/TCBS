@@ -206,7 +206,7 @@ def updaterects():
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
     global redCostTxt, blueCostTxt, profileHeading, profileLost, profileWon
-    global profileMatches
+    global profileMatches, redBar, blueBar
 
     startBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
     mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
@@ -234,6 +234,9 @@ def updaterects():
     profileLost.rect.center = [screen.get_width()/2, 130]
     profileTimePlayed.rect.center = [screen.get_width() / 2, 200]
 
+    blueBar.rect.bottomleft = [0, screen.get_height()]
+    redBar.rect.bottomright = [screen.get_width(), screen.get_height()]
+
 
 class Marker(pygame.sprite.Sprite):
     """
@@ -246,6 +249,31 @@ class Marker(pygame.sprite.Sprite):
             self.image = pygame.Surface([10, 10])
         self.rect = self.image.get_rect()
         self.rect.center = pygame.mouse.get_pos()
+
+
+class BarSprite(pygame.sprite.Sprite):
+    """
+    A sprite class for sprites such as health bars
+    """
+    def __init__(self, value, maxval, color):
+        global screen
+        self.color = color
+        self.image = pygame.Surface([int(value/float(maxval)*screen.get_width()), 10])
+        self.image.fill(self.color)
+        self.rect = self.image.get_rect()
+
+    def update(self, value, maxval):
+        """
+        Update the surface
+
+        :type value: int
+        :type maxval: int
+        :rtype: None
+        """
+        self.image = pygame.Surface([int(value/float(maxval)*screen.get_width()), 10])
+        self.image.fill(self.color)
+        self.rect = self.image.get_rect()
+        updaterects()
 
 
 class TxtOrBt(pygame.sprite.Sprite):
