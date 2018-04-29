@@ -169,7 +169,7 @@ def updateselectedunit(movenum):
             log("EXCEPTION", "Cannot update selectedUnitTxt: "+str(e))
             alreadyHandled.append(str(e))
         selectedUnitTxt = TxtOrBt(["ERROR", False, [255, 0, 0]], [None, 45])
-    selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
+    updaterects()
 
 
 def updateprofile():
@@ -217,15 +217,15 @@ def updaterects():
     global redCostTxt, blueCostTxt, profileHeading, profileLost, profileWon
     global profileMatches, redBar, blueBar
 
-    startBt.rect.center = [screen.get_width()/2, screen.get_height()-30]
+    startBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
     mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
-    backBt.rect.bottomleft = [5, screen.get_height()-15]
+    backBt.rect.bottomleft = [5, screen.get_height()-10]
     playBt.rect.center = [screen.get_width()/2, screen.get_height()/2]
     joinBt.rect.bottomright = [screen.get_width()/2-5, screen.get_height()-5]
     createBt.rect.bottomleft = [screen.get_width()/2+5, screen.get_height()-5]
     serverHelpBt.rect.topright = [screen.get_width()-5, 5]
-    prevBt.rect.topleft = [10, 10]
-    nextBt.rect.topright = [screen.get_width()-10, 10]
+    prevBt.rect.topleft = [10, 15]
+    nextBt.rect.topright = [screen.get_width()-10, 15]
     clearBlueBt.rect.center = [screen.get_width() / 4, 75]
     clearRedBt.rect.center = [screen.get_width() / 4 * 3, 75]
     profileBt.rect.topleft = [5, 5]
@@ -234,17 +234,17 @@ def updaterects():
                                   screen.get_height()/2-50]
     serverTxt.rect.center = [screen.get_width()/2, screen.get_height()/2]
     serverMsg.rect.center = [screen.get_width()/2, screen.get_height()/2-45]
-    selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
-    redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 30]
-    blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 30]
+    selectedUnitTxt.rect.center = [screen.get_width()/2, 35]
+    redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 20]
+    blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 20]
     profileHeading.rect.center = [screen.get_width()/2, 40]
     profileMatches.rect.center = [screen.get_width()/2, 70]
     profileWon.rect.center = [screen.get_width()/2, 100]
     profileLost.rect.center = [screen.get_width()/2, 130]
     profileTimePlayed.rect.center = [screen.get_width() / 2, 200]
 
-    blueBar.rect.bottomleft = [0, screen.get_height()]
-    redBar.rect.bottomright = [screen.get_width(), screen.get_height()]
+    blueBar.rect.topleft = [0, 0]
+    redBar.rect.topright = [screen.get_width(), 0]
 
 
 class Marker(pygame.sprite.Sprite):
