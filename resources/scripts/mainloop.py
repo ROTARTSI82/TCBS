@@ -82,6 +82,8 @@ while running:
         screen.blit(blueCostTxt.image, blueCostTxt.rect)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(redBar.image, redBar.rect)
+        screen.blit(blueBar.image, blueBar.rect)
         screen.blit(clearBlueBt.image, clearBlueBt.rect)
         screen.blit(clearRedBt.image, clearRedBt.rect)
         pygame.display.flip()
@@ -140,6 +142,7 @@ while running:
                 running = False
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
+                updatecost()
                 updaterects()
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
@@ -260,6 +263,7 @@ while running:
                     pygame.sprite.spritecollide(cursor, sndbxRUnits, True)
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
+                updatecost()
                 updaterects()
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:

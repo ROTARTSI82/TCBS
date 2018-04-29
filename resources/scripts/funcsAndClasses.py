@@ -86,11 +86,20 @@ def updatecost():
     """
     global sndbxRUnits, sndbxBUnits, coinsSpent
     global redCostTxt, blueCostTxt, battleStartTime
+    global redBar, blueBar
+    hplist = [0, 0]
     coinsSpent = [0, 0]
     for i in sndbxRUnits:
         coinsSpent[1] += i.cost
+        hplist[1] += i.health
     for i in sndbxBUnits:
         coinsSpent[0] += i.cost
+        hplist[0] += i.health
+    try:
+        redBar.update(hplist[1], sum(hplist))
+        blueBar.update(hplist[0], sum(hplist))
+    except:
+        pass
     redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
     blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
     updaterects()
@@ -208,9 +217,9 @@ def updaterects():
     global redCostTxt, blueCostTxt, profileHeading, profileLost, profileWon
     global profileMatches, redBar, blueBar
 
-    startBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
+    startBt.rect.center = [screen.get_width()/2, screen.get_height()-30]
     mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
-    backBt.rect.bottomleft = [5, screen.get_height()-5]
+    backBt.rect.bottomleft = [5, screen.get_height()-15]
     playBt.rect.center = [screen.get_width()/2, screen.get_height()/2]
     joinBt.rect.bottomright = [screen.get_width()/2-5, screen.get_height()-5]
     createBt.rect.bottomleft = [screen.get_width()/2+5, screen.get_height()-5]
@@ -226,8 +235,8 @@ def updaterects():
     serverTxt.rect.center = [screen.get_width()/2, screen.get_height()/2]
     serverMsg.rect.center = [screen.get_width()/2, screen.get_height()/2-45]
     selectedUnitTxt.rect.center = [screen.get_width()/2, 30]
-    redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 20]
-    blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 20]
+    redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 30]
+    blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 30]
     profileHeading.rect.center = [screen.get_width()/2, 40]
     profileMatches.rect.center = [screen.get_width()/2, 70]
     profileWon.rect.center = [screen.get_width()/2, 100]
