@@ -75,7 +75,7 @@ class TCBSClient(ConnectionListener):
             updateselectedunit(0)
 
     def Network_test(self, data):  # EXPIREMENTAL
-        print(data['test'])
+        print("Client gotit")
 
     def Network_connected(self, data):
         """
@@ -175,7 +175,7 @@ class TCBSChannel(Channel):
         raise Exception(data["reason"])
 
     def Network_test(self, data):  # EXPIREMENTAL
-        print(data['test'])
+        print("Channel gotit. Forwarding...")
         self._server.sendtoall(data)
 
     def Network_players(self, data):

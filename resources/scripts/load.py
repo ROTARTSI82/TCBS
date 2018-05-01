@@ -44,10 +44,12 @@ if majorPyVer == 2:
     from PodSixNet.Server import Server
     from PodSixNet.Channel import Channel
     from PodSixNet.Connection import connection, ConnectionListener
+    from PodSixNet.rencode import serializable
 elif majorPyVer == 3:
     from PodSixNetPython3.Server import Server
     from PodSixNetPython3.Channel import Channel
     from PodSixNetPython3.Connection import connection, ConnectionListener
+    from PodSixNetPython3.rencode import serializable
 
 pygame.init()
 screen = pygame.display.set_mode(*screenArgs)
@@ -158,6 +160,7 @@ for i in rawList:
     try:
         executefile("units/"+i+"/unit.py")
         unitList.append([SandboxUnit, MultiplayerUnit])
+        serializable.register(MultiplayerUnit)
         log("UNITS", "%s was successful!" % i)
     except Exception as e:
         if not str(e) in alreadyHandled:

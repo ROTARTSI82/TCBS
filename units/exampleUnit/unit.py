@@ -116,13 +116,32 @@ class SandboxUnit(pygame.sprite.Sprite):
         pass
 
 
-class MultiplayerUnit(pygame.sprite.Sprite):
+class ExampleUnitMultiplayer(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
     name = "exampleUnit - $20"
 
-    def __init__(self, pos, team): pass
+    def __init__(self, pos, team, image=None):
+        pygame.sprite.Sprite.__init__(self)
+        self.team = team
+        if image is None:
+            self.image = pygame.Surface([25, 25])
+            if team == "red":
+                self.image.fill([255, 0, 0])
+            elif team == "blue":
+                self.image.fill([0, 0, 255])
+        elif image is not None:
+            self.image = pygame.image.fromstring(*image)
+        self.rect = self.image.get_rect()
+        self.rect.center = pos
+
+    def _pack(self):
+        return (self.rect.center, self.team,
+                (pygame.image.tostring(self.image, "RGB"), self.image.get_size(), "RGB"))
+
+
+MultiplayerUnit = ExampleUnitMultiplayer
 
 
 class SmartBullet(pygame.sprite.Sprite):

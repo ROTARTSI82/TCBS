@@ -434,7 +434,8 @@ while running:
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
-                c.Send({"action": "test", "test": "Hello World!"})  # EXPIREMENTAL
+                multInstance = unitList[0][1]([0, 0], "red")  # EXPIREMENTAL
+                c.Send({"action": "test", "unit": (multInstance, )})  # EXPIREMENTAL
                 if backBt in cbCollide and event.button:
                     menuBlip.play()
                     state = "mult-start"
