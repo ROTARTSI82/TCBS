@@ -116,7 +116,7 @@ class SandboxUnit(pygame.sprite.Sprite):
         pass
 
 
-class ExampleUnitMultiplayer(pygame.sprite.Sprite):
+class MultiplayerUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
@@ -141,12 +141,12 @@ class ExampleUnitMultiplayer(pygame.sprite.Sprite):
                 (pygame.image.tostring(self.image, "RGB"), self.image.get_size(), "RGB"))
 
 
-MultiplayerUnit = ExampleUnitMultiplayer
+MultiplayerUnit.__name__ = "unique string goes here"
 
 
 class SmartBullet(pygame.sprite.Sprite):
     """
-    NotImplemented
+    The Bullets shot by your soldier!
     """
     def __init__(self, pos, team):
         # Define basic attributes
@@ -164,9 +164,9 @@ class SmartBullet(pygame.sprite.Sprite):
 
     def update(self):
         """
-        NotImplemented
+        Add code to move your bullet!
 
-        :return: None
+        :rtype: None
         """
         global sndbxRUnits, sndbxBUnits
 

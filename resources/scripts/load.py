@@ -12,6 +12,7 @@ import os
 import platform
 import sys
 import subprocess
+import inspect
 
 start = datetime.datetime.now()
 
@@ -159,8 +160,11 @@ unitList = []
 for i in rawList:
     try:
         executefile("units/"+i+"/unit.py")
-        unitList.append([SandboxUnit, MultiplayerUnit])
+        assert inspect.isclass(SandboxUnit), "SandboxUnit isn't class"
+        assert inspect.isclass(MultiplayerUnit), "MultiplayerUnit isn't class"
+        assert inspect.ismethod(MultiplayerUnit._pack), "MultiplayerUnit._pack isn't method"
         serializable.register(MultiplayerUnit)
+        unitList.append([SandboxUnit, MultiplayerUnit])
         log("UNITS", "%s was successful!" % i)
     except Exception as e:
         if not str(e) in alreadyHandled:
@@ -188,6 +192,10 @@ elif majorPyVer == 2:
 try:
     with open("resources/profile.pkl", "rb") as fp:
         myProfile = pickle.load(fp)
+    assert type(myProfile['time-played']) == datetime.timedelta, "time-played isn't timedelta"
+    assert type(myProfile['mult-wins']) == int, "mult-wins isn't int"
+    assert type(myProfile['mult-losses']) == int, "mult-losses isn't int"
+    assert type(myProfile['mult-matches']) == int, "mult-matches isn't int"
     log("PROFILE", "Got from profile.pkl: "+str(myProfile))
 except IOError as e:
     log("EXCEPTION", "Cannot load profile: "+str(e))

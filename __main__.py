@@ -22,7 +22,7 @@ import sys
 
 __appName__ = "Totally Customizable Battle Simulator"
 __version__ = "a21.18.04.15"
-__author__ = "Grant Yang"
+__author__ = "Grant Yang <rotartsi0482@gmail.com>"
 
 def executefile(filepath, globalsdict=globals(), localsdict=locals()):
     """
@@ -43,7 +43,7 @@ try:
     executefile("venv/bin/activate_this.py", dict(__file__=os.getcwd()+"venv/bin/activate_this.py"))
     sys.path.append(os.getcwd()+"/venv/lib/python2.7/site-packages")
 except IOError:
-    pass
+    raise
 
 # TODO
 # Add translations for "CLEAR"

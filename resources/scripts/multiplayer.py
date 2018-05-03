@@ -76,6 +76,7 @@ class TCBSClient(ConnectionListener):
 
     def Network_test(self, data):  # EXPIREMENTAL
         print("Client gotit")
+        print(data)
 
     def Network_connected(self, data):
         """
