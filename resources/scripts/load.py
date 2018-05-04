@@ -11,7 +11,6 @@ import json
 import os
 import platform
 import sys
-import subprocess
 import inspect
 
 start = datetime.datetime.now()
@@ -207,7 +206,6 @@ log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)
 
 mltPlayBt = TxtOrBt(["MULTIPLAYER", False, [0, 0, 0], [255, 0, 255]], [None, 50])
-mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
 startBt = TxtOrBt(["START", False, [0, 0, 0], [0, 255, 0]], [None, 45])
 backBt = TxtOrBt(["BACK", False, [0, 0, 0], [255, 0, 0]], [None, 40])
 playBt = TxtOrBt(["SANDBOX", False, [0, 0, 0], [0, 255, 0]], [None, 55])

@@ -5,6 +5,7 @@
 (.../TCBS/resources/scripts/mainloop.py)
 
 """
+import webbrowser
 
 if False:
     # Ignore this code. It makes PyCharm happy
@@ -154,7 +155,7 @@ while running:
             vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
-            screen.blit(vicMsg.image, vicMsg.rect.center)
+            screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
             updatecost()
             state = "sndbx-placeUnits"
@@ -167,7 +168,7 @@ while running:
             vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
-            screen.blit(vicMsg.image, vicMsg.rect.center)
+            screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
             updatecost()
             state = "sndbx-placeUnits"
@@ -179,7 +180,7 @@ while running:
             vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width()/2, screen.get_height()/2]
-            screen.blit(vicMsg.image, vicMsg.rect.center)
+            screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
             updatecost()
             state = "sndbx-placeUnits"

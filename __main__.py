@@ -43,7 +43,8 @@ try:
     executefile("venv/bin/activate_this.py", dict(__file__=os.getcwd()+"venv/bin/activate_this.py"))
     sys.path.append(os.getcwd()+"/venv/lib/python2.7/site-packages")
 except IOError:
-    raise
+    print("!WARNING: venv disabled!")
+    print("Assuming pygame and PodSixNet are installed...")
 
 # TODO
 # Add translations for "CLEAR"

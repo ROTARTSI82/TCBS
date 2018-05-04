@@ -191,11 +191,7 @@ def updateprofile():
     profileTimePlayed = TxtOrBt(["Time Played: " + str(myProfile['time-played']),
                                  False, [0, 0, 0]], [None, 40])
 
-    profileHeading.rect.center = [screen.get_width() / 2, 40]
-    profileMatches.rect.center = [screen.get_width() / 2, 70]
-    profileWon.rect.center = [screen.get_width() / 2, 100]
-    profileLost.rect.center = [screen.get_width() / 2, 130]
-    profileTimePlayed.rect.center = [screen.get_width() / 2, 200]
+    updaterects()
 
     upend = datetime.datetime.now()
     myProfile['time-played'] += (upend - start)
@@ -238,10 +234,10 @@ def updaterects():
     redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 20]
     blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 20]
     profileHeading.rect.center = [screen.get_width()/2, 40]
-    profileMatches.rect.center = [screen.get_width()/2, 70]
-    profileWon.rect.center = [screen.get_width()/2, 100]
-    profileLost.rect.center = [screen.get_width()/2, 130]
-    profileTimePlayed.rect.center = [screen.get_width() / 2, 200]
+    profileMatches.rect.center = [screen.get_width()/2, 75]
+    profileWon.rect.center = [screen.get_width()/2, 110]
+    profileLost.rect.center = [screen.get_width()/2, 145]
+    profileTimePlayed.rect.center = [screen.get_width() / 2, 220]
 
     blueBar.rect.topleft = [0, 0]
     redBar.rect.topright = [screen.get_width(), 0]

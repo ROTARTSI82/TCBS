@@ -43,7 +43,7 @@ copyKey = K_F2
 pasteKey = K_F3
 endBattleKey = K_ESCAPE
 # What language file to load and in what font
-langFont = "resources/fonts/SimSun.ttf"
+langFont = None
 langList = [u"resources/lang/deutsche.json", u"resources/lang/english.json",
             u"resources/lang/español.json", u"resources/lang/français.json",
             u"resources/lang/javanese.json", u"resources/lang/português.json",
@@ -51,4 +51,4 @@ langList = [u"resources/lang/deutsche.json", u"resources/lang/english.json",
             u"resources/lang/русский.json", u"resources/lang/中文.json"]
 langFile = langList[1]
 # Fontsizes are multiplied by GUI Scale in case you want to change the fontsize
-GUIScale = 0.75
+GUIScale = 1
