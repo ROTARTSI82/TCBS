@@ -44,7 +44,25 @@ try:
     sys.path.append(os.getcwd()+"/venv/lib/python2.7/site-packages")
 except IOError:
     print("!WARNING: venv disabled!")
-    print("Assuming pygame and PodSixNet are installed...")
+    print("Testing pygame and PodSixNet...")
+    try:
+        if sys.version[:1] == '2':
+            from PodSixNet.Server import Server
+            from PodSixNet.Channel import Channel
+            from PodSixNet.Connection import connection, ConnectionListener
+            from PodSixNet.rencode import serializable
+        elif sys.version[:1] == '3':
+            from PodSixNetPython3.Server import Server
+            from PodSixNetPython3.Channel import Channel
+            from PodSixNetPython3.Connection import connection, ConnectionListener
+            from PodSixNetPython3.rencode import serializable
+        import pygame
+        from pygame.locals import *
+        print("Success! Continuing execution...")
+    except ImportError:
+        print("PodSixNet or pygame is missing!")
+        print("Please install PodSixNet and pygame. Exiting...")
+        sys.exit(0)
 
 # TODO
 # Add translations for "CLEAR"

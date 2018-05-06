@@ -86,23 +86,59 @@ def updatecost():
     """
     global sndbxRUnits, sndbxBUnits, coinsSpent
     global redCostTxt, blueCostTxt, battleStartTime
-    global redBar, blueBar
+    global redBar, blueBar, multBUnits, multRUnits
     hplist = [0, 0]
     coinsSpent = [0, 0]
-    for i in sndbxRUnits:
-        coinsSpent[1] += i.cost
-        hplist[1] += i.health
-    for i in sndbxBUnits:
-        coinsSpent[0] += i.cost
-        hplist[0] += i.health
-    try:
-        redBar.update(hplist[1], sum(hplist))
-        blueBar.update(hplist[0], sum(hplist))
-    except:
-        pass
-    redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
-    blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
-    updaterects()
+    if state in ["sndbx-placeUnits", "sndbx-battle"]:
+        for i in sndbxRUnits:
+            try:
+                coinsSpent[1] += i.cost
+                hplist[1] += i.health
+            except Exception as e:
+                if str(e) not in alreadyHandled:
+                    alreadyHandled.append(str(e))
+                    log("EXCEPTION", "updatecost() failed: "+str(e))
+        for i in sndbxBUnits:
+            try:
+                coinsSpent[0] += i.cost
+                hplist[0] += i.health
+            except Exception as e:
+                if str(e) not in alreadyHandled:
+                    alreadyHandled.append(str(e))
+                    log("EXCEPTION", "updatecost() failed: "+str(e))
+        try:
+            redBar.update(hplist[1], sum(hplist))
+            blueBar.update(hplist[0], sum(hplist))
+        except:
+            pass
+        redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
+        blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
+        updaterects()
+    elif state in ["mult-placeUnits", "mult-battle"]:
+        for i in multRUnits:
+            try:
+                coinsSpent[1] += i.cost
+                hplist[1] += i.health
+            except Exception as e:
+                if str(e) not in alreadyHandled:
+                    alreadyHandled.append(str(e))
+                    log("EXCEPTION", "updatecost() failed: "+str(e))
+        for i in multBUnits:
+            try:
+                coinsSpent[0] += i.cost
+                hplist[0] += i.health
+            except Exception as e:
+                if str(e) not in alreadyHandled:
+                    alreadyHandled.append(str(e))
+                    log("EXCEPTION", "updatecost() failed: "+str(e))
+        try:
+            redBar.update(hplist[1], sum(hplist))
+            blueBar.update(hplist[0], sum(hplist))
+        except:
+            pass
+        redCostTxt = TxtOrBt(["Coins: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
+        blueCostTxt = TxtOrBt(["Coins: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
+        updaterects()
 
 
 def take_screenshot():

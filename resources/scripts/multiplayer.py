@@ -39,14 +39,15 @@ class TCBSClient(ConnectionListener):
             serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
             serverMsg.rect.center = [screen.get_width() / 2,
                                      screen.get_height() / 2 - 45]
-            c.Send({"action": "leave"})
-            try:
-                connection.Pump()
-                self.Pump()
-            except:
-                pass
-            if selfIsHost:
-                s.shutdown()
+            if str(e) != "Game already full":
+                c.Send({"action": "leave"})
+                try:
+                    connection.Pump()
+                    self.Pump()
+                except:
+                    pass
+                if selfIsHost:
+                    s.shutdown()
             state = "mult-start"
             set_music("resources/sounds/menuMusic.wav")
 
@@ -72,6 +73,7 @@ class TCBSClient(ConnectionListener):
         if data["players"] == 2:
             log("CLIENT", "Starting game...")
             state = "mult-placeUnits"
+            updatecost()
             updateselectedunit(0)
 
     def Network_test(self, data):  # EXPIREMENTAL
@@ -144,13 +146,14 @@ class TCBSChannel(Channel):
             serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
             serverMsg.rect.center = [screen.get_width() / 2,
                                      screen.get_height() / 2 - 45]
-            c.Send({"action": "leave"})
-            try:
-                c.loop()
-            except:
-                self._server.shutdown()
-            if selfIsHost:
-                s.shutdown()
+            if str(e) != "Game already full":
+                c.Send({"action": "leave"})
+                try:
+                    c.loop()
+                except:
+                    self._server.shutdown()
+                if selfIsHost:
+                    s.shutdown()
             state = "mult-start"
             set_music("resources/sounds/menuMusic.wav")
 
@@ -190,6 +193,7 @@ class TCBSChannel(Channel):
         if data["players"] == 2:
             log("CHANNEL", "Starting game...")
             state = "mult-placeUnits"
+            updatecost()
             updateselectedunit(0)
 
 
@@ -212,7 +216,12 @@ class TCBSServer(Server):
         :type addr: tuple
         :rtype: None
         """
-        self.addplayer(channel)
+        if len(self.players) < 2:
+            self.addplayer(channel)
+        else:
+            print addr
+            log("SERVER", "Kicked player because Game already full")
+            channel.Send({"action": "kick", "reason": "Game already full"})
 
     def addplayer(self, player):
         """
@@ -224,10 +233,6 @@ class TCBSServer(Server):
         """
         log("SERVER", "New Player" + str(player.addr))
         self.players[player] = True
-        if len(self.players) > 2:
-            player.Send({"action": "kick", "reason": "Game already full"})
-            log("SERVER", "Kicked Player" + str(player.addr))
-            self.delplayer(player)
         self.sendplayers()
 
     def delplayer(self, player):
@@ -289,12 +294,13 @@ class TCBSServer(Server):
             serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
             serverMsg.rect.center = [screen.get_width() / 2,
                                      screen.get_height() / 2 - 45]
-            c.Send({"action": "leave"})
-            try:
-                self.loop()
-            except:
-                pass
-            if selfIsHost:
-                s.shutdown()
+            if str(e) != "Game already full":
+                c.Send({"action": "leave"})
+                try:
+                    self.loop()
+                except:
+                    pass
+                if selfIsHost:
+                    s.shutdown()
             state = "mult-start"
             set_music("resources/sounds/menuMusic.wav")

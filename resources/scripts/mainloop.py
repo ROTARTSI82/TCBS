@@ -431,13 +431,40 @@ while running:
         c.loop()
         if selfIsHost:
             s.loop()
+        pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
+                         [screen.get_width() / 2, screen.get_height() + 5], 5)
+        multRUnits.draw(screen)
+        multBUnits.draw(screen)
+        screen.blit(startBt.image, startBt.rect)
         screen.blit(backBt.image, backBt.rect)
+        screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
+        screen.blit(redCostTxt.image, redCostTxt.rect)
+        screen.blit(blueCostTxt.image, blueCostTxt.rect)
+        screen.blit(nextBt.image, nextBt.rect)
+        screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(redBar.image, redBar.rect)
+        screen.blit(blueBar.image, blueBar.rect)
+        screen.blit(clearBlueBt.image, clearBlueBt.rect)
+        screen.blit(clearRedBt.image, clearRedBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
-                multInstance = unitList[0][1]([0, 0], "red")  # EXPIREMENTAL
-                c.Send({"action": "test", "unit": (multInstance, )})  # EXPIREMENTAL
-                if backBt in cbCollide and event.button:
+                if clearRedBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    multRUnits = pygame.sprite.Group()
+                    updatecost()
+                    continue
+                if clearBlueBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    multBUnits = pygame.sprite.Group()
+                    updatecost()
+                    continue
+                if startBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    state = "mult-battle"
+                    log("BATTLE", "Battle started")
+                    continue
+                if backBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     state = "mult-start"
                     c.Send({"action": "leave"})
@@ -445,20 +472,182 @@ while running:
                     if selfIsHost:
                         s.shutdown()
                     set_music("resources/sounds/menuMusic.wav")
+                    continue
+                if nextBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(+1)
+                    continue
+                if prevBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                    continue
+
+                if event.button == 1:
+                    try:
+                        menuBlip.play()
+                        if cursor.rect.center[0] > screen.get_width() / 2:
+                            multRUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "red"))
+                        if cursor.rect.center[0] < screen.get_width() / 2:
+                            multBUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "blue"))
+                        updatecost()
+                    except Exception as e:
+                        if not str(e) in alreadyHandled:
+                            log("EXCEPTION", "Cannot create unit instance: " + str(e))
+                            alreadyHandled.append(str(e))
+                if event.button == 3:
+                    menuBlip.play()
+                    pygame.sprite.spritecollide(cursor, multBUnits, True)
+                    pygame.sprite.spritecollide(cursor, multRUnits, True)
+                    updatecost()
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
             if event.type == QUIT:
+                running = False
                 c.Send({"action": "leave"})
                 c.loop()
                 if selfIsHost:
                     s.shutdown()
-                running = False
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
+                updatecost()
                 updaterects()
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
+    if state == "mult-battle":
+        c.loop()
+        if selfIsHost:
+            s.loop()
+        if len(multRUnits) == 0 and len(multBUnits) == 0:
+            log("BATTLE", "Draw!")
+            bullets = pygame.sprite.Group()
+            screen.fill([255, 255, 255])
+            vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect)
+            pygame.display.flip()
+            updatecost()
+            state = "mult-placeUnits"
+            pygame.time.wait(1000)
+            continue
+        if len(multRUnits) == 0:
+            log("BATTLE", "Blue Victory!")
+            bullets = pygame.sprite.Group()
+            screen.fill([255, 255, 255])
+            vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect)
+            pygame.display.flip()
+            updatecost()
+            state = "mult-placeUnits"
+            pygame.time.wait(1000)
+        if len(multBUnits) == 0:
+            log("BATTLE", "Red Victory!")
+            bullets = pygame.sprite.Group()
+            screen.fill([255, 255, 255])
+            vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect)
+            pygame.display.flip()
+            updatecost()
+            state = "mult-placeUnits"
+            pygame.time.wait(1000)
+        BbulletCol = pygame.sprite.groupcollide(bullets, multBUnits, False, False)
+        RbulletCol = pygame.sprite.groupcollide(bullets, multRUnits, False, False)
+        soldierCol = pygame.sprite.groupcollide(multBUnits, multRUnits, False, False)
+        try:
+            totalBlueHP = 0
+            totalRedHP = 0
+            for i in multBUnits:
+                totalBlueHP += i.health
+                i.update()
+            for i in multRUnits:
+                i.update()
+                totalRedHP += i.health
+            blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
+            redBar.update(totalRedHP, totalBlueHP + totalRedHP)
+            bullets.update()
+            for i in BbulletCol.keys():
+                i.on_bullet_hit(BbulletCol[i])
+                for j in BbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in RbulletCol.keys():
+                i.on_bullet_hit(RbulletCol[i])
+                for j in RbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in soldierCol.keys():
+                i.on_soldier_hit(soldierCol[i])
+                for j in soldierCol[i]:
+                    j.on_soldier_hit([i, ])
+        except Exception as e:
+            if str(e) not in alreadyHandled:
+                log("EXCEPTION", "Cannot update AI: " + str(e))
+                alreadyHandled.append(str(e))
+        pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
+                         [screen.get_width() / 2, screen.get_height() + 5], 5)
+        screen.blit(nextBt.image, nextBt.rect)
+        screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(redBar.image, redBar.rect)
+        screen.blit(blueBar.image, blueBar.rect)
+        screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
+        try:
+            bullets.draw(screen)
+            multRUnits.draw(screen)
+            multBUnits.draw(screen)
+        except Exception as e:
+            if str(e) not in alreadyHandled:
+                log("EXCEPTION", "Cannot render units: " + str(e))
+                alreadyHandled.append(str(e))
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                running = False
+                c.Send({"action": "leave"})
+                c.loop()
+                if selfIsHost:
+                    s.shutdown()
+            if event.type == MOUSEMOTION:
+                cursor.rect.center = event.pos
+            if event.type == MOUSEBUTTONDOWN:
+                if nextBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(+1)
+                    continue
+                if prevBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                    continue
+
+                if event.button == 1:
+                    try:
+                        menuBlip.play()
+                        if cursor.rect.center[0] > screen.get_width() / 2:
+                            multRUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "red"))
+                        if cursor.rect.center[0] < screen.get_width() / 2:
+                            multBUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "blue"))
+                    except Exception as e:
+                        if not str(e) in alreadyHandled:
+                            log("EXCEPTION", "Cannot create unit instance: " + str(e))
+                            alreadyHandled.append(str(e))
+                if event.button == 3:
+                    menuBlip.play()
+                    pygame.sprite.spritecollide(cursor, multBUnits, True)
+                    pygame.sprite.spritecollide(cursor, multRUnits, True)
+            if event.type == VIDEORESIZE:
+                screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
+                updatecost()
+                updaterects()
+            if event.type == KEYDOWN:
+                if event.key == screenshotKey:
+                    take_screenshot()
+                if event.key == endBattleKey:
+                    menuBlip.play()
+                    log("BATTLE", "Battle was ended via endBattleKey")
+                    updatecost()
+                    state = "mult-placeUnits"
 try:
     connection.Close()
 except RuntimeError as e:

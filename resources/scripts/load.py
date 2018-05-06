@@ -172,6 +172,8 @@ for i in rawList:
 log("UNITS", "unitList == %s" % str(unitList))
 sndbxRUnits = pygame.sprite.Group()
 sndbxBUnits = pygame.sprite.Group()
+multRUnits = pygame.sprite.Group()
+multBUnits = pygame.sprite.Group()
 
 set_music("resources/sounds/menuMusic.wav")
 try:
