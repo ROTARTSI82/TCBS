@@ -123,9 +123,9 @@ while running:
                     try:
                         menuBlip.play()
                         if cursor.rect.center[0] > screen.get_width()/2:
-                            sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
+                            sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width()/2:
-                            sndbxBUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "blue"))
+                            sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
                         updatecost()
                     except Exception as e:
                         if not str(e) in alreadyHandled:
@@ -251,9 +251,9 @@ while running:
                     try:
                         menuBlip.play()
                         if cursor.rect.center[0] > screen.get_width() / 2:
-                            sndbxRUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "red"))
+                            sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width() / 2:
-                            sndbxBUnits.add(unitList[selectedUnitInt][0](cursor.rect.center, "blue"))
+                            sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create unit instance: " + str(e))
@@ -486,9 +486,9 @@ while running:
                     try:
                         menuBlip.play()
                         if cursor.rect.center[0] > screen.get_width() / 2:
-                            multRUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "red"))
+                            multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width() / 2:
-                            multBUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "blue"))
+                            multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
                         updatecost()
                     except Exception as e:
                         if not str(e) in alreadyHandled:
@@ -625,9 +625,9 @@ while running:
                     try:
                         menuBlip.play()
                         if cursor.rect.center[0] > screen.get_width() / 2:
-                            multRUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "red"))
+                            multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
                         if cursor.rect.center[0] < screen.get_width() / 2:
-                            multBUnits.add(unitList[selectedUnitInt][1](cursor.rect.center, "blue"))
+                            multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create unit instance: " + str(e))

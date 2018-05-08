@@ -148,14 +148,16 @@ log("ENVIRONMENT", "Name: "+str(__name__))
 log("ENVIRONMENT", "Package: "+str(__package__))
 
 log("UNITS", "Loading units...")
-selectedUnitInt = 0
+sbUnitInt = 0
+mpUnitInt = 0
 coinsSpent = [0, 0]
 try:
     rawList = os.listdir('units')
 except Exception as e:
     log("EXCEPTION", "Cannot load units: "+str(e))
     rawList = []
-unitList = []
+sbUnits = []
+mpUnits = []
 for i in rawList:
     try:
         executefile("units/"+i+"/unit.py")
@@ -163,13 +165,15 @@ for i in rawList:
         assert inspect.isclass(MultiplayerUnit), "MultiplayerUnit isn't class"
         assert inspect.ismethod(MultiplayerUnit._pack), "MultiplayerUnit._pack isn't method"
         serializable.register(MultiplayerUnit)
-        unitList.append([SandboxUnit, MultiplayerUnit])
+        sbUnits.append(SandboxUnit)
+        mpUnits.append(MultiplayerUnit)
         log("UNITS", "%s was successful!" % i)
     except Exception as e:
         if not str(e) in alreadyHandled:
             log("EXCEPTION", "%s failed: %s" % (i, str(e)))
             alreadyHandled.append(str(e))
-log("UNITS", "unitList == %s" % str(unitList))
+log("UNITS", "sbUnits == %s" % str(sbUnits))
+log("UNITS", "mpUnits == %s" % str(mpUnits))
 sndbxRUnits = pygame.sprite.Group()
 sndbxBUnits = pygame.sprite.Group()
 multRUnits = pygame.sprite.Group()

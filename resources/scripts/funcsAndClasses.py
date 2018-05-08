@@ -187,18 +187,24 @@ def updateselectedunit(movenum):
     :type movenum: int
     :rtype: None
     """
-    global selectedUnitInt, selectedUnitTxt, unitList, state, alreadyHandled
+    global selectedUnitTxt, state, alreadyHandled
+    global sbUnits, mpUnits, mpUnitInt, sbUnitInt
     try:
-        selectedUnitInt += movenum
-        if selectedUnitInt >= len(unitList):
-            selectedUnitInt = 0
-        if selectedUnitInt < 0:
-            selectedUnitInt = len(unitList)-1
         if state == "sndbx-placeUnits":
-            selectedUnitTxt = TxtOrBt([unitList[selectedUnitInt][0].name,
+            sbUnitInt += movenum
+            if sbUnitInt >= len(sbUnits):
+                sbUnitInt = 0
+            if sbUnitInt < 0:
+                sbUnitInt = len(sbUnits) - 1
+            selectedUnitTxt = TxtOrBt([sbUnits[sbUnitInt].name,
                                        False, [0, 0, 0]], [None, 45])
         if state == "mult-placeUnits":
-            selectedUnitTxt = TxtOrBt([unitList[selectedUnitInt][1].name,
+            mpUnitInt += movenum
+            if mpUnitInt >= len(mpUnits):
+                mpUnitInt = 0
+            if mpUnitInt < 0:
+                mpUnitInt = len(mpUnits) - 1
+            selectedUnitTxt = TxtOrBt([mpUnits[mpUnitInt].name,
                                        False, [0, 0, 0]], [None, 45])
     except Exception as e:
         if not str(e) in alreadyHandled:

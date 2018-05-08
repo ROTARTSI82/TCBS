@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONFIG.py" beforeDir="false" afterPath="$PROJECT_DIR$/CONFIG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/load.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/mainloop.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/mainloop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/multiplayer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/units/exampleUnit/unit.py" beforeDir="false" afterPath="$PROJECT_DIR$/units/exampleUnit/unit.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+            <state relative-caret-position="364">
+              <caret line="192" column="37" selection-start-line="192" selection-start-column="37" selection-end-line="192" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -36,8 +32,8 @@
       <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1774">
-              <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+            <state relative-caret-position="-1240">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -45,7 +41,7 @@
       <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
+            <state relative-caret-position="825">
               <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
               <folding>
                 <element signature="e#653#662#0" expanded="true" />
@@ -75,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="load.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="231" column="29" selection-start-line="231" selection-start-column="29" selection-end-line="231" selection-end-column="29" />
+            <state relative-caret-position="219">
+              <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
               <folding>
                 <element signature="e#90#105#0" expanded="true" />
               </folding>
@@ -90,8 +86,8 @@
       <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4515">
-              <caret line="303" column="34" selection-start-line="303" selection-start-column="29" selection-end-line="303" selection-end-column="34" />
+            <state relative-caret-position="180">
+              <caret line="439" column="32" selection-start-line="439" selection-start-column="20" selection-end-line="439" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -99,8 +95,8 @@
       <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
+            <state relative-caret-position="4245">
+              <caret line="283" selection-start-line="283" selection-end-line="283" />
             </state>
           </provider>
         </entry>
@@ -117,9 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TxtOrBt</find>
-      <find>self.debug</find>
-      <find>.debug</find>
       <find>updatehover</find>
       <find>str(datetime.datetime.now())+&quot;.png&quot;</find>
       <find>take_screenshot</find>
@@ -147,6 +140,9 @@
       <find>[selectedUnitInt][0]</find>
       <find>Opponent Disconnected</find>
       <find>.name</find>
+      <find>updateselected</find>
+      <find>unitList</find>
+      <find>selectedUnitInt</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -207,11 +203,11 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/CONFIG.py" />
         <option value="$PROJECT_DIR$/__main__.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/load.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
         <option value="$PROJECT_DIR$/resources/scripts/multiplayer.py" />
         <option value="$PROJECT_DIR$/units/exampleUnit/unit.py" />
         <option value="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/load.py" />
       </list>
     </option>
   </component>
@@ -235,7 +231,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,6 +242,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -599,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525392610165</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="multiplayer basics">
+      <created>1525626773399</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1525626773399</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView">
@@ -613,11 +616,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50317127" side_tool="true" weight="0.32627118" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" visible="true" weight="0.27142859" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4947146" visible="true" weight="0.27142859" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49682876" weight="0.32627118" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32485875" />
       <window_info id="Structure" order="1" sideWeight="0.5019305" side_tool="true" weight="0.2508711" />
@@ -625,12 +629,12 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39689267" />
       <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.32857144" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32859176" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4982382" weight="0.32577905" />
     </layout>
@@ -669,7 +673,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="TEST" />
     <MESSAGE value="test2" />
     <MESSAGE value="Sandbox cost system &amp; clear" />
     <MESSAGE value="multiplayer fix" />
@@ -694,7 +697,8 @@
     <MESSAGE value="multiplayer send instances" />
     <MESSAGE value="requirements.txt update" />
     <MESSAGE value=":)" />
-    <option name="LAST_COMMIT_MESSAGE" value=":)" />
+    <MESSAGE value="multiplayer basics" />
+    <option name="LAST_COMMIT_MESSAGE" value="multiplayer basics" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -939,26 +943,9 @@
         <state relative-caret-position="-641" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="231" column="29" selection-start-line="231" selection-start-column="29" selection-end-line="231" selection-end-column="29" />
-          <folding>
-            <element signature="e#90#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1774">
-          <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
+        <state relative-caret-position="825">
           <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
           <folding>
             <element signature="e#653#662#0" expanded="true" />
@@ -968,22 +955,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
+        <state relative-caret-position="4245">
+          <caret line="283" selection-start-line="283" selection-end-line="283" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4515">
-          <caret line="303" column="34" selection-start-line="303" selection-start-column="29" selection-end-line="303" selection-end-column="34" />
+        <state relative-caret-position="-1240">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+        <state relative-caret-position="364">
+          <caret line="192" column="37" selection-start-line="192" selection-start-column="37" selection-end-line="192" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="439" column="32" selection-start-line="439" selection-start-column="20" selection-end-line="439" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+          <folding>
+            <element signature="e#90#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -17,7 +17,7 @@ class SandboxUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in sandbox mode.
     """
-    name = "exampleUnit - $20"  # What to display at the top when this unit is selected.
+    name = "exampleUnit (SANDBOX) - $20"  # What to display at the top when this unit is selected.
     cost = 20  # How many coins your soldier costs to place
 
     def __init__(self, pos, team):
@@ -120,12 +120,13 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
-    name = "exampleUnit - $20"
+    name = "exampleUnit (MULTIPLAYER) - $20"
     cost = 20
 
     def __init__(self, pos, team, image=None):
         pygame.sprite.Sprite.__init__(self)
         self.team = team
+        self.health = 50
         if image is None:
             self.image = pygame.Surface([25, 25])
             if team == "red":
