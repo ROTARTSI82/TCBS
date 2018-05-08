@@ -249,7 +249,7 @@ def updaterects():
     """
     global startBt, mltPlayBt, backBt, joinBt, serverHelpBt
     global nextBt, playBt, prevBt, nextBt, createBt, clearBlueBt, clearRedBt
-    global profileBt
+    global profileBt, readyBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
     global redCostTxt, blueCostTxt, profileHeading, profileLost, profileWon
@@ -267,6 +267,7 @@ def updaterects():
     clearBlueBt.rect.center = [screen.get_width() / 4, 75]
     clearRedBt.rect.center = [screen.get_width() / 4 * 3, 75]
     profileBt.rect.topleft = [5, 5]
+    readyBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
 
     wait4plyrsTxt.rect.topleft = [screen.get_width()/2-150,
                                   screen.get_height()/2-50]

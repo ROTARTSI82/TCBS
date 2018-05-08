@@ -76,6 +76,8 @@ state = "menu"
 red = 255
 green = 255
 blue = 255
+vCoinRR = coinRR
+vStartBdgt = startBdgt
 alreadyHandled = []
 serverStr = ""
 validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"
@@ -223,6 +225,7 @@ prevBt = TxtOrBt(["<", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 clearBlueBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 clearRedBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 profileBt = TxtOrBt(["PROFILE", False, [0, 0, 0], [255, 255, 0]], [None, 45])
+readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
 
 wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])

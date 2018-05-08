@@ -433,9 +433,11 @@ while running:
             s.loop()
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
-        multRUnits.draw(screen)
-        multBUnits.draw(screen)
-        screen.blit(startBt.image, startBt.rect)
+        if not selfIsHost:
+            multRUnits.draw(screen)
+        elif selfIsHost:
+            multBUnits.draw(screen)
+        screen.blit(readyBt.image, readyBt.rect)
         screen.blit(backBt.image, backBt.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
         screen.blit(redCostTxt.image, redCostTxt.rect)
@@ -459,10 +461,14 @@ while running:
                     multBUnits = pygame.sprite.Group()
                     updatecost()
                     continue
-                if startBt in cbCollide and event.button == 1:
+                if readyBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    state = "mult-battle"
-                    log("BATTLE", "Battle started")
+                    c.Send({"action": "ready"})
+                    readyBt = TxtOrBt(["Waiting...", False, [255, 0, 0],
+                                       [127, 127, 127]], [None, 45])
+                    updaterects()
+                    buttons.remove(readyBt)
+                    log("BATTLE", "Ready sent")
                     continue
                 if backBt in cbCollide and event.button == 1:
                     menuBlip.play()

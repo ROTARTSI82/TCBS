@@ -62,6 +62,28 @@ class TCBSClient(ConnectionListener):
         del self
         raise Exception(data["reason"])
 
+    def Network_updatesets(self, data):
+        """
+        Make sure the client's settings are the same as the server's
+
+        :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
+        :rtype: None
+        """
+        global vCoinRR, vStartBdgt
+        if not selfIsHost:
+            vCoinRR = data['coinRR']
+            vStartBdgt = data['startBdgt']
+
+    def Network_battlestart(self, data):
+        """
+        Start the battle!
+
+        :param data: {"action": "battlestart"}
+        :rtype: None
+        """
+        global state
+        state = "mult-battle"
+
     def Network_players(self, data):
         """
         Sets state to 'mult-placeUnits' once two people are conected
@@ -70,9 +92,13 @@ class TCBSClient(ConnectionListener):
         :rtype: None
         """
         global state, updateselectedunit
+        global coinRR, startBdgt
         if data["players"] == 2:
             log("CLIENT", "Starting game...")
             state = "mult-placeUnits"
+            if selfIsHost:
+                c.Send({"action": "updatesets",
+                        "coinRR": coinRR, "startBdgt": startBdgt})
             updatecost()
             updateselectedunit(0)
 
@@ -182,6 +208,33 @@ class TCBSChannel(Channel):
         print("Channel gotit. Forwarding...")
         self._server.sendtoall(data)
 
+    def Network_updatesets(self, data):
+        """
+        Make sure the client's settings are the same as the server's
+
+        :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
+        :rtype: None
+        """
+        global vCoinRR, vStartBdgt
+        if not selfIsHost:
+            vCoinRR = data['coinRR']
+            vStartBdgt = data['startBdgt']
+        self._server.sendtoall(data)
+
+    def Network_ready(self, data):
+        """
+        Handle ready requests
+
+        :param data: {"action": "ready"}
+        :rtype: None
+        """
+        global state
+        self._server.playersready += 1
+        if self._server.playersready > 1:
+            state = "mult-battle"
+            self._server.sendtoall({"action": "battlestart"})
+            log("BATTLE", "Battle started")
+
     def Network_players(self, data):
         """
         Sets state to 'mult-placeUnits' once two people are conected
@@ -189,10 +242,13 @@ class TCBSChannel(Channel):
         :param data: {"action": "players", "players": len(self._server.players)}
         :rtype: None
         """
-        global state
+        global state, coinRR, startBdgt
         if data["players"] == 2:
             log("CHANNEL", "Starting game...")
             state = "mult-placeUnits"
+            if selfIsHost:
+                c.Send({"action": "updatesets",
+                        "coinRR": coinRR, "startBdgt": startBdgt})
             updatecost()
             updateselectedunit(0)
 
@@ -205,6 +261,7 @@ class TCBSServer(Server):
 
     def __init__(self, *args, **kwargs):
         Server.__init__(self, *args, **kwargs)
+        self.playersready = 0
         self.players = WeakKeyDictionary()
         log("SERVER", "Server launched. Waiting for players...")
 
@@ -219,7 +276,6 @@ class TCBSServer(Server):
         if len(self.players) < 2:
             self.addplayer(channel)
         else:
-            print addr
             log("SERVER", "Kicked player because Game already full")
             channel.Send({"action": "kick", "reason": "Game already full"})
 
