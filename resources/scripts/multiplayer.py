@@ -81,8 +81,10 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "battlestart"}
         :rtype: None
         """
-        global state
+        global state, readyBt
         state = "mult-battle"
+        readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
+        updaterects()
 
     def Network_players(self, data):
         """
@@ -233,6 +235,7 @@ class TCBSChannel(Channel):
         if self._server.playersready > 1:
             state = "mult-battle"
             self._server.sendtoall({"action": "battlestart"})
+            self._server.playersready = 0
             log("BATTLE", "Battle started")
 
     def Network_players(self, data):

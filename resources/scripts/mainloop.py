@@ -464,6 +464,7 @@ while running:
                 if readyBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     c.Send({"action": "ready"})
+                    readyBt.kill()
                     readyBt = TxtOrBt(["Waiting...", False, [255, 0, 0],
                                        [127, 127, 127]], [None, 45])
                     updaterects()
