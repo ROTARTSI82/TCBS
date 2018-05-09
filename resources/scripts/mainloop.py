@@ -492,10 +492,12 @@ while running:
                 if event.button == 1:
                     try:
                         menuBlip.play()
-                        if cursor.rect.center[0] > screen.get_width() / 2:
-                            multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
-                        if cursor.rect.center[0] < screen.get_width() / 2:
-                            multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
+                        if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
+                            if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
+                                multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
+                        if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
+                            if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
+                                multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
                         updatecost()
                     except Exception as e:
                         if not str(e) in alreadyHandled:

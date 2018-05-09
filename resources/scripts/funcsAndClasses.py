@@ -84,7 +84,7 @@ def updatecost():
 
     :rtype: None
     """
-    global sndbxRUnits, sndbxBUnits, coinsSpent
+    global sndbxRUnits, sndbxBUnits, coinsSpent, coinsLeft
     global redCostTxt, blueCostTxt, battleStartTime
     global redBar, blueBar, multBUnits, multRUnits
     hplist = [0, 0]
@@ -136,8 +136,11 @@ def updatecost():
             blueBar.update(hplist[0], sum(hplist))
         except:
             pass
-        redCostTxt = TxtOrBt(["Coins: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
-        blueCostTxt = TxtOrBt(["Coins: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
+        redCostTxt = TxtOrBt(["Coins Left: " + str(vStartBdgt - coinsSpent[1]),
+                              False, [0, 0, 0]], [None, 45])
+        blueCostTxt = TxtOrBt(["Coins Left: " + str(vStartBdgt - coinsSpent[0]),
+                               False, [0, 0, 0]], [None, 45])
+        coinsLeft = [vStartBdgt - coinsSpent[0], vStartBdgt - coinsSpent[1]]
         updaterects()
 
 

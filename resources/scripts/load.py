@@ -153,6 +153,7 @@ log("UNITS", "Loading units...")
 sbUnitInt = 0
 mpUnitInt = 0
 coinsSpent = [0, 0]
+coinsLeft = [0, 0]
 try:
     rawList = os.listdir('units')
 except Exception as e:

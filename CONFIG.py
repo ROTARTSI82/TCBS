@@ -15,7 +15,7 @@ import os
 from pygame.locals import *
 
 # Starting Budget in Multiplayer
-startBdgt = 10000  # How many coins you start with
+startBdgt = 100  # How many coins you start with
 # Coin Regeneration Rate in Multiplayer
 coinRR = 100  # How many coins you get for every second after the battle starts
 # What your name is in Multiplayer
