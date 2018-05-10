@@ -120,17 +120,12 @@ while running:
                     continue
 
                 if event.button == 1:
-                    try:
-                        menuBlip.play()
-                        if cursor.rect.center[0] > screen.get_width()/2:
-                            sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
-                        if cursor.rect.center[0] < screen.get_width()/2:
-                            sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
-                        updatecost()
-                    except Exception as e:
-                        if not str(e) in alreadyHandled:
-                            log("EXCEPTION", "Cannot create unit instance: "+str(e))
-                            alreadyHandled.append(str(e))
+                    menuBlip.play()
+                    if cursor.rect.center[0] > screen.get_width()/2:
+                        sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
+                    if cursor.rect.center[0] < screen.get_width()/2:
+                        sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
+                    updatecost()
                 if event.button == 3:
                     menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
@@ -188,34 +183,29 @@ while running:
         BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
         RbulletCol = pygame.sprite.groupcollide(bullets, sndbxRUnits, False, False)
         soldierCol = pygame.sprite.groupcollide(sndbxBUnits, sndbxRUnits, False, False)
-        try:
-            totalBlueHP = 0
-            totalRedHP = 0
-            for i in sndbxBUnits:
-                totalBlueHP += i.health
-                i.update()
-            for i in sndbxRUnits:
-                i.update()
-                totalRedHP += i.health
-            blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
-            redBar.update(totalRedHP, totalBlueHP + totalRedHP)
-            bullets.update()
-            for i in BbulletCol.keys():
-                i.on_bullet_hit(BbulletCol[i])
-                for j in BbulletCol[i]:
-                    j.on_bullet_hit([i, ])
-            for i in RbulletCol.keys():
-                i.on_bullet_hit(RbulletCol[i])
-                for j in RbulletCol[i]:
-                    j.on_bullet_hit([i, ])
-            for i in soldierCol.keys():
-                i.on_soldier_hit(soldierCol[i])
-                for j in soldierCol[i]:
-                    j.on_soldier_hit([i, ])
-        except Exception as e:
-            if str(e) not in alreadyHandled:
-                log("EXCEPTION", "Cannot update AI: "+str(e))
-                alreadyHandled.append(str(e))
+        totalBlueHP = 0
+        totalRedHP = 0
+        for i in sndbxBUnits:
+            totalBlueHP += i.health
+            i.update()
+        for i in sndbxRUnits:
+            i.update()
+            totalRedHP += i.health
+        blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
+        redBar.update(totalRedHP, totalBlueHP + totalRedHP)
+        bullets.update()
+        for i in BbulletCol.keys():
+            i.on_bullet_hit(BbulletCol[i])
+            for j in BbulletCol[i]:
+                j.on_bullet_hit([i, ])
+        for i in RbulletCol.keys():
+            i.on_bullet_hit(RbulletCol[i])
+            for j in RbulletCol[i]:
+                j.on_bullet_hit([i, ])
+        for i in soldierCol.keys():
+            i.on_soldier_hit(soldierCol[i])
+            for j in soldierCol[i]:
+                j.on_soldier_hit([i, ])
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
@@ -223,14 +213,9 @@ while running:
         screen.blit(redBar.image, redBar.rect)
         screen.blit(blueBar.image, blueBar.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
-        try:
-            bullets.draw(screen)
-            sndbxRUnits.draw(screen)
-            sndbxBUnits.draw(screen)
-        except Exception as e:
-            if str(e) not in alreadyHandled:
-                log("EXCEPTION", "Cannot render units: "+str(e))
-                alreadyHandled.append(str(e))
+        bullets.draw(screen)
+        sndbxRUnits.draw(screen)
+        sndbxBUnits.draw(screen)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -248,16 +233,11 @@ while running:
                     continue
 
                 if event.button == 1:
-                    try:
-                        menuBlip.play()
-                        if cursor.rect.center[0] > screen.get_width() / 2:
-                            sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
-                        if cursor.rect.center[0] < screen.get_width() / 2:
-                            sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
-                    except Exception as e:
-                        if not str(e) in alreadyHandled:
-                            log("EXCEPTION", "Cannot create unit instance: " + str(e))
-                            alreadyHandled.append(str(e))
+                    menuBlip.play()
+                    if cursor.rect.center[0] > screen.get_width() / 2:
+                        sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
+                    if cursor.rect.center[0] < screen.get_width() / 2:
+                        sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
                 if event.button == 3:
                     menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
@@ -454,11 +434,13 @@ while running:
                 if clearRedBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     multRUnits = pygame.sprite.Group()
+                    coinsLeft[1] = vStartBdgt
                     updatecost()
                     continue
                 if clearBlueBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     multBUnits = pygame.sprite.Group()
+                    coinsLeft[0] = vStartBdgt
                     updatecost()
                     continue
                 if readyBt in cbCollide and event.button == 1:
@@ -490,23 +472,24 @@ while running:
                     continue
 
                 if event.button == 1:
-                    try:
-                        menuBlip.play()
-                        if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
-                            if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
-                                multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
-                        if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
-                            if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
-                                multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
-                        updatecost()
-                    except Exception as e:
-                        if not str(e) in alreadyHandled:
-                            log("EXCEPTION", "Cannot create unit instance: " + str(e))
-                            alreadyHandled.append(str(e))
+                    menuBlip.play()
+                    if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
+                        if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
+                            multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
+                            coinsLeft[1] -= mpUnits[mpUnitInt].cost
+                    if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
+                        if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
+                            multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
+                            coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                    updatecost()
                 if event.button == 3:
                     menuBlip.play()
-                    pygame.sprite.spritecollide(cursor, multBUnits, True)
-                    pygame.sprite.spritecollide(cursor, multRUnits, True)
+                    bcol = pygame.sprite.spritecollide(cursor, multBUnits, True)
+                    rcol = pygame.sprite.spritecollide(cursor, multRUnits, True)
+                    for i in bcol:
+                        coinsLeft[0] += i.cost
+                    for i in rcol:
+                        coinsLeft[1] += i.cost
                     updatecost()
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
@@ -567,49 +550,41 @@ while running:
         BbulletCol = pygame.sprite.groupcollide(bullets, multBUnits, False, False)
         RbulletCol = pygame.sprite.groupcollide(bullets, multRUnits, False, False)
         soldierCol = pygame.sprite.groupcollide(multBUnits, multRUnits, False, False)
-        try:
-            totalBlueHP = 0
-            totalRedHP = 0
-            for i in multBUnits:
-                totalBlueHP += i.health
-                i.update()
-            for i in multRUnits:
-                i.update()
-                totalRedHP += i.health
-            blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
-            redBar.update(totalRedHP, totalBlueHP + totalRedHP)
-            bullets.update()
-            for i in BbulletCol.keys():
-                i.on_bullet_hit(BbulletCol[i])
-                for j in BbulletCol[i]:
-                    j.on_bullet_hit([i, ])
-            for i in RbulletCol.keys():
-                i.on_bullet_hit(RbulletCol[i])
-                for j in RbulletCol[i]:
-                    j.on_bullet_hit([i, ])
-            for i in soldierCol.keys():
-                i.on_soldier_hit(soldierCol[i])
-                for j in soldierCol[i]:
-                    j.on_soldier_hit([i, ])
-        except Exception as e:
-            if str(e) not in alreadyHandled:
-                log("EXCEPTION", "Cannot update AI: " + str(e))
-                alreadyHandled.append(str(e))
+        totalBlueHP = 0
+        totalRedHP = 0
+        for i in multBUnits:
+            totalBlueHP += i.health
+            i.update()
+        for i in multRUnits:
+            i.update()
+            totalRedHP += i.health
+        blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
+        redBar.update(totalRedHP, totalBlueHP + totalRedHP)
+        bullets.update()
+        for i in BbulletCol.keys():
+            i.on_bullet_hit(BbulletCol[i])
+            for j in BbulletCol[i]:
+                j.on_bullet_hit([i, ])
+        for i in RbulletCol.keys():
+            i.on_bullet_hit(RbulletCol[i])
+            for j in RbulletCol[i]:
+                j.on_bullet_hit([i, ])
+        for i in soldierCol.keys():
+            i.on_soldier_hit(soldierCol[i])
+            for j in soldierCol[i]:
+                j.on_soldier_hit([i, ])
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(redCostTxt.image, redCostTxt.rect)
+        screen.blit(blueCostTxt.image, blueCostTxt.rect)
         screen.blit(redBar.image, redBar.rect)
         screen.blit(blueBar.image, blueBar.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
-        try:
-            bullets.draw(screen)
-            multRUnits.draw(screen)
-            multBUnits.draw(screen)
-        except Exception as e:
-            if str(e) not in alreadyHandled:
-                log("EXCEPTION", "Cannot render units: " + str(e))
-                alreadyHandled.append(str(e))
+        bullets.draw(screen)
+        multRUnits.draw(screen)
+        multBUnits.draw(screen)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -631,20 +606,25 @@ while running:
                     continue
 
                 if event.button == 1:
-                    try:
-                        menuBlip.play()
-                        if cursor.rect.center[0] > screen.get_width() / 2:
+                    menuBlip.play()
+                    if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
+                        if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
                             multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
-                        if cursor.rect.center[0] < screen.get_width() / 2:
+                            coinsLeft[1] -= mpUnits[mpUnitInt].cost
+                    if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
+                        if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
                             multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
-                    except Exception as e:
-                        if not str(e) in alreadyHandled:
-                            log("EXCEPTION", "Cannot create unit instance: " + str(e))
-                            alreadyHandled.append(str(e))
+                            coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                    updatecost()
                 if event.button == 3:
                     menuBlip.play()
-                    pygame.sprite.spritecollide(cursor, multBUnits, True)
-                    pygame.sprite.spritecollide(cursor, multRUnits, True)
+                    bcol = pygame.sprite.spritecollide(cursor, multBUnits, True)
+                    rcol = pygame.sprite.spritecollide(cursor, multRUnits, True)
+                    for i in bcol:
+                        coinsLeft[0] += i.cost
+                    for i in rcol:
+                        coinsLeft[1] += i.cost
+                    updatecost()
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
                 updatecost()

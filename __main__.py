@@ -69,8 +69,5 @@ except IOError:
 #
 #
 
-try:
-    executefile("resources/scripts/load.py")
-    executefile("resources/scripts/mainloop.py")
-except Exception as e:
-    executefile("resources/scripts/handleCrash.py")
+executefile("resources/scripts/load.py")
+executefile("resources/scripts/mainloop.py")

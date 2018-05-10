@@ -69,10 +69,12 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        global vCoinRR, vStartBdgt
+        global vCoinRR, vStartBdgt, coinsLeft
         if not selfIsHost:
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
+        coinsLeft = [vStartBdgt, vStartBdgt]
+        updatecost()
 
     def Network_battlestart(self, data):
         """
@@ -217,10 +219,11 @@ class TCBSChannel(Channel):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        global vCoinRR, vStartBdgt
+        global vCoinRR, vStartBdgt, coinsLeft
         if not selfIsHost:
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
+        coinsLeft = [vStartBdgt, vStartBdgt]
         self._server.sendtoall(data)
 
     def Network_ready(self, data):

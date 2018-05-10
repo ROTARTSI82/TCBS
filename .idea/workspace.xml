@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/TCBS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TCBS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONFIG.py" beforeDir="false" afterPath="$PROJECT_DIR$/CONFIG.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/handleCrash.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/mainloop.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/mainloop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/multiplayer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,16 +17,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="4" />
+    <option name="PRINT_LINE_NUMBERS" value="true" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../htmlTest" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="TCBS" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="142" column="74" selection-start-line="142" selection-start-column="74" selection-end-line="142" selection-end-column="74" />
+            <state relative-caret-position="187">
+              <caret line="121" column="21" lean-forward="true" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -41,22 +49,10 @@
       <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+            <state relative-caret-position="332">
+              <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
               <folding>
                 <element signature="e#653#662#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="handleCrash.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/scripts/handleCrash.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="e#96#111#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/CONFIG.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -83,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="496" column="93" selection-start-line="496" selection-start-column="93" selection-end-line="496" selection-end-column="93" />
+            <state relative-caret-position="180">
+              <caret line="639" column="3" selection-start-line="639" selection-end-line="639" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -95,8 +91,8 @@
       <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="237" column="41" selection-start-line="237" selection-start-column="41" selection-end-line="237" selection-end-column="41" />
+            <state relative-caret-position="214">
+              <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -136,13 +132,13 @@
       <find>updatecost</find>
       <find>sndbx</find>
       <find>[selectedUnitInt][0]</find>
-      <find>Opponent Disconnected</find>
+      <find />
       <find>.name</find>
       <find>updateselected</find>
       <find>unitList</find>
       <find>selectedUnitInt</find>
-      <find>def updaterects</find>
-      <find>def updatecost</find>
+      <find />
+      <find />
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -163,7 +159,6 @@
     <setting file="file://$PROJECT_DIR$/CONFIG.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/venv/bin/python" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/__main__.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/resources/scripts/handleCrash.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/resources/scripts/mainloop.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/resources/scripts/load.py" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -201,13 +196,13 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch..cmdline" />
         <option value="$PROJECT_DIR$/venv/lib/python2.7/site-packages/PodSixNet/rencode.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/__main__.py" />
         <option value="$PROJECT_DIR$/units/exampleUnit/unit.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/multiplayer.py" />
         <option value="$PROJECT_DIR$/CONFIG.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/load.py" />
-        <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
         <option value="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/load.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/multiplayer.py" />
+        <option value="$PROJECT_DIR$/__main__.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
       </list>
     </option>
   </component>
@@ -218,8 +213,9 @@
     <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="21" />
+    <option name="y" value="25" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
   </component>
@@ -231,7 +227,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -244,10 +239,17 @@
               <item name="TCBS" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -628,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525747509719</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="coins">
+      <created>1525829906522</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1525829906522</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -641,13 +650,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50317127" side_tool="true" weight="0.32627118" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4947146" visible="true" weight="0.27142859" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" visible="true" weight="0.27142859" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49682876" weight="0.32627118" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32485875" />
       <window_info id="Structure" order="1" sideWeight="0.5019305" side_tool="true" weight="0.2508711" />
@@ -699,7 +708,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="multiplayer fix" />
     <MESSAGE value="chinese" />
     <MESSAGE value="MULTIPLAYER BUG FIXED!!! :)" />
     <MESSAGE value="typos" />
@@ -724,7 +732,8 @@
     <MESSAGE value="multiplayer basics" />
     <MESSAGE value="reformat unit load code" />
     <MESSAGE value="ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="ready" />
+    <MESSAGE value="coins" />
+    <option name="LAST_COMMIT_MESSAGE" value="coins" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -900,13 +909,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/core.py" />
-    <entry file="file://$PROJECT_DIR$/resources/profile.pkl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/profile.pkl" />
     <entry file="file://$PROJECT_DIR$/resources/other/TCBS-Launcher.py" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch..cmdline" />
     <entry file="file://$PROJECT_DIR$/resources/lang/中文.json">
@@ -952,26 +955,6 @@
         <state relative-caret-position="-641" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/handleCrash.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#96#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-          <folding>
-            <element signature="e#653#662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1860">
@@ -979,17 +962,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="237" column="41" selection-start-line="237" selection-start-column="41" selection-end-line="237" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -1003,17 +979,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="496" column="93" selection-start-line="496" selection-start-column="93" selection-end-line="496" selection-end-column="93" />
+        <state relative-caret-position="187">
+          <caret line="121" column="21" lean-forward="true" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/handleCrash.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="142" column="74" selection-start-line="142" selection-start-column="74" selection-end-line="142" selection-end-column="74" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#96#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+          <folding>
+            <element signature="e#653#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="639" column="3" selection-start-line="639" selection-end-line="639" selection-end-column="3" />
         </state>
       </provider>
     </entry>
