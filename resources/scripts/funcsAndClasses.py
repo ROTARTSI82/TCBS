@@ -195,31 +195,79 @@ def updateselectedunit(movenum):
     updaterects()
 
 
-def updateprofile():
+def updateoptions():
     """
     Update the text sprites in profile
 
     :rtype: None
     """
-    global profileHeading, profileWon, myProfile, profileLost
-    global profileMatches, start, pickle, profileTimePlayed
+    global options, startBdgtBt, coinRRBt, fpsBt, musicVolBt, effectsVolBt
+    global guiScaleBt, langBt, startBdgt, coinRR, desiredFPS, musicVol
+    global effectsVol, GUIScale, langFile, buttons, mltPlayBt, newUpNote
+    global startBt, backBt, playBt, joinBt, createBt, serverHelpBt, badVerWarn
+    global nextBt, prevBt, clearRedBt, clearBlueBt, readyBt, selectedTeam
+    global teamSelectBt, optionsBt, langDict, menuBlip, alreadyHandled
 
-    profileHeading = TxtOrBt([nickname + "'s Profile", False, [0, 0, 0]], [None, 55])
-    profileWon = TxtOrBt(["Matches Won: " + str(myProfile['mult-wins']),
-                          False, [0, 0, 0]], [None, 40])
-    profileLost = TxtOrBt(["Matches Lost: " + str(myProfile['mult-losses']),
-                           False, [0, 0, 0]], [None, 40])
-    profileMatches = TxtOrBt(["Matches Played: " + str(myProfile['mult-matches']),
-                              False, [0, 0, 0]], [None, 40])
-    profileTimePlayed = TxtOrBt(["Time Played: " + str(myProfile['time-played']),
-                                 False, [0, 0, 0]], [None, 40])
+    startBdgt = options['srtBdgt']
+    coinRR = options['coinRR']
+    desiredFPS = options['fps']
+    musicVol = options['music']
+    effectsVol = options['effects']
+    GUIScale = options['scale']
+    langFile = options['lang']
+    try:
+        with open(langFile, "r") as fp:
+            langDict = json.load(fp)
+    except Exception as e:
+        langDict = {}
+        log("EXCEPTION", "Cannot load language: " + str(e))
+    pygame.mixer.music.set_volume(musicVol)
+    try:
+        menuBlip = pygame.mixer.Sound("resources/sounds/menuBlip.wav")
+        menuBlip.set_volume(effectsVol)
+    except Exception as e:
+        if str(e) not in alreadyHandled:
+            log("EXCEPTION", "Cannot load sounds: " + str(e))
+            alreadyHandled.append(str(e))
+        menuBlip = DummySound()
+    buttons = pygame.sprite.Group()
+    newUpNote = TxtOrBt(["New Update Detected!", False, [0, 0, 0], [0, 255, 0]], [None, 35])
+    newUpNote.rect.topleft = [10, 40]
+    badVerWarn = TxtOrBt(["Bad Version Detected!", False, [0, 0, 0], [255, 0, 0]], [None, 35])
+    badVerWarn.rect.topleft = [10, 10]
 
+    mltPlayBt = TxtOrBt(["MULTIPLAYER", False, [0, 0, 0], [255, 0, 255]], [None, 50])
+    startBt = TxtOrBt(["START", False, [0, 0, 0], [0, 255, 0]], [None, 45])
+    backBt = TxtOrBt(["BACK", False, [0, 0, 0], [255, 0, 0]], [None, 40])
+    playBt = TxtOrBt(["SANDBOX", False, [0, 0, 0], [0, 255, 0]], [None, 55])
+    joinBt = TxtOrBt(["JOIN", False, [0, 0, 0], [255, 255, 0]], [None, 40])
+    createBt = TxtOrBt(["CREATE", False, [0, 0, 0], [0, 255, 0]], [None, 40])
+    serverHelpBt = TxtOrBt(["HELP", False, [0, 0, 0], [255, 255, 0]], [None, 40])
+    nextBt = TxtOrBt([">", False, [0, 0, 0], [127, 127, 127]], [None, 40])
+    prevBt = TxtOrBt(["<", False, [0, 0, 0], [127, 127, 127]], [None, 40])
+    clearBlueBt = TxtOrBt(["CLEAR BLUE", False, [0, 0, 0], [255, 0, 0]], [None, 45])
+    clearRedBt = TxtOrBt(["CLEAR RED", False, [0, 0, 0], [255, 0, 0]], [None, 45])
+    readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
+    teamSelectBt = TxtOrBt(["Team: " + selectedTeam.upper(), False, [0, 0, 0],
+                            [255, 255, 0]], [None, 45])
+    optionsBt = TxtOrBt(["OPTIONS", False, [0, 0, 0], [255, 255, 0]], [None, 55])
+    startBdgtBt = TxtOrBt(["Starting Budget: " + str(startBdgt), False, [0, 0, 0],
+                           [255, 255, 0]], [None, 40])
+    coinRRBt = TxtOrBt(["Coin Regen. Rate: " + str(coinRR), False, [0, 0, 0],
+                        [255, 255, 0]], [None, 40])
+    fpsBt = TxtOrBt(["Desired FPS: " + str(desiredFPS), False, [0, 0, 0],
+                     [255, 255, 0]], [None, 40])
+    musicVolBt = TxtOrBt(["Music Volume: " + str(musicVol), False, [0, 0, 0],
+                          [255, 255, 0]], [None, 40])
+    effectsVolBt = TxtOrBt(["Effects Volume: " + str(effectsVol), False, [0, 0, 0],
+                            [255, 255, 0]], [None, 40])
+    guiScaleBt = TxtOrBt(["GUI Scale: " + str(GUIScale), False, [0, 0, 0], [255, 255, 0]],
+                         [None, 40])
+    langBt = TxtOrBt([u"Language: " + u"".join(langFile.decode("utf-8").split(u"/")[-1:]).strip(u".json"),
+                      False, [0, 0, 0], [255, 255, 0]], [None, 40])
     updaterects()
-
-    upend = datetime.datetime.now()
-    myProfile['time-played'] += (upend - start)
-    with open("resources/profile.pkl", "wb") as fp:
-        pickle.dump(myProfile, fp)
+    with open("resources/options.pkl", "wb") as fp:
+        pickle.dump(options, fp)
 
 
 def updaterects():
@@ -230,38 +278,41 @@ def updaterects():
     """
     global startBt, mltPlayBt, backBt, joinBt, serverHelpBt
     global nextBt, playBt, prevBt, nextBt, createBt, clearBlueBt, clearRedBt
-    global profileBt, readyBt
+    global profileBt, readyBt, teamSelectBt, optionsBt, coinRRBt, startBdgtBt
+    global fpsBt, musicVolBt, effectsVolBt, guiScaleBt, langBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
-    global redCostTxt, blueCostTxt, profileHeading, profileLost, profileWon
-    global profileMatches, redBar, blueBar
+    global redCostTxt, blueCostTxt, redBar, blueBar
 
-    startBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
-    mltPlayBt.rect.center = [screen.get_width()/2, screen.get_height()/2+55]
+    startBt.rect.center = [screen.get_width() / 2, screen.get_height()-20]
+    mltPlayBt.rect.center = [screen.get_width() / 2, screen.get_height() / 2+55]
     backBt.rect.bottomleft = [5, screen.get_height()-10]
-    playBt.rect.center = [screen.get_width()/2, screen.get_height()/2]
-    joinBt.rect.bottomright = [screen.get_width()/2-5, screen.get_height()-5]
-    createBt.rect.bottomleft = [screen.get_width()/2+5, screen.get_height()-5]
+    playBt.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+    joinBt.rect.bottomright = [screen.get_width() / 2-5, screen.get_height()-5]
+    createBt.rect.bottomleft = [screen.get_width() / 2+5, screen.get_height()-5]
     serverHelpBt.rect.topright = [screen.get_width()-5, 5]
     prevBt.rect.topleft = [10, 15]
     nextBt.rect.topright = [screen.get_width()-10, 15]
     clearBlueBt.rect.center = [screen.get_width() / 4, 75]
     clearRedBt.rect.center = [screen.get_width() / 4 * 3, 75]
-    profileBt.rect.topleft = [5, 5]
-    readyBt.rect.center = [screen.get_width()/2, screen.get_height()-20]
+    readyBt.rect.center = [screen.get_width() / 2, screen.get_height()-20]
+    teamSelectBt.rect.center = [screen.get_width() / 2, 75]
+    optionsBt.rect.center = [screen.get_width() / 2, screen.get_height() / 2+110]
+    coinRRBt.rect.topleft = [10, 10]
+    startBdgtBt.rect.topleft = [coinRRBt.rect.right+10, 10]
+    fpsBt.rect.topleft = [10, 50]
+    guiScaleBt.rect.topleft = [fpsBt.rect.right+10, 50]
+    musicVolBt.rect.topleft = [10, 100]
+    effectsVolBt.rect.topleft = [musicVolBt.rect.right+10, 100]
+    langBt.rect.topleft = [10, 150]
 
-    wait4plyrsTxt.rect.topleft = [screen.get_width()/2-150,
-                                  screen.get_height()/2-50]
-    serverTxt.rect.center = [screen.get_width()/2, screen.get_height()/2]
-    serverMsg.rect.center = [screen.get_width()/2, screen.get_height()/2-45]
-    selectedUnitTxt.rect.center = [screen.get_width()/2, 35]
+    wait4plyrsTxt.rect.topleft = [screen.get_width() / 2-150,
+                                  screen.get_height() / 2-50]
+    serverTxt.rect.center = [screen.get_width() / 2, screen.get_height()/2]
+    serverMsg.rect.center = [screen.get_width() / 2, screen.get_height()/2-45]
+    selectedUnitTxt.rect.center = [screen.get_width() / 2, 35]
     redCostTxt.rect.center = [screen.get_width() / 4 * 3, screen.get_height() - 20]
     blueCostTxt.rect.center = [screen.get_width() / 4, screen.get_height() - 20]
-    profileHeading.rect.center = [screen.get_width()/2, 40]
-    profileMatches.rect.center = [screen.get_width()/2, 75]
-    profileWon.rect.center = [screen.get_width()/2, 110]
-    profileLost.rect.center = [screen.get_width()/2, 145]
-    profileTimePlayed.rect.center = [screen.get_width() / 2, 220]
 
     blueBar.rect.topleft = [0, 0]
     redBar.rect.topright = [screen.get_width(), 0]
@@ -299,6 +350,7 @@ class BarSprite(pygame.sprite.Sprite):
         :type maxval: int
         :rtype: None
         """
+        global alreadyHandled
         self.image = pygame.Surface([int(value/float(maxval)*screen.get_width()), 10])
         self.image.fill(self.color)
         self.rect = self.image.get_rect()

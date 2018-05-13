@@ -12,6 +12,8 @@ import os
 import platform
 import sys
 import inspect
+import glob
+import types
 
 start = datetime.datetime.now()
 
@@ -96,12 +98,45 @@ with open("logs/"+str(now.date())+".log", 'a') as logfile:
 executefile("resources/scripts/funcsAndClasses.py")
 executefile("resources/scripts/multiplayer.py")
 
+if majorPyVer == 3:
+    import pickle
+    log("PICKLE", "Using 'pickle'")
+elif majorPyVer == 2:
+    log("PICKLE", "Using 'cPickle'")
+    import cPickle as pickle
+try:
+    with open("resources/options.pkl", "rb") as fp:
+        options = pickle.load(fp)
+    log("OPTIONS", "Got from options.pkl: "+str(options))
+    assert type(options['srtBdgt']) == int
+    assert type(options['coinRR']) == int
+    assert type(options['fps']) == int
+    assert type(options['music']) == float
+    assert type(options['effects']) == float
+    assert type(options['scale']) == float
+    assert type(options['lang']) in types.StringTypes
+except (IOError, KeyError, AssertionError) as e:
+    log("EXCEPTION", "Cannot load options: "+str(e))
+    log("OPTIONS", "Loading defaults...")
+    options = {"srtBdgt": 100, "coinRR": 100, "fps": 60,
+               "music": 0.5, "effects": 0.5, "scale": 1.0,
+               "lang": u"resources/lang/english.json"}
+startBdgt = options['srtBdgt']
+coinRR = options['coinRR']
+desiredFPS = options['fps']
+musicVol = options['music']
+effectsVol = options['effects']
+GUIScale = options['scale']
+langFile = options['lang']
 try:
     with open(langFile, "r") as fp:
         langDict = json.load(fp)
 except Exception as e:
     langDict = {}
     log("EXCEPTION", "Cannot load language: "+str(e))
+langIndex = 0
+langList = glob.glob("resources/lang/*.json")
+print langList
 
 log("START", "Starting...")
 log("DEBUG", "__debugMode__ == "+str(__debugMode__))
@@ -154,6 +189,7 @@ sbUnitInt = 0
 mpUnitInt = 0
 coinsSpent = [0, 0]
 coinsLeft = [0, 0]
+selectedTeam = "blue"
 try:
     rawList = os.listdir('units')
 except Exception as e:
@@ -164,19 +200,15 @@ mpUnits = []
 for i in rawList:
     try:
         executefile("units/"+i+"/unit.py")
-        assert inspect.isclass(SandboxUnit), "SandboxUnit isn't class"
-        assert inspect.isclass(MultiplayerUnit), "MultiplayerUnit isn't class"
-        assert inspect.ismethod(MultiplayerUnit._pack), "MultiplayerUnit._pack isn't method"
+        assert inspect.isclass(SandboxUnit)
+        assert inspect.isclass(MultiplayerUnit)
+        assert inspect.ismethod(MultiplayerUnit._pack)
         serializable.register(MultiplayerUnit)
         sbUnits.append(SandboxUnit)
         mpUnits.append(MultiplayerUnit)
-        log("UNITS", "%s was successful!" % i)
+        log("UNITS", "%s was added" % i)
     except Exception as e:
-        if not str(e) in alreadyHandled:
-            log("EXCEPTION", "%s failed: %s" % (i, str(e)))
-            alreadyHandled.append(str(e))
-log("UNITS", "sbUnits == %s" % str(sbUnits))
-log("UNITS", "mpUnits == %s" % str(mpUnits))
+        log("UNITS", "%s failed: %s" % (i, str(e)))
 sndbxRUnits = pygame.sprite.Group()
 sndbxBUnits = pygame.sprite.Group()
 multRUnits = pygame.sprite.Group()
@@ -190,27 +222,6 @@ except Exception as e:
     log("EXCEPTION", "Cannot load sounds: "+str(e))
     menuBlip = DummySound()
 
-if majorPyVer == 3:
-    import pickle
-    log("PICKLE", "Using 'pickle'")
-elif majorPyVer == 2:
-    log("PICKLE", "Using 'cPickle'")
-    import cPickle as pickle
-
-try:
-    with open("resources/profile.pkl", "rb") as fp:
-        myProfile = pickle.load(fp)
-    assert type(myProfile['time-played']) == datetime.timedelta, "time-played isn't timedelta"
-    assert type(myProfile['mult-wins']) == int, "mult-wins isn't int"
-    assert type(myProfile['mult-losses']) == int, "mult-losses isn't int"
-    assert type(myProfile['mult-matches']) == int, "mult-matches isn't int"
-    log("PROFILE", "Got from profile.pkl: "+str(myProfile))
-except IOError as e:
-    log("EXCEPTION", "Cannot load profile: "+str(e))
-    log("PROFILE", "Loading defaults...")
-    myProfile = {"time-played": datetime.timedelta(), "mult-wins": 0,
-                 "mult-losses": 0, "mult-matches": 0}
-
 log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)
 
@@ -223,10 +234,26 @@ createBt = TxtOrBt(["CREATE", False, [0, 0, 0], [0, 255, 0]], [None, 40])
 serverHelpBt = TxtOrBt(["HELP", False, [0, 0, 0], [255, 255, 0]], [None, 40])
 nextBt = TxtOrBt([">", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 prevBt = TxtOrBt(["<", False, [0, 0, 0], [127, 127, 127]], [None, 40])
-clearBlueBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
-clearRedBt = TxtOrBt(["CLEAR", False, [0, 0, 0], [255, 0, 0]], [None, 45])
-profileBt = TxtOrBt(["PROFILE", False, [0, 0, 0], [255, 255, 0]], [None, 45])
+clearBlueBt = TxtOrBt(["CLEAR BLUE", False, [0, 0, 0], [255, 0, 0]], [None, 45])
+clearRedBt = TxtOrBt(["CLEAR RED", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
+teamSelectBt = TxtOrBt(["Team: "+selectedTeam.upper(), False, [0, 0, 0],
+                        [255, 255, 0]], [None, 45])
+optionsBt = TxtOrBt(["OPTIONS", False, [0, 0, 0], [255, 255, 0]], [None, 55])
+startBdgtBt = TxtOrBt(["Starting Budget: "+str(startBdgt), False, [0, 0, 0],
+                       [255, 255, 0]], [None, 40])
+coinRRBt = TxtOrBt(["Coin Regen. Rate: "+str(coinRR), False, [0, 0, 0],
+                    [255, 255, 0]], [None, 40])
+fpsBt = TxtOrBt(["Desired FPS: "+str(desiredFPS), False, [0, 0, 0],
+                 [255, 255, 0]], [None, 40])
+musicVolBt = TxtOrBt(["Music Volume: "+str(musicVol), False, [0, 0, 0],
+                      [255, 255, 0]], [None, 40])
+effectsVolBt = TxtOrBt(["Effects Volume: "+str(effectsVol), False, [0, 0, 0],
+                        [255, 255, 0]], [None, 40])
+guiScaleBt = TxtOrBt(["GUI Scale: "+str(GUIScale), False, [0, 0, 0], [255, 255, 0]],
+                     [None, 40])
+langBt = TxtOrBt(["Language: "+"".join(langFile.decode('utf-8').split("/")[-1:]).strip(".json"),
+                  False, [0, 0, 0], [255, 255, 0]], [None, 40])
 
 wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])

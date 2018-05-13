@@ -13,7 +13,7 @@ if False:
     # all the variables are undefined and gives me endless warnings :(
     from load import *
 
-updateprofile()
+updateoptions()
 updaterects()
 
 while running:
@@ -34,9 +34,13 @@ while running:
             screen.blit(newUpNote.image, newUpNote.rect)
         screen.blit(playBt.image, playBt.rect)
         screen.blit(mltPlayBt.image, mltPlayBt.rect)
+        screen.blit(optionsBt.image, optionsBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
+                if optionsBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    state = "options"
                 if mltPlayBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     state = "mult-start"
@@ -71,6 +75,98 @@ while running:
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
                 updaterects()
+    if state == "options":
+        screen.blit(backBt.image, backBt.rect)
+        screen.blit(coinRRBt.image, coinRRBt.rect)
+        screen.blit(startBdgtBt.image, startBdgtBt.rect)
+        screen.blit(musicVolBt.image, musicVolBt.rect)
+        screen.blit(effectsVolBt.image, effectsVolBt.rect)
+        screen.blit(fpsBt.image, fpsBt.rect)
+        screen.blit(guiScaleBt.image, guiScaleBt.rect)
+        screen.blit(langBt.image, langBt.rect)
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == MOUSEBUTTONDOWN:
+                if backBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    state = "menu"
+                if coinRRBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    options['coinRR'] += 50
+                    updateoptions()
+                if coinRRBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    options['coinRR'] -= 50
+                    updateoptions()
+                if startBdgtBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    options['srtBdgt'] += 50
+                    updateoptions()
+                if startBdgtBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    options['srtBdgt'] -= 50
+                    updateoptions()
+                if fpsBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    options['fps'] += 15
+                    updateoptions()
+                if fpsBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    options['fps'] -= 15
+                    updateoptions()
+                if guiScaleBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    options['scale'] += 0.0625
+                    updateoptions()
+                if guiScaleBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    options['scale'] -= 0.0625
+                    updateoptions()
+                if musicVolBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    options['music'] += 0.0625
+                    updateoptions()
+                if musicVolBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    options['music'] -= 0.0625
+                    updateoptions()
+                if effectsVolBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    options['effects'] += 0.0625
+                    updateoptions()
+                if effectsVolBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    options['effects'] -= 0.0625
+                    updateoptions()
+                if langBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    langIndex += 1
+                    if langIndex > len(langList)-1:
+                        langIndex = 0
+                    if langIndex < 0:
+                        langIndex = len(langList)-1
+                    options['lang'] = langList[langIndex]
+                    updateoptions()
+                if langBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    langIndex -= 1
+                    if langIndex > len(langList) - 1:
+                        langIndex = 0
+                    if langIndex < 0:
+                        langIndex = len(langList) - 1
+                    options['lang'] = langList[langIndex]
+                    updateoptions()
+            if event.type == QUIT:
+                running = False
+            if event.type == VIDEORESIZE:
+                screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
+                updatecost()
+                updaterects()
+            if event.type == MOUSEMOTION:
+                cursor.rect.center = event.pos
+            if event.type == KEYDOWN:
+                if event.key == screenshotKey:
+                    take_screenshot()
     if state == "sndbx-placeUnits":
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
@@ -85,11 +181,23 @@ while running:
         screen.blit(prevBt.image, prevBt.rect)
         screen.blit(redBar.image, redBar.rect)
         screen.blit(blueBar.image, blueBar.rect)
+        screen.blit(teamSelectBt.image, teamSelectBt.rect)
         screen.blit(clearBlueBt.image, clearBlueBt.rect)
         screen.blit(clearRedBt.image, clearRedBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
+                if teamSelectBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    if selectedTeam == "red":
+                        selectedTeam = "blue"
+                    else:
+                        selectedTeam = "red"
+                    teamSelectBt.kill()
+                    teamSelectBt = TxtOrBt(["Team: " + selectedTeam.upper(), False, [0, 0, 0],
+                                            [255, 255, 0]], [None, 45])
+                    updaterects()
+                    continue
                 if clearRedBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     sndbxRUnits = pygame.sprite.Group()
@@ -121,9 +229,9 @@ while running:
 
                 if event.button == 1:
                     menuBlip.play()
-                    if cursor.rect.center[0] > screen.get_width()/2:
+                    if selectedTeam == "red":
                         sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
-                    if cursor.rect.center[0] < screen.get_width()/2:
+                    else:
                         sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
                     updatecost()
                 if event.button == 3:
@@ -210,6 +318,7 @@ while running:
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
+        screen.blit(teamSelectBt.image, teamSelectBt.rect)
         screen.blit(redBar.image, redBar.rect)
         screen.blit(blueBar.image, blueBar.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
@@ -223,6 +332,17 @@ while running:
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
             if event.type == MOUSEBUTTONDOWN:
+                if teamSelectBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    if selectedTeam == "red":
+                        selectedTeam = "blue"
+                    else:
+                        selectedTeam = "red"
+                    teamSelectBt.kill()
+                    teamSelectBt = TxtOrBt(["Team: " + selectedTeam.upper(), False, [0, 0, 0],
+                                            [255, 255, 0]], [None, 45])
+                    updaterects()
+                    continue
                 if nextBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     updateselectedunit(+1)
@@ -234,9 +354,9 @@ while running:
 
                 if event.button == 1:
                     menuBlip.play()
-                    if cursor.rect.center[0] > screen.get_width() / 2:
+                    if selectedTeam == "red":
                         sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
-                    if cursor.rect.center[0] < screen.get_width() / 2:
+                    else:
                         sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
                 if event.button == 3:
                     menuBlip.play()
@@ -257,7 +377,6 @@ while running:
     if state == "mult-start":
         screen.blit(backBt.image, backBt.rect)
         screen.blit(joinBt.image, joinBt.rect)
-        screen.blit(profileBt.image, profileBt.rect)
         screen.blit(serverMsg.image, serverMsg.rect)
         screen.blit(createBt.image, createBt.rect)
         screen.blit(serverHelpBt.image, serverHelpBt.rect)
@@ -303,10 +422,6 @@ while running:
                 if event.key == K_LSHIFT or event.key == K_RSHIFT:
                     shiftDown = False
             if event.type == MOUSEBUTTONDOWN:
-                if profileBt in cbCollide and event.button == 1:
-                    state = "mult-profile"
-                    updateprofile()
-                    menuBlip.play()
                 if joinBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     try:
@@ -356,26 +471,6 @@ while running:
                 updaterects()
             if event.type == MOUSEMOTION:
                 cursor.rect.center = event.pos
-    if state == "mult-profile":
-        screen.blit(backBt.image, backBt.rect)
-        screen.blit(profileHeading.image, profileHeading.rect)
-        screen.blit(profileMatches.image, profileMatches.rect)
-        screen.blit(profileWon.image, profileWon.rect)
-        screen.blit(profileLost.image, profileLost.rect)
-        screen.blit(profileTimePlayed.image, profileTimePlayed.rect)
-        pygame.display.flip()
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                running = False
-            if event.type == VIDEORESIZE:
-                screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])
-                updaterects()
-            if event.type == MOUSEMOTION:
-                cursor.rect.center = event.pos
-            if event.type == MOUSEBUTTONDOWN:
-                if backBt in cbCollide:
-                    state = "mult-start"
-                    menuBlip.play()
     if state == "mult-wait4players":
         c.loop()
         if selfIsHost:
@@ -645,10 +740,9 @@ except RuntimeError as e:
 pygame.quit()
 
 end = datetime.datetime.now()
-myProfile['time-played'] += (end - start)
-with open("resources/profile.pkl", "wb") as fp:
-    pickle.dump(myProfile, fp)
-log("PROFILE", "Saved to profile.pkl: "+str(myProfile))
+with open("resources/options.pkl", "wb") as fp:
+    pickle.dump(options, fp)
+log("OPTIONS", "Saved to options.pkl: "+str(options))
 
 log("PERFORMANCE", "FPS: "+str(clock.get_fps()))
 log("STOP", "Stopping...")

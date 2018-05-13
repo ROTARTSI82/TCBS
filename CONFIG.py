@@ -28,7 +28,7 @@ keyRR = (650, 100)
 # Arguments passed to pygame.display.set_mode
 # See https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
 # AND https://www.pygame.org/docs/ref/display.html#pygame.display.list_modes
-screenArgs = ([640, 480], RESIZABLE)
+screenArgs = ([800, 600], RESIZABLE)
 # Request tick speed at desiredFPS frames per second
 desiredFPS = 60
 # A float between 0.0 and 1.0
