@@ -115,12 +115,17 @@ try:
     assert type(options['effects']) == float
     assert type(options['scale']) == float
     assert type(options['lang']) in types.StringTypes
+    assert type(options['font']) in types.StringTypes or options['font'] is None
+    assert type(options['check4updates']) == bool
+    assert type(options['battleEnd']) == str
 except (IOError, KeyError, AssertionError) as e:
     log("EXCEPTION", "Cannot load options: "+str(e))
     log("OPTIONS", "Loading defaults...")
     options = {"srtBdgt": 100, "coinRR": 100, "fps": 60,
                "music": 0.5, "effects": 0.5, "scale": 1.0,
-               "lang": u"resources/lang/english.json"}
+               "lang": u"resources/lang/english.json",
+               "font": None, "check4updates": True,
+               "battleEnd": "Do nothing"}
 startBdgt = options['srtBdgt']
 coinRR = options['coinRR']
 desiredFPS = options['fps']
@@ -128,6 +133,9 @@ musicVol = options['music']
 effectsVol = options['effects']
 GUIScale = options['scale']
 langFile = options['lang']
+langFont = options['font']
+onBattleEnd = options['battleEnd']
+check4updates = options['check4updates']
 try:
     with open(langFile, "r") as fp:
         langDict = json.load(fp)
@@ -135,8 +143,9 @@ except Exception as e:
     langDict = {}
     log("EXCEPTION", "Cannot load language: "+str(e))
 langIndex = 0
+fontIndex = 0
 langList = glob.glob("resources/lang/*.json")
-print langList
+fontList = pygame.font.get_fonts() + glob.glob("resources/fonts/*.ttf")
 
 log("START", "Starting...")
 log("DEBUG", "__debugMode__ == "+str(__debugMode__))
@@ -156,6 +165,7 @@ newUpNote = TxtOrBt(["New Update Detected!", False, [0, 0, 0], [0, 255, 0]], [No
 newUpNote.rect.topleft = [10, 40]
 
 try:
+    assert check4updates
     if majorPyVer == 2:
         import urllib2
         jsonSite = urllib2.urlopen(jsonUrl)
@@ -208,9 +218,13 @@ for i in rawList:
         mpUnits.append(MultiplayerUnit)
         log("UNITS", "%s was added" % i)
     except Exception as e:
+        if __debugMode__ and os.path.isdir("units/"+i):
+            raise
         log("UNITS", "%s failed: %s" % (i, str(e)))
 sndbxRUnits = pygame.sprite.Group()
 sndbxBUnits = pygame.sprite.Group()
+oldRUnits = pygame.sprite.Group()
+oldBUnits = pygame.sprite.Group()
 multRUnits = pygame.sprite.Group()
 multBUnits = pygame.sprite.Group()
 
@@ -252,8 +266,17 @@ effectsVolBt = TxtOrBt(["Effects Volume: "+str(effectsVol), False, [0, 0, 0],
                         [255, 255, 0]], [None, 40])
 guiScaleBt = TxtOrBt(["GUI Scale: "+str(GUIScale), False, [0, 0, 0], [255, 255, 0]],
                      [None, 40])
-langBt = TxtOrBt(["Language: "+"".join(langFile.decode('utf-8').split("/")[-1:]).strip(".json"),
+langBt = TxtOrBt(["Language: "+"".join(langFile.decode('utf-8').split("/")[-1:])[:-5],
                   False, [0, 0, 0], [255, 255, 0]], [None, 40])
+onBattleEndBt = TxtOrBt(["When Battle Ends: "+onBattleEnd, False, [0, 0, 0], [255, 255, 0]],
+                        [None, 40])
+check4updatesBt = TxtOrBt(["Check For Updates: "+str(check4updates), False, [0, 0, 0],
+                           [255, 255, 0]], [None, 40])
+if langFont is not None:
+    fontBt = TxtOrBt([u"Font: " + u"".join(langFont.decode('utf-8').split(u"/")[-1:])[:-4],
+                      False, [0, 0, 0], [255, 255, 0]], [None, 40])
+else:
+    fontBt = TxtOrBt([u"Font: " + str(langFont), False, [0, 0, 0], [255, 255, 0]], [None, 40])
 
 wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])

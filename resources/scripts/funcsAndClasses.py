@@ -95,6 +95,8 @@ def updatecost():
                 coinsSpent[1] += i.cost
                 hplist[1] += i.health
             except Exception as e:
+                if __debugMode__:
+                    raise
                 if str(e) not in alreadyHandled:
                     alreadyHandled.append(str(e))
                     log("EXCEPTION", "updatecost() failed: "+str(e))
@@ -103,6 +105,8 @@ def updatecost():
                 coinsSpent[0] += i.cost
                 hplist[0] += i.health
             except Exception as e:
+                if __debugMode__:
+                    raise
                 if str(e) not in alreadyHandled:
                     alreadyHandled.append(str(e))
                     log("EXCEPTION", "updatecost() failed: "+str(e))
@@ -202,11 +206,13 @@ def updateoptions():
     :rtype: None
     """
     global options, startBdgtBt, coinRRBt, fpsBt, musicVolBt, effectsVolBt
-    global guiScaleBt, langBt, startBdgt, coinRR, desiredFPS, musicVol
+    global guiScaleBt, langBt, startBdgt, coinRR, desiredFPS, musicVol, fontBt
     global effectsVol, GUIScale, langFile, buttons, mltPlayBt, newUpNote
     global startBt, backBt, playBt, joinBt, createBt, serverHelpBt, badVerWarn
     global nextBt, prevBt, clearRedBt, clearBlueBt, readyBt, selectedTeam
-    global teamSelectBt, optionsBt, langDict, menuBlip, alreadyHandled
+    global teamSelectBt, optionsBt, langDict, menuBlip, alreadyHandled, onBattleEnd
+    global langFont, wait4plyrsTxt, serverTxt, serverMsg, selectedUnitTxt
+    global redCostTxt, blueCostTxt, onBattleEndBt, check4updatesBt, check4updates
 
     startBdgt = options['srtBdgt']
     coinRR = options['coinRR']
@@ -215,6 +221,9 @@ def updateoptions():
     effectsVol = options['effects']
     GUIScale = options['scale']
     langFile = options['lang']
+    langFont = options['font']
+    onBattleEnd = options['battleEnd']
+    check4updates = options['check4updates']
     try:
         with open(langFile, "r") as fp:
             langDict = json.load(fp)
@@ -263,8 +272,23 @@ def updateoptions():
                             [255, 255, 0]], [None, 40])
     guiScaleBt = TxtOrBt(["GUI Scale: " + str(GUIScale), False, [0, 0, 0], [255, 255, 0]],
                          [None, 40])
-    langBt = TxtOrBt([u"Language: " + u"".join(langFile.decode("utf-8").split(u"/")[-1:]).strip(u".json"),
+    langBt = TxtOrBt([u"Language: " + u"".join(langFile.decode("utf-8").split(u"/")[-1:])[:-5],
                       False, [0, 0, 0], [255, 255, 0]], [None, 40])
+    onBattleEndBt = TxtOrBt(["When Battle Ends: " + onBattleEnd, False, [0, 0, 0], [255, 255, 0]],
+                            [None, 40])
+    check4updatesBt = TxtOrBt(["Check For Updates: " + str(check4updates), False, [0, 0, 0],
+                               [255, 255, 0]], [None, 40])
+    if langFont is not None:
+        fontBt = TxtOrBt([u"Font: "+u"".join(langFont.decode('utf-8').split(u"/")[-1:])[:-4],
+                          False, [0, 0, 0], [255, 255, 0]], [None, 40])
+    else:
+        fontBt = TxtOrBt([u"Font: " + str(langFont), False, [0, 0, 0], [255, 255, 0]], [None, 40])
+    wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
+    serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
+    serverMsg = TxtOrBt(["Enter the Host and Port", False, [0, 0, 0]], [None, 45])
+    selectedUnitTxt = TxtOrBt(["", False, [0, 0, 0]], [None, 45])
+    redCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
+    blueCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
     updaterects()
     with open("resources/options.pkl", "wb") as fp:
         pickle.dump(options, fp)
@@ -279,7 +303,8 @@ def updaterects():
     global startBt, mltPlayBt, backBt, joinBt, serverHelpBt
     global nextBt, playBt, prevBt, nextBt, createBt, clearBlueBt, clearRedBt
     global profileBt, readyBt, teamSelectBt, optionsBt, coinRRBt, startBdgtBt
-    global fpsBt, musicVolBt, effectsVolBt, guiScaleBt, langBt
+    global fpsBt, musicVolBt, effectsVolBt, guiScaleBt, langBt, fontBt
+    global check4updatesBt, onBattleEndBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
     global redCostTxt, blueCostTxt, redBar, blueBar
@@ -305,6 +330,9 @@ def updaterects():
     musicVolBt.rect.topleft = [10, 100]
     effectsVolBt.rect.topleft = [musicVolBt.rect.right+10, 100]
     langBt.rect.topleft = [10, 150]
+    fontBt.rect.topleft = [langBt.rect.right+10, 150]
+    onBattleEndBt.rect.topleft = [10, 200]
+    check4updatesBt.rect.topleft = [onBattleEndBt.rect.right+10, 200]
 
     wait4plyrsTxt.rect.topleft = [screen.get_width() / 2-150,
                                   screen.get_height() / 2-50]
@@ -351,10 +379,13 @@ class BarSprite(pygame.sprite.Sprite):
         :rtype: None
         """
         global alreadyHandled
-        self.image = pygame.Surface([int(value/float(maxval)*screen.get_width()), 10])
-        self.image.fill(self.color)
-        self.rect = self.image.get_rect()
-        updaterects()
+        try:
+            self.image = pygame.Surface([int(value/float(maxval)*screen.get_width()), 10])
+            self.image.fill(self.color)
+            self.rect = self.image.get_rect()
+            updaterects()
+        except (pygame.error, ZeroDivisionError):
+            pass
 
 
 class TxtOrBt(pygame.sprite.Sprite):

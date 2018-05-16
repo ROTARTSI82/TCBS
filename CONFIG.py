@@ -43,7 +43,7 @@ copyKey = K_F2
 pasteKey = K_F3
 endBattleKey = K_ESCAPE
 # What language file to load and in what font
-langFont = None
+langFont = "resources/lang/freesansbold.ttf"
 langList = [u"resources/lang/deutsche.json", u"resources/lang/english.json",
             u"resources/lang/español.json", u"resources/lang/français.json",
             u"resources/lang/javanese.json", u"resources/lang/português.json",

@@ -6,6 +6,7 @@
 
 """
 import webbrowser
+import copy
 
 if False:
     # Ignore this code. It makes PyCharm happy
@@ -82,8 +83,11 @@ while running:
         screen.blit(musicVolBt.image, musicVolBt.rect)
         screen.blit(effectsVolBt.image, effectsVolBt.rect)
         screen.blit(fpsBt.image, fpsBt.rect)
+        screen.blit(fontBt.image, fontBt.rect)
         screen.blit(guiScaleBt.image, guiScaleBt.rect)
         screen.blit(langBt.image, langBt.rect)
+        screen.blit(check4updatesBt.image, check4updatesBt.rect)
+        screen.blit(onBattleEndBt.image, onBattleEndBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
@@ -156,6 +160,40 @@ while running:
                         langIndex = len(langList) - 1
                     options['lang'] = langList[langIndex]
                     updateoptions()
+                if fontBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    fontIndex += 1
+                    if fontIndex > len(fontList)-1:
+                        fontIndex = 0
+                    if fontIndex < 0:
+                        fontIndex = len(fontList)-1
+                    options['font'] = fontList[fontIndex]
+                    updateoptions()
+                if fontBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    fontIndex -= 1
+                    if fontIndex > len(fontList) - 1:
+                        fontIndex = 0
+                    if fontIndex < 0:
+                        fontIndex = len(fontList) - 1
+                    options['font'] = fontList[fontIndex]
+                    updateoptions()
+                if onBattleEndBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    if onBattleEnd == "Do nothing":
+                        options['battleEnd'] = "Clear"
+                    elif onBattleEnd == "Clear":
+                        options['battleEnd'] = "Go to start"
+                    elif onBattleEnd == "Go to start":
+                        options['battleEnd'] = "Do nothing"
+                    updateoptions()
+                if check4updatesBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    if check4updates:
+                        options['check4updates'] = False
+                    elif not check4updates:
+                        options['check4updates'] = True
+                    updateoptions()
             if event.type == QUIT:
                 running = False
             if event.type == VIDEORESIZE:
@@ -210,6 +248,12 @@ while running:
                     continue
                 if startBt in cbCollide and event.button == 1:
                     menuBlip.play()
+                    oldRUnits = []
+                    oldBUnits = []
+                    for i in sndbxRUnits:
+                        oldRUnits.append(type(i)(*i.pack()))
+                    for i in sndbxBUnits:
+                        oldBUnits.append(type(i)(*i.pack()))
                     state = "sndbx-battle"
                     log("BATTLE", "Battle started")
                     continue
@@ -229,10 +273,17 @@ while running:
 
                 if event.button == 1:
                     menuBlip.play()
-                    if selectedTeam == "red":
-                        sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
-                    else:
-                        sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
+                    try:
+                        if selectedTeam == "red":
+                            sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
+                        else:
+                            sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
+                    except Exception as e:
+                        if __debugMode__:
+                            raise
+                        if str(e) not in alreadyHandled:
+                            alreadyHandled.append(str(e))
+                            log("EXCEPTION", "Place unit failed: "+str(e))
                     updatecost()
                 if event.button == 3:
                     menuBlip.play()
@@ -263,8 +314,7 @@ while running:
             updatecost()
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
-            continue
-        if len(sndbxRUnits) == 0:
+        if len(sndbxRUnits) == 0 and len(sndbxBUnits) > 0:
             log("BATTLE", "Blue Victory!")
             bullets = pygame.sprite.Group()
             screen.fill([255, 255, 255])
@@ -276,7 +326,7 @@ while running:
             updatecost()
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
-        if len(sndbxBUnits) == 0:
+        if len(sndbxBUnits) == 0 and len(sndbxRUnits) > 0:
             log("BATTLE", "Red Victory!")
             bullets = pygame.sprite.Group()
             screen.fill([255, 255, 255])
@@ -288,32 +338,45 @@ while running:
             updatecost()
             state = "sndbx-placeUnits"
             pygame.time.wait(1000)
-        BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
-        RbulletCol = pygame.sprite.groupcollide(bullets, sndbxRUnits, False, False)
-        soldierCol = pygame.sprite.groupcollide(sndbxBUnits, sndbxRUnits, False, False)
-        totalBlueHP = 0
-        totalRedHP = 0
-        for i in sndbxBUnits:
-            totalBlueHP += i.health
-            i.update()
-        for i in sndbxRUnits:
-            i.update()
-            totalRedHP += i.health
-        blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
-        redBar.update(totalRedHP, totalBlueHP + totalRedHP)
-        bullets.update()
-        for i in BbulletCol.keys():
-            i.on_bullet_hit(BbulletCol[i])
-            for j in BbulletCol[i]:
-                j.on_bullet_hit([i, ])
-        for i in RbulletCol.keys():
-            i.on_bullet_hit(RbulletCol[i])
-            for j in RbulletCol[i]:
-                j.on_bullet_hit([i, ])
-        for i in soldierCol.keys():
-            i.on_soldier_hit(soldierCol[i])
-            for j in soldierCol[i]:
-                j.on_soldier_hit([i, ])
+        if state == "sndbx-placeUnits" and onBattleEnd == "Go to start":
+            sndbxRUnits = pygame.sprite.Group(*oldRUnits)
+            sndbxBUnits = pygame.sprite.Group(*oldBUnits)
+        if state == "sndbx-placeUnits" and onBattleEnd == "Clear":
+            sndbxBUnits = pygame.sprite.Group()
+            sndbxRUnits = pygame.sprite.Group()
+        try:
+            BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
+            RbulletCol = pygame.sprite.groupcollide(bullets, sndbxRUnits, False, False)
+            soldierCol = pygame.sprite.groupcollide(sndbxBUnits, sndbxRUnits, False, False)
+            totalBlueHP = 0
+            totalRedHP = 0
+            for i in sndbxBUnits:
+                totalBlueHP += i.health
+                i.update()
+            for i in sndbxRUnits:
+                i.update()
+                totalRedHP += i.health
+            blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
+            redBar.update(totalRedHP, totalBlueHP + totalRedHP)
+            bullets.update()
+            for i in BbulletCol.keys():
+                i.on_bullet_hit(BbulletCol[i])
+                for j in BbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in RbulletCol.keys():
+                i.on_bullet_hit(RbulletCol[i])
+                for j in RbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in soldierCol.keys():
+                i.on_soldier_hit(soldierCol[i])
+                for j in soldierCol[i]:
+                    j.on_soldier_hit([i, ])
+        except Exception as e:
+            if __debugMode__:
+                raise
+            if str(e) not in alreadyHandled:
+                alreadyHandled.append(str(e))
+                log("EXCEPTION", "Failed to update AI: "+str(e))
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
@@ -354,10 +417,18 @@ while running:
 
                 if event.button == 1:
                     menuBlip.play()
-                    if selectedTeam == "red":
-                        sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
-                    else:
-                        sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
+                    try:
+                        if selectedTeam == "red":
+                            sndbxRUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "red"))
+                        else:
+                            sndbxBUnits.add(sbUnits[sbUnitInt](cursor.rect.center, "blue"))
+                    except Exception as e:
+                        if __debugMode__:
+                            raise
+                        if str(e) not in alreadyHandled:
+                            alreadyHandled.append(str(e))
+                            log("EXCEPTION", "Place unit failed: "+str(e))
+                    updatecost()
                 if event.button == 3:
                     menuBlip.play()
                     pygame.sprite.spritecollide(cursor, sndbxBUnits, True)
@@ -568,14 +639,21 @@ while running:
 
                 if event.button == 1:
                     menuBlip.play()
-                    if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
-                        if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
-                            multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
-                            coinsLeft[1] -= mpUnits[mpUnitInt].cost
-                    if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
-                        if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
-                            multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
-                            coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                    try:
+                        if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
+                            if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
+                                multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
+                                coinsLeft[1] -= mpUnits[mpUnitInt].cost
+                        if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
+                            if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
+                                multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
+                                coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                    except Exception as e:
+                        if __debugMode__:
+                            raise
+                        if str(e) not in alreadyHandled:
+                            alreadyHandled.append(str(e))
+                            log("EXCEPTION", "Place unit failed: "+str(e))
                     updatecost()
                 if event.button == 3:
                     menuBlip.play()
@@ -642,32 +720,39 @@ while running:
             updatecost()
             state = "mult-placeUnits"
             pygame.time.wait(1000)
-        BbulletCol = pygame.sprite.groupcollide(bullets, multBUnits, False, False)
-        RbulletCol = pygame.sprite.groupcollide(bullets, multRUnits, False, False)
-        soldierCol = pygame.sprite.groupcollide(multBUnits, multRUnits, False, False)
-        totalBlueHP = 0
-        totalRedHP = 0
-        for i in multBUnits:
-            totalBlueHP += i.health
-            i.update()
-        for i in multRUnits:
-            i.update()
-            totalRedHP += i.health
-        blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
-        redBar.update(totalRedHP, totalBlueHP + totalRedHP)
-        bullets.update()
-        for i in BbulletCol.keys():
-            i.on_bullet_hit(BbulletCol[i])
-            for j in BbulletCol[i]:
-                j.on_bullet_hit([i, ])
-        for i in RbulletCol.keys():
-            i.on_bullet_hit(RbulletCol[i])
-            for j in RbulletCol[i]:
-                j.on_bullet_hit([i, ])
-        for i in soldierCol.keys():
-            i.on_soldier_hit(soldierCol[i])
-            for j in soldierCol[i]:
-                j.on_soldier_hit([i, ])
+        try:
+            BbulletCol = pygame.sprite.groupcollide(bullets, multBUnits, False, False)
+            RbulletCol = pygame.sprite.groupcollide(bullets, multRUnits, False, False)
+            soldierCol = pygame.sprite.groupcollide(multBUnits, multRUnits, False, False)
+            totalBlueHP = 0
+            totalRedHP = 0
+            for i in multBUnits:
+                totalBlueHP += i.health
+                i.update()
+            for i in multRUnits:
+                i.update()
+                totalRedHP += i.health
+            blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
+            redBar.update(totalRedHP, totalBlueHP + totalRedHP)
+            bullets.update()
+            for i in BbulletCol.keys():
+                i.on_bullet_hit(BbulletCol[i])
+                for j in BbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in RbulletCol.keys():
+                i.on_bullet_hit(RbulletCol[i])
+                for j in RbulletCol[i]:
+                    j.on_bullet_hit([i, ])
+            for i in soldierCol.keys():
+                i.on_soldier_hit(soldierCol[i])
+                for j in soldierCol[i]:
+                    j.on_soldier_hit([i, ])
+        except Exception as e:
+            if __debugMode__:
+                raise
+            if str(e) not in alreadyHandled:
+                alreadyHandled.append(str(e))
+                log("EXCEPTION", "Failed to update AI: "+str(e))
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         screen.blit(nextBt.image, nextBt.rect)
@@ -702,23 +787,37 @@ while running:
 
                 if event.button == 1:
                     menuBlip.play()
-                    if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
-                        if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
-                            multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
-                            coinsLeft[1] -= mpUnits[mpUnitInt].cost
-                    if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
-                        if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
-                            multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
-                            coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                    try:
+                        if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
+                            if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
+                                multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
+                                coinsLeft[1] -= mpUnits[mpUnitInt].cost
+                        if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
+                            if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
+                                multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
+                                coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                    except Exception as e:
+                        if __debugMode__:
+                            raise
+                        if str(e) not in alreadyHandled:
+                            alreadyHandled.append(str(e))
+                            log("EXCEPTION", "Failed to update AI: " + str(e))
                     updatecost()
                 if event.button == 3:
                     menuBlip.play()
-                    bcol = pygame.sprite.spritecollide(cursor, multBUnits, True)
-                    rcol = pygame.sprite.spritecollide(cursor, multRUnits, True)
-                    for i in bcol:
-                        coinsLeft[0] += i.cost
-                    for i in rcol:
-                        coinsLeft[1] += i.cost
+                    try:
+                        bcol = pygame.sprite.spritecollide(cursor, multBUnits, True)
+                        rcol = pygame.sprite.spritecollide(cursor, multRUnits, True)
+                        for i in bcol:
+                            coinsLeft[0] += i.cost
+                        for i in rcol:
+                            coinsLeft[1] += i.cost
+                    except Exception as e:
+                        if __debugMode__:
+                            raise
+                        if str(e) not in alreadyHandled:
+                            alreadyHandled.append(str(e))
+                            log("EXCEPTION", "Failed to update cost: " + str(e))
                     updatecost()
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])

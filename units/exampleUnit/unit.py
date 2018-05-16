@@ -48,6 +48,14 @@ class SandboxUnit(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
+    def pack(self):
+        """
+        Return the arguments that __init__() takes
+
+        :rtype: ((int, int), str)
+        """
+        return self.rect.center, self.team
+
     def update(self):
         """
         Is called every tick. Add code to move your soldier here.
