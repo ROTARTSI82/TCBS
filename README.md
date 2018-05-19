@@ -27,9 +27,3 @@ PodSixNet for python3.4 by tborisova (Tsvetelina Borisova)
 so that some multiplayer features work in Python 3.
 Trying to connect to a Python 3 server using Python 2
 (And vice versa) will result in an exception.
-
-If pygame is not installed, Totally Customizable Battle
-Simulator will try to install and uprade pygame for you.
-
-If the game crashes, it will try to mail a crash report
-to me so that I could fix it.
