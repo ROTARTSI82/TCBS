@@ -14,6 +14,7 @@ if False:
     # all the variables are undefined and gives me endless warnings :(
     from load import *
 
+set_background("resources/images/sky.png")
 updateoptions()
 updaterects()
 
@@ -22,6 +23,7 @@ while running:
     cbCollide = pygame.sprite.spritecollide(cursor, buttons, False)
     buttons.update(cbCollide)
     screen.fill([red, green, blue])
+    # screen.blit(background, [0, 0])
     if __debugMode__:
         DebugFPSText = simpleFont.render("FPS: "+str(clock.get_fps()),
                                          False, [0, 0, 0], [255, 255, 255])
@@ -65,7 +67,8 @@ while running:
                     menuBlip.play()
                     state = "sndbx-placeUnits"
                     updateselectedunit(0)
-                    set_music("resources/sounds/in-gameMusic.wav")
+                    set_music("resources/sounds/in-gameMusic.mp3")
+                    set_background("resources/images/grass.png")
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
@@ -260,7 +263,8 @@ while running:
                 if backBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     state = "menu"
-                    set_music("resources/sounds/menuMusic.wav")
+                    set_music("resources/sounds/menuMusic.mp3")
+                    set_background("resources/images/sky.png")
                     continue
                 if nextBt in cbCollide and event.button == 1:
                     menuBlip.play()
@@ -311,8 +315,8 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
-            updatecost()
             state = "sndbx-placeUnits"
+            updatecost()
             pygame.time.wait(1000)
         if len(sndbxRUnits) == 0 and len(sndbxBUnits) > 0:
             log("BATTLE", "Blue Victory!")
@@ -323,8 +327,8 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
-            updatecost()
             state = "sndbx-placeUnits"
+            updatecost()
             pygame.time.wait(1000)
         if len(sndbxBUnits) == 0 and len(sndbxRUnits) > 0:
             log("BATTLE", "Red Victory!")
@@ -335,8 +339,8 @@ while running:
             vicMsg.rect.center = [screen.get_width()/2, screen.get_height()/2]
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
-            updatecost()
             state = "sndbx-placeUnits"
+            updatecost()
             pygame.time.wait(1000)
         if state == "sndbx-placeUnits" and onBattleEnd == "Go to start":
             sndbxRUnits = pygame.sprite.Group(*oldRUnits)
@@ -500,7 +504,8 @@ while running:
                         selfIsHost = False
                         c = TCBSClient(args[0], int(args[1]))
                         state = "mult-wait4players"
-                        set_music("resources/sounds/in-gameMusic.wav")
+                        set_music("resources/sounds/in-gameMusic.mp3")
+                        set_background("resources/images/grass.png")
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot join game: "+str(e))
@@ -516,7 +521,8 @@ while running:
                         s = TCBSServer(localaddr=(args[0], int(args[1])))
                         c = TCBSClient(args[0], int(args[1]))
                         state = "mult-wait4players"
-                        set_music("resources/sounds/in-gameMusic.wav")
+                        set_music("resources/sounds/in-gameMusic.mp3")
+                        set_background("resources/images/grass.png")
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create game: "+str(e))
@@ -558,7 +564,8 @@ while running:
                     c.loop()
                     if selfIsHost:
                         s.shutdown()
-                    set_music("resources/sounds/menuMusic.wav")
+                    set_music("resources/sounds/menuMusic.mp3")
+                    set_background("resources/images/sky.png")
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
@@ -626,7 +633,8 @@ while running:
                     c.loop()
                     if selfIsHost:
                         s.shutdown()
-                    set_music("resources/sounds/menuMusic.wav")
+                    set_music("resources/sounds/menuMusic.mp3")
+                    set_background("resources/images/sky.png")
                     continue
                 if nextBt in cbCollide and event.button == 1:
                     menuBlip.play()

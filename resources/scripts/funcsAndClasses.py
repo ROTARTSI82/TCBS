@@ -126,6 +126,24 @@ def updatecost():
         updaterects()
 
 
+def set_background(img=None):
+    """
+    Update the background. Set to new image if image is specified
+
+    :type img: str
+    :rtype: None
+    """
+    global background, alreadyHandled
+    try:
+        assert img is not None, "img == None"
+        background = pygame.image.load(img)
+    except (pygame.error, AssertionError) as e:
+        if not str(e) in alreadyHandled:
+            log("EXCEPTION", "Failed to set background: "+str(e))
+            alreadyHandled.append(str(e))
+    background = pygame.transform.scale(background, [screen.get_width(), screen.get_height()])
+
+
 def take_screenshot():
     """
     Save a .png file of the screen to the screenshots folder
@@ -134,7 +152,7 @@ def take_screenshot():
     """
     global menuBlip
     global screen
-    menuBlip.play()
+    shutterClick.play()
     filename = str(datetime.datetime.now()) + ".png"
     log("SCREENSHOT", "Screenshot saved as " + filename)
     screen.fill([255, 255, 255])
@@ -344,6 +362,7 @@ def updaterects():
 
     blueBar.rect.topleft = [0, 0]
     redBar.rect.topright = [screen.get_width(), 0]
+    set_background()
 
 
 class Marker(pygame.sprite.Sprite):

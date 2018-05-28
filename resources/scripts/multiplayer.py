@@ -49,7 +49,8 @@ class TCBSClient(ConnectionListener):
                 if selfIsHost:
                     s.shutdown()
             state = "mult-start"
-            set_music("resources/sounds/menuMusic.wav")
+            set_music("resources/sounds/menuMusic.mp3")
+            set_background("resources/images/sky.png")
 
     def Network_kick(self, data):
         """
@@ -185,7 +186,8 @@ class TCBSChannel(Channel):
                 if selfIsHost:
                     s.shutdown()
             state = "mult-start"
-            set_music("resources/sounds/menuMusic.wav")
+            set_music("resources/sounds/menuMusic.mp3")
+            set_background("resources/images/sky.png")
 
     def Network_leave(self, data):
         """
@@ -365,4 +367,5 @@ class TCBSServer(Server):
                 if selfIsHost:
                     s.shutdown()
             state = "mult-start"
-            set_music("resources/sounds/menuMusic.wav")
+            set_music("resources/sounds/menuMusic.mp3")
+            set_background("resources/images/sky.png")

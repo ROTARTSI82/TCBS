@@ -53,14 +53,17 @@ elif majorPyVer == 3:
     from PodSixNetPython3.Connection import connection, ConnectionListener
     from PodSixNetPython3.rencode import serializable
 
+executefile("resources/scripts/funcsAndClasses.py")
+executefile("resources/scripts/multiplayer.py")
+
 pygame.init()
 screen = pygame.display.set_mode(*screenArgs)
 caption = "{} {}".format(__appName__, __version__)
 pygame.display.set_caption(caption, caption)
 try:
-    pygame.display.set_icon(pygame.image.load("resources/icon.png"))
+    pygame.display.set_icon(pygame.image.load("resources/images/icon.png"))
 except Exception:
-    pass
+    log("EXCEPTION", "Failed to set icon"+str(e))
 pygame.key.set_repeat(*keyRR)
 pygame.time.set_timer(USEREVENT + 1, 1000)
 
@@ -94,9 +97,6 @@ with open("logs/"+str(now.date())+".log", 'a') as logfile:
     logfile.write(msg)
     if __debugMode__:
         print(msg.strip("\n"))
-
-executefile("resources/scripts/funcsAndClasses.py")
-executefile("resources/scripts/multiplayer.py")
 
 if majorPyVer == 3:
     import pickle
@@ -228,13 +228,17 @@ oldBUnits = pygame.sprite.Group()
 multRUnits = pygame.sprite.Group()
 multBUnits = pygame.sprite.Group()
 
-set_music("resources/sounds/menuMusic.wav")
+set_music("resources/sounds/menuMusic.mp3")
+set_background("resources/images/sky.png")
 try:
     menuBlip = pygame.mixer.Sound("resources/sounds/menuBlip.wav")
     menuBlip.set_volume(effectsVol)
+    shutterClick = pygame.mixer.Sound("resources/sounds/shutterClick.wav")
+    shutterClick.set_volume(effectsVol)
 except Exception as e:
     log("EXCEPTION", "Cannot load sounds: "+str(e))
     menuBlip = DummySound()
+    shutterClick = DummySound()
 
 log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)

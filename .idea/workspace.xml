@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
+    <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="Check for update and on battle end options">
+      <change afterPath="$PROJECT_DIR$/resources/images/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/sky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/other/TCBS-Launcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sounds/menuMusic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sounds/shutterClick.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONFIG.py" beforeDir="false" afterPath="$PROJECT_DIR$/CONFIG.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/load.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/scripts/mainloop.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/mainloop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/units/exampleUnit/unit.py" beforeDir="false" afterPath="$PROJECT_DIR$/units/exampleUnit/unit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/multiplayer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sounds/menuMusic.wav" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5595">
-              <caret line="373" column="11" selection-start-line="373" selection-start-column="11" selection-end-line="373" selection-end-column="11" />
+            <state relative-caret-position="15">
+              <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -39,8 +46,8 @@
       <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="56" column="15" lean-forward="true" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
+            <state relative-caret-position="780">
+              <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -48,8 +55,8 @@
       <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="71" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="1005">
+              <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
               <folding>
                 <element signature="e#653#662#0" expanded="true" />
               </folding>
@@ -69,14 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="255" column="60" selection-start-line="255" selection-start-column="60" selection-end-line="255" selection-end-column="60" />
-              <folding>
-                <element signature="e#93#110#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="7845">
+              <caret line="523" column="68" selection-start-line="523" selection-start-column="68" selection-end-line="523" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -84,8 +88,8 @@
       <file leaf-file-name="load.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1755">
-              <caret line="124" column="58" selection-start-line="124" selection-start-column="58" selection-end-line="124" selection-end-column="58" />
+            <state relative-caret-position="3345">
+              <caret line="230" column="41" selection-start-line="230" selection-start-column="41" selection-end-line="230" selection-end-column="41" />
               <folding>
                 <element signature="e#90#105#0" expanded="true" />
               </folding>
@@ -96,8 +100,8 @@
       <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5040">
-              <caret line="336" column="20" selection-start-line="336" selection-start-column="20" selection-end-line="336" selection-end-column="20" />
+            <state>
+              <caret column="10" selection-start-column="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -115,24 +119,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shutdown</find>
-      <find>Cannot</find>
-      <find>leave</find>
-      <find>platform</find>
-      <find>endBatt</find>
-      <find>battleSta</find>
-      <find>loop</find>
-      <find>buttons.update()</find>
-      <find>psnS</find>
-      <find>selectedUnitTxt</find>
-      <find>rect.center</find>
       <find>rect</find>
       <find>webb</find>
       <find>subprocess</find>
       <find>sub</find>
       <find>subpr</find>
       <find>updatec</find>
-      <find>updatecost</find>
       <find>sndbx</find>
       <find>[selectedUnitInt][0]</find>
       <find>Opponent Disconnected</find>
@@ -145,11 +137,27 @@
       <find>updateprofile</find>
       <find>myProfile</find>
       <find>def updaterects</find>
+      <find>major</find>
+      <find>set_music(&quot;resources/sounds/in-gameMusic.wav&quot;)</find>
+      <find>set_music(&quot;resources/sounds/menuMusic.wav&quot;)</find>
+      <find>set_music</find>
+      <find>updatecost</find>
+      <find>set</find>
+      <find>set_background</find>
+      <find>menuMusic.mp</find>
+      <find>menuMusic</find>
+      <find>menuMusic.mp3</find>
+      <find>menuMusic.wav</find>
+      <find>in-gameMusic.wav</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
       <replace>&quot;screenshots/&quot;+str(datetime.datetime.now())+&quot;.png&quot;</replace>
       <replace>buttons.update</replace>
+      <replace>set_music(&quot;resources/sounds/in-gameMusic.wav&quot;)</replace>
+      <replace>menuMusic.mp</replace>
+      <replace>menuMusic.mp3</replace>
+      <replace>in-gameMusic.mp3</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -201,13 +209,13 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch..cmdline" />
         <option value="$PROJECT_DIR$/venv/lib/python2.7/site-packages/PodSixNet/rencode.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/resources/scripts/multiplayer.py" />
-        <option value="$PROJECT_DIR$/__main__.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/CONFIG.py" />
+        <option value="$PROJECT_DIR$/units/exampleUnit/unit.py" />
+        <option value="$PROJECT_DIR$/__main__.py" />
         <option value="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
         <option value="$PROJECT_DIR$/resources/scripts/load.py" />
-        <option value="$PROJECT_DIR$/units/exampleUnit/unit.py" />
+        <option value="$PROJECT_DIR$/resources/scripts/multiplayer.py" />
         <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
       </list>
     </option>
@@ -248,7 +256,39 @@
               <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
               <item name="TCBS" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sounds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -670,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526230707034</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Check for update and on battle end options">
+      <created>1526443357072</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1526443357072</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -684,9 +731,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50317127" side_tool="true" weight="0.32627118" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.27142859" />
@@ -751,7 +797,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="refresh" />
     <MESSAGE value=".DS_Store fix" />
     <MESSAGE value="Gitignore update" />
     <MESSAGE value="gitignore update" />
@@ -776,7 +821,8 @@
     <MESSAGE value="lol" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="options" />
-    <option name="LAST_COMMIT_MESSAGE" value="options" />
+    <MESSAGE value="Check for update and on battle end options" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check for update and on battle end options" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -799,41 +845,51 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
+        <state relative-caret-position="1980">
+          <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
+        <state relative-caret-position="840">
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="1005">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
           <folding>
             <element signature="e#653#662#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CONFIG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <element signature="e#184#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7845">
+          <caret line="523" column="68" selection-start-line="523" selection-start-column="68" selection-end-line="523" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="155" column="17" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="17" />
+        <state relative-caret-position="3345">
+          <caret line="230" column="41" selection-start-line="230" selection-start-column="41" selection-end-line="230" selection-end-column="41" />
           <folding>
             <element signature="e#90#105#0" expanded="true" />
           </folding>
@@ -842,202 +898,254 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1980">
+          <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+          <folding>
+            <element signature="e#653#662#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="675">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <element signature="e#184#193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/asyncore.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="417" selection-start-line="417" selection-end-line="417" />
+        <state relative-caret-position="7845">
+          <caret line="523" column="68" selection-start-line="523" selection-start-column="68" selection-end-line="523" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/русский.json">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="75" lean-forward="true" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
+        <state relative-caret-position="3450">
+          <caret line="230" column="41" selection-start-line="230" selection-start-column="41" selection-end-line="230" selection-end-column="41" />
+          <folding>
+            <element signature="e#90#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/português.json">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/javanese.json">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="53" selection-end-line="18" selection-end-column="1" />
+        <state relative-caret-position="2025">
+          <caret line="135" column="37" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/deutsche.json">
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+        <state relative-caret-position="780">
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/français.json">
+    <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
+        <state relative-caret-position="1005">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+          <folding>
+            <element signature="e#653#662#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/türk.json">
+    <entry file="file://$PROJECT_DIR$/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="645">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <element signature="e#184#193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/tiếng_việt.json">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="3330">
+          <caret line="229" selection-start-line="229" selection-end-line="229" />
+          <folding>
+            <element signature="e#90#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/english.json">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="67" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="67" />
+        <state relative-caret-position="780">
+          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CODE_OF_CONDUCT.md">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2025">
+          <caret line="135" column="37" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        <state relative-caret-position="1005">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+          <folding>
+            <element signature="e#653#662#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/2018-04-17.log" />
-    <entry file="file://$PROJECT_DIR$/logs/2018-04-20.log" />
-    <entry file="file://$PROJECT_DIR$/resources/lang/español.json">
+    <entry file="file://$PROJECT_DIR$/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="1" lean-forward="true" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="645">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <element signature="e#184#193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/PodSixNet/Connection.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="3330">
+          <caret line="229" selection-start-line="229" selection-end-line="229" />
+          <folding>
+            <element signature="e#90#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/2018-04-21.log" />
-    <entry file="file://$PROJECT_DIR$/_config.yml" />
-    <entry file="file://$PROJECT_DIR$/TCBS.command" />
-    <entry file="file://$PROJECT_DIR$/logs/2018-04-28.log" />
-    <entry file="file://$PROJECT_DIR$/cleanup.command">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        <state relative-caret-position="780">
+          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/pacakges/pip/_vendor/idna/core.py" />
-    <entry file="file://$PROJECT_DIR$/resources/profile.pkl" />
-    <entry file="file://$PROJECT_DIR$/resources/other/TCBS-Launcher.py" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch..cmdline" />
-    <entry file="file://$PROJECT_DIR$/resources/lang/中文.json">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="375">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/PodSixNet/rencode.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7095">
-          <caret line="554" column="28" selection-start-line="554" selection-start-column="28" selection-end-line="554" selection-end-column="28" />
+        <state relative-caret-position="2025">
+          <caret line="135" column="37" lean-forward="true" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/PodSixNet/async.py">
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        <state relative-caret-position="780">
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/include/site/python2.7/pygame/pygame.h">
+    <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-118" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/include/site/python2.7/pygame/_pygame.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1369" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/include/site/python2.7/pygame/camera.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-641" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/handleCrash.py" />
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="1005">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+          <folding>
+            <element signature="e#653#662#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/encodings/__init__.py">
+    <entry file="file://$PROJECT_DIR$/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1361">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
+        <state relative-caret-position="645">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <element signature="e#184#193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pkg_resources/extern/__init__.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="3330">
+          <caret line="229" lean-forward="true" selection-start-line="229" selection-end-line="229" />
+          <folding>
+            <element signature="e#90#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pkg_resources/_vendor/six.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        <state relative-caret-position="780">
+          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pygame/__init__.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="331" selection-start-line="331" selection-end-line="331" />
+        <state relative-caret-position="360">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="2040">
+          <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1061,6 +1169,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3810">
+          <caret line="255" column="60" selection-start-line="255" selection-start-column="60" selection-end-line="255" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3480">
+          <caret line="239" column="31" selection-start-line="239" selection-start-column="31" selection-end-line="239" selection-end-column="31" />
+          <folding>
+            <element signature="e#90#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5040">
@@ -1068,37 +1193,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5595">
-          <caret line="373" column="11" selection-start-line="373" selection-start-column="11" selection-end-line="373" selection-end-column="11" />
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="124" column="58" selection-start-line="124" selection-start-column="58" selection-end-line="124" selection-end-column="58" />
+        <state relative-caret-position="3345">
+          <caret line="230" column="41" selection-start-line="230" selection-start-column="41" selection-end-line="230" selection-end-column="41" />
           <folding>
             <element signature="e#90#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="56" column="15" lean-forward="true" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
+        <state relative-caret-position="7845">
+          <caret line="523" column="68" selection-start-line="523" selection-start-column="68" selection-end-line="523" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
+    <entry file="file://$PROJECT_DIR$/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="255" column="60" selection-start-line="255" selection-start-column="60" selection-end-line="255" selection-end-column="60" />
+        <state relative-caret-position="645">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
           <folding>
-            <element signature="e#93#110#0" expanded="true" />
+            <element signature="e#184#193#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+          <folding>
+            <element signature="e#653#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
         </state>
       </provider>
     </entry>
