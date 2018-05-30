@@ -8,11 +8,15 @@ Totally Customizable Battle Simulator is a multiplayer strategy video game.
 You can design and program your own soldiers and make them fight against your
 friend's soldiers.
 
-HOW TO INSTALL AND RUN (MacOS(X) and Linux):
+HOW TO RUN (MacOS):
 
-   1. Download and unzip TCBS.zip on your desktop
-   2. Open the teminal
-   3. Run the following commands
+   1. Download and unzip TCBS.zip
+   2. Double-click on TCBS-Launcher.app
+   
+HOW TO RUN (Linux):
+   1. Download and unzip TCBS.zip __ON YOUR DESKTOP__
+   2. Open terminal
+   3. Run the following commands:
     
     cd ~/Desktop/TCBS
     venv/bin/python __main__.py
