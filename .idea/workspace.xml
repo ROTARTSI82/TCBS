@@ -1,20 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="Check for update and on battle end options">
-      <change afterPath="$PROJECT_DIR$/resources/images/grass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/sky.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/other/TCBS-Launcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sounds/menuMusic.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sounds/shutterClick.wav" afterDir="false" />
+    <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/data/CONFIG.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/_config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cleanup.command" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/fonts/Quivira.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/fonts/SimSun.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/fonts/freesansbold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/images/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/images/sky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/deutsche.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/english.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/español.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/français.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/javanese.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/português.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/tiếng_việt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/türk.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/русский.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/lang/中文.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/options.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/other/TCBS-Launcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/other/TCBSinf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/other/rotartsi-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/scripts/load.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/scripts/mainloop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/sounds/in-gameMusic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/sounds/menuBlip.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/sounds/menuMusic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/resources/sounds/shutterClick.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/units/exampleUnit/unit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TCBS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TCBS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scripts/mainloop.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/mainloop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scripts/multiplayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sounds/menuMusic.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONFIG.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanup.command" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/Quivira.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/SimSun.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/freesansbold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/sky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/deutsche.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/english.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/español.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/français.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/javanese.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/português.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/tiếng_việt.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/türk.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/русский.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/中文.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/other/TCBS-Launcher.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/other/TCBSinf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/other/rotartsi-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/load.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/mainloop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scripts/multiplayer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sounds/in-gameMusic.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sounds/menuBlip.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sounds/menuMusic.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sounds/shutterClick.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/units/exampleUnit/unit.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,76 +95,9 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/__main__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-              <folding>
-                <element signature="e#653#662#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CONFIG.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CONFIG.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-              <folding>
-                <element signature="e#184#193#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7845">
-              <caret line="523" column="68" selection-start-line="523" selection-start-column="68" selection-end-line="523" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="load.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/scripts/load.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3345">
-              <caret line="230" column="41" selection-start-line="230" selection-start-column="41" selection-end-line="230" selection-end-column="41" />
-              <folding>
-                <element signature="e#90#105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="10" selection-start-column="10" selection-end-column="10" />
-            </state>
-          </provider>
+      <file leaf-file-name="__main__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/__main__.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -169,13 +163,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/CONFIG.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/venv/bin/python" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/__main__.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/resources/scripts/mainloop.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/resources/scripts/load.py" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -240,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,51 +238,12 @@
             <path>
               <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
               <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sounds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,7 +293,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.__main__">
+  <component name="RunManager" selected="Python.__main__ (1)">
+    <configuration name="__main__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="TCBS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/__main__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" singleton="true">
       <output_file path="$PROJECT_DIR$/logs/PycharmOutput.log" is_save="true" />
       <log_file alias="PycharmOutput.log" path="$PROJECT_DIR$/logs/PycharmOutput.log" show_all="true" skipped="false" />
@@ -405,9 +372,11 @@
       <item itemvalue="Python.__main__" />
       <item itemvalue="Python.xxx" />
       <item itemvalue="Python.handleCrash" />
+      <item itemvalue="Python.__main__ (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.__main__ (1)" />
         <item itemvalue="Python.handleCrash" />
       </list>
     </recent_temporary>
@@ -717,7 +686,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526443357072</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="soundtrack">
+      <created>1527538016539</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1527538016539</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -797,7 +773,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value=".DS_Store fix" />
     <MESSAGE value="Gitignore update" />
     <MESSAGE value="gitignore update" />
     <MESSAGE value="language update" />
@@ -822,7 +797,8 @@
     <MESSAGE value="gitignore" />
     <MESSAGE value="options" />
     <MESSAGE value="Check for update and on battle end options" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check for update and on battle end options" />
+    <MESSAGE value="soundtrack" />
+    <option name="LAST_COMMIT_MESSAGE" value="soundtrack" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -845,6 +821,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1980">
@@ -1212,7 +1195,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7845">
+        <state relative-caret-position="7830">
           <caret line="523" column="68" selection-start-line="523" selection-start-column="68" selection-end-line="523" selection-end-column="68" />
         </state>
       </provider>
@@ -1250,6 +1233,9 @@
           <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/__main__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
