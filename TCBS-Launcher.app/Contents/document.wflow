@@ -168,7 +168,7 @@ import subprocess
 def x():
 	path = sys.argv[1:][0]
 	path = path.replace(":", "/")
-	path = path.replace("TCBS.app", "data")
+	path = path.replace("TCBS-Launcher.app", "data")
 	print path[12:]
 	os.chdir(path[12:])
 	subprocess.call(["cd", path[12:]])
@@ -287,7 +287,7 @@ x()</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.000000:679.000000</string>
+				<string>309.000000:499.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -297,7 +297,7 @@ x()</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>95C5DDBB-F36C-40C5-AD55-47A98C9B4284</key>
+		<key>41CAC4AA-FFCD-428C-ACEA-95D05FF805ED</key>
 		<dict>
 			<key>from</key>
 			<string>23C7462D-1580-4EB0-8F9F-0E8A75310F77 - 23C7462D-1580-4EB0-8F9F-0E8A75310F77</string>
