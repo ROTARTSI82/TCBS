@@ -10,18 +10,20 @@ friend's soldiers.
 
 HOW TO RUN (MacOS):
 
-   1. Download and unzip TCBS.zip
-   2. Double-click on TCBS-Launcher.app
+   1. Download the latest release of TCBS and unzip it.
+   2. Run __TCBS-Launcher__ by double-clicking on it.
+       - NOTE: __TCBS-Launcher__ could be found in the TCBS folder
    
 HOW TO RUN (Linux):
-   1. Download and unzip TCBS.zip __ON YOUR DESKTOP__
+   1. Download the latest release of TCBS and unzip it.
    2. Open terminal
-   3. Run the following commands:
-    
-    cd ~/Desktop/TCBS
-    venv/bin/python __main__.py
+   3. Change the directory to the data folder inside the TCBS folder.
 
-Wiki: https://github.com/ROTARTSI82/TCBS/wiki
+    cd ~/TCBS/data
+
+   4. Run `__main__.py` using the virtual environment
+
+    venv/bin/python __main__.py
 
 TCBS is inspired by Totally Accurate Battle Simulator
 by Landfall. It uses Pygame 1.9 and Python 2.7 but

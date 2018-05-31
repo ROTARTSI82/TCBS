@@ -16,18 +16,18 @@ sS'battleEnd'
 p7
 S'Go to start'
 p8
-sS'effects'
+sS'music'
 p9
+F0.3125
+sS'effects'
+p10
 F0.75
 sS'fps'
-p10
+p11
 I60
 sS'coinRR'
-p11
-I100
-sS'music'
 p12
-F0.3125
+I100
 sS'font'
 p13
 Ns.
