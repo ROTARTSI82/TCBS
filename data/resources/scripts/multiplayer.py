@@ -209,8 +209,11 @@ class TCBSChannel(Channel):
         :rtype: None
         """
         log("CHANNEL", "TCBSChannel.Close(%r) has been called" % (self))
-        self._server.delplayer(self)
-        self._server.Pump()
+        if self in self._server.players:
+            self._server.delplayer(self)
+            self._server.Pump()
+        else:
+            log("CHANNEL", "Cannot close Channel: Channel already closed!")
 
     def Network_leave(self, data):
         """
