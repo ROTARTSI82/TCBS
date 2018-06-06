@@ -59,12 +59,12 @@ def log(ltype, msg):
     :type msg: str
     :rtype: None
     """
-    global __debugMode__
+    global __debugMode__, lfstr
     global os, datetime, traceback
     if not os.path.exists("logs"):
         os.mkdir("logs")
     now = datetime.datetime.now()
-    with open("logs/"+str(now.date())+".log", 'a') as logfile:
+    with open("logs/"+lfstr, 'a') as logfile:
         msg2 = "[{}] [{}]: {}\n".format(now.time(), ltype, msg)
         logfile.write(msg2)
         if __debugMode__:

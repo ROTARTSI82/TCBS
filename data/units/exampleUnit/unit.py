@@ -131,24 +131,21 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     name = "exampleUnit (MULTIPLAYER) - $20"
     cost = 20
 
-    def __init__(self, pos, team, image=None):
+    def __init__(self, pos, team, unitid):
         pygame.sprite.Sprite.__init__(self)
         self.team = team
+        self.unitid = unitid
         self.health = 50
-        if image is None:
-            self.image = pygame.Surface([25, 25])
-            if team == "red":
-                self.image.fill([255, 0, 0])
-            elif team == "blue":
-                self.image.fill([0, 0, 255])
-        elif image is not None:
-            self.image = pygame.image.fromstring(*image)
+        self.image = pygame.Surface([25, 25])
+        if team == "red":
+            self.image.fill([255, 0, 0])
+        elif team == "blue":
+            self.image.fill([0, 0, 255])
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
     def _pack(self):
-        return (self.rect.center, self.team,
-                (pygame.image.tostring(self.image, "RGB"), self.image.get_size(), "RGB"))
+        return self.rect.center, self.team, self.unitid
 
 
 MultiplayerUnit.__name__ = "unique string goes here"

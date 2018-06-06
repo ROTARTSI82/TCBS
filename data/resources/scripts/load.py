@@ -89,10 +89,11 @@ validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"
 shiftChars = '~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?'
 shiftDown = False
 
+lfstr = str(datetime.datetime.now()) + ".log"
 if not os.path.exists("logs"):
     os.mkdir("logs")
 now = datetime.datetime.now()
-with open("logs/"+str(now.date())+".log", 'a') as logfile:
+with open("logs/"+lfstr, 'a') as logfile:
     msg = "====================[{}]====================\n".format(now.ctime())
     logfile.write(msg)
     if __debugMode__:
@@ -227,6 +228,10 @@ oldRUnits = pygame.sprite.Group()
 oldBUnits = pygame.sprite.Group()
 multRUnits = pygame.sprite.Group()
 multBUnits = pygame.sprite.Group()
+multBDict = {}
+multRDict = {}
+nextRID = 0
+nextBID = 0
 
 set_music("resources/sounds/menuMusic.mp3")
 set_background("resources/images/sky.png")

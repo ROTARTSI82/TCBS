@@ -6,7 +6,6 @@
 
 """
 import webbrowser
-import copy
 
 if False:
     # Ignore this code. It makes PyCharm happy
@@ -584,12 +583,19 @@ while running:
         c.loop()
         if selfIsHost:
             s.loop()
+        # The following code results in segfault
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+        #elif not selfIsHost:
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
-        if not selfIsHost:
-            multRUnits.draw(screen)
-        elif selfIsHost:
-            multBUnits.draw(screen)
+        #if not selfIsHost:
+        #    multRUnits.draw(screen)
+        #elif selfIsHost:
+        #    multBUnits.draw(screen)
+        multBUnits.draw(screen)
+        multRUnits.draw(screen)
+        screen.blit(simpleFont.render("PING: "+str(c.lastping*1000), False, [0, 0, 0]), [100, 100])
         screen.blit(readyBt.image, readyBt.rect)
         screen.blit(backBt.image, backBt.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
@@ -604,6 +610,7 @@ while running:
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
+                # c.Send({"action": "test"})
                 if clearRedBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     multRUnits = pygame.sprite.Group()
@@ -650,12 +657,18 @@ while running:
                     try:
                         if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
                             if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
-                                multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
+                                newunit = mpUnits[mpUnitInt](cursor.rect.center, "red", nextRID)
+                                multRUnits.add(newunit)
                                 coinsLeft[1] -= mpUnits[mpUnitInt].cost
+                                multRDict[nextRID] = newunit
+                                nextRID += 1
                         if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
                             if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
-                                multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
+                                newunit = mpUnits[mpUnitInt](cursor.rect.center, "blue", nextBID)
+                                multBUnits.add(newunit)
                                 coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                                multBDict[nextBID] = newunit
+                                nextBID += 1
                     except Exception as e:
                         if __debugMode__:
                             raise
@@ -691,6 +704,9 @@ while running:
         c.loop()
         if selfIsHost:
             s.loop()
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+        #elif not selfIsHost:
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         if len(multRUnits) == 0 and len(multBUnits) == 0:
             log("BATTLE", "Draw!")
             bullets = pygame.sprite.Group()
@@ -798,12 +814,18 @@ while running:
                     try:
                         if cursor.rect.center[0] > screen.get_width() / 2 and (not selfIsHost):
                             if coinsLeft[1] - mpUnits[mpUnitInt].cost >= 0:
-                                multRUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "red"))
+                                newunit = mpUnits[mpUnitInt](cursor.rect.center, "red", nextRID)
+                                multRUnits.add(newunit)
                                 coinsLeft[1] -= mpUnits[mpUnitInt].cost
+                                multRDict[nextRID] = newunit
+                                nextRID += 1
                         if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
                             if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
-                                multBUnits.add(mpUnits[mpUnitInt](cursor.rect.center, "blue"))
+                                newunit = mpUnits[mpUnitInt](cursor.rect.center, "blue", nextBID)
+                                multBUnits.add()
                                 coinsLeft[0] -= mpUnits[mpUnitInt].cost
+                                multBDict[nextBID] = newunit
+                                nextBID += 1
                     except Exception as e:
                         if __debugMode__:
                             raise

@@ -6,12 +6,17 @@
 
 """
 from weakref import WeakKeyDictionary
+import time
 
 if False:
     # Ignore this code. It makes PyCharm happy
     # Since I call this script via execfile, PyCharm thinks
     # all the variables are undefined and gives me endless warnings :(
     from load import *
+    from mainloop import *
+    from funcsAndClasses import *
+    from CONFIG import *
+    from __main__ import *
 
 
 class TCBSClient(ConnectionListener):
@@ -20,7 +25,10 @@ class TCBSClient(ConnectionListener):
     """
 
     def __init__(self, host, port):
+        log("CLIENT", "TCBSClient.__init__(%r, %r, %r) has been called" % (self, host, port))
         self.Connect((host, port))
+        self.ping = time.time()
+        self.lastping = 0
 
     def loop(self):
         """
@@ -31,6 +39,7 @@ class TCBSClient(ConnectionListener):
         global selfIsHost, c, s, state, serverMsg
         global log, TxtOrBt, set_music
         global screen, connection
+        log("CLIENT", "TCBSClient.loop(%r) has been called" % (self))
         try:
             connection.Pump()
             self.Pump()
@@ -59,8 +68,8 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "kick", "reason": "xxx"}
         :rtype: None
         """
-        log("CHANNEL", "Was kicked because: " + data["reason"])
-        del self
+        log("CLIENT", "TCBSClient.Network_kick(%r, %r) has been called" % (self, data))
+        log("CLIENT", "Was kicked because: " + data["reason"])
         raise Exception(data["reason"])
 
     def Network_updatesets(self, data):
@@ -70,11 +79,23 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        global vCoinRR, vStartBdgt, coinsLeft
+        log("CLIENT", "TCBSClient.Network_updatesets(%r, %r) has been called" % (self, data))
+        global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
+        global multBUnits, multRUnits, nextRID, nextBID
         if not selfIsHost:
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
         coinsLeft = [vStartBdgt, vStartBdgt]
+        multBDict = {}
+        multRDict = {}
+        nextRID = 0
+        nextBID = 0
+        multBUnits = pygame.sprite.Group()
+        multRUnits = pygame.sprite.Group()
+        if selfIsHost:
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+        elif not selfIsHost:
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         updatecost()
 
     def Network_battlestart(self, data):
@@ -84,10 +105,37 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "battlestart"}
         :rtype: None
         """
+        log("CLIENT", "TCBSClient.Network_battlestart(%r, %r) has been called" % (self, data))
         global state, readyBt
         state = "mult-battle"
         readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
         updaterects()
+
+    def Network_updateunits(self, data):
+        """
+        sets multBUnits to pygame.sprite.Group(*data["units"]) if data["sentbyhost"]
+        sets multRUnits to pygame.sprite.Group(*data["units"]) otherwise
+
+
+        :param data: {"action": "updateunits", "sentbyhost": bool, "units": list}
+        :rtype: None
+        """
+        log("CLIENT", "TCBSClient.Network_updateunits(%r, %r) has been called" % (self, data))
+        global multRUnits, multBUnits
+        if data["sentbyhost"] and not selfIsHost:
+            multBUnits = pygame.sprite.Group(*data["units"])
+            self.lastping = time.time() - self.ping
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
+            self.ping = time.time()
+        elif not data["sentbyhost"] and selfIsHost:
+            multRUnits = pygame.sprite.Group(*data["units"])
+            self.lastping = time.time()-self.ping
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+            self.ping = time.time()
+        #if selfIsHost:
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+        #elif not selfIsHost:
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
 
     def Network_players(self, data):
         """
@@ -96,6 +144,7 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "players", "players": len(TCBSServer.players)}
         :rtype: None
         """
+        log("CLIENT", "TCBSClient.Network_players(%r, %r) has been called" % (self, data))
         global state, updateselectedunit
         global coinRR, startBdgt
         if data["players"] == 2:
@@ -108,8 +157,7 @@ class TCBSClient(ConnectionListener):
             updateselectedunit(0)
 
     def Network_test(self, data):  # EXPIREMENTAL
-        print("Client gotit")
-        print(data)
+        log("CLIENT", "TCBSClient.Network_test(%r, %r) has been called" % (self, data))
 
     def Network_connected(self, data):
         """
@@ -118,6 +166,7 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "connected"}
         :rtype: None
         """
+        log("CLIENT", "TCBSClient.Network_connected(%r, %r) has been called" % (self, data))
         log("CLIENT", "Client connected to the server successfully")
 
     def Network_error(self, data):
@@ -127,19 +176,19 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "error", "error": Exception("xxx")}
         :rtype: None
         """
+        log("CLIENT", "TCBSClient.Network_error(%r, %r) has been called" % (self, data))
         log("EXCEPTION", "Error: " + str(data['error']))
-        del self
         raise data['error']
 
     def Network_disconnected(self, data):
         """
-        Rases Exception("Server disconnected") so that we exit
+        Raises Exception("Server disconnected") so that we exit
 
         :param data: {"action": "disconnected"}
         :rtype: None
         """
+        log("CLIENT", "TCBSClient.Network_disconnected(%r, %r) has been called" % (self, data))
         log("CLIENT", "Server disconnected")
-        del self
         raise Exception("Server disconnected")
 
 
@@ -149,45 +198,19 @@ class TCBSChannel(Channel):
     """
 
     def __init__(self, *args, **kwargs):
+        log("CHANNEL", "TCBSChannel.__init__(%r, *%r, **%r) has been called" % (self, args, kwargs))
         Channel.__init__(self, *args, **kwargs)
 
     def Close(self):
         """
         Calls self._server.delplayer(self)
-        (Delets self from self._server.players)
+        (Deletes self from self._server.players)
 
         :rtype: None
         """
+        log("CHANNEL", "TCBSChannel.Close(%r) has been called" % (self))
         self._server.delplayer(self)
-        self.loop()
-
-    def loop(self):
-        """
-        Is called every tick to update connection
-
-        :rtype: None
-        """
-        global state, c, s, selfIsHost, serverMsg
-        global log, TxtOrBt, set_music
-        global screen
-        try:
-            self.Pump()
-        except Exception as e:
-            log("EXCEPTION", "Cannot Pump: " + str(e))
-            serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
-            serverMsg.rect.center = [screen.get_width() / 2,
-                                     screen.get_height() / 2 - 45]
-            if str(e) != "Game already full":
-                c.Send({"action": "leave"})
-                try:
-                    c.loop()
-                except:
-                    self._server.shutdown()
-                if selfIsHost:
-                    s.shutdown()
-            state = "mult-start"
-            set_music("resources/sounds/menuMusic.mp3")
-            set_background("resources/images/sky.png")
+        self._server.Pump()
 
     def Network_leave(self, data):
         """
@@ -196,6 +219,7 @@ class TCBSChannel(Channel):
         :param data: {"action": "leave"}
         :rtype: None
         """
+        log("CHANNEL", "TCBSChannel.Network_leave(%r, %r) has been called" % (self, data))
         self._server.shutdown()
 
     def Network_kick(self, data):
@@ -205,13 +229,22 @@ class TCBSChannel(Channel):
         :param data: {"action": "kick", "reason": "xxx"}
         :rtype: None
         """
+        log("CHANNEL", "TCBSChannel.Network_kick(%r, %r) has been called" % (self, data))
         log("CHANNEL", "Was kicked because: " + data["reason"])
-        self.Close()
-        del self
         raise Exception(data["reason"])
 
     def Network_test(self, data):  # EXPIREMENTAL
-        print("Channel gotit. Forwarding...")
+        log("CHANNEL", "TCBSChannel.Network_test(%r, %r) has been called" % (self, data))
+        self._server.sendtoall(data)
+
+    def Network_updateunits(self, data):
+        """
+        Forwards message to client(s)
+
+        :param data: {"action": "updateunits", "sentbyhost": bool, "units": list}
+        :rtype: None
+        """
+        log("CHANNEL", "TCBSChannel.Network_updateunits(%r, %r) has been called" % (self, data))
         self._server.sendtoall(data)
 
     def Network_updatesets(self, data):
@@ -221,11 +254,24 @@ class TCBSChannel(Channel):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        global vCoinRR, vStartBdgt, coinsLeft
+        log("CHANNEL", "TCBSChannel.Network_updatesets(%r, %r) has been called" % (self, data))
+        global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
+        global multBUnits, multRUnits, nextBID, nextRID
         if not selfIsHost:
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
         coinsLeft = [vStartBdgt, vStartBdgt]
+        multBDict = {}
+        multRDict = {}
+        nextRID = 0
+        nextBID = 0
+        multBUnits = pygame.sprite.Group()
+        multRUnits = pygame.sprite.Group()
+        updatecost()
+        #if selfIsHost:
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+        #elif not selfIsHost:
+        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         self._server.sendtoall(data)
 
     def Network_ready(self, data):
@@ -235,6 +281,7 @@ class TCBSChannel(Channel):
         :param data: {"action": "ready"}
         :rtype: None
         """
+        log("CHANNEL", "TCBSChannel.Network_ready(%r, %r) has been called" % (self, data))
         global state
         self._server.playersready += 1
         if self._server.playersready > 1:
@@ -250,6 +297,7 @@ class TCBSChannel(Channel):
         :param data: {"action": "players", "players": len(self._server.players)}
         :rtype: None
         """
+        log("CHANNEL", "TCBSChannel.Network_players(%r, %r) has been called" % (self, data))
         global state, coinRR, startBdgt
         if data["players"] == 2:
             log("CHANNEL", "Starting game...")
@@ -268,6 +316,7 @@ class TCBSServer(Server):
     channelClass = TCBSChannel
 
     def __init__(self, *args, **kwargs):
+        log("SERVER", "TCBSServer.__init__(%r, *%r, **%r) has been called" % (self, args, kwargs))
         Server.__init__(self, *args, **kwargs)
         self.playersready = 0
         self.players = WeakKeyDictionary()
@@ -281,6 +330,7 @@ class TCBSServer(Server):
         :type addr: tuple
         :rtype: None
         """
+        log("SERVER", "TCBSServer.Connected(%r, %r, %r) has been called" % (self, channel, addr))
         if len(self.players) < 2:
             self.addplayer(channel)
         else:
@@ -295,6 +345,7 @@ class TCBSServer(Server):
         :type player: instance
         :rtype: None
         """
+        log("SERVER", "TCBSServer.addplayer(%r, %r) has been called" % (self, player))
         log("SERVER", "New Player" + str(player.addr))
         self.players[player] = True
         self.sendplayers()
@@ -307,6 +358,7 @@ class TCBSServer(Server):
         :type player: instance
         :rtype: None
         """
+        log("SERVER", "TCBSServer.delplayer(%r, %r) has been called" % (self, player))
         if player in self.players:
             log("SERVER", "Deleting Player" + str(player.addr))
             del self.players[player]
@@ -320,6 +372,7 @@ class TCBSServer(Server):
 
         :rtype: None
         """
+        log("SERVER", "TCBSServer.sendplayers(%r) has been called" % (self))
         log("SERVER", str(len(self.players)) + " player(s) connected")
         self.sendtoall({"action": "players", "players": len(self.players)})
 
@@ -330,6 +383,7 @@ class TCBSServer(Server):
         :param data: {"action": "xxx", ...}
         :rtype: None
         """
+        log("SERVER", "TCBSServer.sendtoall(%r, %r) has been called" % (self, data))
         [p.Send(data) for p in self.players]
 
     def shutdown(self):
@@ -338,6 +392,7 @@ class TCBSServer(Server):
 
         :rtype: None
         """
+        log("SERVER", "TCBSServer.shutdown(%r) has been called" % (self))
         log("SERVER", "Shutting down...")
         self.sendtoall({"action": "kick", "reason": "Opponent Disconnected"})
         self.loop()
@@ -348,6 +403,7 @@ class TCBSServer(Server):
 
         :rtype: None
         """
+        log("SERVER", "TCBSServer.loop(%r) has been called" % (self))
         global selfIsHost, c, s, state, serverMsg
         global log, TxtOrBt, set_music
         global screen
@@ -361,7 +417,7 @@ class TCBSServer(Server):
             if str(e) != "Game already full":
                 c.Send({"action": "leave"})
                 try:
-                    self.loop()
+                    self.Pump()
                 except:
                     pass
                 if selfIsHost:

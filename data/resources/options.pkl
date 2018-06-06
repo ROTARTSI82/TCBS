@@ -11,7 +11,7 @@ p5
 I100
 sS'check4updates'
 p6
-I01
+I00
 sS'battleEnd'
 p7
 S'Go to start'
