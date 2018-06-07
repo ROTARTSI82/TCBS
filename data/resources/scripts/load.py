@@ -210,18 +210,32 @@ sbUnits = []
 mpUnits = []
 for i in rawList:
     try:
-        executefile("units/"+i+"/unit.py")
-        assert inspect.isclass(SandboxUnit)
-        assert inspect.isclass(MultiplayerUnit)
-        assert inspect.ismethod(MultiplayerUnit._pack)
-        serializable.register(MultiplayerUnit)
-        sbUnits.append(SandboxUnit)
-        mpUnits.append(MultiplayerUnit)
-        log("UNITS", "%s was added" % i)
+        executefile("units/" + i + "/unit.py")
     except Exception as e:
         if __debugMode__ and os.path.isdir("units/"+i):
             raise
         log("UNITS", "%s failed: %s" % (i, str(e)))
+        continue
+    try:
+        assert inspect.isclass(SandboxUnit)
+        sbUnits.append(SandboxUnit)
+        log("UNITS", "Sandbox %s was added" % i)
+    except Exception as e:
+        if __debugMode__ and os.path.isdir("units/"+i):
+            raise
+        log("UNITS", "Sandbox %s failed: %s" % (i, str(e)))
+    try:
+        assert inspect.isclass(MultiplayerUnit)
+        assert inspect.ismethod(MultiplayerUnit._pack)
+        serializable.register(MultiplayerUnit)
+        for bul in serializableBullets:
+            serializable.register(bul)
+        mpUnits.append(MultiplayerUnit)
+        log("UNITS", "Multiplayer %s was added" % i)
+    except Exception as e:
+        if __debugMode__ and os.path.isdir("units/"+i):
+            raise
+        log("UNITS", "Multiplayer %s failed: %s" % (i, str(e)))
 sndbxRUnits = pygame.sprite.Group()
 sndbxBUnits = pygame.sprite.Group()
 oldRUnits = pygame.sprite.Group()
@@ -297,3 +311,5 @@ blueCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
 redBar = BarSprite(1, 2, [255, 0, 0])
 blueBar = BarSprite(1, 2, [0, 0, 255])
 bullets = pygame.sprite.Group()
+RBullets = pygame.sprite.Group()
+BBullets = pygame.sprite.Group()

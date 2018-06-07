@@ -92,8 +92,10 @@ class TCBSClient(ConnectionListener):
         multBUnits = pygame.sprite.Group()
         multRUnits = pygame.sprite.Group()
         if selfIsHost:
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
         elif not selfIsHost:
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         updatecost()
 
@@ -110,13 +112,30 @@ class TCBSClient(ConnectionListener):
         updaterects()
         log("CLIENT", "Battle started!")
 
+    def Network_updatebullets(self, data):
+        """
+        sets BBullets to pygame.sprite.Group(*data["units"]) if data["sentbyhost"]
+        sets RBullets to pygame.sprite.Group(*data["units"]) otherwise
+
+
+        :param data: {"action": "updateunits", "sentbyhost": bool, "bullets": [pygame.sprite.Sprite, ...]}
+        :rtype: None
+        """
+        global BBullets, RBullets
+        if data["sentbyhost"] and not selfIsHost:
+            BBullets = pygame.sprite.Group(*data["bullets"])
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
+        elif not data["sentbyhost"] and selfIsHost:
+            RBullets = pygame.sprite.Group(*data["bullets"])
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
+
     def Network_updateunits(self, data):
         """
         sets multBUnits to pygame.sprite.Group(*data["units"]) if data["sentbyhost"]
         sets multRUnits to pygame.sprite.Group(*data["units"]) otherwise
 
 
-        :param data: {"action": "updateunits", "sentbyhost": bool, "units": list}
+        :param data: {"action": "updateunits", "sentbyhost": bool, "units": [pygame.sprite.Sprite, ...]}
         :rtype: None
         """
         global multRUnits, multBUnits
@@ -233,11 +252,20 @@ class TCBSChannel(Channel):
         log("CHANNEL", "Forwarding test message to all clients: " + str(data))
         self._server.sendtoall(data)
 
+    def Network_updatebullets(self, data):
+        """
+        Forwards message to client(s)
+
+        :param data: {"action": "updatebullets", "sentbyhost": bool, "bullets": [pygame.sprite.Sprite, ...]}
+        :rtype: None
+        """
+        self._server.sendtoall(data)
+
     def Network_updateunits(self, data):
         """
         Forwards message to client(s)
 
-        :param data: {"action": "updateunits", "sentbyhost": bool, "units": list}
+        :param data: {"action": "updateunits", "sentbyhost": bool, "units": [pygame.sprite.Sprite, ...]}
         :rtype: None
         """
         #log("CHANNEL", "TCBSChannel.Network_updateunits(%r, %r) has been called" % (self, data))

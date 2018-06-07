@@ -136,6 +136,8 @@ class MultiplayerUnit(pygame.sprite.Sprite):
         self.team = team
         self.unitid = unitid
         self.health = 50
+        self.lastRangeAttack = 0
+        self.rangeCooldown = 2
         self.image = pygame.Surface([25, 25])
         if team == "red":
             self.image.fill([255, 0, 0])
@@ -147,8 +149,111 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     def _pack(self):
         return self.rect.center, self.team, self.unitid
 
+    def update(self):
+        global bullets, BBullets, RBullets, selfIsHost
+        if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
+            if self.team == "red" and not selfIsHost:
+                RBullets.add(MultiplayerSmartBullet(self.rect.center, self.team))
+                self.lastRangeAttack = time.time()
+            if self.team == "blue" and selfIsHost:
+                BBullets.add(MultiplayerSmartBullet(self.rect.center, self.team))
+                self.lastRangeAttack = time.time()
+
+    def on_soldier_hit(self, hitlist):
+        """
+        Is called when two enemy soldiers collide
+        Add code to damage your enemy here
+
+        :param hitlist: List of enemy soldiers touching your soldier
+        :return: None
+        """
+        # If self.meleeCooldown seconds have passed since self.lastMeleeAttack,
+        # Damage a random enemy on hitlist by self.meleeDamage
+        pass
+
+    def on_bullet_hit(self, hitlist):
+        """
+        NotImplemented
+
+        :param hitlist: List of bullet sprites touching your soldier
+        :return:
+        """
+        pass
+
+
+class MultiplayerSmartBullet(pygame.sprite.Sprite):
+    def __init__(self, pos, team):
+        # Define basic attributes
+        pygame.sprite.Sprite.__init__(self)
+        self.team = team
+        self.speed = 3
+        self.damage = 20
+        self.target = None
+
+        # Set the image to a yellow sqaure and the posistion to pos
+        self.image = pygame.Surface([10, 10])
+        self.image.fill([255, 255, 0])
+        self.rect = self.image.get_rect()
+        self.rect.center = pos
+
+    def _pack(self):
+        return self.rect.center, self.team
+
+    def update(self):
+        """
+        Add code to move your bullet!
+
+        :rtype: None
+        """
+        global multRUnits, multBUnits
+
+        # Don't do anything if the battle is over
+        if len(multBUnits) == 0 or len(multRUnits) == 0:
+            return
+
+        # Check if the target is still alive,
+        # and set a new target if our old target is dead
+        if self.team == "blue":
+            if self.target not in multRUnits:
+                self.target = random.choice(multRUnits.sprites())
+        if self.team == "red":
+            if self.target not in multBUnits:
+                self.target = random.choice(multBUnits.sprites())
+
+        # Move towards the target
+        listcenter = list(self.rect.center)
+        if self.rect.center[0] > self.target.rect.center[0]:
+            listcenter[0] -= self.speed
+        if self.rect.center[0] < self.target.rect.center[0]:
+            listcenter[0] += self.speed
+        if self.rect.center[1] > self.target.rect.center[1]:
+            listcenter[1] -= self.speed
+        if self.rect.center[1] < self.target.rect.center[1]:
+            listcenter[1] += self.speed
+        self.rect.center = tuple(listcenter)
+
+    def on_bullet_hit(self, hitlist):
+        """
+        Called when the bullet touches a soldier
+
+        :param hitlist: List of soldiers touching the bullet
+        :return: None
+        """
+        global multRUnits, multBUnits
+        # Damage a random enemy touching the bullet
+        for k in hitlist:
+            if self.team == "red" and k in multBUnits:
+                #k.health -= self.damage
+                self.kill()
+                return
+            if self.team == "blue" and k in multRUnits:
+                #k.health -= self.damage
+                self.kill()
+                return
+
 
 MultiplayerUnit.__name__ = "unique string goes here"
+MultiplayerSmartBullet.__name__ = "another unique string goes here"
 
 
 class SmartBullet(pygame.sprite.Sprite):
@@ -220,3 +325,6 @@ class SmartBullet(pygame.sprite.Sprite):
                 k.health -= self.damage
                 self.kill()
                 return
+
+
+serializableBullets = [MultiplayerSmartBullet, ]

@@ -6,19 +6,19 @@ p3
 sS'scale'
 p4
 F1
-sS'music'
-p5
-F0.3125
 sS'srtBdgt'
-p6
+p5
 I100
 sS'check4updates'
-p7
+p6
 I00
 sS'battleEnd'
-p8
+p7
 S'Do nothing'
+p8
+sS'music'
 p9
+F0.3125
 sS'effects'
 p10
 F0.75

@@ -583,6 +583,7 @@ while running:
         c.loop()
         if selfIsHost:
             s.loop()
+        bullets = pygame.sprite.Group(*(RBullets.sprites() + BBullets.sprites()))
         # The following code results in segfault
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
         #elif not selfIsHost:
@@ -704,6 +705,7 @@ while running:
         c.loop()
         if selfIsHost:
             s.loop()
+        bullets = pygame.sprite.Group(*(RBullets.sprites()+BBullets.sprites()))
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
         #elif not selfIsHost:
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
