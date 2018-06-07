@@ -25,7 +25,7 @@ class TCBSClient(ConnectionListener):
     """
 
     def __init__(self, host, port):
-        log("CLIENT", "TCBSClient.__init__(%r, %r, %r) has been called" % (self, host, port))
+        log("CLIENT", "New TCBSClient at %s:%s" % (host, port))
         self.Connect((host, port))
         self.ping = time.time()
         self.lastping = 0
@@ -39,7 +39,6 @@ class TCBSClient(ConnectionListener):
         global selfIsHost, c, s, state, serverMsg
         global log, TxtOrBt, set_music
         global screen, connection
-        log("CLIENT", "TCBSClient.loop(%r) has been called" % (self))
         try:
             connection.Pump()
             self.Pump()
@@ -68,7 +67,6 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "kick", "reason": "xxx"}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_kick(%r, %r) has been called" % (self, data))
         log("CLIENT", "Was kicked because: " + data["reason"])
         raise Exception(data["reason"])
 
@@ -79,10 +77,11 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_updatesets(%r, %r) has been called" % (self, data))
         global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
         global multBUnits, multRUnits, nextRID, nextBID
         if not selfIsHost:
+            log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
+            log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
         coinsLeft = [vStartBdgt, vStartBdgt]
@@ -105,11 +104,11 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "battlestart"}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_battlestart(%r, %r) has been called" % (self, data))
         global state, readyBt
         state = "mult-battle"
         readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
         updaterects()
+        log("CLIENT", "Battle started!")
 
     def Network_updateunits(self, data):
         """
@@ -120,7 +119,6 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "updateunits", "sentbyhost": bool, "units": list}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_updateunits(%r, %r) has been called" % (self, data))
         global multRUnits, multBUnits
         if data["sentbyhost"] and not selfIsHost:
             multBUnits = pygame.sprite.Group(*data["units"])
@@ -144,7 +142,6 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "players", "players": len(TCBSServer.players)}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_players(%r, %r) has been called" % (self, data))
         global state, updateselectedunit
         global coinRR, startBdgt
         if data["players"] == 2:
@@ -157,7 +154,7 @@ class TCBSClient(ConnectionListener):
             updateselectedunit(0)
 
     def Network_test(self, data):  # EXPIREMENTAL
-        log("CLIENT", "TCBSClient.Network_test(%r, %r) has been called" % (self, data))
+        log("CLIENT", "Got test message: "+str(data))
 
     def Network_connected(self, data):
         """
@@ -166,7 +163,6 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "connected"}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_connected(%r, %r) has been called" % (self, data))
         log("CLIENT", "Client connected to the server successfully")
 
     def Network_error(self, data):
@@ -176,7 +172,6 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "error", "error": Exception("xxx")}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_error(%r, %r) has been called" % (self, data))
         log("EXCEPTION", "Error: " + str(data['error']))
         raise data['error']
 
@@ -187,7 +182,6 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "disconnected"}
         :rtype: None
         """
-        log("CLIENT", "TCBSClient.Network_disconnected(%r, %r) has been called" % (self, data))
         log("CLIENT", "Server disconnected")
         raise Exception("Server disconnected")
 
@@ -198,7 +192,7 @@ class TCBSChannel(Channel):
     """
 
     def __init__(self, *args, **kwargs):
-        log("CHANNEL", "TCBSChannel.__init__(%r, *%r, **%r) has been called" % (self, args, kwargs))
+        log("CHANNEL", "New TCBSChannel at " + str(args[1]))
         Channel.__init__(self, *args, **kwargs)
 
     def Close(self):
@@ -208,8 +202,8 @@ class TCBSChannel(Channel):
 
         :rtype: None
         """
-        log("CHANNEL", "TCBSChannel.Close(%r) has been called" % (self))
         if self in self._server.players:
+            log("CHANNEL", "Closing channel...")
             self._server.delplayer(self)
             self._server.Pump()
         else:
@@ -222,7 +216,7 @@ class TCBSChannel(Channel):
         :param data: {"action": "leave"}
         :rtype: None
         """
-        log("CHANNEL", "TCBSChannel.Network_leave(%r, %r) has been called" % (self, data))
+        log("CHANNEL", "Shutting down server...")
         self._server.shutdown()
 
     def Network_kick(self, data):
@@ -232,12 +226,11 @@ class TCBSChannel(Channel):
         :param data: {"action": "kick", "reason": "xxx"}
         :rtype: None
         """
-        log("CHANNEL", "TCBSChannel.Network_kick(%r, %r) has been called" % (self, data))
         log("CHANNEL", "Was kicked because: " + data["reason"])
         raise Exception(data["reason"])
 
     def Network_test(self, data):  # EXPIREMENTAL
-        log("CHANNEL", "TCBSChannel.Network_test(%r, %r) has been called" % (self, data))
+        log("CHANNEL", "Forwarding test message to all clients: " + str(data))
         self._server.sendtoall(data)
 
     def Network_updateunits(self, data):
@@ -247,7 +240,7 @@ class TCBSChannel(Channel):
         :param data: {"action": "updateunits", "sentbyhost": bool, "units": list}
         :rtype: None
         """
-        log("CHANNEL", "TCBSChannel.Network_updateunits(%r, %r) has been called" % (self, data))
+        #log("CHANNEL", "TCBSChannel.Network_updateunits(%r, %r) has been called" % (self, data))
         self._server.sendtoall(data)
 
     def Network_updatesets(self, data):
@@ -257,10 +250,11 @@ class TCBSChannel(Channel):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        log("CHANNEL", "TCBSChannel.Network_updatesets(%r, %r) has been called" % (self, data))
         global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
         global multBUnits, multRUnits, nextBID, nextRID
         if not selfIsHost:
+            log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
+            log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
         coinsLeft = [vStartBdgt, vStartBdgt]
@@ -284,14 +278,14 @@ class TCBSChannel(Channel):
         :param data: {"action": "ready"}
         :rtype: None
         """
-        log("CHANNEL", "TCBSChannel.Network_ready(%r, %r) has been called" % (self, data))
         global state
         self._server.playersready += 1
+        log("CHANNEL", "%s of 2 players ready" % str(self._server.playersready))
         if self._server.playersready > 1:
             state = "mult-battle"
             self._server.sendtoall({"action": "battlestart"})
             self._server.playersready = 0
-            log("BATTLE", "Battle started")
+            log("BATTLE", "Starting battle...")
 
     def Network_players(self, data):
         """
@@ -300,7 +294,6 @@ class TCBSChannel(Channel):
         :param data: {"action": "players", "players": len(self._server.players)}
         :rtype: None
         """
-        log("CHANNEL", "TCBSChannel.Network_players(%r, %r) has been called" % (self, data))
         global state, coinRR, startBdgt
         if data["players"] == 2:
             log("CHANNEL", "Starting game...")
@@ -319,11 +312,11 @@ class TCBSServer(Server):
     channelClass = TCBSChannel
 
     def __init__(self, *args, **kwargs):
-        log("SERVER", "TCBSServer.__init__(%r, *%r, **%r) has been called" % (self, args, kwargs))
         Server.__init__(self, *args, **kwargs)
+        log("SERVER", "New TCBSServer at "+str(self.addr))
         self.playersready = 0
         self.players = WeakKeyDictionary()
-        log("SERVER", "Server launched. Waiting for players...")
+        log("SERVER", "Waiting for players...")
 
     def Connected(self, channel, addr):
         """
@@ -333,11 +326,10 @@ class TCBSServer(Server):
         :type addr: tuple
         :rtype: None
         """
-        log("SERVER", "TCBSServer.Connected(%r, %r, %r) has been called" % (self, channel, addr))
         if len(self.players) < 2:
             self.addplayer(channel)
         else:
-            log("SERVER", "Kicked player because Game already full")
+            log("SERVER", "Kicked Player%s because Game already full" % str(addr))
             channel.Send({"action": "kick", "reason": "Game already full"})
 
     def addplayer(self, player):
@@ -348,7 +340,6 @@ class TCBSServer(Server):
         :type player: instance
         :rtype: None
         """
-        log("SERVER", "TCBSServer.addplayer(%r, %r) has been called" % (self, player))
         log("SERVER", "New Player" + str(player.addr))
         self.players[player] = True
         self.sendplayers()
@@ -361,7 +352,6 @@ class TCBSServer(Server):
         :type player: instance
         :rtype: None
         """
-        log("SERVER", "TCBSServer.delplayer(%r, %r) has been called" % (self, player))
         if player in self.players:
             log("SERVER", "Deleting Player" + str(player.addr))
             del self.players[player]
@@ -375,7 +365,6 @@ class TCBSServer(Server):
 
         :rtype: None
         """
-        log("SERVER", "TCBSServer.sendplayers(%r) has been called" % (self))
         log("SERVER", str(len(self.players)) + " player(s) connected")
         self.sendtoall({"action": "players", "players": len(self.players)})
 
@@ -386,7 +375,6 @@ class TCBSServer(Server):
         :param data: {"action": "xxx", ...}
         :rtype: None
         """
-        log("SERVER", "TCBSServer.sendtoall(%r, %r) has been called" % (self, data))
         [p.Send(data) for p in self.players]
 
     def shutdown(self):
@@ -395,7 +383,6 @@ class TCBSServer(Server):
 
         :rtype: None
         """
-        log("SERVER", "TCBSServer.shutdown(%r) has been called" % (self))
         log("SERVER", "Shutting down...")
         self.sendtoall({"action": "kick", "reason": "Opponent Disconnected"})
         self.loop()
@@ -406,7 +393,6 @@ class TCBSServer(Server):
 
         :rtype: None
         """
-        log("SERVER", "TCBSServer.loop(%r) has been called" % (self))
         global selfIsHost, c, s, state, serverMsg
         global log, TxtOrBt, set_music
         global screen

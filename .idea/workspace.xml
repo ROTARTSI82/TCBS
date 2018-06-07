@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/resources/options.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/options.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +27,7 @@
       <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="1350">
               <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
             </state>
           </provider>
@@ -47,7 +48,7 @@
       <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="7500">
               <caret line="500" column="24" selection-start-line="500" selection-start-column="24" selection-end-line="500" selection-end-column="24" />
             </state>
           </provider>
@@ -74,8 +75,8 @@
       <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="216" selection-start-line="216" selection-end-line="216" />
+            <state relative-caret-position="-175">
+              <caret line="143" column="11" selection-start-line="143" selection-start-column="11" selection-end-line="143" selection-end-column="11" />
               <folding>
                 <element signature="e#100#137#0" expanded="true" />
               </folding>
@@ -216,7 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,50 +242,11 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="other" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PodSixNet" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,6 +269,7 @@
     <property name="SearchEverywhereHistoryKey" value="java&#9;null&#9;null&#10;updaterects&#9;null&#9;null&#10;PodSixNet&#9;FILE&#9;file:///Users/Grant/Desktop/TCBS/venv/lib/python2.7/site-packages/PodSixNet&#10;'&#9;ACTION&#9;EditorBreadcrumbsHideBoth" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="CommandLine" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="CommandLine" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -702,7 +664,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528250158206</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="SegFault Fixed!!! :)">
+      <created>1528294673745</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1528294673746</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView">
@@ -717,26 +686,47 @@
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.2501762" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.25369978" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.503876" side_tool="true" weight="0.3257143" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.503876" side_tool="true" weight="0.3257143" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.27142859" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49612403" weight="0.3257143" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49612403" weight="0.3257143" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32485875" />
       <window_info id="Structure" order="1" sideWeight="0.5019305" side_tool="true" weight="0.2508711" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49964765" weight="0.3257143" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" weight="0.3257143" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37285715" />
       <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.32857144" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32859176" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32857144" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32859176" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4982382" weight="0.3257143" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4982382" weight="0.3257143" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.27142859" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.25369978" />
+      <window_info id="Structure" order="1" sideWeight="0.5019305" side_tool="true" weight="0.2508711" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49612403" weight="0.3257143" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32857144" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37285715" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" weight="0.3257143" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.503876" side_tool="true" weight="0.3257143" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32859176" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32485875" />
+    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
@@ -782,7 +772,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="cleanup.command" />
     <MESSAGE value="language fix" />
     <MESSAGE value="Remove coinRR and startingBdgt" />
     <MESSAGE value="profile" />
@@ -807,7 +796,8 @@
     <MESSAGE value=".app" />
     <MESSAGE value="README.md update" />
     <MESSAGE value="Multiplayer features" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiplayer features" />
+    <MESSAGE value="SegFault Fixed!!! :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="SegFault Fixed!!! :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -826,7 +816,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -862,17 +852,17 @@
     <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
     <entry file="file://$PROJECT_DIR$/data/README.md" />
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="150">
             <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -886,13 +876,6 @@
     <entry file="file://$PROJECT_DIR$/data/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="140" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/asyncore.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6090">
@@ -900,64 +883,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/logs/2018-06-05.log" />
     <entry file="file://$PROJECT_DIR$/data/logs/Tue Jun  5 18:33:47 2018.log" />
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="e#90#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-06 06:57:17.446401.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1658" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-06 06:57:16.482209.log">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="276">
-          <caret line="7302" column="38" selection-start-line="7302" selection-start-column="38" selection-end-line="7302" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-06 06:57:17.446401.log" />
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-06 06:57:16.482209.log" />
     <entry file="file://$PROJECT_DIR$/data/venv/lib/python2.7/site-packages/PodSixNet/EndPoint.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-653">
-          <folding>
-            <element signature="e#15#28#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-653" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/venv/lib/python2.7/site-packages/PodSixNet/Connection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="500" column="24" selection-start-line="500" selection-start-column="24" selection-end-line="500" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -981,10 +919,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="140" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7500">
+          <caret line="500" column="24" selection-start-line="500" selection-start-column="24" selection-end-line="500" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1395">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="e#90#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="216" selection-start-line="216" selection-end-line="216" />
+        <state relative-caret-position="-175">
+          <caret line="143" column="11" selection-start-line="143" selection-start-column="11" selection-end-line="143" selection-end-column="11" />
           <folding>
             <element signature="e#100#137#0" expanded="true" />
           </folding>
