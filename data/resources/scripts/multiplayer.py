@@ -136,6 +136,26 @@ class TCBSClient(ConnectionListener):
             c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
             self.lastbulletping = time.time()
 
+    def Network_callfunc(self, data):
+        """
+        Call multRDict[data['unitid']].data['func'](*data['args'], **data['kwargs']) if data["sentbyhost"]
+        and multBDict[data['unitid']].data['func'](*data['args'], **data['kwargs']) otherwise
+
+        :param data: {"action": "callfunc", "func": str, "args": list, "kwargs": dict,
+                      "unitid": int, "sentbyhost": bool}
+        :rtype: None
+        """
+        global alreadyHandled, __debugMode__, multRDict, multBDict
+        try:
+            if data['sentbyhost']:
+                exec("multRDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
+            elif not data['sentbyhost']:
+                exec("multBDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
+        except Exception as e:
+            if str(e) not in alreadyHandled:
+                log("EXCEPTION", "Failed to execute function: "+str(e))
+                alreadyHandled.append(str(e))
+
     def Network_updateunits(self, data):
         """
         sets multBUnits to pygame.sprite.Group(*data["units"]) if data["sentbyhost"]
@@ -150,11 +170,13 @@ class TCBSClient(ConnectionListener):
             multBUnits = pygame.sprite.Group(*data["units"])
             self.unitping = time.time() - self.lastunitping
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
+            updatecost()
             self.lastunitping = time.time()
         elif not data["sentbyhost"] and selfIsHost:
             multRUnits = pygame.sprite.Group(*data["units"])
             self.unitping = time.time()-self.lastunitping
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+            updatecost()
             self.lastunitping = time.time()
         #if selfIsHost:
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
@@ -257,6 +279,16 @@ class TCBSChannel(Channel):
 
     def Network_test(self, data):  # EXPIREMENTAL
         log("CHANNEL", "Forwarding test message to all clients: " + str(data))
+        self._server.sendtoall(data)
+
+    def Network_callfunc(self, data):
+        """
+        Forwards message to client(s)
+
+        :param data: {"action": "callfunc", "func": str, "args": list, "kwargs": dict,
+                      "unitid": int, "sentbyhost": bool}
+        :rtype: None
+        """
         self._server.sendtoall(data)
 
     def Network_updatebullets(self, data):

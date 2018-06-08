@@ -119,6 +119,29 @@ def updatecost():
         blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
         updaterects()
     elif state in ["mult-placeUnits", "mult-battle"]:
+        for i in multRUnits:
+            try:
+                hplist[1] += i.health
+            except Exception as e:
+                if __debugMode__:
+                    raise
+                if str(e) not in alreadyHandled:
+                    alreadyHandled.append(str(e))
+                    log("EXCEPTION", "updatecost() failed: "+str(e))
+        for i in multBUnits:
+            try:
+                hplist[0] += i.health
+            except Exception as e:
+                if __debugMode__:
+                    raise
+                if str(e) not in alreadyHandled:
+                    alreadyHandled.append(str(e))
+                    log("EXCEPTION", "updatecost() failed: "+str(e))
+        try:
+            redBar.update(hplist[1], sum(hplist))
+            blueBar.update(hplist[0], sum(hplist))
+        except:
+            pass
         redCostTxt = TxtOrBt(["Coins Left: " + str(coinsLeft[1]),
                               False, [0, 0, 0]], [None, 45])
         blueCostTxt = TxtOrBt(["Coins Left: " + str(coinsLeft[0]),

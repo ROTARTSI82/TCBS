@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/CONFIG.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/CONFIG.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resources/options.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/options.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resources/scripts/mainloop.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/mainloop.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/units/exampleUnit/unit.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/units/exampleUnit/unit.py" afterDir="false" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="funcsAndClasses.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
+            <state relative-caret-position="-76">
+              <caret line="122" column="16" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -41,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/load.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="217">
-              <caret line="137" column="16" lean-forward="true" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+              <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
               <folding>
                 <element signature="e#90#105#0" expanded="true" />
               </folding>
@@ -49,29 +48,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mainloop.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="759" column="35" selection-start-line="759" selection-start-column="35" selection-end-line="759" selection-end-column="35" />
+            <state relative-caret-position="133">
+              <caret line="735" column="33" selection-start-line="735" selection-start-column="33" selection-end-line="735" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CONFIG.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/CONFIG.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unit.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-33">
-              <caret line="269" column="49" selection-start-line="269" selection-start-column="49" selection-end-line="269" selection-end-column="49" />
+            <state relative-caret-position="-1120">
+              <caret line="200" column="23" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -79,7 +69,7 @@
       <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
+            <state relative-caret-position="429">
               <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
             </state>
           </provider>
@@ -88,8 +78,8 @@
       <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="136" column="37" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
+            <state relative-caret-position="21">
+              <caret line="147" column="66" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="66" />
               <folding>
                 <element signature="e#100#137#0" expanded="true" />
               </folding>
@@ -110,16 +100,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>menuMusic.mp3</find>
-      <find>menuMusic.wav</find>
-      <find>in-gameMusic.wav</find>
       <find>copy</find>
-      <find />
+      <find>def Network_updatesets</find>
       <find>updatesets</find>
       <find>print</find>
       <find>test</find>
       <find>multBUnits=</find>
-      <find />
+      <find>c.Send({&quot;action&quot;: &quot;updateunits&quot;</find>
       <find>shutdown</find>
       <find>self.loop()</find>
       <find>self.Pump()</find>
@@ -132,14 +119,17 @@
       <find>Network_kick</find>
       <find>loop()</find>
       <find>connection</find>
-      <find />
-      <find />
-      <find />
-      <find />
-      <find />
+      <find>del self</find>
+      <find>def log</find>
+      <find>def Network_players</find>
+      <find>def sendtoall</find>
+      <find>def Close</find>
       <find>bullets</find>
       <find>seriali</find>
       <find>sndbx</find>
+      <find>multBDict = {}</find>
+      <find>Network_ready</find>
+      <find>Network_battlestart</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -202,12 +192,12 @@
         <option value="$PROJECT_DIR$/resources/scripts/mainloop.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/data/venv/lib/python2.7/site-packages/PodSixNet/Channel.py" />
-        <option value="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" />
-        <option value="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" />
         <option value="$PROJECT_DIR$/data/CONFIG.py" />
-        <option value="$PROJECT_DIR$/data/resources/scripts/mainloop.py" />
         <option value="$PROJECT_DIR$/data/resources/scripts/load.py" />
         <option value="$PROJECT_DIR$/data/units/exampleUnit/unit.py" />
+        <option value="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" />
+        <option value="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" />
+        <option value="$PROJECT_DIR$/data/resources/scripts/mainloop.py" />
       </list>
     </option>
   </component>
@@ -254,33 +244,7 @@
               <item name="TCBS" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="other" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="TCBS-Launcher.app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="TCBS-Launcher.app" type="462c0819:PsiDirectoryNode" />
-              <item name="Contents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="TCBS-Launcher.app" type="462c0819:PsiDirectoryNode" />
-              <item name="Contents" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCBS" type="462c0819:PsiDirectoryNode" />
-              <item name="TCBS-Launcher.app" type="462c0819:PsiDirectoryNode" />
-              <item name="Contents" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="es_419.lproj" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -367,13 +331,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522947002160</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Code of Conduct">
-      <created>1523809339988</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1523809339988</updated>
     </task>
     <task id="LOCAL-00004" summary="exampleUnit cleanup">
       <created>1523838375126</created>
@@ -711,7 +668,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528413638959</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="unit movement in multiplayer">
+      <created>1528468082489</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1528468082490</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -725,8 +689,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.25369978" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.25369978" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.503876" side_tool="true" weight="0.3257143" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.27142859" />
@@ -734,7 +699,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32485875" />
       <window_info id="Structure" order="1" sideWeight="0.5019305" side_tool="true" weight="0.2508711" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" weight="0.3257143" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.37285715" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37285715" />
       <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -812,7 +777,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="profile" />
     <MESSAGE value="venv" />
     <MESSAGE value="requirements.txt" />
     <MESSAGE value="venv optional" />
@@ -837,7 +801,8 @@
     <MESSAGE value="SegFault Fixed!!! :)" />
     <MESSAGE value="logging" />
     <MESSAGE value="bullets" />
-    <option name="LAST_COMMIT_MESSAGE" value="bullets" />
+    <MESSAGE value="unit movement in multiplayer" />
+    <option name="LAST_COMMIT_MESSAGE" value="unit movement in multiplayer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -856,20 +821,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py" />
-    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py" />
-    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
-    <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py" />
-    <entry file="file://$PROJECT_DIR$/__main__.py" />
-    <entry file="file://$PROJECT_DIR$/CONFIG.py" />
-    <entry file="file://$PROJECT_DIR$/resources/scripts/load.py" />
-    <entry file="file://$PROJECT_DIR$/resources/scripts/multiplayer.py" />
-    <entry file="file://$PROJECT_DIR$/resources/scripts/mainloop.py" />
-    <entry file="file://$PROJECT_DIR$/resources/scripts/funcsAndClasses.py" />
     <entry file="file://$PROJECT_DIR$/units/exampleUnit/unit.py" />
     <entry file="file://$PROJECT_DIR$/__main__.py" />
     <entry file="file://$PROJECT_DIR$/CONFIG.py" />
@@ -956,30 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="136" column="37" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
-          <folding>
-            <element signature="e#100#137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -987,27 +918,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="759" column="35" selection-start-line="759" selection-start-column="35" selection-end-line="759" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/resources/scripts/load.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
-          <caret line="137" column="16" lean-forward="true" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+          <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
           <folding>
             <element signature="e#90#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="269" column="49" selection-start-line="269" selection-start-column="49" selection-end-line="269" selection-end-column="49" />
+        <state relative-caret-position="-1120">
+          <caret line="200" column="23" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 11:04:28.810180.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 11:00:53.279662.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 10:59:05.515201.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-415" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 10:59:05.349974.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-414" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 10:56:39.520767.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-564" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 10:55:24.966523.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-355" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 11:04:05.660798.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 11:04:05.284912.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/logs/2018-06-08 11:00:53.497123.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="147" column="66" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="66" />
+          <folding>
+            <element signature="e#100#137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="122" column="16" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="735" column="33" selection-start-line="735" selection-start-column="33" selection-end-line="735" selection-end-column="33" />
         </state>
       </provider>
     </entry>

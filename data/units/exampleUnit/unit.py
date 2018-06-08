@@ -158,6 +158,9 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     def _pack(self):
         return self.rect.center, self.team, self.unitid
 
+    def damage(self, amount):
+        self.health -= amount
+
     def update(self, calledbyhost):
         global multRUnits, multBUnits, bullets, BBullets, RBullets
 
@@ -193,6 +196,9 @@ class MultiplayerUnit(pygame.sprite.Sprite):
             if self.team == "blue" and calledbyhost:
                 BBullets.add(MultiplayerSmartBullet(self.rect.center, self.team))
                 self.lastRangeAttack = time.time()
+
+        if self.health <= 0:
+            self.kill()
 
     def on_soldier_hit(self, hitlist, calledbyhost):
         """
@@ -274,15 +280,19 @@ class MultiplayerSmartBullet(pygame.sprite.Sprite):
         :param hitlist: List of soldiers touching the bullet
         :return: None
         """
-        global multRUnits, multBUnits
+        global multRUnits, multBUnits, c
         # Damage a random enemy touching the bullet
         for k in hitlist:
             if self.team == "red" and k in multBUnits:
-                #k.health -= self.damage
+                if not calledbyhost:
+                    c.Send({"action": "callfunc", "unitid": k.unitid, "sentbyhost": calledbyhost,
+                            "func": "damage", "args": [self.damage, ], "kwargs": {}})
                 self.kill()
                 return
             if self.team == "blue" and k in multRUnits:
-                #k.health -= self.damage
+                if calledbyhost:
+                    c.Send({"action": "callfunc", "unitid": k.unitid, "sentbyhost": calledbyhost,
+                            "func": "damage", "args": [self.damage, ], "kwargs": {}})
                 self.kill()
                 return
 

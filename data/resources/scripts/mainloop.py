@@ -721,8 +721,8 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
-            updatecost()
             state = "mult-placeUnits"
+            updatecost()
             pygame.time.wait(1000)
             continue
         if len(multRUnits) == 0:
@@ -734,8 +734,8 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
-            updatecost()
             state = "mult-placeUnits"
+            updatecost()
             pygame.time.wait(1000)
         if len(multBUnits) == 0:
             log("BATTLE", "Red Victory!")
@@ -746,8 +746,8 @@ while running:
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
-            updatecost()
             state = "mult-placeUnits"
+            updatecost()
             pygame.time.wait(1000)
         try:
             BbulletCol = pygame.sprite.groupcollide(bullets, multBUnits, False, False)
@@ -831,7 +831,7 @@ while running:
                         if cursor.rect.center[0] < screen.get_width() / 2 and selfIsHost:
                             if coinsLeft[0] - mpUnits[mpUnitInt].cost >= 0:
                                 newunit = mpUnits[mpUnitInt](cursor.rect.center, "blue", nextBID)
-                                multBUnits.add()
+                                multBUnits.add(newunit)
                                 coinsLeft[0] -= mpUnits[mpUnitInt].cost
                                 multBDict[nextBID] = newunit
                                 nextBID += 1
