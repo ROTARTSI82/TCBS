@@ -28,7 +28,10 @@ class TCBSClient(ConnectionListener):
         log("CLIENT", "New TCBSClient at %s:%s" % (host, port))
         self.Connect((host, port))
         self.ping = time.time()
-        self.lastping = 0
+        self.unitping = 0
+        self.bulletping = 0
+        self.lastunitping = 0
+        self.lastbulletping = 0
 
     def loop(self):
         """
@@ -121,13 +124,17 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "updateunits", "sentbyhost": bool, "bullets": [pygame.sprite.Sprite, ...]}
         :rtype: None
         """
-        global BBullets, RBullets
+        global BBullets, RBullets, pygame
         if data["sentbyhost"] and not selfIsHost:
             BBullets = pygame.sprite.Group(*data["bullets"])
+            self.bulletping = time.time() - self.lastbulletping
             c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
+            self.lastbulletping = time.time()
         elif not data["sentbyhost"] and selfIsHost:
             RBullets = pygame.sprite.Group(*data["bullets"])
+            self.bulletping = time.time() - self.lastbulletping
             c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
+            self.lastbulletping = time.time()
 
     def Network_updateunits(self, data):
         """
@@ -141,14 +148,14 @@ class TCBSClient(ConnectionListener):
         global multRUnits, multBUnits
         if data["sentbyhost"] and not selfIsHost:
             multBUnits = pygame.sprite.Group(*data["units"])
-            self.lastping = time.time() - self.ping
+            self.unitping = time.time() - self.lastunitping
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
-            self.ping = time.time()
+            self.lastunitping = time.time()
         elif not data["sentbyhost"] and selfIsHost:
             multRUnits = pygame.sprite.Group(*data["units"])
-            self.lastping = time.time()-self.ping
+            self.unitping = time.time()-self.lastunitping
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
-            self.ping = time.time()
+            self.lastunitping = time.time()
         #if selfIsHost:
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
         #elif not selfIsHost:

@@ -594,9 +594,12 @@ while running:
         #    multRUnits.draw(screen)
         #elif selfIsHost:
         #    multBUnits.draw(screen)
-        multBUnits.draw(screen)
-        multRUnits.draw(screen)
-        screen.blit(simpleFont.render("PING: "+str(c.lastping*1000), False, [0, 0, 0]), [100, 100])
+        multBUnits.draw(screen)  # EXPERIMENTAL
+        multRUnits.draw(screen)  # EXPERIMENTAL
+        if __debugMode__:
+            screen.blit(simpleFont.render("UNIT PING: "+str(c.unitping*1000), False, [0, 0, 0]), [10, 100])
+            screen.blit(simpleFont.render("BULLET PING: "+str(c.bulletping*1000), False, [0, 0, 0]), [10, 130])
+
         screen.blit(readyBt.image, readyBt.rect)
         screen.blit(backBt.image, backBt.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
@@ -754,25 +757,26 @@ while running:
             totalRedHP = 0
             for i in multBUnits:
                 totalBlueHP += i.health
-                i.update()
+                i.update(selfIsHost)
             for i in multRUnits:
-                i.update()
                 totalRedHP += i.health
+                i.update(selfIsHost)
             blueBar.update(totalBlueHP, totalBlueHP + totalRedHP)
             redBar.update(totalRedHP, totalBlueHP + totalRedHP)
-            bullets.update()
+            BBullets.update(selfIsHost)
+            RBullets.update(selfIsHost)
             for i in BbulletCol.keys():
-                i.on_bullet_hit(BbulletCol[i])
+                i.on_bullet_hit(BbulletCol[i], selfIsHost)  # i is a bullet
                 for j in BbulletCol[i]:
-                    j.on_bullet_hit([i, ])
+                    j.on_bullet_hit([i, ], selfIsHost)  # j is a blue soldier
             for i in RbulletCol.keys():
-                i.on_bullet_hit(RbulletCol[i])
+                i.on_bullet_hit(RbulletCol[i], selfIsHost)  # i is a bullet
                 for j in RbulletCol[i]:
-                    j.on_bullet_hit([i, ])
+                    j.on_bullet_hit([i, ], selfIsHost)  # j is a red soldier
             for i in soldierCol.keys():
-                i.on_soldier_hit(soldierCol[i])
+                i.on_soldier_hit(soldierCol[i], selfIsHost)  # i is a blue soldier
                 for j in soldierCol[i]:
-                    j.on_soldier_hit([i, ])
+                    j.on_soldier_hit([i, ], selfIsHost)  # j is a red soldier
         except Exception as e:
             if __debugMode__:
                 raise
@@ -781,6 +785,9 @@ while running:
                 log("EXCEPTION", "Failed to update AI: "+str(e))
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
+        if __debugMode__:
+            screen.blit(simpleFont.render("UNIT PING: " + str(c.unitping * 1000), False, [0, 0, 0]), [10, 100])
+            screen.blit(simpleFont.render("BULLET PING: " + str(c.bulletping * 1000), False, [0, 0, 0]), [10, 130])
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
         screen.blit(redCostTxt.image, redCostTxt.rect)

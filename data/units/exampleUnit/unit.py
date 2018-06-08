@@ -134,32 +134,67 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     def __init__(self, pos, team, unitid):
         pygame.sprite.Sprite.__init__(self)
         self.team = team
+        self.speed = 1
         self.unitid = unitid
         self.health = 50
+
+        self.meleeDamage = 10
+        self.meleeCooldown = 1
+        self.lastMeleeAttack = 0
+        self.target = None
+
         self.lastRangeAttack = 0
         self.rangeCooldown = 2
+
         self.image = pygame.Surface([25, 25])
         if team == "red":
             self.image.fill([255, 0, 0])
         elif team == "blue":
             self.image.fill([0, 0, 255])
+
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
     def _pack(self):
         return self.rect.center, self.team, self.unitid
 
-    def update(self):
-        global bullets, BBullets, RBullets, selfIsHost
+    def update(self, calledbyhost):
+        global multRUnits, multBUnits, bullets, BBullets, RBullets
+
+        # Don't do anything if the battle is over
+        if len(multBUnits) == 0 or len(multRUnits) == 0:
+            return
+
+        # Check if the target is still alive,
+        # and set a new target if our old target is dead
+        if self.team == "blue":
+            if self.target not in multRUnits:
+                self.target = random.choice(multRUnits.sprites())
+        if self.team == "red":
+            if self.target not in multBUnits:
+                self.target = random.choice(multBUnits.sprites())
+
+        # Move towards the target
+        listcenter = list(self.rect.center)
+        if self.rect.center[0] > self.target.rect.center[0]:
+            listcenter[0] -= self.speed
+        if self.rect.center[0] < self.target.rect.center[0]:
+            listcenter[0] += self.speed
+        if self.rect.center[1] > self.target.rect.center[1]:
+            listcenter[1] -= self.speed
+        if self.rect.center[1] < self.target.rect.center[1]:
+            listcenter[1] += self.speed
+        self.rect.center = tuple(listcenter)
+
         if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
-            if self.team == "red" and not selfIsHost:
+            if self.team == "red" and not calledbyhost:
                 RBullets.add(MultiplayerSmartBullet(self.rect.center, self.team))
                 self.lastRangeAttack = time.time()
-            if self.team == "blue" and selfIsHost:
+            if self.team == "blue" and calledbyhost:
                 BBullets.add(MultiplayerSmartBullet(self.rect.center, self.team))
                 self.lastRangeAttack = time.time()
 
-    def on_soldier_hit(self, hitlist):
+    def on_soldier_hit(self, hitlist, calledbyhost):
         """
         Is called when two enemy soldiers collide
         Add code to damage your enemy here
@@ -171,7 +206,7 @@ class MultiplayerUnit(pygame.sprite.Sprite):
         # Damage a random enemy on hitlist by self.meleeDamage
         pass
 
-    def on_bullet_hit(self, hitlist):
+    def on_bullet_hit(self, hitlist, calledbyhost):
         """
         NotImplemented
 
@@ -199,7 +234,7 @@ class MultiplayerSmartBullet(pygame.sprite.Sprite):
     def _pack(self):
         return self.rect.center, self.team
 
-    def update(self):
+    def update(self, calledbyhost):
         """
         Add code to move your bullet!
 
@@ -232,7 +267,7 @@ class MultiplayerSmartBullet(pygame.sprite.Sprite):
             listcenter[1] += self.speed
         self.rect.center = tuple(listcenter)
 
-    def on_bullet_hit(self, hitlist):
+    def on_bullet_hit(self, hitlist, calledbyhost):
         """
         Called when the bullet touches a soldier
 

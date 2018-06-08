@@ -81,8 +81,6 @@ state = "menu"
 red = 255
 green = 255
 blue = 255
-vCoinRR = coinRR
-vStartBdgt = startBdgt
 alreadyHandled = []
 serverStr = ""
 validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"
@@ -137,6 +135,8 @@ langFile = options['lang']
 langFont = options['font']
 onBattleEnd = options['battleEnd']
 check4updates = options['check4updates']
+vCoinRR = coinRR
+vStartBdgt = startBdgt
 try:
     with open(langFile, "r") as fp:
         langDict = json.load(fp)
