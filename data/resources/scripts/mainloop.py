@@ -24,7 +24,7 @@ while running:
     screen.fill([red, green, blue])
     # screen.blit(background, [0, 0])
     if __debugMode__:
-        DebugFPSText = simpleFont.render("FPS: "+str(clock.get_fps()),
+        DebugFPSText = simpleFont.render("FPS: %.3f" % clock.get_fps(),
                                          False, [0, 0, 0], [255, 255, 255])
         screen.blit(DebugFPSText, [10, 10])
         screen.blit(cursor.image, cursor.rect)
@@ -597,8 +597,11 @@ while running:
         multBUnits.draw(screen)  # EXPERIMENTAL
         multRUnits.draw(screen)  # EXPERIMENTAL
         if __debugMode__:
-            screen.blit(simpleFont.render("UNIT PING: "+str(c.unitping*1000), False, [0, 0, 0]), [10, 100])
-            screen.blit(simpleFont.render("BULLET PING: "+str(c.bulletping*1000), False, [0, 0, 0]), [10, 130])
+            screen.blit(simpleFont.render("PING: %.3f" % ((c.unitping*1000 + c.bulletping*1000)/2),
+                                          False, [0, 0, 0]), [10, 100])
+            screen.blit(simpleFont.render("PACKET LOSS: %i/%i (%.3f%%)" % (c.packetslost, c.packetssent,
+                                                                           c.packetslost/float(c.packetssent)*100),
+                                          False, [0, 0, 0]), [10, 130])
 
         screen.blit(readyBt.image, readyBt.rect)
         screen.blit(backBt.image, backBt.rect)
@@ -786,8 +789,11 @@ while running:
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
         if __debugMode__:
-            screen.blit(simpleFont.render("UNIT PING: " + str(c.unitping * 1000), False, [0, 0, 0]), [10, 100])
-            screen.blit(simpleFont.render("BULLET PING: " + str(c.bulletping * 1000), False, [0, 0, 0]), [10, 130])
+            screen.blit(simpleFont.render("PING: %.3f" % ((c.unitping*1000 + c.bulletping*1000)/2),
+                                          False, [0, 0, 0]), [10, 100])
+            screen.blit(simpleFont.render("PACKET LOSS: %i/%i (%.3f%%)" % (c.packetslost, c.packetssent,
+                                                                           c.packetslost/float(c.packetssent)*100),
+                                          False, [0, 0, 0]), [10, 130])
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
         screen.blit(redCostTxt.image, redCostTxt.rect)

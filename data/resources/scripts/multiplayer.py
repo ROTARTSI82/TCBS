@@ -27,11 +27,13 @@ class TCBSClient(ConnectionListener):
     def __init__(self, host, port):
         log("CLIENT", "New TCBSClient at %s:%s" % (host, port))
         self.Connect((host, port))
-        self.ping = time.time()
-        self.unitping = 0
-        self.bulletping = 0
-        self.lastunitping = 0
-        self.lastbulletping = 0
+        if __debugMode__:
+            self.unitping = 0
+            self.bulletping = 0
+            self.lastunitping = 0
+            self.lastbulletping = 0
+            self.packetslost = 0
+            self.packetssent = 0
 
     def loop(self):
         """
@@ -62,6 +64,16 @@ class TCBSClient(ConnectionListener):
             state = "mult-start"
             set_music("resources/sounds/menuMusic.mp3")
             set_background("resources/images/sky.png")
+
+    def Network(self, data):
+        """
+        Add 1 to packet counter
+
+        :param data:
+        :return:
+        """
+        if __debugMode__:
+            self.packetssent += 1
 
     def Network_kick(self, data):
         """
@@ -127,14 +139,16 @@ class TCBSClient(ConnectionListener):
         global BBullets, RBullets, pygame
         if data["sentbyhost"] and not selfIsHost:
             BBullets = pygame.sprite.Group(*data["bullets"])
-            self.bulletping = time.time() - self.lastbulletping
             c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
-            self.lastbulletping = time.time()
+            if __debugMode__:
+                self.bulletping = time.time() - self.lastbulletping
+                self.lastbulletping = time.time()
         elif not data["sentbyhost"] and selfIsHost:
             RBullets = pygame.sprite.Group(*data["bullets"])
-            self.bulletping = time.time() - self.lastbulletping
             c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
-            self.lastbulletping = time.time()
+            if __debugMode__:
+                self.bulletping = time.time() - self.lastbulletping
+                self.lastbulletping = time.time()
 
     def Network_callfunc(self, data):
         """
@@ -152,6 +166,8 @@ class TCBSClient(ConnectionListener):
             elif not data['sentbyhost']:
                 exec("multBDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
         except Exception as e:
+            if __debugMode__:
+                self.packetslost += 1
             if str(e) not in alreadyHandled:
                 log("EXCEPTION", "Failed to execute function: "+str(e))
                 alreadyHandled.append(str(e))
@@ -168,16 +184,18 @@ class TCBSClient(ConnectionListener):
         global multRUnits, multBUnits
         if data["sentbyhost"] and not selfIsHost:
             multBUnits = pygame.sprite.Group(*data["units"])
-            self.unitping = time.time() - self.lastunitping
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
             updatecost()
-            self.lastunitping = time.time()
+            if __debugMode__:
+                self.unitping = time.time() - self.lastunitping
+                self.lastunitping = time.time()
         elif not data["sentbyhost"] and selfIsHost:
             multRUnits = pygame.sprite.Group(*data["units"])
-            self.unitping = time.time()-self.lastunitping
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
             updatecost()
-            self.lastunitping = time.time()
+            if __debugMode__:
+                self.unitping = time.time() - self.lastunitping
+                self.lastunitping = time.time()
         #if selfIsHost:
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
         #elif not selfIsHost:
