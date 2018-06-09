@@ -5,10 +5,10 @@ Vresources/lang/english.json
 p3
 sS'scale'
 p4
-F1
+F0.625
 sS'srtBdgt'
 p5
-I100
+I1800
 sS'check4updates'
 p6
 I00
@@ -20,7 +20,7 @@ p8
 F0.75
 sS'fps'
 p9
-I60
+I120
 sS'coinRR'
 p10
 I100
@@ -30,4 +30,6 @@ S'Do nothing'
 p12
 sS'font'
 p13
-Ns.
+S'resources/fonts/Quivira.ttf'
+p14
+s.
