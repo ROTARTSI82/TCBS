@@ -92,7 +92,44 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "battleover"}
         :rtype: None
         """
-        global state
+        global state, coinsLeft, multRUnits, multBUnits, oldRUnits, oldBUnits
+        global vStartBdgt, RBullets, BBullets, bullets, alreadyHandled, vOnBattleEnd
+        if vOnBattleEnd == "Go to start":
+            try:
+                multRUnits = pygame.sprite.Group(*oldRUnits)
+                multBUnits = pygame.sprite.Group(*oldBUnits)
+                coinsLeft = [vStartBdgt, vStartBdgt]
+                for i in multRUnits:
+                    coinsLeft[1] -= i.cost
+                for i in multBUnits:
+                    coinsLeft[0] -= i.cost
+                updatecost()
+            except Exception as e:
+                coinsLeft = [0, 0]
+                updatecost()
+                if __debugMode__:
+                    raise
+                if str(e) not in alreadyHandled:
+                    log("EXCEPTION", "Cannot reset units: "+str(e))
+                    alreadyHandled.append(str(e))
+            state = "mult-placeUnits"
+            RBullets = pygame.sprite.Group()
+            BBullets = pygame.sprite.Group()
+            bullets = pygame.sprite.Group()
+        if vOnBattleEnd == "Clear":
+            multBUnits = pygame.sprite.Group()
+            multRUnits = pygame.sprite.Group()
+            coinsLeft = [vStartBdgt, vStartBdgt]
+            RBullets = pygame.sprite.Group()
+            BBullets = pygame.sprite.Group()
+            bullets = pygame.sprite.Group()
+            updatecost()
+        if vOnBattleEnd == "Do nothing":
+            coinsLeft = [vStartBdgt, vStartBdgt]
+            RBullets = pygame.sprite.Group()
+            BBullets = pygame.sprite.Group()
+            bullets = pygame.sprite.Group()
+            updatecost()
         state = "mult-placeUnits"
 
     def Network_updatesets(self, data):
