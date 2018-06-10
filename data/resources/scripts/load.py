@@ -136,6 +136,7 @@ langFont = options['font']
 onBattleEnd = options['battleEnd']
 check4updates = options['check4updates']
 vCoinRR = coinRR
+vOnBattleEnd = onBattleEnd
 vStartBdgt = startBdgt
 try:
     with open(langFile, "r") as fp:
@@ -227,6 +228,7 @@ for i in rawList:
     try:
         assert inspect.isclass(MultiplayerUnit)
         assert inspect.ismethod(MultiplayerUnit._pack)
+        MultiplayerUnit.oldpack = MultiplayerUnit._pack
         serializable.register(MultiplayerUnit)
         for bul in serializableBullets:
             serializable.register(bul)

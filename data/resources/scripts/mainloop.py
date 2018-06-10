@@ -727,8 +727,7 @@ while running:
             state = "mult-placeUnits"
             updatecost()
             pygame.time.wait(1000)
-            continue
-        if len(multRUnits) == 0:
+        if len(multRUnits) == 0 and len(multBUnits) > 0:
             log("BATTLE", "Blue Victory!")
             bullets = pygame.sprite.Group()
             screen.fill([255, 255, 255])
@@ -740,7 +739,7 @@ while running:
             state = "mult-placeUnits"
             updatecost()
             pygame.time.wait(1000)
-        if len(multBUnits) == 0:
+        if len(multBUnits) == 0 and len(multRUnits) > 0:
             log("BATTLE", "Red Victory!")
             bullets = pygame.sprite.Group()
             screen.fill([255, 255, 255])
@@ -752,6 +751,46 @@ while running:
             state = "mult-placeUnits"
             updatecost()
             pygame.time.wait(1000)
+        if state == "mult-placeUnits" and vOnBattleEnd == "Go to start":
+            try:
+                multRUnits = pygame.sprite.Group(*oldRUnits)
+                multBUnits = pygame.sprite.Group(*oldBUnits)
+                coinsLeft = [vStartBdgt, vStartBdgt]
+                for i in multRUnits:
+                    coinsLeft[1] -= i.cost
+                for i in multBUnits:
+                    coinsLeft[0] -= i.cost
+                updatecost()
+            except Exception as e:
+                coinsLeft = [0, 0]
+                updatecost()
+                if __debugMode__:
+                    raise
+                if str(e) not in alreadyHandled:
+                    log("EXCEPTION", "Cannot reset units: "+str(e))
+                    alreadyHandled.append(str(e))
+            state = "mult-placeUnits"
+            RBullets = pygame.sprite.Group()
+            BBullets = pygame.sprite.Group()
+            bullets = pygame.sprite.Group()
+            c.Send({"action": "battleover"})
+            continue
+        if state == "mult-placeUnits" and vOnBattleEnd == "Clear":
+            multBUnits = pygame.sprite.Group()
+            multRUnits = pygame.sprite.Group()
+            coinsLeft = [vStartBdgt, vStartBdgt]
+            RBullets = pygame.sprite.Group()
+            BBullets = pygame.sprite.Group()
+            bullets = pygame.sprite.Group()
+            updatecost()
+            c.Send({"action": "battleover"})
+        if state == "mult-placeUnits" and vOnBattleEnd == "Do nothing":
+            coinsLeft = [vStartBdgt, vStartBdgt]
+            RBullets = pygame.sprite.Group()
+            BBullets = pygame.sprite.Group()
+            bullets = pygame.sprite.Group()
+            updatecost()
+            c.Send({"action": "battleover"})
         try:
             BbulletCol = pygame.sprite.groupcollide(bullets, multBUnits, False, False)
             RbulletCol = pygame.sprite.groupcollide(bullets, multRUnits, False, False)

@@ -85,6 +85,16 @@ class TCBSClient(ConnectionListener):
         log("CLIENT", "Was kicked because: " + data["reason"])
         raise Exception(data["reason"])
 
+    def Network_battleover(self, data):
+        """
+        Sets state to 'mult-placeUnits' and forwards
+
+        :param data: {"action": "battleover"}
+        :rtype: None
+        """
+        global state
+        state = "mult-placeUnits"
+
     def Network_updatesets(self, data):
         """
         Make sure the client's settings are the same as the server's
@@ -93,12 +103,13 @@ class TCBSClient(ConnectionListener):
         :rtype: None
         """
         global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
-        global multBUnits, multRUnits, nextRID, nextBID
+        global multBUnits, multRUnits, nextRID, nextBID, vOnBattleEnd
         if not selfIsHost:
             log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
             log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
+            vOnBattleEnd = data['battleEnd']
         coinsLeft = [vStartBdgt, vStartBdgt]
         multBDict = {}
         multRDict = {}
@@ -121,10 +132,24 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "battlestart"}
         :rtype: None
         """
-        global state, readyBt
+        global state, readyBt, multRUnits, multBUnits
+        global oldRUnits, oldBUnits, alreadyHandled
         state = "mult-battle"
         readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
         updaterects()
+        oldRUnits = []
+        oldBUnits = []
+        try:
+            for i in multRUnits:
+                oldRUnits.append(type(i)(*i.oldpack()))
+            for i in multBUnits:
+                oldBUnits.append(type(i)(*i.oldpack()))
+        except Exception as e:
+            if __debugMode__:
+                raise
+            if str(e) not in alreadyHandled:
+                log("EXCEPTION", "Failed to pack units: "+str(e))
+                alreadyHandled.append(str(e))
         log("CLIENT", "Battle started!")
 
     def Network_updatebullets(self, data):
@@ -209,13 +234,13 @@ class TCBSClient(ConnectionListener):
         :rtype: None
         """
         global state, updateselectedunit
-        global coinRR, startBdgt
+        global coinRR, startBdgt, onBattleEnd
         if data["players"] == 2:
             log("CLIENT", "Starting game...")
             state = "mult-placeUnits"
             if selfIsHost:
-                c.Send({"action": "updatesets",
-                        "coinRR": coinRR, "startBdgt": startBdgt})
+                c.Send({"action": "updatesets", "coinRR": coinRR,
+                        "startBdgt": startBdgt, "battleEnd": onBattleEnd})
             updatecost()
             updateselectedunit(0)
 
@@ -274,6 +299,18 @@ class TCBSChannel(Channel):
             self._server.Pump()
         else:
             log("CHANNEL", "Cannot close Channel: Channel already closed!")
+
+    def Network_battleover(self, data):
+        """
+        Sets state to 'mult-placeUnits' and forwards
+        message to all connected client(s)
+
+        :param data: {"action": "battleover"}
+        :rtype: None
+        """
+        global state
+        self._server.sendtoall(data)
+        state = "mult-placeUnits"
 
     def Network_leave(self, data):
         """
@@ -336,12 +373,13 @@ class TCBSChannel(Channel):
         :rtype: None
         """
         global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
-        global multBUnits, multRUnits, nextBID, nextRID
+        global multBUnits, multRUnits, nextBID, nextRID, vOnBattleEnd
         if not selfIsHost:
             log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
             log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
             vCoinRR = data['coinRR']
             vStartBdgt = data['startBdgt']
+            vOnBattleEnd = data['battleEnd']
         coinsLeft = [vStartBdgt, vStartBdgt]
         multBDict = {}
         multRDict = {}
@@ -379,13 +417,13 @@ class TCBSChannel(Channel):
         :param data: {"action": "players", "players": len(self._server.players)}
         :rtype: None
         """
-        global state, coinRR, startBdgt
+        global state, coinRR, startBdgt, onBattleEnd
         if data["players"] == 2:
             log("CHANNEL", "Starting game...")
             state = "mult-placeUnits"
             if selfIsHost:
-                c.Send({"action": "updatesets",
-                        "coinRR": coinRR, "startBdgt": startBdgt})
+                c.Send({"action": "updatesets", "coinRR": coinRR,
+                        "startBdgt": startBdgt, "battleEnd": onBattleEnd})
             updatecost()
             updateselectedunit(0)
 

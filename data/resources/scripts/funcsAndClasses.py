@@ -51,6 +51,17 @@ class DummySound(object):
         pass
 
 
+def debug(ltype, msg):
+    """
+    Only log the message if __debugMode__ is activated
+
+    :type ltype: str
+    :type msg: str
+    :rtype: None
+    """
+    if __debugMode__:
+        log(ltype, msg)
+
 def log(ltype, msg):
     """
     Writes "[time][ltype]: msg" to "date.log"
