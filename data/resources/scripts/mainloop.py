@@ -448,6 +448,12 @@ while running:
                     log("BATTLE", "Battle was ended via endBattleKey")
                     updatecost()
                     state = "sndbx-placeUnits"
+                    if onBattleEnd == "Go to start":
+                        sndbxRUnits = pygame.sprite.Group(*oldRUnits)
+                        sndbxBUnits = pygame.sprite.Group(*oldBUnits)
+                    if onBattleEnd == "Clear":
+                        sndbxBUnits = pygame.sprite.Group()
+                        sndbxRUnits = pygame.sprite.Group()
     if state == "mult-start":
         screen.blit(backBt.image, backBt.rect)
         screen.blit(joinBt.image, joinBt.rect)
@@ -632,12 +638,16 @@ while running:
                     continue
                 if readyBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    c.Send({"action": "ready"})
                     readyBt.kill()
-                    readyBt = TxtOrBt(["Waiting...", False, [255, 0, 0],
-                                       [127, 127, 127]], [None, 45])
+                    if readyBt.display[0] == "READY":
+                        c.Send({"action": "ready"})
+                        readyBt = TxtOrBt(["CANCEL", False, [0, 0, 0],
+                                          [255, 255, 0]], [None, 45])
+                    elif readyBt.display[0] == "CANCEL":
+                        c.Send({"action": "cancelready"})
+                        readyBt = TxtOrBt(["READY", False, [0, 0, 0],
+                                          [0, 255, 0]], [None, 45])
                     updaterects()
-                    buttons.remove(readyBt)
                     log("BATTLE", "Ready sent")
                     continue
                 if backBt in cbCollide and event.button == 1:
@@ -879,6 +889,7 @@ while running:
                     log("BATTLE", "Battle was ended via endBattleKey")
                     updatecost()
                     state = "mult-placeUnits"
+                    c.Send({"action": "battleover"})
 try:
     connection.Close()
 except RuntimeError as e:

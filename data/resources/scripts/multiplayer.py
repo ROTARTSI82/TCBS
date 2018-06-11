@@ -447,6 +447,16 @@ class TCBSChannel(Channel):
             self._server.playersready = 0
             log("BATTLE", "Starting battle...")
 
+    def Network_cancelready(self, data):
+        """
+        Handle cancel ready requests
+
+        :param data: {"action": "cancelready"}
+        :rtype: None
+        """
+        self._server.playersready -= 1
+        log("CHANNEL", "%s of 2 players ready" % str(self._server.playersready))
+
     def Network_players(self, data):
         """
         Sets state to 'mult-placeUnits' once two people are conected

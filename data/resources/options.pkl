@@ -17,7 +17,7 @@ p7
 I00
 sS'battleEnd'
 p8
-S'Clear'
+S'Go to start'
 p9
 sS'effects'
 p10
