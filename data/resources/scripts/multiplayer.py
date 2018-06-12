@@ -474,6 +474,32 @@ class TCBSChannel(Channel):
             updatecost()
             updateselectedunit(0)
 
+    def Network_ceasefire(self, data):
+        """
+        Handle ceasefire requests
+
+        :param data: {"action": "ceasefire"}
+        :rtype: None
+        """
+        global state
+        self._server.ceasefirerequests += 1
+        log("CHANNEL", "%s of 2 players requesting ceasefire" % str(self._server.ceasefirerequests))
+        if self._server.ceasefirerequests > 1:
+            state = "mult-placeUnits"
+            self._server.sendtoall({"action": "battleover"})
+            self._server.ceasefirerequests = 0
+            log("BATTLE", "Ending battle...")
+
+    def Network_cancelceasefire(self, data):
+        """
+        Handle cancel ceasefire requests
+
+        :param data: {"action": "cancelceasefire"}
+        :rtype: None
+        """
+        self._server.ceasefirerequests -= 1
+        log("CHANNEL", "%s of 2 players requesting ceasefire" % str(self._server.ceasefirerequests))
+
 
 class TCBSServer(Server):
     """
@@ -485,6 +511,7 @@ class TCBSServer(Server):
         Server.__init__(self, *args, **kwargs)
         log("SERVER", "New TCBSServer at "+str(self.addr))
         self.playersready = 0
+        self.ceasefirerequests = 0
         self.players = WeakKeyDictionary()
         log("SERVER", "Waiting for players...")
 

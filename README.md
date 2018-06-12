@@ -27,10 +27,10 @@ HOW TO INSTALL AND RUN (Linux):
 
 TCBS is inspired by Totally Accurate Battle Simulator
 by Landfall. It uses Pygame 1.9 and Python 2.7 but
-still works in Python 3. TCBS uses PodSixNet
+still works in Python 3. TCBS also uses PodSixNet
 written by chr15m (Chris McCormick).
 
-TCBS uses PodSixNet for python3.4 by tborisova (Tsvetelina Borisova)
-so that some multiplayer features work in Python 3.
-Trying to connect to a Python 3 server using Python 2
+PodSixNet for python3.4 by tborisova (Tsvetelina Borisova)
+is also used so that some multiplayer features work in Python 3.
+However, Trying to connect to a Python 3 server using a Python 2 client
 (And vice versa) will result in an exception.

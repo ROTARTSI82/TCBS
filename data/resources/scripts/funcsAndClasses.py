@@ -259,7 +259,7 @@ def updateoptions():
     """
     global options, startBdgtBt, coinRRBt, fpsBt, musicVolBt, effectsVolBt
     global guiScaleBt, langBt, startBdgt, coinRR, desiredFPS, musicVol, fontBt
-    global effectsVol, GUIScale, langFile, buttons, mltPlayBt, newUpNote
+    global effectsVol, GUIScale, langFile, buttons, mltPlayBt, newUpNote, ceasefireBt
     global startBt, backBt, playBt, joinBt, createBt, serverHelpBt, badVerWarn
     global nextBt, prevBt, clearRedBt, clearBlueBt, readyBt, selectedTeam
     global teamSelectBt, optionsBt, langDict, menuBlip, alreadyHandled, onBattleEnd
@@ -309,6 +309,7 @@ def updateoptions():
     clearBlueBt = TxtOrBt(["CLEAR BLUE", False, [0, 0, 0], [255, 0, 0]], [None, 45])
     clearRedBt = TxtOrBt(["CLEAR RED", False, [0, 0, 0], [255, 0, 0]], [None, 45])
     readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
+    ceasefireBt = TxtOrBt(["CEASEFIRE", False, [0, 0, 0], [255, 0, 0]], [None, 45])
     teamSelectBt = TxtOrBt(["Team: " + selectedTeam.upper(), False, [0, 0, 0],
                             [255, 255, 0]], [None, 45])
     optionsBt = TxtOrBt(["OPTIONS", False, [0, 0, 0], [255, 255, 0]], [None, 55])
@@ -324,17 +325,18 @@ def updateoptions():
                             [255, 255, 0]], [None, 40])
     guiScaleBt = TxtOrBt(["GUI Scale: " + str(GUIScale), False, [0, 0, 0], [255, 255, 0]],
                          [None, 40])
-    langBt = TxtOrBt([u"Language: " + u"".join(langFile.decode("utf-8").split(u"/")[-1:])[:-5],
+    langBt = TxtOrBt(["Language: " + "".join(langFile.decode('utf-8').split("/")[-1:])[:-5],
                       False, [0, 0, 0], [255, 255, 0]], [None, 40])
     onBattleEndBt = TxtOrBt(["When Battle Ends: " + onBattleEnd, False, [0, 0, 0], [255, 255, 0]],
                             [None, 40])
     check4updatesBt = TxtOrBt(["Check For Updates: " + str(check4updates), False, [0, 0, 0],
                                [255, 255, 0]], [None, 40])
     if langFont is not None:
-        fontBt = TxtOrBt([u"Font: "+u"".join(langFont.decode('utf-8').split(u"/")[-1:])[:-4],
+        fontBt = TxtOrBt([u"Font: " + u"".join(langFont.decode('utf-8').split(u"/")[-1:])[:-4],
                           False, [0, 0, 0], [255, 255, 0]], [None, 40])
     else:
         fontBt = TxtOrBt([u"Font: " + str(langFont), False, [0, 0, 0], [255, 255, 0]], [None, 40])
+
     wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
     serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
     serverMsg = TxtOrBt(["Enter the Host and Port", False, [0, 0, 0]], [None, 45])
@@ -356,7 +358,7 @@ def updaterects():
     global nextBt, playBt, prevBt, nextBt, createBt, clearBlueBt, clearRedBt
     global profileBt, readyBt, teamSelectBt, optionsBt, coinRRBt, startBdgtBt
     global fpsBt, musicVolBt, effectsVolBt, guiScaleBt, langBt, fontBt
-    global check4updatesBt, onBattleEndBt
+    global check4updatesBt, onBattleEndBt, ceasefireBt
     global serverMsg
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
     global redCostTxt, blueCostTxt, redBar, blueBar
@@ -373,6 +375,7 @@ def updaterects():
     clearBlueBt.rect.center = [screen.get_width() / 4, 75]
     clearRedBt.rect.center = [screen.get_width() / 4 * 3, 75]
     readyBt.rect.center = [screen.get_width() / 2, screen.get_height()-20]
+    ceasefireBt.rect.center = [screen.get_width() / 2, screen.get_height() - 20]
     teamSelectBt.rect.center = [screen.get_width() / 2, 75]
     optionsBt.rect.center = [screen.get_width() / 2, screen.get_height() / 2+110]
     coinRRBt.rect.topleft = [10, 10]

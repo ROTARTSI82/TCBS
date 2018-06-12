@@ -814,6 +814,7 @@ while running:
         screen.blit(redBar.image, redBar.rect)
         screen.blit(blueBar.image, blueBar.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
+        screen.blit(ceasefireBt.image, ceasefireBt.rect)
         bullets.draw(screen)
         multRUnits.draw(screen)
         multBUnits.draw(screen)
@@ -835,6 +836,20 @@ while running:
                 if prevBt in cbCollide and event.button == 1:
                     menuBlip.play()
                     updateselectedunit(-1)
+                    continue
+                if ceasefireBt in cbCollide and event.button == 1:
+                    menuBlip.play()
+                    ceasefireBt.kill()
+                    if ceasefireBt.display[0] == "CEASEFIRE":
+                        c.Send({"action": "ceasefire"})
+                        ceasefireBt = TxtOrBt(["CANCEL", False, [0, 0, 0],
+                                          [255, 255, 0]], [None, 45])
+                    elif ceasefireBt.display[0] == "CANCEL":
+                        c.Send({"action": "cancelceasefire"})
+                        ceasefireBt = TxtOrBt(["CEASEFIRE", False, [0, 0, 0],
+                                          [0, 255, 0]], [None, 45])
+                    updaterects()
+                    log("BATTLE", "Ceasefire request sent")
                     continue
 
                 if event.button == 1:
@@ -884,12 +899,7 @@ while running:
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
-                if event.key == endBattleKey:
-                    menuBlip.play()
-                    log("BATTLE", "Battle was ended via endBattleKey")
-                    updatecost()
-                    state = "mult-placeUnits"
-                    c.Send({"action": "battleover"})
+
 try:
     connection.Close()
 except RuntimeError as e:

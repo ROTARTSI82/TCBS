@@ -98,6 +98,9 @@ ENV/
 # mypy
 .mypy_cache/
 
-# Other
+# Finder
 .DS_Store
 *.DS_Store
+
+# PyCharm
+.idea/

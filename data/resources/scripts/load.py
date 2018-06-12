@@ -276,6 +276,7 @@ prevBt = TxtOrBt(["<", False, [0, 0, 0], [127, 127, 127]], [None, 40])
 clearBlueBt = TxtOrBt(["CLEAR BLUE", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 clearRedBt = TxtOrBt(["CLEAR RED", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
+ceasefireBt = TxtOrBt(["CEASEFIRE", False, [0, 0, 0], [255, 0, 0]], [None, 45])
 teamSelectBt = TxtOrBt(["Team: "+selectedTeam.upper(), False, [0, 0, 0],
                         [255, 255, 0]], [None, 45])
 optionsBt = TxtOrBt(["OPTIONS", False, [0, 0, 0], [255, 255, 0]], [None, 55])
