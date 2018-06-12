@@ -447,6 +447,7 @@ while running:
                     menuBlip.play()
                     log("BATTLE", "Battle was ended via endBattleKey")
                     updatecost()
+                    bullets = pygame.sprite.Group()
                     state = "sndbx-placeUnits"
                     if onBattleEnd == "Go to start":
                         sndbxRUnits = pygame.sprite.Group(*oldRUnits)
@@ -820,6 +821,8 @@ while running:
         multBUnits.draw(screen)
         pygame.display.flip()
         for event in pygame.event.get():
+            if event.type == USEREVENT+1 and selfIsHost:
+                s.sendtoall({"action": "addcoins", "amount": vCoinRR})
             if event.type == QUIT:
                 running = False
                 c.Send({"action": "leave"})
@@ -875,22 +878,6 @@ while running:
                         if str(e) not in alreadyHandled:
                             alreadyHandled.append(str(e))
                             log("EXCEPTION", "Failed to update AI: " + str(e))
-                    updatecost()
-                if event.button == 3:
-                    menuBlip.play()
-                    try:
-                        bcol = pygame.sprite.spritecollide(cursor, multBUnits, True)
-                        rcol = pygame.sprite.spritecollide(cursor, multRUnits, True)
-                        for i in bcol:
-                            coinsLeft[0] += i.cost
-                        for i in rcol:
-                            coinsLeft[1] += i.cost
-                    except Exception as e:
-                        if __debugMode__:
-                            raise
-                        if str(e) not in alreadyHandled:
-                            alreadyHandled.append(str(e))
-                            log("EXCEPTION", "Failed to update cost: " + str(e))
                     updatecost()
             if event.type == VIDEORESIZE:
                 screen = pygame.display.set_mode(event.dict['size'], *screenArgs[1:])

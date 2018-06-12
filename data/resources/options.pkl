@@ -8,26 +8,26 @@ p4
 F0.625
 sS'srtBdgt'
 p5
-I1800
+I200
 sS'check4updates'
 p6
 I00
-sS'music'
+sS'battleEnd'
 p7
+S'Go to start'
+p8
+sS'music'
+p9
 F0.3125
 sS'effects'
-p8
+p10
 F0.75
 sS'fps'
-p9
+p11
 I120
 sS'coinRR'
-p10
-I100
-sS'battleEnd'
-p11
-S'Go to start'
 p12
+I50
 sS'font'
 p13
 S'resources/fonts/Quivira.ttf'

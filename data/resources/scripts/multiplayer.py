@@ -85,6 +85,17 @@ class TCBSClient(ConnectionListener):
         log("CLIENT", "Was kicked because: " + data["reason"])
         raise Exception(data["reason"])
 
+    def Network_addcoins(self, data):
+        """
+        Add coins every second
+
+        :param data: {"action": "addcoins", "amount": int}
+        :rtype: None
+        """
+        global coinsLeft
+        coinsLeft[0] += data["amount"]
+        coinsLeft[1] += data["amount"]
+
     def Network_battleover(self, data):
         """
         Sets state to 'mult-placeUnits' and forwards
@@ -141,12 +152,11 @@ class TCBSClient(ConnectionListener):
         """
         global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
         global multBUnits, multRUnits, nextRID, nextBID, vOnBattleEnd
-        if not selfIsHost:
-            log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
-            log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
-            vCoinRR = data['coinRR']
-            vStartBdgt = data['startBdgt']
-            vOnBattleEnd = data['battleEnd']
+        log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
+        log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
+        vCoinRR = data['coinRR']
+        vStartBdgt = data['startBdgt']
+        vOnBattleEnd = data['battleEnd']
         coinsLeft = [vStartBdgt, vStartBdgt]
         multBDict = {}
         multRDict = {}
@@ -411,12 +421,11 @@ class TCBSChannel(Channel):
         """
         global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
         global multBUnits, multRUnits, nextBID, nextRID, vOnBattleEnd
-        if not selfIsHost:
-            log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
-            log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
-            vCoinRR = data['coinRR']
-            vStartBdgt = data['startBdgt']
-            vOnBattleEnd = data['battleEnd']
+        log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
+        log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
+        vCoinRR = data['coinRR']
+        vStartBdgt = data['startBdgt']
+        vOnBattleEnd = data['battleEnd']
         coinsLeft = [vStartBdgt, vStartBdgt]
         multBDict = {}
         multRDict = {}

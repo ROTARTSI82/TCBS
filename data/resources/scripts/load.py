@@ -68,6 +68,7 @@ pygame.key.set_repeat(*keyRR)
 pygame.time.set_timer(USEREVENT + 1, 1000)
 
 clock = pygame.time.Clock()
+pygame.time.set_timer(USEREVENT+1, 1000)
 buttons = pygame.sprite.Group()
 
 screen.fill([255, 255, 255])
