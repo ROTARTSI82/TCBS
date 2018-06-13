@@ -2,13 +2,9 @@
 # -*- coding: UTF-8 -*-
 
 """
-(.../TCBS/CONFIG.py)
+(.../TCBS/data/CONFIG.py)
 
 """
-
-__appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.15"
-__author__ = "Grant Yang"
 
 from pygame.locals import *
 

@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 """
-(.../TCBS/resources/scripts/mainloop.py)
+(.../TCBS/data/resources/scripts/mainloop.py)
 
 """
 import webbrowser
@@ -597,12 +597,6 @@ while running:
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         pygame.draw.line(screen, [0, 200, 0], [screen.get_width() / 2, -5],
                          [screen.get_width() / 2, screen.get_height() + 5], 5)
-        #if not selfIsHost:
-        #    multRUnits.draw(screen)
-        #elif selfIsHost:
-        #    multBUnits.draw(screen)
-        multBUnits.draw(screen)  # EXPERIMENTAL
-        multRUnits.draw(screen)  # EXPERIMENTAL
         if __debugMode__:
             screen.blit(simpleFont.render("PING: %.3f" % ((c.unitping*1000 + c.bulletping*1000)/2),
                                           False, [0, 0, 0]), [10, 100])
@@ -613,25 +607,29 @@ while running:
         screen.blit(readyBt.image, readyBt.rect)
         screen.blit(backBt.image, backBt.rect)
         screen.blit(selectedUnitTxt.image, selectedUnitTxt.rect)
-        screen.blit(redCostTxt.image, redCostTxt.rect)
-        screen.blit(blueCostTxt.image, blueCostTxt.rect)
+        if (not selfIsHost) or __debugMode__:
+            screen.blit(redCostTxt.image, redCostTxt.rect)
+            screen.blit(clearRedBt.image, clearRedBt.rect)
+            multRUnits.draw(screen)
+        if selfIsHost or __debugMode__:
+            screen.blit(blueCostTxt.image, blueCostTxt.rect)
+            screen.blit(clearBlueBt.image, clearBlueBt.rect)
+            multBUnits.draw(screen)
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
         screen.blit(redBar.image, redBar.rect)
         screen.blit(blueBar.image, blueBar.rect)
-        screen.blit(clearBlueBt.image, clearBlueBt.rect)
-        screen.blit(clearRedBt.image, clearRedBt.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
                 # c.Send({"action": "test"})
-                if clearRedBt in cbCollide and event.button == 1:
+                if clearRedBt in cbCollide and event.button == 1 and not selfIsHost:
                     menuBlip.play()
                     multRUnits = pygame.sprite.Group()
                     coinsLeft[1] = vStartBdgt
                     updatecost()
                     continue
-                if clearBlueBt in cbCollide and event.button == 1:
+                if clearBlueBt in cbCollide and event.button == 1 and selfIsHost:
                     menuBlip.play()
                     multBUnits = pygame.sprite.Group()
                     coinsLeft[0] = vStartBdgt

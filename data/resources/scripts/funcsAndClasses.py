@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 """
-(.../TCBS/resources/scripts/funcsAndClasses.py)
+(.../TCBS/data/resources/scripts/funcsAndClasses.py)
 
 """
 import traceback

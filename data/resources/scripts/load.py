@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 """
-(.../TCBS/resources/scripts/load.py)
+(.../TCBS/data/resources/scripts/load.py)
 
 """
 

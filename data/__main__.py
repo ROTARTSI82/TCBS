@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 """
-(.../TCBS/__main__.py)
+(.../TCBS/data/__main__.py)
 ------------------------------------------------------------------------
 TOTALLY CUSTOMIZABLE BATTLE SIMULATOR a21.18.04.14
 ------------------------------------------------------------------------
@@ -21,8 +21,9 @@ import os
 import sys
 
 __appName__ = "Totally Customizable Battle Simulator"
-__version__ = "a21.18.04.15"
+__version__ = "b2018.06.12"
 __author__ = "Grant Yang <rotartsi0482@gmail.com>"
+
 
 def executefile(filepath, globalsdict=globals(), localsdict=locals()):
     """

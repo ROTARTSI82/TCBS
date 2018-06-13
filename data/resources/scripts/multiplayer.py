@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 """
-(.../TCBS/resources/scripts/multiplayer.py)
+(.../TCBS/data/resources/scripts/multiplayer.py)
 
 """
 from weakref import WeakKeyDictionary
