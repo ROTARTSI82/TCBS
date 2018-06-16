@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/TCBSTools/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Grant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Grant.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/options.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/options.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/scripts/mainloop.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/mainloop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,8 +76,8 @@
       <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="98" column="22" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="22" />
+            <state relative-caret-position="144">
+              <caret line="104" column="11" lean-forward="true" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -218,8 +209,9 @@
     <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-34" />
+    <option name="y" value="275" />
     <option name="width" value="1440" />
     <option name="height" value="803" />
   </component>
@@ -310,6 +302,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="directory" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -437,13 +430,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522947002160</updated>
-    </task>
-    <task id="LOCAL-00012" summary="test">
-      <created>1524424748960</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1524424748961</updated>
     </task>
     <task id="LOCAL-00013" summary="refresh">
       <created>1524425280301</created>
@@ -781,7 +767,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528851872034</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="fix serverTxt">
+      <created>1529192685133</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1529192685134</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -797,10 +790,10 @@
     <frame x="0" y="23" width="1440" height="803" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4957507" visible="true" weight="0.25369978" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4957507" visible="true" weight="0.25369978" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5017618" side_tool="true" weight="0.3257143" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4947146" visible="true" weight="0.31586403" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.31586403" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49612403" weight="0.3257143" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32428572" />
       <window_info id="Structure" order="1" sideWeight="0.5042493" side_tool="true" weight="0.25369978" />
@@ -883,7 +876,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="multiplayer basics" />
     <MESSAGE value="reformat unit load code" />
     <MESSAGE value="ready" />
     <MESSAGE value="coins" />
@@ -908,7 +900,8 @@
     <MESSAGE value="ceasefire" />
     <MESSAGE value="bugfix, place units in real time" />
     <MESSAGE value="display multiplayer mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="display multiplayer mode" />
+    <MESSAGE value="fix serverTxt" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix serverTxt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1143,8 +1136,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="98" column="22" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="22" />
+        <state relative-caret-position="144">
+          <caret line="104" column="11" lean-forward="true" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
         </state>
       </provider>
     </entry>

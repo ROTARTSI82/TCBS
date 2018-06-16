@@ -1,5 +1,7 @@
 cd /Users/Grant/Desktop/TCBS
 rm -f ./.git/index.lock
+rm -f .DS_Store
+rm -f .idea/.DS_Store
 
 cd /Users/Grant/Desktop/TCBS/data
 rm -f resources/profile.pkl
