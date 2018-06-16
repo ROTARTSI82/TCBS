@@ -222,6 +222,7 @@ for i in rawList:
         assert inspect.isclass(SandboxUnit)
         sbUnits.append(SandboxUnit)
         log("UNITS", "Sandbox %s was added" % i)
+        del SandboxUnit
     except Exception as e:
         if __debugMode__ and os.path.isdir("units/"+i):
             raise
@@ -235,6 +236,7 @@ for i in rawList:
             serializable.register(bul)
         mpUnits.append(MultiplayerUnit)
         log("UNITS", "Multiplayer %s was added" % i)
+        del MultiplayerUnit
     except Exception as e:
         if __debugMode__ and os.path.isdir("units/"+i):
             raise
@@ -309,8 +311,8 @@ wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 5
 serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
 serverMsg = TxtOrBt(["Enter the Host and Port", False, [0, 0, 0]], [None, 45])
 selectedUnitTxt = TxtOrBt(["", False, [0, 0, 0]], [None, 45])
-redCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
-blueCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
+redCostTxt = TxtOrBt(["Red Coins Spent: 0", False, [0, 0, 0]], [None, 45])
+blueCostTxt = TxtOrBt(["Blue Coins Spent: 0", False, [0, 0, 0]], [None, 45])
 
 redBar = BarSprite(1, 2, [255, 0, 0])
 blueBar = BarSprite(1, 2, [0, 0, 255])

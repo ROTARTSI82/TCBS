@@ -12,24 +12,24 @@ I200
 sS'check4updates'
 p6
 I00
-sS'battleEnd'
+sS'music'
 p7
-S'Go to start'
-p8
+F0.3125
 sS'effects'
-p9
+p8
 F0.75
 sS'fps'
-p10
+p9
 I120
 sS'coinRR'
-p11
+p10
 I50
-sS'music'
+sS'battleEnd'
+p11
+S'Go to start'
 p12
-F0.3125
 sS'font'
 p13
-S'resources/fonts/Quivira.ttf'
+S'resources/fonts/freesansbold.ttf'
 p14
 s.

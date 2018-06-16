@@ -249,6 +249,7 @@ while running:
                     updatecost()
                     continue
                 if startBt in cbCollide and event.button == 1:
+                    bullets = pygame.sprite.Group()
                     menuBlip.play()
                     oldRUnits = []
                     oldBUnits = []
@@ -472,7 +473,7 @@ while running:
                     continue
                 if event.key == pasteKey:
                     serverStr = pygame.scrap.get(SCRAP_TEXT)
-                    serverTxt = TxtOrBt([serverStr, False, [0, 0, 0]], [None, 45])
+                    serverTxt = TxtOrBt([serverStr, False, [0, 0, 0]], [None, 45], "ignoreTranslations")
                     serverTxt.rect.center = [screen.get_width() / 2,
                                              screen.get_height() / 2]
                     continue
@@ -496,7 +497,10 @@ while running:
                         serverStr = serverStr[:-1]
                     except Exception as e:
                         serverStr = ""
-                serverTxt = TxtOrBt([serverStr, False, [0, 0, 0]], [None, 45], "ignoreTranslations")
+                if serverStr.strip() == "":
+                    serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
+                else:
+                    serverTxt = TxtOrBt([serverStr, False, [0, 0, 0]], [None, 45], "ignoreTranslations")
                 serverTxt.rect.center = [screen.get_width()/2,
                                          screen.get_height()/2]
             if event.type == KEYUP:

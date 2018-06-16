@@ -126,8 +126,8 @@ def updatecost():
             blueBar.update(hplist[0], sum(hplist))
         except:
             pass
-        redCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
-        blueCostTxt = TxtOrBt(["Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
+        redCostTxt = TxtOrBt(["Red Coins Spent: " + str(coinsSpent[1]), False, [0, 0, 0]], [None, 45])
+        blueCostTxt = TxtOrBt(["Blue Coins Spent: " + str(coinsSpent[0]), False, [0, 0, 0]], [None, 45])
         updaterects()
     elif state in ["mult-placeUnits", "mult-battle"]:
         for i in multRUnits:
@@ -261,7 +261,7 @@ def updateoptions():
     global guiScaleBt, langBt, startBdgt, coinRR, desiredFPS, musicVol, fontBt
     global effectsVol, GUIScale, langFile, buttons, mltPlayBt, newUpNote, ceasefireBt
     global startBt, backBt, playBt, joinBt, createBt, serverHelpBt, badVerWarn
-    global nextBt, prevBt, clearRedBt, clearBlueBt, readyBt, selectedTeam
+    global nextBt, prevBt, clearRedBt, clearBlueBt, readyBt, selectedTeam, serverStr
     global teamSelectBt, optionsBt, langDict, menuBlip, alreadyHandled, onBattleEnd
     global langFont, wait4plyrsTxt, serverTxt, serverMsg, selectedUnitTxt
     global redCostTxt, blueCostTxt, onBattleEndBt, check4updatesBt, check4updates
@@ -338,11 +338,14 @@ def updateoptions():
         fontBt = TxtOrBt([u"Font: " + str(langFont), False, [0, 0, 0], [255, 255, 0]], [None, 40])
 
     wait4plyrsTxt = TxtOrBt(["Waiting for players...", False, [255, 0, 0]], [None, 50])
-    serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
+    if serverStr.strip() == "":
+        serverTxt = TxtOrBt(["host:port", False, [0, 0, 0]], [None, 45])
+    else:
+        serverTxt = TxtOrBt([serverStr, False, [0, 0, 0]], [None, 45], "ignoreTranslations")
     serverMsg = TxtOrBt(["Enter the Host and Port", False, [0, 0, 0]], [None, 45])
     selectedUnitTxt = TxtOrBt(["", False, [0, 0, 0]], [None, 45])
-    redCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
-    blueCostTxt = TxtOrBt(["Coins Spent: 0", False, [0, 0, 0]], [None, 45])
+    redCostTxt = TxtOrBt(["Red Coins Spent: 0", False, [0, 0, 0]], [None, 45])
+    blueCostTxt = TxtOrBt(["Blue Coins Spent: 0", False, [0, 0, 0]], [None, 45])
     updaterects()
     with open("resources/options.pkl", "wb") as fp:
         pickle.dump(options, fp)
