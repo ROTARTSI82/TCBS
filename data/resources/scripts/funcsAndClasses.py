@@ -227,7 +227,7 @@ def updateselectedunit(movenum):
     global selectedUnitTxt, state, alreadyHandled
     global sbUnits, mpUnits, mpUnitInt, sbUnitInt
     try:
-        if state == "sndbx-placeUnits":
+        if state in ["sndbx-placeUnits", "sndbx-battle"]:
             sbUnitInt += movenum
             if sbUnitInt >= len(sbUnits):
                 sbUnitInt = 0
@@ -235,7 +235,7 @@ def updateselectedunit(movenum):
                 sbUnitInt = len(sbUnits) - 1
             selectedUnitTxt = TxtOrBt([sbUnits[sbUnitInt].name,
                                        False, [0, 0, 0]], [None, 45])
-        if state == "mult-placeUnits":
+        if state in ["mult-placeUnits", "mult-battle"]:
             mpUnitInt += movenum
             if mpUnitInt >= len(mpUnits):
                 mpUnitInt = 0

@@ -297,6 +297,41 @@ while running:
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
+                if event.key == toggleTeamKey:
+                    menuBlip.play()
+                    if selectedTeam == "red":
+                        selectedTeam = "blue"
+                    else:
+                        selectedTeam = "red"
+                    teamSelectBt.kill()
+                    teamSelectBt = TxtOrBt(["Team: " + selectedTeam.upper(), False, [0, 0, 0],
+                                            [255, 255, 0]], [None, 45])
+                    updaterects()
+                if event.key == prevUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                if event.key == nextUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(1)
+                if event.key == startKey:
+                    bullets = pygame.sprite.Group()
+                    menuBlip.play()
+                    oldRUnits = []
+                    oldBUnits = []
+                    for i in sndbxRUnits:
+                        oldRUnits.append(type(i)(*i.pack()))
+                    for i in sndbxBUnits:
+                        oldBUnits.append(type(i)(*i.pack()))
+                    state = "sndbx-battle"
+                    log("BATTLE", "Battle started")
+                if event.key == clearBlueKey:
+                    menuBlip.play()
+                    sndbxBUnits = pygame.sprite.Group()
+                    updatecost()
+                if event.key == clearRedKey:
+                    menuBlip.play()
+                    sndbxRUnits = pygame.sprite.Group()
+                    updatecost()
             if event.type == QUIT:
                 running = False
             if event.type == VIDEORESIZE:
@@ -444,6 +479,22 @@ while running:
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
+                if event.key == toggleTeamKey:
+                    menuBlip.play()
+                    if selectedTeam == "red":
+                        selectedTeam = "blue"
+                    else:
+                        selectedTeam = "red"
+                    teamSelectBt.kill()
+                    teamSelectBt = TxtOrBt(["Team: " + selectedTeam.upper(), False, [0, 0, 0],
+                                            [255, 255, 0]], [None, 45])
+                    updaterects()
+                if event.key == prevUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                if event.key == nextUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(+1)
                 if event.key == endBattleKey:
                     menuBlip.play()
                     log("BATTLE", "Battle was ended via endBattleKey")
@@ -708,6 +759,35 @@ while running:
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
+                if event.key == prevUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                if event.key == nextUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(1)
+                if event.key == startKey:
+                    menuBlip.play()
+                    readyBt.kill()
+                    if readyBt.display[0] == "READY":
+                        c.Send({"action": "ready"})
+                        readyBt = TxtOrBt(["CANCEL", False, [0, 0, 0],
+                                           [255, 255, 0]], [None, 45])
+                    elif readyBt.display[0] == "CANCEL":
+                        c.Send({"action": "cancelready"})
+                        readyBt = TxtOrBt(["READY", False, [0, 0, 0],
+                                           [0, 255, 0]], [None, 45])
+                    updaterects()
+                    log("BATTLE", "Ready sent")
+                if event.key == clearBlueKey and selfIsHost:
+                    menuBlip.play()
+                    multBUnits = pygame.sprite.Group()
+                    coinsLeft[0] = vStartBdgt
+                    updatecost()
+                if event.key == clearRedKey and not selfIsHost:
+                    menuBlip.play()
+                    multRUnits = pygame.sprite.Group()
+                    coinsLeft[1] = vStartBdgt
+                    updatecost()
             if event.type == QUIT:
                 running = False
                 c.Send({"action": "leave"})
@@ -888,6 +968,25 @@ while running:
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
+                if event.key == prevUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(-1)
+                if event.key == nextUnitKey:
+                    menuBlip.play()
+                    updateselectedunit(1)
+                if event.key == startKey:
+                    menuBlip.play()
+                    ceasefireBt.kill()
+                    if ceasefireBt.display[0] == "CEASEFIRE":
+                        c.Send({"action": "ceasefire"})
+                        ceasefireBt = TxtOrBt(["CANCEL", False, [0, 0, 0],
+                                               [255, 255, 0]], [None, 45])
+                    elif ceasefireBt.display[0] == "CANCEL":
+                        c.Send({"action": "cancelceasefire"})
+                        ceasefireBt = TxtOrBt(["CEASEFIRE", False, [0, 0, 0],
+                                               [0, 255, 0]], [None, 45])
+                    updaterects()
+                    log("BATTLE", "Ceasefire request sent")
 
 try:
     connection.Close()

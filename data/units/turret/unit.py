@@ -339,8 +339,8 @@ class TurretBullet(pygame.sprite.Sprite):
         self.velocity = pygame.math.Vector2(0, 0)
 
         # Set the image to a yellow sqaure and the posistion to pos
-        self.image = pygame.Surface([10, 10])
-        self.image.fill([255, 255, 0])
+        self.image = pygame.Surface([15, 15], SRCALPHA, 32).convert_alpha()
+        pygame.draw.circle(self.image, [255, 255, 0], [7, 7], 5)
         self.rect = self.image.get_rect()
         self.rect.center = pos
 

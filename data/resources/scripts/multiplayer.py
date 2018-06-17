@@ -181,6 +181,8 @@ class TCBSClient(ConnectionListener):
         """
         global state, readyBt, multRUnits, multBUnits
         global oldRUnits, oldBUnits, alreadyHandled
+        global BBullets, RBullets, bullets
+        BBullets, RBullets, bullets = (pygame.sprite.Group(), )*3
         state = "mult-battle"
         readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
         updaterects()

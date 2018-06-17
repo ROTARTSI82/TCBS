@@ -16,9 +16,15 @@ keyRR = (650, 100)
 screenArgs = ([800, 600], RESIZABLE)
 # If __debugMode__ is enabled, TCBS will print logs,
 # show FPS, show cursor-tracking sprite, show ping times, etc
-__debugMode__ = True
+__debugMode__ = False
 # Controls. See https://www.pygame.org/docs/ref/key.html
 screenshotKey = K_F1
 copyKey = K_F2
 pasteKey = K_F3
 endBattleKey = K_ESCAPE
+clearRedKey = K_r
+clearBlueKey = K_b
+toggleTeamKey = K_t
+nextUnitKey = K_e
+prevUnitKey = K_q
+startKey = K_SPACE

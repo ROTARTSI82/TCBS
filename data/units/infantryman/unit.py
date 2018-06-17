@@ -60,11 +60,11 @@ class SandboxUnit(pygame.sprite.Sprite):
         self.rangeCooldown = 2
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
-        self.image = pygame.Surface([25, 25])
         if self.team == "red":
-            self.image.fill([255, 0, 0])
+            self.image = from_spritesheet("units/spritesheet.png", (5, 173, 60, 90), (255, 255, 255))
         elif self.team == "blue":
-            self.image.fill([0, 0, 255])
+            self.image = from_spritesheet("units/spritesheet.png", (215, 180, 60, 90), (255, 255, 255))
+        self.masterimage = self.image
 
         # Set the position to pos
         self.rect = self.image.get_rect()
@@ -114,7 +114,7 @@ class SandboxUnit(pygame.sprite.Sprite):
         # If self.rangeCooldown seconds have passed since self.lastRangeAttack,
         # Shoot a SmartBullet
         if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
-            bullets.add(SmartBullet(self.rect.center, self.team))
+            bullets.add(InfantrymanBullet(self.rect.center, self.team))
             self.lastRangeAttack = time.time()
 
         # Remove us from sprite group if health reaches 0
@@ -213,10 +213,10 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
         if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
             if self.team == "red" and not calledbyhost:
-                RBullets.add(MultiplayerSmartBullet(self.rect.center, self.team))
+                RBullets.add(MultiplayerInfantrymanBullet(self.rect.center, self.team))
                 self.lastRangeAttack = time.time()
             if self.team == "blue" and calledbyhost:
-                BBullets.add(MultiplayerSmartBullet(self.rect.center, self.team))
+                BBullets.add(MultiplayerInfantrymanBullet(self.rect.center, self.team))
                 self.lastRangeAttack = time.time()
 
         if self.health <= 0:
@@ -244,7 +244,7 @@ class MultiplayerUnit(pygame.sprite.Sprite):
         pass
 
 
-class MultiplayerSmartBullet(pygame.sprite.Sprite):
+class MultiplayerInfantrymanBullet(pygame.sprite.Sprite):
     def __init__(self, pos, team):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
@@ -320,10 +320,10 @@ class MultiplayerSmartBullet(pygame.sprite.Sprite):
 
 
 MultiplayerUnit.__name__ = "vanilla_infantryman"
-MultiplayerSmartBullet.__name__ = "vanilla_infantryman_bullet"
+MultiplayerInfantrymanBullet.__name__ = "vanilla_infantryman_bullet"
 
 
-class SmartBullet(pygame.sprite.Sprite):
+class InfantrymanBullet(pygame.sprite.Sprite):
     """
     The Bullets shot by your soldier!
     """
@@ -336,8 +336,8 @@ class SmartBullet(pygame.sprite.Sprite):
         self.target = None
 
         # Set the image to a yellow sqaure and the posistion to pos
-        self.image = pygame.Surface([10, 10])
-        self.image.fill([255, 255, 0])
+        self.image = pygame.Surface([15, 15], SRCALPHA, 32).convert_alpha()
+        pygame.draw.circle(self.image, [255, 255, 0], [7, 7], 5)
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
@@ -394,4 +394,4 @@ class SmartBullet(pygame.sprite.Sprite):
                 return
 
 
-serializableBullets = [MultiplayerSmartBullet, ]
+serializableBullets = [MultiplayerInfantrymanBullet, ]
