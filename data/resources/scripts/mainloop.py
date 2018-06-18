@@ -351,7 +351,6 @@ while running:
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
             state = "sndbx-placeUnits"
-            updatecost()
             pygame.time.wait(1000)
         if len(sndbxRUnits) == 0 and len(sndbxBUnits) > 0:
             log("BATTLE", "Blue Victory!")
@@ -363,7 +362,6 @@ while running:
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
             state = "sndbx-placeUnits"
-            updatecost()
             pygame.time.wait(1000)
         if len(sndbxBUnits) == 0 and len(sndbxRUnits) > 0:
             log("BATTLE", "Red Victory!")
@@ -375,14 +373,15 @@ while running:
             screen.blit(vicMsg.image, vicMsg.rect)
             pygame.display.flip()
             state = "sndbx-placeUnits"
-            updatecost()
             pygame.time.wait(1000)
         if state == "sndbx-placeUnits" and onBattleEnd == "Go to start":
             sndbxRUnits = pygame.sprite.Group(*oldRUnits)
             sndbxBUnits = pygame.sprite.Group(*oldBUnits)
+            updatecost()
         if state == "sndbx-placeUnits" and onBattleEnd == "Clear":
             sndbxBUnits = pygame.sprite.Group()
             sndbxRUnits = pygame.sprite.Group()
+            updatecost()
         try:
             BbulletCol = pygame.sprite.groupcollide(bullets, sndbxBUnits, False, False)
             RbulletCol = pygame.sprite.groupcollide(bullets, sndbxRUnits, False, False)
@@ -498,7 +497,6 @@ while running:
                 if event.key == endBattleKey:
                     menuBlip.play()
                     log("BATTLE", "Battle was ended via endBattleKey")
-                    updatecost()
                     bullets = pygame.sprite.Group()
                     state = "sndbx-placeUnits"
                     if onBattleEnd == "Go to start":
@@ -507,6 +505,7 @@ while running:
                     if onBattleEnd == "Clear":
                         sndbxBUnits = pygame.sprite.Group()
                         sndbxRUnits = pygame.sprite.Group()
+                    updatecost()
     if state == "mult-start":
         screen.blit(backBt.image, backBt.rect)
         screen.blit(joinBt.image, joinBt.rect)

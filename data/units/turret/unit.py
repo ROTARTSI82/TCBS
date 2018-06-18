@@ -63,7 +63,6 @@ class SandboxUnit(pygame.sprite.Sprite):
             self.image = from_spritesheet("units/spritesheet.png", (227, 366, 65, 65), (255, 255, 255))
         self.masterimage = self.image
         self.rotation = 0
-        self.rotation_list = []
 
         # Set the position to pos
         self.rect = self.image.get_rect()
@@ -98,19 +97,10 @@ class SandboxUnit(pygame.sprite.Sprite):
             if self.target not in sndbxBUnits:
                 self.target = random.choice(sndbxBUnits.sprites())
 
-        self.rotation_list = []
-        if self.rect.center[0] > self.target.rect.center[0]:
-            self.rotation_list.append(270)
-        if self.rect.center[0] < self.target.rect.center[0]:
-            self.rotation_list.append(90)
-        if self.rect.center[1] > self.target.rect.center[1]:
-            self.rotation_list.append(0)
-        if self.rect.center[1] < self.target.rect.center[1]:
-            self.rotation_list.append(180)
-        if self.rotation_list != [270, 0] and self.rotation_list:
-            self.rotation = sum(map(lambda x: 360 - x, self.rotation_list)) / len(self.rotation_list)
-        else:
-            self.rotation = 45
+        targetpos = pygame.math.Vector2(self.target.rect.center)
+        mypos = pygame.math.Vector2(self.rect.center)
+        dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
+        self.rotation = math.degrees(math.atan2(-dy, dx)) - 90
         old_rect_pos = self.rect.center
         self.image = pygame.transform.rotate(self.masterimage, self.rotation)
         self.rect = self.image.get_rect()
@@ -119,7 +109,7 @@ class SandboxUnit(pygame.sprite.Sprite):
         # If self.rangeCooldown seconds have passed since self.lastRangeAttack,
         # Shoot a SmartBullet
         if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
-            bullets.add(TurretBullet(self.rect.center, self.team))
+            bullets.add(TurretBullet(self.rect.center, self.team, self.target))
             self.lastRangeAttack = time.time()
 
         # Remove us from sprite group if health reaches 0
@@ -329,13 +319,13 @@ class TurretBullet(pygame.sprite.Sprite):
     """
     The Bullets shot by your soldier!
     """
-    def __init__(self, pos, team):
+    def __init__(self, pos, team, target):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
         self.team = team
         self.speed = 20
         self.damage = 20
-        self.target = None
+        self.target = target
         self.velocity = pygame.math.Vector2(0, 0)
 
         # Set the image to a yellow sqaure and the posistion to pos
@@ -343,6 +333,13 @@ class TurretBullet(pygame.sprite.Sprite):
         pygame.draw.circle(self.image, [255, 255, 0], [7, 7], 5)
         self.rect = self.image.get_rect()
         self.rect.center = pos
+
+        targetpos = pygame.math.Vector2(self.target.rect.center)
+        self.pos = pygame.math.Vector2(self.rect.center)
+        dx, dy = (targetpos.x - self.pos.x, targetpos.y - self.pos.y)
+        traveltime = self.pos.distance_to(targetpos) / self.speed
+        if traveltime != 0:
+            self.velocity = pygame.math.Vector2((dx / traveltime), (dy / traveltime))
 
     def update(self):
         """
@@ -356,24 +353,9 @@ class TurretBullet(pygame.sprite.Sprite):
         if len(sndbxBUnits) == 0 or len(sndbxRUnits) == 0:
             return
 
-        # Check if the target is still alive,
-        # and set a new target if our old target is dead
-        if self.team == "blue":
-            if self.target not in sndbxRUnits:
-                self.target = random.choice(sndbxRUnits.sprites())
-        if self.team == "red":
-            if self.target not in sndbxBUnits:
-                self.target = random.choice(sndbxBUnits.sprites())
-
         # Move towards the target
-        targetpos = pygame.math.Vector2(self.target.rect.center)
-        mypos = pygame.math.Vector2(self.rect.center)
-        dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
-        traveltime = mypos.distance_to(targetpos) / self.speed
-        if traveltime != 0:
-            self.velocity = pygame.math.Vector2((dx / traveltime), (dy / traveltime))
-        mypos += self.velocity
-        self.rect.center = [int(mypos.x), int(mypos.y)]
+        self.pos += self.velocity
+        self.rect.center = [int(self.pos.x), int(self.pos.y)]
 
         if self.rect.centery > screen.get_height() or self.rect.centery < 0:
             self.kill()

@@ -47,9 +47,8 @@ class SandboxUnit(pygame.sprite.Sprite):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 3
+        self.speed = 2.5
         self.rotation = 0
-        self.rotation_list = []
         self.target = None
         self.velocity = pygame.math.Vector2(0, 0)
 
@@ -101,34 +100,16 @@ class SandboxUnit(pygame.sprite.Sprite):
                 self.target = random.choice(sndbxBUnits.sprites())
 
         # Move towards the target
-        self.rotation_list = []
-        listcenter = list(self.rect.center)
-        if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= self.speed
-            self.rotation_list.append(270)
-        if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += self.speed
-            self.rotation_list.append(90)
-        if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= self.speed
-            self.rotation_list.append(0)
-        if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += self.speed
-            self.rotation_list.append(180)
-        #self.rect.center = tuple(listcenter)
         targetpos = pygame.math.Vector2(self.target.rect.center)
         mypos = pygame.math.Vector2(self.rect.center)
         dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
+        self.rotation = math.degrees(math.atan2(-dy, dx)) - 90
         travelTime = mypos.distance_to(targetpos) / self.speed
         if travelTime != 0:
             self.velocity = pygame.math.Vector2((dx / travelTime), (dy / travelTime))
         mypos += self.velocity
         self.rect.center = [int(mypos.x), int(mypos.y)]
 
-        if self.rotation_list != [270, 0] and self.rotation_list:
-            self.rotation = sum(map(lambda x: 360-x, self.rotation_list)) / len(self.rotation_list)
-        else:
-            self.rotation = 45
         old_rect_pos = self.rect.center
         self.image = pygame.transform.rotate(self.masterimage, self.rotation)
         self.rect = self.image.get_rect()
