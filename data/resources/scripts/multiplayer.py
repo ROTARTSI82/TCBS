@@ -42,8 +42,8 @@ class TCBSClient(ConnectionListener):
         :rtype: None
         """
         global selfIsHost, c, s, state, serverMsg
-        global log, TxtOrBt, set_music
-        global screen, connection
+        global log, TxtOrBt, set_music, sky_blue
+        global screen, connection, red, green, blue
         try:
             connection.Pump()
             self.Pump()
@@ -63,7 +63,7 @@ class TCBSClient(ConnectionListener):
                     s.shutdown()
             state = "mult-start"
             set_music("resources/sounds/menuMusic.mp3")
-            set_background("resources/images/sky.png")
+            red, green, blue = sky_blue
 
     def Network(self, data):
         """
@@ -602,8 +602,8 @@ class TCBSServer(Server):
         :rtype: None
         """
         global selfIsHost, c, s, state, serverMsg
-        global log, TxtOrBt, set_music
-        global screen
+        global log, TxtOrBt, set_music, sky_blue
+        global screen, red, green, blue
         try:
             self.Pump()
         except Exception as e:
@@ -621,4 +621,4 @@ class TCBSServer(Server):
                     s.shutdown()
             state = "mult-start"
             set_music("resources/sounds/menuMusic.mp3")
-            set_background("resources/images/sky.png")
+            red, green, blue = sky_blue

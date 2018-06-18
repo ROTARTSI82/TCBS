@@ -15,6 +15,9 @@ import inspect
 import glob
 import types
 
+import pygame
+from pygame.locals import *
+
 start = datetime.datetime.now()
 
 # TODO
@@ -31,9 +34,6 @@ if False:
     from funcsAndClasses import *
     from multiplayer import *
     from mainloop import *
-
-import pygame
-from pygame.locals import *
 
 majorPyVer = sys.version_info.major
 if majorPyVer not in [2, 3]:
@@ -82,6 +82,9 @@ state = "menu"
 red = 255
 green = 255
 blue = 255
+
+sky_blue = pygame.color.THECOLORS['lightskyblue'][:-1]
+grass_green = pygame.color.THECOLORS['greenyellow'][:-1]
 alreadyHandled = []
 serverStr = ""
 validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"
@@ -253,7 +256,7 @@ nextRID = 0
 nextBID = 0
 
 set_music("resources/sounds/menuMusic.mp3")
-set_background("resources/images/sky.png")
+red, green, blue = sky_blue
 try:
     menuBlip = pygame.mixer.Sound("resources/sounds/menuBlip.wav")
     menuBlip.set_volume(effectsVol)

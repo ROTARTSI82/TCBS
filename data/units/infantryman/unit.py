@@ -58,7 +58,7 @@ class SandboxUnit(pygame.sprite.Sprite):
 
         # Bullet attributes
         self.lastRangeAttack = 0
-        self.rangeCooldown = 2
+        self.rangeCooldown = 0.25
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
         if self.team == "red":
@@ -332,7 +332,7 @@ class InfantrymanBullet(pygame.sprite.Sprite):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 3
+        self.speed = 20
         self.damage = 20
         self.target = target
 

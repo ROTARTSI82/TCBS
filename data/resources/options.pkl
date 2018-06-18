@@ -16,18 +16,18 @@ sS'battleEnd'
 p7
 S'Go to start'
 p8
-sS'effects'
+sS'music'
 p9
+F0.3125
+sS'effects'
+p10
 F0.75
 sS'fps'
-p10
+p11
 I120
 sS'coinRR'
-p11
-I50
-sS'music'
 p12
-F0.3125
+I50
 sS'font'
 p13
 S'resources/fonts/freesansbold.ttf'

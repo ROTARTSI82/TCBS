@@ -13,7 +13,7 @@ if False:
     # all the variables are undefined and gives me endless warnings :(
     from load import *
 
-set_background("resources/images/sky.png")
+red, green, blue = sky_blue
 updateoptions()
 updaterects()
 
@@ -22,7 +22,6 @@ while running:
     cbCollide = pygame.sprite.spritecollide(cursor, buttons, False)
     buttons.update(cbCollide)
     screen.fill([red, green, blue])
-    # screen.blit(background, [0, 0])
     if __debugMode__:
         DebugFPSText = simpleFont.render("FPS: %.3f" % clock.get_fps(),
                                          False, [0, 0, 0], [255, 255, 255])
@@ -67,7 +66,7 @@ while running:
                     state = "sndbx-placeUnits"
                     updateselectedunit(0)
                     set_music("resources/sounds/in-gameMusic.mp3")
-                    set_background("resources/images/grass.png")
+                    red, green, blue = grass_green
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
@@ -264,7 +263,7 @@ while running:
                     menuBlip.play()
                     state = "menu"
                     set_music("resources/sounds/menuMusic.mp3")
-                    set_background("resources/images/sky.png")
+                    red, green, blue = sky_blue
                     continue
                 if nextBt in cbCollide and event.button == 1:
                     menuBlip.play()
@@ -565,7 +564,7 @@ while running:
                         c = TCBSClient(args[0], int(args[1]))
                         state = "mult-wait4players"
                         set_music("resources/sounds/in-gameMusic.mp3")
-                        set_background("resources/images/grass.png")
+                        red, green, blue = grass_green
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot join game: "+str(e))
@@ -582,7 +581,7 @@ while running:
                         c = TCBSClient(args[0], int(args[1]))
                         state = "mult-wait4players"
                         set_music("resources/sounds/in-gameMusic.mp3")
-                        set_background("resources/images/grass.png")
+                        red, green, blue = grass_green
                     except Exception as e:
                         if not str(e) in alreadyHandled:
                             log("EXCEPTION", "Cannot create game: "+str(e))
@@ -625,7 +624,7 @@ while running:
                     if selfIsHost:
                         s.shutdown()
                     set_music("resources/sounds/menuMusic.mp3")
-                    set_background("resources/images/sky.png")
+                    red, green, blue = sky_blue
             if event.type == KEYDOWN:
                 if event.key == screenshotKey:
                     take_screenshot()
@@ -711,7 +710,7 @@ while running:
                     if selfIsHost:
                         s.shutdown()
                     set_music("resources/sounds/menuMusic.mp3")
-                    set_background("resources/images/sky.png")
+                    red, green, blue = sky_blue
                     continue
                 if nextBt in cbCollide and event.button == 1:
                     menuBlip.play()
