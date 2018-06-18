@@ -83,8 +83,9 @@ red = 255
 green = 255
 blue = 255
 
-sky_blue = pygame.color.THECOLORS['lightskyblue'][:-1]
-grass_green = pygame.color.THECOLORS['greenyellow'][:-1]
+sky_blue = (160, 210, 255)
+grass_green = (155, 205, 50)
+
 alreadyHandled = []
 serverStr = ""
 validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"

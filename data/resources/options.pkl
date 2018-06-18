@@ -12,22 +12,22 @@ I200
 sS'check4updates'
 p6
 I00
-sS'battleEnd'
-p7
-S'Go to start'
-p8
 sS'music'
-p9
+p7
 F0.3125
 sS'effects'
-p10
+p8
 F0.75
 sS'fps'
-p11
+p9
 I120
 sS'coinRR'
-p12
+p10
 I50
+sS'battleEnd'
+p11
+S'Go to start'
+p12
 sS'font'
 p13
 S'resources/fonts/freesansbold.ttf'

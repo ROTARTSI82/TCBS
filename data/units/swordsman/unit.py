@@ -249,3 +249,4 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
 
 MultiplayerUnit.__name__ = "vanilla_swordsman"
+serializableBullets = []
