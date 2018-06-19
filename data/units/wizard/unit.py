@@ -40,8 +40,8 @@ class SandboxUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in sandbox mode.
     """
-    name = "Wizard (SANDBOX) - $125"  # What to display at the top when this unit is selected.
-    cost = 125  # How many coins your soldier costs to place
+    name = "Wizard (SANDBOX) - $90"  # What to display at the top when this unit is selected.
+    cost = 90  # How many coins your soldier costs to place
 
     def __init__(self, pos, team):
         # Define basic attributes
@@ -53,11 +53,11 @@ class SandboxUnit(pygame.sprite.Sprite):
         self.velocity = pygame.math.Vector2(0, 0)
 
         # Melee attributes
-        self.health = 50
+        self.health = 200
 
         # Bullet attributes
         self.lastRangeAttack = 0
-        self.rangeCooldown = 2
+        self.rangeCooldown = 1
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
         if self.team == "red":
@@ -332,8 +332,8 @@ class WizardBullet(pygame.sprite.Sprite):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 12
-        self.damage = 20
+        self.speed = 15
+        self.damage = 65
         self.rotation = 0
         self.target = None
 

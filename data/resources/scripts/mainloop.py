@@ -36,6 +36,8 @@ while running:
         screen.blit(playBt.image, playBt.rect)
         screen.blit(mltPlayBt.image, mltPlayBt.rect)
         screen.blit(optionsBt.image, optionsBt.rect)
+        screen.blit(tcbs_title.image, tcbs_title.rect)
+        screen.blit(tcbs_subtitle.image, tcbs_subtitle.rect)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:

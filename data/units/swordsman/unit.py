@@ -40,8 +40,8 @@ class SandboxUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in sandbox mode.
     """
-    name = "Swordsman (SANDBOX) - $50"  # What to display at the top when this unit is selected.
-    cost = 50  # How many coins your soldier costs to place
+    name = "Swordsman (SANDBOX) - $25"  # What to display at the top when this unit is selected.
+    cost = 25  # How many coins your soldier costs to place
 
     def __init__(self, pos, team):
         # Define basic attributes
@@ -51,8 +51,8 @@ class SandboxUnit(pygame.sprite.Sprite):
         self.target = None
 
         # Melee attributes
-        self.health = 50
-        self.meleeDamage = 10
+        self.health = 125
+        self.meleeDamage = 40
         self.meleeCooldown = 1
         self.lastMeleeAttack = 0
         self.rotation = 0

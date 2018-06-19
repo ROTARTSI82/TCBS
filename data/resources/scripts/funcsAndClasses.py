@@ -245,6 +245,7 @@ def updateoptions():
     global nextBt, prevBt, clearRedBt, clearBlueBt, readyBt, selectedTeam, serverStr
     global teamSelectBt, optionsBt, langDict, menuBlip, alreadyHandled, onBattleEnd
     global langFont, wait4plyrsTxt, serverTxt, serverMsg, selectedUnitTxt
+    global tcbs_subtitle, tcbs_title
     global redCostTxt, blueCostTxt, onBattleEndBt, check4updatesBt, check4updates
 
     startBdgt = options['srtBdgt']
@@ -279,6 +280,9 @@ def updateoptions():
     badVerWarn.rect.topleft = [10, 10]
 
     mltPlayBt = TxtOrBt(["MULTIPLAYER", False, [0, 0, 0], [255, 0, 255]], [None, 50])
+    tcbs_title = TxtOrBt(["TCBS", False, [255, 255, 255]], [None, 150])
+    tcbs_subtitle = TxtOrBt(["TOTALLY CUSTOMIZABLE BATTLE SIMULATOR", False,
+                             [255, 255, 255]], [None, 25])
     startBt = TxtOrBt(["START", False, [0, 0, 0], [0, 255, 0]], [None, 45])
     backBt = TxtOrBt(["BACK", False, [0, 0, 0], [255, 0, 0]], [None, 40])
     playBt = TxtOrBt(["SANDBOX", False, [0, 0, 0], [0, 255, 0]], [None, 55])
@@ -343,11 +347,13 @@ def updaterects():
     global profileBt, readyBt, teamSelectBt, optionsBt, coinRRBt, startBdgtBt
     global fpsBt, musicVolBt, effectsVolBt, guiScaleBt, langBt, fontBt
     global check4updatesBt, onBattleEndBt, ceasefireBt
-    global serverMsg
+    global serverMsg, tcbs_title, tcbs_subtitle
     global serverTxt, wait4plyrsTxt, selectedUnitTxt
     global redCostTxt, blueCostTxt, redBar, blueBar
 
     startBt.rect.center = [screen.get_width() / 2, screen.get_height()-20]
+    tcbs_title.rect.centerx, tcbs_title.rect.top  = [screen.get_width()/2, 0]
+    tcbs_subtitle.rect.centerx, tcbs_subtitle.rect.top = [screen.get_width()/2, tcbs_title.rect.bottom]
     mltPlayBt.rect.center = [screen.get_width() / 2, screen.get_height() / 2+55]
     backBt.rect.bottomleft = [5, screen.get_height()-10]
     playBt.rect.center = [screen.get_width() / 2, screen.get_height() / 2]

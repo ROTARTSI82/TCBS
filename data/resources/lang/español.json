@@ -17,5 +17,7 @@
   "[Errno 61] Connection refused": "[Errno 61] Conexión denegada",
   "[Errno 13] Permission denied": "[Errno 13] Permiso denegado",
   "[Errno 48] Address already in use": "[Errno 48] Dirección ya en uso",
-  "Text Copied to Clipboard": "Texto copiado al portapapeles"
+  "Text Copied to Clipboard": "Texto copiado al portapapeles",
+  "TCBS": "ha",
+  "TOTALLY CUSTOMIZABLE BATTLE SIMULATOR": "LLE"
 }

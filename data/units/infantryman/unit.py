@@ -40,8 +40,8 @@ class SandboxUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in sandbox mode.
     """
-    name = "Infantryman (SANDBOX) - $100"  # What to display at the top when this unit is selected.
-    cost = 100  # How many coins your soldier costs to place
+    name = "Infantryman (SANDBOX) - $55"  # What to display at the top when this unit is selected.
+    cost = 55  # How many coins your soldier costs to place
 
     def __init__(self, pos, team):
         # Define basic attributes
@@ -51,7 +51,7 @@ class SandboxUnit(pygame.sprite.Sprite):
         self.target = None
 
         # Melee attributes
-        self.health = 50
+        self.health = 150
         self.rotation = 0
         self.velocity = pygame.math.Vector2(0, 0)
         self.pos = pygame.math.Vector2(pos)
@@ -333,7 +333,7 @@ class InfantrymanBullet(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.team = team
         self.speed = 20
-        self.damage = 20
+        self.damage = 12.5
         self.target = target
 
         # Set the image to a yellow sqaure and the posistion to pos

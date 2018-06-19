@@ -1,11 +1,11 @@
 (dp1
 S'lang'
 p2
-Vresources/lang/english.json
+S'resources/lang/english.json'
 p3
 sS'scale'
 p4
-F0.625
+F1
 sS'srtBdgt'
 p5
 I200
@@ -30,6 +30,4 @@ S'Go to start'
 p12
 sS'font'
 p13
-S'resources/fonts/freesansbold.ttf'
-p14
-s.
+Ns.

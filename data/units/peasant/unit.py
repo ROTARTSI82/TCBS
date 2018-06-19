@@ -51,9 +51,9 @@ class SandboxUnit(pygame.sprite.Sprite):
         self.target = None
 
         # Melee attributes
-        self.health = 50
-        self.meleeDamage = 10
-        self.meleeCooldown = 1
+        self.health = 100
+        self.meleeDamage = 15
+        self.meleeCooldown = 0.5
         self.lastMeleeAttack = 0
         self.rotation = 0
 

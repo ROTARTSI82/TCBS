@@ -16,7 +16,7 @@ keyRR = (650, 100)
 screenArgs = ([800, 600], RESIZABLE)
 # If __debugMode__ is enabled, TCBS will print logs,
 # show FPS, show cursor-tracking sprite, show ping times, etc
-__debugMode__ = False
+__debugMode__ = True
 # Controls. See https://www.pygame.org/docs/ref/key.html
 screenshotKey = K_F1
 copyKey = K_F2
@@ -28,3 +28,7 @@ toggleTeamKey = K_t
 nextUnitKey = K_e
 prevUnitKey = K_q
 startKey = K_SPACE
+# Background colors in the RGB format.
+# RGBA, CMY, HSVA, HSLA, and I1I2I3 are not supported.
+sky_blue = (160, 210, 255)
+grass_green = (155, 205, 50)

@@ -82,10 +82,6 @@ state = "menu"
 red = 255
 green = 255
 blue = 255
-
-sky_blue = (160, 210, 255)
-grass_green = (155, 205, 50)
-
 alreadyHandled = []
 serverStr = ""
 validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"
@@ -272,6 +268,9 @@ log("FONT", "get_default_font() == "+str(pygame.font.get_default_font()))
 cursor = Marker(__debugMode__)
 
 mltPlayBt = TxtOrBt(["MULTIPLAYER", False, [0, 0, 0], [255, 0, 255]], [None, 50])
+tcbs_title = TxtOrBt(["TCBS", False, [255, 255, 255]], [None, 150])
+tcbs_subtitle = TxtOrBt(["TOTALLY CUSTOMIZABLE BATTLE SIMULATOR", False,
+                         [255, 255, 255]], [None, 25])
 startBt = TxtOrBt(["START", False, [0, 0, 0], [0, 255, 0]], [None, 45])
 backBt = TxtOrBt(["BACK", False, [0, 0, 0], [255, 0, 0]], [None, 40])
 playBt = TxtOrBt(["SANDBOX", False, [0, 0, 0], [0, 255, 0]], [None, 55])
