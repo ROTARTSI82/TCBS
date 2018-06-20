@@ -14,26 +14,24 @@ from pygame.locals import *
 import math
 
 
-def from_spritesheet(spritesheet, rectangle, colorkey=None):
+def from_spritesheet(rectangle):
     """
     Load an image from the spritesheet.
 
-    :param spritesheet: str or pygame.Surface
     :param rectangle: [x, y, width, height]
-    :param colorkey: [red, green, blue]
     :rtype: pygame.Surface
     """
     rect = pygame.Rect(rectangle)
     image = pygame.Surface(rect.size).convert()
-    if type(spritesheet) == str:
-        image.blit(pygame.image.load(spritesheet), (0, 0), rect)
-    elif type(spritesheet) == pygame.Surface:
-        image.blit(spritesheet, (0, 0), rect)
-    if colorkey is not None:
-        if colorkey is -1:
-            colorkey = image.get_at((0, 0))
-        image.set_colorkey(colorkey, RLEACCEL)
+    image.blit(pygame.image.load("units/spritesheet.png"), (0, 0), rect)
+    image.set_colorkey((255, 255, 255), RLEACCEL)
     return image
+
+
+vanilla_swordsman_red1 =  from_spritesheet((0, 89, 75, 75))
+vanilla_swordsman_red2 = from_spritesheet((95, 91, 115, 75))
+vanilla_swordsman_blue1 = from_spritesheet((209, 100, 75, 75))
+vanilla_swordsman_blue2 = from_spritesheet((305, 98, 120, 70))
 
 
 class SandboxUnit(pygame.sprite.Sprite):
@@ -59,11 +57,11 @@ class SandboxUnit(pygame.sprite.Sprite):
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
         if self.team == "red":
-            self.image1 = from_spritesheet("units/spritesheet.png", (0, 89, 75, 75), (255, 255, 255))
-            self.image2 = from_spritesheet("units/spritesheet.png", (95, 91, 115, 75), (255, 255, 255))
+            self.image1 = vanilla_swordsman_red1
+            self.image2 = vanilla_swordsman_red2
         elif self.team == "blue":
-            self.image1 = from_spritesheet("units/spritesheet.png", (209, 100, 75, 75), (255, 255, 255))
-            self.image2 = from_spritesheet("units/spritesheet.png", (305, 98, 120, 70), (255, 255, 255))
+            self.image1 = vanilla_swordsman_blue1
+            self.image2 = vanilla_swordsman_blue2
 
         # Set the position to pos
         self.image = self.image1

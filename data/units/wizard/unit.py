@@ -14,31 +14,23 @@ from pygame.locals import *
 import math
 
 
-def from_spritesheet(spritesheet, rectangle, colorkey=None):
+def from_spritesheet(rectangle):
     """
     Load an image from the spritesheet.
 
-    :param spritesheet: str or pygame.Surface
     :param rectangle: [x, y, width, height]
-    :param colorkey: [red, green, blue]
     :rtype: pygame.Surface
     """
     rect = pygame.Rect(rectangle)
     image = pygame.Surface(rect.size).convert()
-    if type(spritesheet) == str:
-        image.blit(pygame.image.load(spritesheet), (0, 0), rect)
-    elif type(spritesheet) == pygame.Surface:
-        image.blit(spritesheet, (0, 0), rect)
-    if colorkey is not None:
-        if colorkey is -1:
-            colorkey = image.get_at((0, 0))
-        image.set_colorkey(colorkey, RLEACCEL)
+    image.blit(pygame.image.load("units/spritesheet.png"), (0, 0), rect)
+    image.set_colorkey((255, 255, 255), RLEACCEL)
     return image
 
 
-vanilla_red_wizard = from_spritesheet("units/spritesheet.png", (0, 275, 70, 70), (255, 255, 255))
-vanilla_blue_wizard = from_spritesheet("units/spritesheet.png", (215, 275, 70, 75), (255, 255, 255))
-vanilla_wizard_bullet = from_spritesheet("units/spritesheet.png", (95, 300, 40, 40), (255, 255, 255))
+vanilla_red_wizard = from_spritesheet((0, 275, 70, 70))
+vanilla_blue_wizard = from_spritesheet((215, 275, 70, 75))
+vanilla_wizard_bullet = from_spritesheet((95, 300, 40, 40))
 
 
 class SandboxUnit(pygame.sprite.Sprite):

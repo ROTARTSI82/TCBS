@@ -12,22 +12,22 @@ I200
 sS'check4updates'
 p6
 I01
-sS'music'
+sS'battleEnd'
 p7
-F0.25
-sS'effects'
+S'Go to start'
 p8
+sS'effects'
+p9
 F0.5
 sS'fps'
-p9
+p10
 I75
 sS'coinRR'
-p10
-I50
-sS'battleEnd'
 p11
-S'Go to start'
+I50
+sS'music'
 p12
+F0.25
 sS'font'
 p13
 Ns.

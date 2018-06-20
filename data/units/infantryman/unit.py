@@ -14,26 +14,22 @@ from pygame.locals import *
 import math
 
 
-def from_spritesheet(spritesheet, rectangle, colorkey=None):
+def from_spritesheet(rectangle):
     """
     Load an image from the spritesheet.
 
-    :param spritesheet: str or pygame.Surface
     :param rectangle: [x, y, width, height]
-    :param colorkey: [red, green, blue]
     :rtype: pygame.Surface
     """
     rect = pygame.Rect(rectangle)
     image = pygame.Surface(rect.size).convert()
-    if type(spritesheet) == str:
-        image.blit(pygame.image.load(spritesheet), (0, 0), rect)
-    elif type(spritesheet) == pygame.Surface:
-        image.blit(spritesheet, (0, 0), rect)
-    if colorkey is not None:
-        if colorkey is -1:
-            colorkey = image.get_at((0, 0))
-        image.set_colorkey(colorkey, RLEACCEL)
+    image.blit(pygame.image.load("units/spritesheet.png"), (0, 0), rect)
+    image.set_colorkey((255, 255, 255), RLEACCEL)
     return image
+
+
+vanilla_infantryman_blue = from_spritesheet((215, 180, 60, 90))
+vanilla_infantryman_red = from_spritesheet((5, 173, 60, 90))
 
 
 class SandboxUnit(pygame.sprite.Sprite):
@@ -62,9 +58,9 @@ class SandboxUnit(pygame.sprite.Sprite):
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
         if self.team == "red":
-            self.image = from_spritesheet("units/spritesheet.png", (5, 173, 60, 90), (255, 255, 255))
+            self.image = vanilla_infantryman_red
         elif self.team == "blue":
-            self.image = from_spritesheet("units/spritesheet.png", (215, 180, 60, 90), (255, 255, 255))
+            self.image = vanilla_infantryman_blue
         self.masterimage = self.image
 
         # Set the position to pos

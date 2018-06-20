@@ -669,9 +669,6 @@ while running:
         if __debugMode__:
             screen.blit(simpleFont.render("PING: %.3f" % ((c.unitping*1000 + c.bulletping*1000)/2),
                                           False, [0, 0, 0]), [10, 100])
-            screen.blit(simpleFont.render("PACKET LOSS: %i/%i (%.3f%%)" % (c.packetslost, c.packetssent,
-                                                                           c.packetslost/float(c.packetssent)*100),
-                                          False, [0, 0, 0]), [10, 130])
 
         screen.blit(readyBt.image, readyBt.rect)
         screen.blit(backBt.image, backBt.rect)
@@ -825,44 +822,11 @@ while running:
             c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         bullets = pygame.sprite.Group(*(RBullets.sprites() + BBullets.sprites()))
         if len(multRUnits) == 0 and len(multBUnits) == 0:
-            log("BATTLE", "Draw!")
-            bullets = pygame.sprite.Group()
-            screen.fill([red, green, blue])
-            vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
-                             [None, 50])
-            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
-            screen.blit(vicMsg.image, vicMsg.rect)
-            pygame.display.flip()
-            state = "mult-placeUnits"
-            updatecost()
-            c.Send({"action": "battleover"})
-            pygame.time.wait(1000)
+            c.Send({"action": "battleover", "result": "draw"})
         if len(multRUnits) == 0 and len(multBUnits) > 0:
-            log("BATTLE", "Blue Victory!")
-            bullets = pygame.sprite.Group()
-            screen.fill([red, green, blue])
-            vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
-                             [None, 50])
-            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
-            screen.blit(vicMsg.image, vicMsg.rect)
-            pygame.display.flip()
-            state = "mult-placeUnits"
-            updatecost()
-            c.Send({"action": "battleover"})
-            pygame.time.wait(1000)
+            c.Send({"action": "battleover", "result": "blue_victory"})
         if len(multBUnits) == 0 and len(multRUnits) > 0:
-            log("BATTLE", "Red Victory!")
-            bullets = pygame.sprite.Group()
-            screen.fill([red, green, blue])
-            vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
-                             [None, 50])
-            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
-            screen.blit(vicMsg.image, vicMsg.rect)
-            pygame.display.flip()
-            state = "mult-placeUnits"
-            updatecost()
-            c.Send({"action": "battleover"})
-            pygame.time.wait(1000)
+            c.Send({"action": "battleover", "result": "red_victory"})
 
         try:
             BbulletCol = pygame.sprite.groupcollide(bullets, multBUnits, False, False)
@@ -903,9 +867,6 @@ while running:
         if __debugMode__:
             screen.blit(simpleFont.render("PING: %.3f" % ((c.unitping*1000 + c.bulletping*1000)/2),
                                           False, [0, 0, 0]), [10, 100])
-            screen.blit(simpleFont.render("PACKET LOSS: %i/%i (%.3f%%)" % (c.packetslost, c.packetssent,
-                                                                           c.packetslost/float(c.packetssent)*100),
-                                          False, [0, 0, 0]), [10, 130])
         screen.blit(nextBt.image, nextBt.rect)
         screen.blit(prevBt.image, prevBt.rect)
         screen.blit(redCostTxt.image, redCostTxt.rect)

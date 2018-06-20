@@ -12,27 +12,6 @@ import time
 import pygame
 from pygame.locals import *
 
-def from_spritesheet(spritesheet, rectangle, colorkey=None):
-    """
-    Load an image from the spritesheet.
-
-    :param spritesheet: str or pygame.Surface
-    :param rectangle: [x, y, width, height]
-    :param colorkey: [red, green, blue]
-    :rtype: pygame.Surface
-    """
-    rect = pygame.Rect(rectangle)
-    image = pygame.Surface(rect.size).convert()
-    if type(spritesheet) == str:
-        image.blit(pygame.image.load(spritesheet), (0, 0), rect)
-    elif type(spritesheet) == pygame.Surface:
-        image.blit(spritesheet, (0, 0), rect)
-    if colorkey is not None:
-        if colorkey is -1:
-            colorkey = image.get_at((0, 0))
-        image.set_colorkey(colorkey, RLEACCEL)
-    return image
-
 class SandboxUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in sandbox mode.
@@ -165,15 +144,12 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
         self.lastRangeAttack = 0
         self.rangeCooldown = 2
-        x = pygame.math.Vector2(0, 0)
-        # b = from_spritesheet("units/spritesheet.png", (0, 275, 70, 70), (255, 255, 255))
 
         self.image = pygame.Surface([25, 25])
         if team == "red":
             self.image.fill([255, 0, 0])
         elif team == "blue":
             self.image.fill([0, 0, 255])
-        c = self.image
         self.rect = self.image.get_rect()
         self.rect.center = pos
 

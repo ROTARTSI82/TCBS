@@ -14,26 +14,24 @@ from pygame.locals import *
 import math
 
 
-def from_spritesheet(spritesheet, rectangle, colorkey=None):
+def from_spritesheet(rectangle):
     """
     Load an image from the spritesheet.
 
-    :param spritesheet: str or pygame.Surface
     :param rectangle: [x, y, width, height]
-    :param colorkey: [red, green, blue]
     :rtype: pygame.Surface
     """
     rect = pygame.Rect(rectangle)
     image = pygame.Surface(rect.size).convert()
-    if type(spritesheet) == str:
-        image.blit(pygame.image.load(spritesheet), (0, 0), rect)
-    elif type(spritesheet) == pygame.Surface:
-        image.blit(spritesheet, (0, 0), rect)
-    if colorkey is not None:
-        if colorkey is -1:
-            colorkey = image.get_at((0, 0))
-        image.set_colorkey(colorkey, RLEACCEL)
+    image.blit(pygame.image.load("units/spritesheet.png"), (0, 0), rect)
+    image.set_colorkey((255, 255, 255), RLEACCEL)
     return image
+
+
+vanilla_peasant_blue1 = from_spritesheet((215, 18, 60, 60))
+vanilla_peasant_red1 = from_spritesheet((7, 15, 55, 55))
+vanilla_peasant_blue2 = from_spritesheet((295, 5, 60, 70))
+vanilla_peasant_red2 = from_spritesheet((88, 0, 55, 60))
 
 
 class SandboxUnit(pygame.sprite.Sprite):
@@ -66,11 +64,11 @@ class SandboxUnit(pygame.sprite.Sprite):
 
         # Set the position to pos
         if self.team == "red":
-            self.image1 = from_spritesheet("units/spritesheet.png", (7, 15, 55, 55), (255, 255, 255))
-            self.image2 = from_spritesheet("units/spritesheet.png", (88, 0, 55, 60), (255, 255, 255))
+            self.image1 = vanilla_peasant_red1
+            self.image2 = vanilla_peasant_red2
         elif self.team == "blue":
-            self.image1 = from_spritesheet("units/spritesheet.png", (215, 18, 60, 60), (255, 255, 255))
-            self.image2 = from_spritesheet("units/spritesheet.png", (295, 5, 60, 70), (255, 255, 255))
+            self.image1 = vanilla_peasant_blue1
+            self.image2 = vanilla_peasant_blue2
 
         # Set the position to pos
         self.image = self.image1

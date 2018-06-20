@@ -32,8 +32,6 @@ class TCBSClient(ConnectionListener):
             self.bulletping = 0
             self.lastunitping = 0
             self.lastbulletping = 0
-            self.packetslost = 0
-            self.packetssent = 0
 
     def loop(self):
         """
@@ -65,16 +63,6 @@ class TCBSClient(ConnectionListener):
             set_music("resources/sounds/menuMusic.mp3")
             red, green, blue = sky_blue
 
-    def Network(self, data):
-        """
-        Add 1 to packet counter
-
-        :param data:
-        :return:
-        """
-        if __debugMode__:
-            self.packetssent += 1
-
     def Network_kick(self, data):
         """
         Raises Exception(data["reason"]) so that we exit after we're kicked
@@ -100,11 +88,48 @@ class TCBSClient(ConnectionListener):
         """
         Sets state to 'mult-placeUnits' and forwards
 
-        :param data: {"action": "battleover"}
+        :param data: {"action": "battleover", "result": str}
         :rtype: None
         """
         global state, coinsLeft, multRUnits, multBUnits, oldRUnits, oldBUnits
         global vStartBdgt, RBullets, BBullets, bullets, alreadyHandled, vOnBattleEnd
+        global screen, vicMsg
+        if data["result"] == "draw":
+            log("CLIENT", "Draw!")
+            screen.fill([red, green, blue])
+            vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect)
+            pygame.display.flip()
+            state = "mult-placeUnits"
+            updatecost()
+            pygame.time.wait(1000)
+        if data["result"] == "blue_victory":
+            log("CLIENT", "Blue Victory!")
+            bullets = pygame.sprite.Group()
+            screen.fill([red, green, blue])
+            vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect)
+            pygame.display.flip()
+            state = "mult-placeUnits"
+            updatecost()
+            pygame.time.wait(1000)
+        if data["result"] == "red_victory":
+            log("CLIENT", "Red Victory!")
+            bullets = pygame.sprite.Group()
+            screen.fill([red, green, blue])
+            vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
+                             [None, 50])
+            vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
+            screen.blit(vicMsg.image, vicMsg.rect)
+            pygame.display.flip()
+            state = "mult-placeUnits"
+            updatecost()
+            pygame.time.wait(1000)
+
         if vOnBattleEnd == "Go to start":
             try:
                 multRUnits = pygame.sprite.Group(*oldRUnits)
@@ -171,9 +196,9 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "battlestart"}
         :rtype: None
         """
-        global state, readyBt, multRUnits, multBUnits
-        global oldRUnits, oldBUnits, alreadyHandled
-        global BBullets, RBullets, bullets
+        global state, readyBt, multRUnits, multBUnits, multBDict
+        global oldRUnits, oldBUnits, alreadyHandled, multRDict
+        global BBullets, RBullets, bullets, nextRID, nextBID
         BBullets, RBullets, bullets = (pygame.sprite.Group(), )*3
         state = "mult-battle"
         readyBt = TxtOrBt(["READY", False, [0, 0, 0], [0, 255, 0]], [None, 45])
@@ -182,9 +207,19 @@ class TCBSClient(ConnectionListener):
         oldBUnits = []
         try:
             for i in multRUnits:
-                oldRUnits.append(type(i)(*i.oldpack()))
+                _args = list(i.oldpack())
+                _args[2] = nextRID
+                new_unit = type(i)(*_args)
+                oldRUnits.append(new_unit)
+                multRDict[nextRID] = new_unit
+                nextRID += 1
             for i in multBUnits:
-                oldBUnits.append(type(i)(*i.oldpack()))
+                _args = list(i.oldpack())
+                _args[2] = nextBID
+                new_unit = type(i)(*_args)
+                oldBUnits.append(new_unit)
+                multBDict[nextBID] = new_unit
+                nextBID += 1
         except Exception as e:
             if __debugMode__:
                 raise
@@ -233,7 +268,6 @@ class TCBSClient(ConnectionListener):
                 exec("multBDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
         except Exception as e:
             if __debugMode__:
-                self.packetslost += 1
                 raise
             if str(e) not in alreadyHandled:
                 log("EXCEPTION", "Failed to execute function: "+str(e))
@@ -490,7 +524,7 @@ class TCBSChannel(Channel):
         log("CHANNEL", "%s of 2 players requesting ceasefire" % str(self._server.ceasefirerequests))
         if self._server.ceasefirerequests > 1:
             state = "mult-placeUnits"
-            self._server.sendtoall({"action": "battleover"})
+            self._server.sendtoall({"action": "battleover", "result": None})
             self._server.ceasefirerequests = 0
             log("BATTLE", "Ending battle...")
 
