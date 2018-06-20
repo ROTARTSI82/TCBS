@@ -36,6 +36,11 @@ def from_spritesheet(spritesheet, rectangle, colorkey=None):
     return image
 
 
+vanilla_red_wizard = from_spritesheet("units/spritesheet.png", (0, 275, 70, 70), (255, 255, 255))
+vanilla_blue_wizard = from_spritesheet("units/spritesheet.png", (215, 275, 70, 75), (255, 255, 255))
+vanilla_wizard_bullet = from_spritesheet("units/spritesheet.png", (95, 300, 40, 40), (255, 255, 255))
+
+
 class SandboxUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in sandbox mode.
@@ -61,9 +66,9 @@ class SandboxUnit(pygame.sprite.Sprite):
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
         if self.team == "red":
-            self.image = from_spritesheet("units/spritesheet.png", (0, 275, 70, 70), (255, 255, 255))
+            self.image = vanilla_red_wizard
         elif self.team == "blue":
-            self.image = from_spritesheet("units/spritesheet.png", (215, 275, 70, 75), (255, 255, 255))
+            self.image = vanilla_blue_wizard
         self.masterimage = self.image
 
         # Set the position to pos
@@ -154,32 +159,31 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     name = "Wizard (MULTIPLAYER) - $20"
     cost = 20
 
-    def __init__(self, pos, team, unitid):
+    def __init__(self, pos, team, unitid, rotation=0):
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 1
+        self.speed = 2.5
         self.unitid = unitid
-        self.health = 50
-
-        self.meleeDamage = 10
-        self.meleeCooldown = 1
-        self.lastMeleeAttack = 0
+        self.health = 200
         self.target = None
 
         self.lastRangeAttack = 0
-        self.rangeCooldown = 2
+        self.rangeCooldown = 1
+        self.rotation = rotation
+        self.velocity = pygame.math.Vector2(0, 0)
 
         self.image = pygame.Surface([25, 25])
-        if team == "red":
-            self.image.fill([255, 0, 0])
-        elif team == "blue":
-            self.image.fill([0, 0, 255])
+        if self.team == "red":
+            self.image = vanilla_red_wizard
+        elif self.team == "blue":
+            self.image = vanilla_blue_wizard
+        self.masterimage = self.image
 
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
     def _pack(self):
-        return self.rect.center, self.team, self.unitid
+        return self.rect.center, self.team, self.unitid, self.rotation
 
     def damage(self, amount):
         self.health -= amount
@@ -201,16 +205,20 @@ class MultiplayerUnit(pygame.sprite.Sprite):
                 self.target = random.choice(multBUnits.sprites())
 
         # Move towards the target
-        listcenter = list(self.rect.center)
-        if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= self.speed
-        if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += self.speed
-        if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= self.speed
-        if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += self.speed
-        self.rect.center = tuple(listcenter)
+        targetpos = pygame.math.Vector2(self.target.rect.center)
+        mypos = pygame.math.Vector2(self.rect.center)
+        dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
+        self.rotation = math.degrees(math.atan2(-dy, dx)) - 90
+        travelTime = mypos.distance_to(targetpos) / self.speed
+        if travelTime != 0:
+            self.velocity = pygame.math.Vector2((dx / travelTime), (dy / travelTime))
+        mypos += self.velocity
+        self.rect.center = [int(mypos.x), int(mypos.y)]
+
+        old_rect_pos = self.rect.center
+        self.image = pygame.transform.rotate(self.masterimage, self.rotation)
+        self.rect = self.image.get_rect()
+        self.rect.center = old_rect_pos
 
         if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
             if self.team == "red" and not calledbyhost:
@@ -246,22 +254,24 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
 
 class MultiplayerWizardBullet(pygame.sprite.Sprite):
-    def __init__(self, pos, team):
+    def __init__(self, pos, team, rotation=0):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 3
-        self.damage = 20
+        self.speed = 15
+        self.damage = 65
         self.target = None
+        self.velocity = pygame.math.Vector2(0, 0)
+        self.rotation = rotation
 
         # Set the image to a yellow sqaure and the posistion to pos
-        self.image = pygame.Surface([10, 10])
-        self.image.fill([255, 255, 0])
+        self.image = vanilla_wizard_bullet
+        self.masterimage = self.image
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
     def _pack(self):
-        return self.rect.center, self.team
+        return self.rect.center, self.team, self.rotation
 
     def update(self, calledbyhost):
         """
@@ -285,16 +295,23 @@ class MultiplayerWizardBullet(pygame.sprite.Sprite):
                 self.target = random.choice(multBUnits.sprites())
 
         # Move towards the target
-        listcenter = list(self.rect.center)
-        if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= self.speed
-        if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += self.speed
-        if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= self.speed
-        if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += self.speed
-        self.rect.center = tuple(listcenter)
+        targetpos = pygame.math.Vector2(self.target.rect.center)
+        mypos = pygame.math.Vector2(self.rect.center)
+        dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
+        traveltime = mypos.distance_to(targetpos) / self.speed
+        if traveltime != 0:
+            self.velocity = pygame.math.Vector2((dx / traveltime), (dy / traveltime))
+        else:
+            self.velocity = pygame.math.Vector2(0, 0)
+        mypos += self.velocity
+        self.rect.center = [int(mypos.x), int(mypos.y)]
+        self.rotation += 3
+        if self.rotation >= 360:
+            self.rotation = 0
+        old_rect_pos = self.rect.center
+        self.image = pygame.transform.rotate(self.masterimage, self.rotation)
+        self.rect = self.image.get_rect()
+        self.rect.center = old_rect_pos
 
     def on_bullet_hit(self, hitlist, calledbyhost):
         """
@@ -338,7 +355,7 @@ class WizardBullet(pygame.sprite.Sprite):
         self.target = None
 
         # Set the image to a yellow square and the position to pos
-        self.image = from_spritesheet("units/spritesheet.png", (95, 300, 40, 40), (255, 255, 255))
+        self.image = vanilla_wizard_bullet
         self.masterimage = self.image
         self.rect = self.image.get_rect()
         self.rect.center = pos

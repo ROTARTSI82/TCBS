@@ -654,6 +654,11 @@ while running:
         c.loop()
         if selfIsHost:
             s.loop()
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+        if not selfIsHost:
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
         bullets = pygame.sprite.Group(*(RBullets.sprites() + BBullets.sprites()))
         # The following code results in segfault
         #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
@@ -813,10 +818,12 @@ while running:
         c.loop()
         if selfIsHost:
             s.loop()
-        bullets = pygame.sprite.Group(*(RBullets.sprites()+BBullets.sprites()))
-        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
-        #elif not selfIsHost:
-        #    c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+        if not selfIsHost:
+            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
+            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
+        bullets = pygame.sprite.Group(*(RBullets.sprites() + BBullets.sprites()))
         if len(multRUnits) == 0 and len(multBUnits) == 0:
             log("BATTLE", "Draw!")
             bullets = pygame.sprite.Group()

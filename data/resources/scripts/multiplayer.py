@@ -124,23 +124,15 @@ class TCBSClient(ConnectionListener):
                     log("EXCEPTION", "Cannot reset units: "+str(e))
                     alreadyHandled.append(str(e))
             state = "mult-placeUnits"
-            RBullets = pygame.sprite.Group()
-            BBullets = pygame.sprite.Group()
-            bullets = pygame.sprite.Group()
         if vOnBattleEnd == "Clear":
             multBUnits = pygame.sprite.Group()
             multRUnits = pygame.sprite.Group()
             coinsLeft = [vStartBdgt, vStartBdgt]
-            RBullets = pygame.sprite.Group()
-            BBullets = pygame.sprite.Group()
-            bullets = pygame.sprite.Group()
             updatecost()
         if vOnBattleEnd == "Do nothing":
             coinsLeft = [vStartBdgt, vStartBdgt]
-            RBullets = pygame.sprite.Group()
-            BBullets = pygame.sprite.Group()
-            bullets = pygame.sprite.Group()
             updatecost()
+        BBullets, RBullets, bullets = (pygame.sprite.Group(),) * 3
         state = "mult-placeUnits"
 
     def Network_updatesets(self, data):
@@ -213,13 +205,13 @@ class TCBSClient(ConnectionListener):
         global BBullets, RBullets, pygame
         if data["sentbyhost"] and not selfIsHost:
             BBullets = pygame.sprite.Group(*data["bullets"])
-            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
+            # c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": RBullets.sprites()})
             if __debugMode__:
                 self.bulletping = time.time() - self.lastbulletping
                 self.lastbulletping = time.time()
         elif not data["sentbyhost"] and selfIsHost:
             RBullets = pygame.sprite.Group(*data["bullets"])
-            c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
+            # c.Send({"action": "updatebullets", "sentbyhost": selfIsHost, "bullets": BBullets.sprites()})
             if __debugMode__:
                 self.bulletping = time.time() - self.lastbulletping
                 self.lastbulletping = time.time()
@@ -233,15 +225,16 @@ class TCBSClient(ConnectionListener):
                       "unitid": int, "sentbyhost": bool}
         :rtype: None
         """
-        global alreadyHandled, __debugMode__, multRDict, multBDict
+        global alreadyHandled, __debugMode__, multRDict, multBDict, selfIsHost
         try:
-            if data['sentbyhost']:
+            if data['sentbyhost'] and (not selfIsHost):
                 exec("multRDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
-            elif not data['sentbyhost']:
+            elif selfIsHost and (not data['sentbyhost']):
                 exec("multBDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
         except Exception as e:
             if __debugMode__:
                 self.packetslost += 1
+                raise
             if str(e) not in alreadyHandled:
                 log("EXCEPTION", "Failed to execute function: "+str(e))
                 alreadyHandled.append(str(e))
@@ -258,14 +251,14 @@ class TCBSClient(ConnectionListener):
         global multRUnits, multBUnits
         if data["sentbyhost"] and not selfIsHost:
             multBUnits = pygame.sprite.Group(*data["units"])
-            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
+            # c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
             updatecost()
             if __debugMode__:
                 self.unitping = time.time() - self.lastunitping
                 self.lastunitping = time.time()
         elif not data["sentbyhost"] and selfIsHost:
             multRUnits = pygame.sprite.Group(*data["units"])
-            c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
+            # c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
             updatecost()
             if __debugMode__:
                 self.unitping = time.time() - self.lastunitping

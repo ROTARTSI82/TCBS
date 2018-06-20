@@ -12,6 +12,26 @@ import time
 import pygame
 from pygame.locals import *
 
+def from_spritesheet(spritesheet, rectangle, colorkey=None):
+    """
+    Load an image from the spritesheet.
+
+    :param spritesheet: str or pygame.Surface
+    :param rectangle: [x, y, width, height]
+    :param colorkey: [red, green, blue]
+    :rtype: pygame.Surface
+    """
+    rect = pygame.Rect(rectangle)
+    image = pygame.Surface(rect.size).convert()
+    if type(spritesheet) == str:
+        image.blit(pygame.image.load(spritesheet), (0, 0), rect)
+    elif type(spritesheet) == pygame.Surface:
+        image.blit(spritesheet, (0, 0), rect)
+    if colorkey is not None:
+        if colorkey is -1:
+            colorkey = image.get_at((0, 0))
+        image.set_colorkey(colorkey, RLEACCEL)
+    return image
 
 class SandboxUnit(pygame.sprite.Sprite):
     """
@@ -128,7 +148,7 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
-    name = "exampleUnit (MULTIPLAYER) - $20"
+    name = "exampleUnit (REAL) - $20"
     cost = 20
 
     def __init__(self, pos, team, unitid):
@@ -138,20 +158,22 @@ class MultiplayerUnit(pygame.sprite.Sprite):
         self.unitid = unitid
         self.health = 50
 
-        self.meleeDamage = 10
+        self.meleeDamage = 9001
         self.meleeCooldown = 1
         self.lastMeleeAttack = 0
         self.target = None
 
         self.lastRangeAttack = 0
         self.rangeCooldown = 2
+        x = pygame.math.Vector2(0, 0)
+        # b = from_spritesheet("units/spritesheet.png", (0, 275, 70, 70), (255, 255, 255))
 
         self.image = pygame.Surface([25, 25])
         if team == "red":
             self.image.fill([255, 0, 0])
         elif team == "blue":
             self.image.fill([0, 0, 255])
-
+        c = self.image
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
@@ -210,7 +232,15 @@ class MultiplayerUnit(pygame.sprite.Sprite):
         """
         # If self.meleeCooldown seconds have passed since self.lastMeleeAttack,
         # Damage a random enemy on hitlist by self.meleeDamage
-        pass
+        target = random.choice(hitlist)
+        if (time.time() - self.lastMeleeAttack) > self.meleeCooldown:
+            if self.team == "red" and not calledbyhost:
+                c.Send({"action": "callfunc", "unitid": target.unitid, "sentbyhost": calledbyhost,
+                        "func": "damage", "args": [self.meleeDamage, ], "kwargs": {}})
+            if self.team == "blue" and calledbyhost:
+                c.Send({"action": "callfunc", "unitid": target.unitid, "sentbyhost": calledbyhost,
+                        "func": "damage", "args": [self.meleeDamage, ], "kwargs": {}})
+            self.lastMeleeAttack = time.time()
 
     def on_bullet_hit(self, hitlist, calledbyhost):
         """
