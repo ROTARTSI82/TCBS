@@ -32,3 +32,9 @@ startKey = K_SPACE
 # RGBA, CMY, HSVA, HSLA, and I1I2I3 are not supported.
 sky_blue = (160, 210, 255)
 grass_green = (155, 205, 50)
+#
+startBdgtCR = 50
+coinRRCR = 50
+fpsCR = 15
+soundCR = 0.0625
+scaleCR = 0.0625

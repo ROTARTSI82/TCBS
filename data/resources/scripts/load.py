@@ -58,12 +58,6 @@ executefile("resources/scripts/multiplayer.py")
 
 pygame.init()
 screen = pygame.display.set_mode(*screenArgs)
-caption = "{} {}".format(__appName__, __version__)
-pygame.display.set_caption(caption, caption)
-try:
-    pygame.display.set_icon(pygame.image.load("resources/images/icon.png"))
-except Exception:
-    log("EXCEPTION", "Failed to set icon"+str(e))
 pygame.key.set_repeat(*keyRR)
 pygame.time.set_timer(USEREVENT + 1, 1000)
 
@@ -97,6 +91,9 @@ with open("logs/"+lfstr, 'a') as logfile:
     logfile.write(msg)
     if __debugMode__:
         print(msg.strip("\n"))
+
+log("START", "Starting...")
+log("DEBUG", "__debugMode__ == "+str(__debugMode__))
 
 if majorPyVer == 3:
     import pickle
@@ -145,13 +142,23 @@ try:
 except Exception as e:
     langDict = {}
     log("EXCEPTION", "Cannot load language: "+str(e))
-langIndex = 0
-fontIndex = 0
 langList = glob.glob("resources/lang/*.json")
 fontList = pygame.font.get_fonts() + glob.glob("resources/fonts/*.ttf")
+onBattleEndList = ["Do nothing", "Go to start", "Clear"]
+onBattleEndIndex = 0
+langIndex = 0
+fontIndex = 0
+if onBattleEnd in onBattleEndList:
+    onBattleEndIndex = onBattleEndList.index(onBattleEnd)
+if langFile in langList:
+    langIndex = langList.index(langFile)
+if langFont in fontList:
+    fontIndex = fontList.index(langFont)
+try:
+    pygame.display.set_caption(langDict[__appName__] + " " + __version__)
+except KeyError:
+    pygame.display.set_caption(__appName__ + " " + __version__)
 
-log("START", "Starting...")
-log("DEBUG", "__debugMode__ == "+str(__debugMode__))
 pythonver = str(sys.version_info.major)+"."+str(sys.version_info.minor)
 pygamever = str(pygame.vernum[0])+"."+str(pygame.vernum[1])
 log("VERSIONS", "Got Python {} and Pygame {}".format(pythonver, pygamever))
@@ -316,6 +323,8 @@ serverMsg = TxtOrBt(["Enter the Host and Port", False, [0, 0, 0]], [None, 45])
 selectedUnitTxt = TxtOrBt(["", False, [0, 0, 0]], [None, 45])
 redCostTxt = TxtOrBt(["Red Coins Spent: 0", False, [0, 0, 0]], [None, 45])
 blueCostTxt = TxtOrBt(["Blue Coins Spent: 0", False, [0, 0, 0]], [None, 45])
+
+pygame.display.set_icon(tcbs_title.image)
 
 redBar = BarSprite(1, 2, [255, 0, 0])
 blueBar = BarSprite(1, 2, [0, 0, 255])

@@ -75,18 +75,21 @@ def log(ltype, msg):
     if not os.path.exists("logs"):
         os.mkdir("logs")
     now = datetime.datetime.now()
-    with open("logs/"+lfstr, 'a') as logfile:
-        msg2 = "[{}] [{}]: {}\n".format(now.time(), ltype, msg)
-        logfile.write(msg2)
-        if __debugMode__:
-            print(msg2.strip("\n"))
-        if ltype == "EXCEPTION":
-            try:
-                if __debugMode__:
-                    print(traceback.format_exc())
-                logfile.write(traceback.format_exc())
-            except Exception:
-                pass
+    try:
+        with open("logs/"+lfstr, 'a') as logfile:
+            msg2 = "[{}] [{}]: {}\n".format(now.time(), ltype, msg)
+            logfile.write(msg2)
+            if __debugMode__:
+                print(msg2.strip("\n"))
+            if ltype == "EXCEPTION":
+                try:
+                    if __debugMode__:
+                        print(traceback.format_exc())
+                    logfile.write(traceback.format_exc())
+                except Exception:
+                    pass
+    except:
+        print ("[{}] [{}]: {}".format(now.time(), ltype, msg))
 
 
 def updatecost():
@@ -245,7 +248,7 @@ def updateoptions():
     global nextBt, prevBt, clearRedBt, clearBlueBt, readyBt, selectedTeam, serverStr
     global teamSelectBt, optionsBt, langDict, menuBlip, alreadyHandled, onBattleEnd
     global langFont, wait4plyrsTxt, serverTxt, serverMsg, selectedUnitTxt
-    global tcbs_subtitle, tcbs_title
+    global tcbs_subtitle, tcbs_title, __appName__, __version__, pickle
     global redCostTxt, blueCostTxt, onBattleEndBt, check4updatesBt, check4updates
 
     startBdgt = options['srtBdgt']
@@ -332,6 +335,14 @@ def updateoptions():
     redCostTxt = TxtOrBt(["Red Coins Spent: 0", False, [0, 0, 0]], [None, 45])
     blueCostTxt = TxtOrBt(["Blue Coins Spent: 0", False, [0, 0, 0]], [None, 45])
     updaterects()
+
+    try:
+        pygame.display.set_caption(langDict[__appName__]+" "+__version__)
+    except KeyError:
+        pygame.display.set_caption(__appName__ + " " + __version__)
+
+    pygame.display.set_icon(tcbs_title.image)
+
     with open("resources/options.pkl", "wb") as fp:
         pickle.dump(options, fp)
 

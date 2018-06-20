@@ -342,6 +342,7 @@ class WizardBullet(pygame.sprite.Sprite):
         self.masterimage = self.image
         self.rect = self.image.get_rect()
         self.rect.center = pos
+        self.velocity = pygame.math.Vector2(0, 0)
 
     def update(self):
         """
@@ -371,6 +372,8 @@ class WizardBullet(pygame.sprite.Sprite):
         time = mypos.distance_to(targetpos) / self.speed
         if time != 0:
             self.velocity = pygame.math.Vector2((dx / time), (dy / time))
+        else:
+            self.velocity = pygame.math.Vector2(0, 0)
         mypos += self.velocity
         self.rect.center = [int(mypos.x), int(mypos.y)]
         self.rotation += 3

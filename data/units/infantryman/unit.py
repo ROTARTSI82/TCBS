@@ -348,6 +348,8 @@ class InfantrymanBullet(pygame.sprite.Sprite):
         traveltime = self.pos.distance_to(targetpos) / self.speed
         if traveltime != 0:
             self.velocity = pygame.math.Vector2((dx / traveltime), (dy / traveltime))
+        else:
+            self.velocity = pygame.math.Vector2(0, 0)
 
     def update(self):
         """
@@ -365,6 +367,15 @@ class InfantrymanBullet(pygame.sprite.Sprite):
         # and set a new target if our old target is dead
 
         # Move towards the target
+        if self.velocity == pygame.math.Vector2(0, 0):
+            targetpos = pygame.math.Vector2(self.target.rect.center)
+            self.pos = pygame.math.Vector2(self.rect.center)
+            dx, dy = (targetpos.x - self.pos.x, targetpos.y - self.pos.y)
+            traveltime = self.pos.distance_to(targetpos) / self.speed
+            if traveltime != 0:
+                self.velocity = pygame.math.Vector2((dx / traveltime), (dy / traveltime))
+            else:
+                self.velocity = pygame.math.Vector2(0, 0)
         self.pos += self.velocity
         self.rect.center = [int(self.pos.x), int(self.pos.y)]
 

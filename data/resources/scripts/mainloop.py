@@ -99,51 +99,51 @@ while running:
                     state = "menu"
                 if coinRRBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    options['coinRR'] += 50
+                    options['coinRR'] += coinRRCR
                     updateoptions()
                 if coinRRBt in cbCollide and event.button == 3:
                     menuBlip.play()
-                    options['coinRR'] -= 50
+                    options['coinRR'] -= coinRRCR
                     updateoptions()
                 if startBdgtBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    options['srtBdgt'] += 50
+                    options['srtBdgt'] += startBdgtCR
                     updateoptions()
                 if startBdgtBt in cbCollide and event.button == 3:
                     menuBlip.play()
-                    options['srtBdgt'] -= 50
+                    options['srtBdgt'] -= startBdgtCR
                     updateoptions()
                 if fpsBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    options['fps'] += 15
+                    options['fps'] += fpsCR
                     updateoptions()
                 if fpsBt in cbCollide and event.button == 3:
                     menuBlip.play()
-                    options['fps'] -= 15
+                    options['fps'] -= fpsCR
                     updateoptions()
                 if guiScaleBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    options['scale'] += 0.0625
+                    options['scale'] += scaleCR
                     updateoptions()
                 if guiScaleBt in cbCollide and event.button == 3:
                     menuBlip.play()
-                    options['scale'] -= 0.0625
+                    options['scale'] -= scaleCR
                     updateoptions()
                 if musicVolBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    options['music'] += 0.0625
+                    options['music'] += soundCR
                     updateoptions()
                 if musicVolBt in cbCollide and event.button == 3:
                     menuBlip.play()
-                    options['music'] -= 0.0625
+                    options['music'] -= soundCR
                     updateoptions()
                 if effectsVolBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    options['effects'] += 0.0625
+                    options['effects'] += soundCR
                     updateoptions()
                 if effectsVolBt in cbCollide and event.button == 3:
                     menuBlip.play()
-                    options['effects'] -= 0.0625
+                    options['effects'] -= soundCR
                     updateoptions()
                 if langBt in cbCollide and event.button == 1:
                     menuBlip.play()
@@ -181,16 +181,25 @@ while running:
                         fontIndex = len(fontList) - 1
                     options['font'] = fontList[fontIndex]
                     updateoptions()
+                if onBattleEndBt in cbCollide and event.button == 3:
+                    menuBlip.play()
+                    onBattleEndIndex -= 1
+                    if onBattleEndIndex > len(onBattleEndList) - 1:
+                        onBattleEndIndex = 0
+                    if onBattleEndIndex < 0:
+                        onBattleEndIndex = len(onBattleEndList) - 1
+                    options['battleEnd'] = onBattleEndList[onBattleEndIndex]
+                    updateoptions()
                 if onBattleEndBt in cbCollide and event.button == 1:
                     menuBlip.play()
-                    if onBattleEnd == "Do nothing":
-                        options['battleEnd'] = "Clear"
-                    elif onBattleEnd == "Clear":
-                        options['battleEnd'] = "Go to start"
-                    elif onBattleEnd == "Go to start":
-                        options['battleEnd'] = "Do nothing"
+                    onBattleEndIndex += 1
+                    if onBattleEndIndex > len(onBattleEndList) - 1:
+                        onBattleEndIndex = 0
+                    if onBattleEndIndex < 0:
+                        onBattleEndIndex = len(onBattleEndList) - 1
+                    options['battleEnd'] = onBattleEndList[onBattleEndIndex]
                     updateoptions()
-                if check4updatesBt in cbCollide and event.button == 1:
+                if check4updatesBt in cbCollide and event.button in [1, 3]:
                     menuBlip.play()
                     if check4updates:
                         options['check4updates'] = False
@@ -345,7 +354,7 @@ while running:
         if len(sndbxRUnits) == 0 and len(sndbxBUnits) == 0:
             log("BATTLE", "Draw!")
             bullets = pygame.sprite.Group()
-            screen.fill([255, 255, 255])
+            screen.fill([red, green, blue])
             vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
@@ -356,7 +365,7 @@ while running:
         if len(sndbxRUnits) == 0 and len(sndbxBUnits) > 0:
             log("BATTLE", "Blue Victory!")
             bullets = pygame.sprite.Group()
-            screen.fill([255, 255, 255])
+            screen.fill([red, green, blue])
             vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
@@ -367,7 +376,7 @@ while running:
         if len(sndbxBUnits) == 0 and len(sndbxRUnits) > 0:
             log("BATTLE", "Red Victory!")
             bullets = pygame.sprite.Group()
-            screen.fill([255, 255, 255])
+            screen.fill([red, green, blue])
             vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width()/2, screen.get_height()/2]
@@ -811,7 +820,7 @@ while running:
         if len(multRUnits) == 0 and len(multBUnits) == 0:
             log("BATTLE", "Draw!")
             bullets = pygame.sprite.Group()
-            screen.fill([255, 255, 255])
+            screen.fill([red, green, blue])
             vicMsg = TxtOrBt(["DRAW!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
@@ -824,7 +833,7 @@ while running:
         if len(multRUnits) == 0 and len(multBUnits) > 0:
             log("BATTLE", "Blue Victory!")
             bullets = pygame.sprite.Group()
-            screen.fill([255, 255, 255])
+            screen.fill([red, green, blue])
             vicMsg = TxtOrBt(["BLUE VICTORY!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
@@ -837,7 +846,7 @@ while running:
         if len(multBUnits) == 0 and len(multRUnits) > 0:
             log("BATTLE", "Red Victory!")
             bullets = pygame.sprite.Group()
-            screen.fill([255, 255, 255])
+            screen.fill([red, green, blue])
             vicMsg = TxtOrBt(["RED VICTORY!", False, [0, 0, 0]],
                              [None, 50])
             vicMsg.rect.center = [screen.get_width() / 2, screen.get_height() / 2]
