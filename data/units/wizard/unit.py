@@ -148,8 +148,8 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
-    name = "Wizard (MULTIPLAYER) - $20"
-    cost = 20
+    name = "Wizard (MULTIPLAYER) - $90"
+    cost = 90
 
     def __init__(self, pos, team, unitid, rotation=0):
         pygame.sprite.Sprite.__init__(self)

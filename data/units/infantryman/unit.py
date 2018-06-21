@@ -147,35 +147,39 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
-    name = "exampleUnit (MULTIPLAYER) - $20"
-    cost = 20
+    name = "Infantryman (MULTIPLAYER) - $55"
+    cost = 55
 
-    def __init__(self, pos, team, unitid):
+    def __init__(self, pos, team, unitid, rotation=0):
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 1
-        self.unitid = unitid
-        self.health = 50
-
-        self.meleeDamage = 10
-        self.meleeCooldown = 1
-        self.lastMeleeAttack = 0
+        self.speed = 2.5
         self.target = None
 
+        # Melee attributes
+        self.health = 150
+        self.rotation = rotation
+        self.unitid = unitid
+        self.velocity = pygame.math.Vector2(0, 0)
+        self.pos = pygame.math.Vector2(pos)
+
+        # Bullet attributes
         self.lastRangeAttack = 0
-        self.rangeCooldown = 2
+        self.rangeCooldown = 0.25
 
-        self.image = pygame.Surface([25, 25])
-        if team == "red":
-            self.image.fill([255, 0, 0])
-        elif team == "blue":
-            self.image.fill([0, 0, 255])
+        # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
+        if self.team == "red":
+            self.image = vanilla_infantryman_red
+        elif self.team == "blue":
+            self.image = vanilla_infantryman_blue
+        self.masterimage = self.image
 
+        # Set the position to pos
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
     def _pack(self):
-        return self.rect.center, self.team, self.unitid
+        return self.rect.center, self.team, self.unitid, self.rotation
 
     def damage(self, amount):
         self.health -= amount
@@ -197,23 +201,26 @@ class MultiplayerUnit(pygame.sprite.Sprite):
                 self.target = random.choice(multBUnits.sprites())
 
         # Move towards the target
-        listcenter = list(self.rect.center)
-        if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= self.speed
-        if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += self.speed
-        if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= self.speed
-        if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += self.speed
-        self.rect.center = tuple(listcenter)
+        targetpos = pygame.math.Vector2(self.target.rect.center)
+        mypos = pygame.math.Vector2(self.rect.center)
+        dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
+        travelTime = mypos.distance_to(targetpos) / self.speed
+        if travelTime != 0:
+            self.velocity = pygame.math.Vector2((dx / travelTime), (dy / travelTime))
+        mypos += self.velocity
+        self.rect.center = [int(mypos.x), int(mypos.y)]
+        self.rotation = math.degrees(math.atan2(-dy, dx)) - 90
+        old_rect_pos = self.rect.center
+        self.image = pygame.transform.rotate(self.masterimage, self.rotation)
+        self.rect = self.image.get_rect()
+        self.rect.center = old_rect_pos
 
         if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
             if self.team == "red" and not calledbyhost:
-                RBullets.add(MultiplayerInfantrymanBullet(self.rect.center, self.team))
+                RBullets.add(MultiplayerInfantrymanBullet(self.rect.center, self.team, self.target))
                 self.lastRangeAttack = time.time()
             if self.team == "blue" and calledbyhost:
-                BBullets.add(MultiplayerInfantrymanBullet(self.rect.center, self.team))
+                BBullets.add(MultiplayerInfantrymanBullet(self.rect.center, self.team, self.target))
                 self.lastRangeAttack = time.time()
 
         if self.health <= 0:
@@ -242,22 +249,31 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
 
 class MultiplayerInfantrymanBullet(pygame.sprite.Sprite):
-    def __init__(self, pos, team):
+    def __init__(self, pos, team, target):
         # Define basic attributes
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 3
-        self.damage = 20
-        self.target = None
+        self.speed = 20
+        self.damage = 12.5
+        self.target = target
 
         # Set the image to a yellow sqaure and the posistion to pos
-        self.image = pygame.Surface([10, 10])
-        self.image.fill([255, 255, 0])
+        self.image = pygame.Surface([15, 15], SRCALPHA, 32).convert_alpha()
+        pygame.draw.circle(self.image, [255, 255, 0], [7, 7], 5)
         self.rect = self.image.get_rect()
         self.rect.center = pos
+        self.pos = pygame.math.Vector2(self.rect.center)
+        self.velocity = pygame.math.Vector2(0, 0)
+
+        if self.target is not None:
+            targetpos = pygame.math.Vector2(self.target.rect.center)
+            dx, dy = (targetpos.x - self.pos.x, targetpos.y - self.pos.y)
+            traveltime = self.pos.distance_to(targetpos) / self.speed
+            if traveltime != 0:
+                self.velocity = pygame.math.Vector2((dx / traveltime), (dy / traveltime))
 
     def _pack(self):
-        return self.rect.center, self.team
+        return self.rect.center, self.team, None
 
     def update(self, calledbyhost):
         """
@@ -273,24 +289,22 @@ class MultiplayerInfantrymanBullet(pygame.sprite.Sprite):
 
         # Check if the target is still alive,
         # and set a new target if our old target is dead
-        if self.team == "blue":
-            if self.target not in multRUnits:
-                self.target = random.choice(multRUnits.sprites())
-        if self.team == "red":
-            if self.target not in multBUnits:
-                self.target = random.choice(multBUnits.sprites())
+        if self.velocity == pygame.math.Vector2(0, 0) and self.target is not None:
+            targetpos = pygame.math.Vector2(self.target.rect.center)
+            self.pos = pygame.math.Vector2(self.rect.center)
+            dx, dy = (targetpos.x - self.pos.x, targetpos.y - self.pos.y)
+            traveltime = self.pos.distance_to(targetpos) / self.speed
+            if traveltime != 0:
+                self.velocity = pygame.math.Vector2((dx / traveltime), (dy / traveltime))
+            else:
+                self.velocity = pygame.math.Vector2(0, 0)
+        self.pos += self.velocity
+        self.rect.center = [int(self.pos.x), int(self.pos.y)]
 
-        # Move towards the target
-        listcenter = list(self.rect.center)
-        if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= self.speed
-        if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += self.speed
-        if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= self.speed
-        if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += self.speed
-        self.rect.center = tuple(listcenter)
+        if self.rect.centery > screen.get_height() or self.rect.centery < 0:
+            self.kill()
+        if self.rect.centerx > screen.get_width() or self.rect.centerx < 0:
+            self.kill()
 
     def on_bullet_hit(self, hitlist, calledbyhost):
         """

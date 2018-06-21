@@ -54,6 +54,7 @@ class SandboxUnit(pygame.sprite.Sprite):
         self.meleeCooldown = 1
         self.lastMeleeAttack = 0
         self.rotation = 0
+        self.velocity = pygame.math.Vector2(0, 0)
 
         # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
         if self.team == "red":
@@ -159,35 +160,40 @@ class MultiplayerUnit(pygame.sprite.Sprite):
     """
     This is the version of your soldier that would be loaded in multiplayer mode.
     """
-    name = "exampleUnit (MULTIPLAYER) - $20"
-    cost = 20
+    name = "Swordsman (MULTIPLAYER) - $25"
+    cost = 25
 
-    def __init__(self, pos, team, unitid):
+    def __init__(self, pos, team, unitid, rotation=0):
         pygame.sprite.Sprite.__init__(self)
         self.team = team
-        self.speed = 1
+        self.speed = 2.5
+        self.target = None
         self.unitid = unitid
-        self.health = 50
 
-        self.meleeDamage = 10
+        # Melee attributes
+        self.health = 125
+        self.meleeDamage = 40
         self.meleeCooldown = 1
         self.lastMeleeAttack = 0
-        self.target = None
+        self.rotation = rotation
+        self.velocity = pygame.math.Vector2(0, 0)
 
-        self.lastRangeAttack = 0
-        self.rangeCooldown = 2
+        # Set the icon to a red square if we're on the red team, and a blue one if we're on the blue team.
+        if self.team == "red":
+            self.image1 = vanilla_swordsman_red1
+            self.image2 = vanilla_swordsman_red2
+        elif self.team == "blue":
+            self.image1 = vanilla_swordsman_blue1
+            self.image2 = vanilla_swordsman_blue2
 
-        self.image = pygame.Surface([25, 25])
-        if team == "red":
-            self.image.fill([255, 0, 0])
-        elif team == "blue":
-            self.image.fill([0, 0, 255])
-
+        # Set the position to pos
+        self.image = self.image1
+        self.masterimage = self.image1
         self.rect = self.image.get_rect()
         self.rect.center = pos
 
     def _pack(self):
-        return self.rect.center, self.team, self.unitid
+        return self.rect.center, self.team, self.unitid, self.rotation
 
     def damage(self, amount):
         self.health -= amount
@@ -209,16 +215,20 @@ class MultiplayerUnit(pygame.sprite.Sprite):
                 self.target = random.choice(multBUnits.sprites())
 
         # Move towards the target
-        listcenter = list(self.rect.center)
-        if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= self.speed
-        if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += self.speed
-        if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= self.speed
-        if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += self.speed
-        self.rect.center = tuple(listcenter)
+        targetpos = pygame.math.Vector2(self.target.rect.center)
+        mypos = pygame.math.Vector2(self.rect.center)
+        dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
+        self.rotation = math.degrees(math.atan2(-dy, dx)) - 90
+        travelTime = mypos.distance_to(targetpos) / self.speed
+        if travelTime != 0:
+            self.velocity = pygame.math.Vector2((dx / travelTime), (dy / travelTime))
+        mypos += self.velocity
+        self.rect.center = [int(mypos.x), int(mypos.y)]
+
+        old_rect_pos = self.rect.center
+        self.image = pygame.transform.rotate(self.masterimage, self.rotation)
+        self.rect = self.image.get_rect()
+        self.rect.center = old_rect_pos
 
 
         if self.health <= 0:
@@ -232,9 +242,29 @@ class MultiplayerUnit(pygame.sprite.Sprite):
         :param hitlist: List of enemy soldiers touching your soldier
         :return: None
         """
+        global c
         # If self.meleeCooldown seconds have passed since self.lastMeleeAttack,
         # Damage a random enemy on hitlist by self.meleeDamage
-        pass
+        target = random.choice(hitlist)
+        if (time.time() - self.lastMeleeAttack) > self.meleeCooldown:
+            if self.team == "red" and target in multBUnits:
+                if not calledbyhost:
+                    c.Send({"action": "callfunc", "unitid": target.unitid, "sentbyhost": calledbyhost,
+                            "func": "damage", "args": [self.meleeDamage, ], "kwargs": {}})
+            if self.team == "blue" and target in multRUnits:
+                if calledbyhost:
+                    c.Send({"action": "callfunc", "unitid": target.unitid, "sentbyhost": calledbyhost,
+                            "func": "damage", "args": [self.meleeDamage, ], "kwargs": {}})
+            self.lastMeleeAttack = time.time()
+            old_rect_pos = self.rect.topleft
+            if self.masterimage == self.image1:
+                self.masterimage = self.image2
+                self.image = pygame.transform.rotate(self.masterimage, self.rotation)
+            else:
+                self.masterimage = self.image1
+                self.image = pygame.transform.rotate(self.masterimage, self.rotation)
+            self.rect = self.image.get_rect()
+            self.rect.topleft = old_rect_pos
 
     def on_bullet_hit(self, hitlist, calledbyhost):
         """

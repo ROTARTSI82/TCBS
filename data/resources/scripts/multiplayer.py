@@ -46,6 +46,8 @@ class TCBSClient(ConnectionListener):
             connection.Pump()
             self.Pump()
         except Exception as e:
+            # if __debugMode__:
+            #    raise
             log("EXCEPTION", "Cannot Pump: " + str(e))
             serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
             serverMsg.rect.center = [screen.get_width() / 2,
@@ -263,9 +265,9 @@ class TCBSClient(ConnectionListener):
         global alreadyHandled, __debugMode__, multRDict, multBDict, selfIsHost
         try:
             if data['sentbyhost'] and (not selfIsHost):
-                exec("multRDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
+                getattr(multRDict[data['unitid']], data['func'])(*data['args'], **data['kwargs'])
             elif selfIsHost and (not data['sentbyhost']):
-                exec("multBDict[data['unitid']].%s(*data['args'], **data['kwargs'])" % data['func'])
+                getattr(multBDict[data['unitid']], data['func'])(*data['args'], **data['kwargs'])
         except Exception as e:
             if __debugMode__:
                 raise
@@ -634,6 +636,8 @@ class TCBSServer(Server):
         try:
             self.Pump()
         except Exception as e:
+            # if __debugMode__:
+            #    raise
             log("EXCEPTION", "Cannot Pump: " + str(e))
             serverMsg = TxtOrBt([str(e), False, [255, 0, 0]], [None, 45])
             serverMsg.rect.center = [screen.get_width() / 2,
