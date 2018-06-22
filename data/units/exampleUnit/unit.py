@@ -161,6 +161,7 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
     def update(self, calledbyhost):
         global multRUnits, multBUnits, bullets, BBullets, RBullets
+        global activeBDict, activeRDict
 
         # Don't do anything if the battle is over
         if len(multBUnits) == 0 or len(multRUnits) == 0:
@@ -168,24 +169,33 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
         # Check if the target is still alive,
         # and set a new target if our old target is dead
-        if self.team == "blue":
-            if self.target not in multRUnits:
+        if self.team == "blue" and calledbyhost:
+            if getattr(self.target, "unitid", None) not in activeRDict.keys():
                 self.target = random.choice(multRUnits.sprites())
-        if self.team == "red":
-            if self.target not in multBUnits:
+            elif self.target is not None:
+                self.target = activeRDict[self.target.unitid]
+            if self.target is None:
+                self.target = random.choice(multRUnits.sprites())
+        if self.team == "red" and not calledbyhost:
+            if getattr(self.target, "unitid", None) not in activeBDict.keys():
+                self.target = random.choice(multBUnits.sprites())
+            elif self.target is not None:
+                self.target = activeBDict[self.target.unitid]
+            if self.target is None:
                 self.target = random.choice(multBUnits.sprites())
 
         # Move towards the target
-        listcenter = list(self.rect.center)
-        if self.rect.center[0] > self.target.rect.center[0]:
-            listcenter[0] -= self.speed
-        if self.rect.center[0] < self.target.rect.center[0]:
-            listcenter[0] += self.speed
-        if self.rect.center[1] > self.target.rect.center[1]:
-            listcenter[1] -= self.speed
-        if self.rect.center[1] < self.target.rect.center[1]:
-            listcenter[1] += self.speed
-        self.rect.center = tuple(listcenter)
+        if self.target is not None:
+            listcenter = list(self.rect.center)
+            if self.rect.center[0] > self.target.rect.center[0]:
+                listcenter[0] -= self.speed
+            if self.rect.center[0] < self.target.rect.center[0]:
+                listcenter[0] += self.speed
+            if self.rect.center[1] > self.target.rect.center[1]:
+                listcenter[1] -= self.speed
+            if self.rect.center[1] < self.target.rect.center[1]:
+                listcenter[1] += self.speed
+            self.rect.center = tuple(listcenter)
 
         if (time.time() - self.lastRangeAttack) > self.rangeCooldown:
             if self.team == "red" and not calledbyhost:

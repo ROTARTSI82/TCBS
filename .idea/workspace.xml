@@ -4,7 +4,9 @@
     <list default="true" id="8cd188f7-82cb-4c55-b1d4-c0f0c16b7d48" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resources/options.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/options.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/resources/scripts/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/load.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/units/exampleUnit/unit.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/units/exampleUnit/unit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/units/infantryman/unit.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/units/infantryman/unit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/units/peasant/unit.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/units/peasant/unit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/units/swordsman/unit.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/units/swordsman/unit.py" afterDir="false" />
@@ -32,8 +34,8 @@
       <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/units/swordsman/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
+            <state relative-caret-position="47">
+              <caret line="202" column="39" selection-start-line="202" selection-start-column="39" selection-end-line="202" selection-end-column="39" />
               <folding>
                 <element signature="e#143#156#0" expanded="true" />
               </folding>
@@ -41,20 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multiplayer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
+      <file leaf-file-name="unit.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="410" column="32" selection-start-line="410" selection-start-column="32" selection-end-line="410" selection-end-column="32" />
+            <state relative-caret-position="277">
+              <caret line="199" column="8" lean-forward="true" selection-start-line="199" selection-start-column="8" selection-end-line="199" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unit.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/units/infantryman/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="264" column="56" selection-start-line="264" selection-start-column="56" selection-end-line="264" selection-end-column="56" />
+            <state relative-caret-position="44">
+              <caret line="188" column="39" selection-start-line="188" selection-start-column="39" selection-end-line="188" selection-end-column="39" />
               <folding>
                 <element signature="e#143#156#0" expanded="true" />
               </folding>
@@ -65,8 +67,8 @@
       <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/units/wizard/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="176" column="13" selection-start-line="176" selection-start-column="4" selection-end-line="176" selection-end-column="13" />
+            <state relative-caret-position="70">
+              <caret line="184" column="39" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -74,8 +76,8 @@
       <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/units/peasant/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="749">
-              <caret line="199" column="70" selection-start-line="199" selection-start-column="70" selection-end-line="199" selection-end-column="70" />
+            <state relative-caret-position="119">
+              <caret line="206" column="39" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
               <folding>
                 <element signature="e#143#156#0" expanded="true" />
               </folding>
@@ -86,17 +88,8 @@
       <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/units/turret/unit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="269" column="33" lean-forward="true" selection-start-line="269" selection-start-column="33" selection-end-line="269" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="155" column="14" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="14" />
+            <state relative-caret-position="127">
+              <caret line="172" column="8" lean-forward="true" selection-start-line="172" selection-start-column="8" selection-end-line="172" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -114,18 +107,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>96, 128, 56</find>
-      <find>sky</find>
-      <find>updaterects</find>
-      <find>updateoptions</find>
-      <find>screen.fill(</find>
-      <find>screen.fill</find>
-      <find>def updateoptions</find>
-      <find>state == &quot;options&quot;</find>
       <find>pygame.display.set_caption</find>
       <find>Network_updatebullets</find>
       <find>state == &quot;mult-battle</find>
-      <find>Network_updateunits</find>
       <find>Network_call</find>
       <find>Network_battleover</find>
       <find>state == &quot;mult-placeUnits</find>
@@ -142,8 +126,17 @@
       <find>(cursor.rect.center,</find>
       <find>[mpUnitInt](cursor.rect.center,</find>
       <find>Exception</find>
-      <find>e(</find>
       <find>def _pack</find>
+      <find>e(</find>
+      <find>loop</find>
+      <find>packets</find>
+      <find>Network_error</find>
+      <find>loop(self)</find>
+      <find>updatesets</find>
+      <find>multRDict = {}</find>
+      <find>Network_updateunits</find>
+      <find>activeBUnits</find>
+      <find>activeRUnits</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -155,6 +148,8 @@
       <replace>in-gameMusic.mp3</replace>
       <replace>grass_green</replace>
       <replace>sky_blue</replace>
+      <replace>activeBDict</replace>
+      <replace>activeRDict</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -210,16 +205,16 @@
         <option value="$PROJECT_DIR$/data/resources/lang/español.json" />
         <option value="$PROJECT_DIR$/data/resources/options.pkl" />
         <option value="$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py" />
-        <option value="$PROJECT_DIR$/data/resources/scripts/load.py" />
         <option value="$PROJECT_DIR$/data/CONFIG.py" />
-        <option value="$PROJECT_DIR$/data/units/exampleUnit/unit.py" />
         <option value="$PROJECT_DIR$/data/resources/scripts/mainloop.py" />
-        <option value="$PROJECT_DIR$/data/units/wizard/unit.py" />
+        <option value="$PROJECT_DIR$/data/resources/scripts/load.py" />
+        <option value="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" />
         <option value="$PROJECT_DIR$/data/units/turret/unit.py" />
         <option value="$PROJECT_DIR$/data/units/peasant/unit.py" />
-        <option value="$PROJECT_DIR$/data/units/swordsman/unit.py" />
-        <option value="$PROJECT_DIR$/data/resources/scripts/multiplayer.py" />
+        <option value="$PROJECT_DIR$/data/units/wizard/unit.py" />
         <option value="$PROJECT_DIR$/data/units/infantryman/unit.py" />
+        <option value="$PROJECT_DIR$/data/units/swordsman/unit.py" />
+        <option value="$PROJECT_DIR$/data/units/exampleUnit/unit.py" />
       </list>
     </option>
   </component>
@@ -524,13 +519,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522947002160</updated>
-    </task>
-    <task id="LOCAL-00018" summary="cleanup.command">
-      <created>1524701063592</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1524701063592</updated>
     </task>
     <task id="LOCAL-00019" summary="language fix">
       <created>1524794028780</created>
@@ -868,7 +856,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529533084838</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="done!">
+      <created>1529597697409</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1529597697410</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -881,18 +876,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="805" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="805" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48447204" visible="true" weight="0.25369978" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4820628" visible="true" weight="0.25369978" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5017618" side_tool="true" weight="0.3243626" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4947146" visible="true" weight="0.31497175" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.31497175" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49612403" weight="0.32394367" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32394367" />
-      <window_info id="Structure" order="1" sideWeight="0.51552796" side_tool="true" weight="0.25369978" />
+      <window_info id="Structure" order="1" sideWeight="0.51793724" side_tool="true" visible="true" weight="0.25369978" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4982382" weight="0.3243626" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3700565" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3700565" />
       <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -907,23 +902,23 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48447204" visible="true" weight="0.25369978" />
       <window_info id="Structure" order="1" sideWeight="0.51552796" side_tool="true" weight="0.25369978" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49612403" weight="0.32394367" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4947146" weight="0.31586403" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32857144" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32394367" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3711048" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4982382" weight="0.3243626" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5017618" side_tool="true" weight="0.3257143" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4982382" weight="0.3257143" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49612403" weight="0.32394367" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32859176" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2508711" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4982382" weight="0.3257143" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32859176" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32394367" />
     </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
@@ -970,7 +965,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="gitignore" />
     <MESSAGE value="options" />
     <MESSAGE value="Check for update and on battle end options" />
     <MESSAGE value="soundtrack" />
@@ -995,7 +989,8 @@
     <MESSAGE value="options not updating fix" />
     <MESSAGE value="server lag fix" />
     <MESSAGE value="go to start multiplayer bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="go to start multiplayer bug" />
+    <MESSAGE value="done!" />
+    <option name="LAST_COMMIT_MESSAGE" value="done!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1095,17 +1090,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="540">
             <caret line="36" selection-start-line="36" selection-end-line="36" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1153,58 +1148,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="155" column="40" selection-start-line="155" selection-start-column="40" selection-end-line="155" selection-end-column="40" />
-          <folding>
-            <element signature="e#95#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/CONFIG.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="268" column="13" selection-start-line="268" selection-start-column="13" selection-end-line="268" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/units/swordsman/unit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
-          <folding>
-            <element signature="e#143#156#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/units/wizard/unit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="176" column="13" selection-start-line="176" selection-start-column="4" selection-end-line="176" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="155" column="14" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="928" column="80" selection-start-line="928" selection-start-column="49" selection-end-line="928" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -1215,37 +1162,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/funcsAndClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="410" column="32" selection-start-line="410" selection-start-column="32" selection-end-line="410" selection-end-column="32" />
+        <state relative-caret-position="113">
+          <caret line="268" column="13" selection-start-line="268" selection-start-column="13" selection-end-line="268" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/units/peasant/unit.py">
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/mainloop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="749">
-          <caret line="199" column="70" selection-start-line="199" selection-start-column="70" selection-end-line="199" selection-end-column="70" />
+        <state relative-caret-position="232">
+          <caret line="888" column="21" selection-start-line="888" selection-start-column="21" selection-end-line="888" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/multiplayer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="293" column="33" lean-forward="true" selection-start-line="293" selection-start-column="33" selection-end-line="293" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/resources/scripts/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="259" selection-start-line="259" selection-end-line="259" />
           <folding>
-            <element signature="e#143#156#0" expanded="true" />
+            <element signature="e#95#110#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/units/turret/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="269" column="33" lean-forward="true" selection-start-line="269" selection-start-column="33" selection-end-line="269" selection-end-column="33" />
+        <state relative-caret-position="127">
+          <caret line="172" column="8" lean-forward="true" selection-start-line="172" selection-start-column="8" selection-end-line="172" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/units/peasant/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="206" column="39" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
+          <folding>
+            <element signature="e#143#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/units/wizard/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="184" column="39" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/units/infantryman/unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="264" column="56" selection-start-line="264" selection-start-column="56" selection-end-line="264" selection-end-column="56" />
+        <state relative-caret-position="44">
+          <caret line="188" column="39" selection-start-line="188" selection-start-column="39" selection-end-line="188" selection-end-column="39" />
           <folding>
             <element signature="e#143#156#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/units/swordsman/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="202" column="39" selection-start-line="202" selection-start-column="39" selection-end-line="202" selection-end-column="39" />
+          <folding>
+            <element signature="e#143#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/units/exampleUnit/unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="199" column="8" lean-forward="true" selection-start-line="199" selection-start-column="8" selection-end-line="199" selection-end-column="8" />
         </state>
       </provider>
     </entry>

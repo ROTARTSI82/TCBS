@@ -27,11 +27,10 @@ class TCBSClient(ConnectionListener):
     def __init__(self, host, port):
         log("CLIENT", "New TCBSClient at %s:%s" % (host, port))
         self.Connect((host, port))
-        if __debugMode__:
-            self.unitping = 0
-            self.bulletping = 0
-            self.lastunitping = 0
-            self.lastbulletping = 0
+        self.unitping = 0
+        self.bulletping = 0
+        self.lastunitping = 0
+        self.lastbulletping = 0
 
     def loop(self):
         """
@@ -169,8 +168,8 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
-        global multBUnits, multRUnits, nextRID, nextBID, vOnBattleEnd
+        global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict, activeRDict
+        global multBUnits, multRUnits, nextRID, nextBID, vOnBattleEnd, activeBDict
         log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
         log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
         vCoinRR = data['coinRR']
@@ -179,6 +178,8 @@ class TCBSClient(ConnectionListener):
         coinsLeft = [vStartBdgt, vStartBdgt]
         multBDict = {}
         multRDict = {}
+        activeRDict = {}
+        activeBDict = {}
         nextRID = 0
         nextBID = 0
         multBUnits = pygame.sprite.Group()
@@ -284,11 +285,14 @@ class TCBSClient(ConnectionListener):
         :param data: {"action": "updateunits", "sentbyhost": bool, "units": [pygame.sprite.Sprite, ...]}
         :rtype: None
         """
-        global multRUnits, multBUnits
+        global multRUnits, multBUnits, activeRDict, activeBDict
         if data["sentbyhost"] and not selfIsHost:
             multBUnits = pygame.sprite.Group(*data["units"])
             # c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multRUnits.sprites()})
             updatecost()
+            activeBDict = {}
+            for i in data["units"]:
+                activeBDict[i.unitid] = i
             if __debugMode__:
                 self.unitping = time.time() - self.lastunitping
                 self.lastunitping = time.time()
@@ -296,6 +300,9 @@ class TCBSClient(ConnectionListener):
             multRUnits = pygame.sprite.Group(*data["units"])
             # c.Send({"action": "updateunits", "sentbyhost": selfIsHost, "units": multBUnits.sprites()})
             updatecost()
+            activeRDict = {}
+            for i in data["units"]:
+                activeRDict[i.unitid] = i
             if __debugMode__:
                 self.unitping = time.time() - self.lastunitping
                 self.lastunitping = time.time()
@@ -342,6 +349,7 @@ class TCBSClient(ConnectionListener):
         :rtype: None
         """
         log("EXCEPTION", "Error: " + str(data['error']))
+        self.Send({"action": "leave"})
         raise data['error']
 
     def Network_disconnected(self, data):
@@ -352,6 +360,7 @@ class TCBSClient(ConnectionListener):
         :rtype: None
         """
         log("CLIENT", "Server disconnected")
+        self.Send({"action": "leave"})
         raise Exception("Server disconnected")
 
 
@@ -450,8 +459,8 @@ class TCBSChannel(Channel):
         :param data: {"action": "updatesets", "coinRR": int, "startBdgt": int}
         :rtype: None
         """
-        global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict
-        global multBUnits, multRUnits, nextBID, nextRID, vOnBattleEnd
+        global vCoinRR, vStartBdgt, coinsLeft, multBDict, multRDict, activeRDict
+        global multBUnits, multRUnits, nextBID, nextRID, vOnBattleEnd, activeBDict
         log("CHANNEL", "vCoinRR = %s" % str(data['coinRR']))
         log("CHANNEL", "vStartBdgt = %s" % str(data['startBdgt']))
         vCoinRR = data['coinRR']
@@ -460,6 +469,8 @@ class TCBSChannel(Channel):
         coinsLeft = [vStartBdgt, vStartBdgt]
         multBDict = {}
         multRDict = {}
+        activeRDict = {}
+        activeBDict = {}
         nextRID = 0
         nextBID = 0
         multBUnits = pygame.sprite.Group()

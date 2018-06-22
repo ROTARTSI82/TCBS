@@ -8,7 +8,7 @@ p4
 F1
 sS'srtBdgt'
 p5
-I200
+I1000
 sS'check4updates'
 p6
 I01
@@ -24,7 +24,7 @@ p10
 I75
 sS'coinRR'
 p11
-I50
+I0
 sS'music'
 p12
 F0.25

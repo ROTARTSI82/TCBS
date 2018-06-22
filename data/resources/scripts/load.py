@@ -256,6 +256,8 @@ multRUnits = pygame.sprite.Group()
 multBUnits = pygame.sprite.Group()
 multBDict = {}
 multRDict = {}
+activeRDict = {}
+activeBDict = {}
 nextRID = 0
 nextBID = 0
 

@@ -204,6 +204,7 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
     def update(self, calledbyhost):
         global multRUnits, multBUnits, bullets, BBullets, RBullets
+        global activeBDict, activeRDict
 
         # Don't do anything if the battle is over
         if len(multBUnits) == 0 or len(multRUnits) == 0:
@@ -211,23 +212,32 @@ class MultiplayerUnit(pygame.sprite.Sprite):
 
         # Check if the target is still alive,
         # and set a new target if our old target is dead
-        if self.team == "blue":
-            if self.target not in multRUnits:
+        if self.team == "blue" and calledbyhost:
+            if getattr(self.target, "unitid", None) not in activeRDict.keys():
                 self.target = random.choice(multRUnits.sprites())
-        if self.team == "red":
-            if self.target not in multBUnits:
+            elif self.target is not None:
+                self.target = activeRDict[self.target.unitid]
+            if self.target is None:
+                self.target = random.choice(multRUnits.sprites())
+        if self.team == "red" and not calledbyhost:
+            if getattr(self.target, "unitid", None) not in activeBDict.keys():
+                self.target = random.choice(multBUnits.sprites())
+            elif self.target is not None:
+                self.target = activeBDict[self.target.unitid]
+            if self.target is None:
                 self.target = random.choice(multBUnits.sprites())
 
         # Move towards the target
-        targetpos = pygame.math.Vector2(self.target.rect.center)
-        mypos = pygame.math.Vector2(self.rect.center)
-        dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
-        self.rotation = math.degrees(math.atan2(-dy, dx)) - 90
-        travelTime = mypos.distance_to(targetpos) / self.speed
-        if travelTime != 0:
-            self.velocity = pygame.math.Vector2((dx / travelTime), (dy / travelTime))
-        mypos += self.velocity
-        self.rect.center = [int(mypos.x), int(mypos.y)]
+        if self.target is not None:
+            targetpos = pygame.math.Vector2(self.target.rect.center)
+            mypos = pygame.math.Vector2(self.rect.center)
+            dx, dy = (targetpos.x - mypos.x, targetpos.y - mypos.y)
+            self.rotation = math.degrees(math.atan2(-dy, dx)) - 90
+            travelTime = mypos.distance_to(targetpos) / self.speed
+            if travelTime != 0:
+                self.velocity = pygame.math.Vector2((dx / travelTime), (dy / travelTime))
+            mypos += self.velocity
+            self.rect.center = [int(mypos.x), int(mypos.y)]
 
         old_rect_pos = self.rect.center
         self.image = pygame.transform.rotate(self.masterimage, self.rotation)
